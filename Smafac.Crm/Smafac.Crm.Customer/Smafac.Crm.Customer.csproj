@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Smafac.Crm.Customer</RootNamespace>
+    <AssemblyName>Smafac.Crm.Customer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Applications\ICustomerAfterService.cs" />
+    <Compile Include="Applications\ICustomerAfterServiceSearchService.cs" />
+    <Compile Include="Applications\IAutofacScan.cs" />
+    <Compile Include="Applications\ICustomerContactPropertyValueService.cs" />
+    <Compile Include="Applications\ICustomerContactSearchService.cs" />
+    <Compile Include="Applications\ICustomerContactService.cs" />
+    <Compile Include="Applications\ICustomerFinancialSearchService.cs" />
+    <Compile Include="Applications\ICustomerFinancialService.cs" />
+    <Compile Include="Applications\ICustomerFinancialTypeService.cs" />
+    <Compile Include="Applications\ICustomerFinancialStatusService.cs" />
+    <Compile Include="Applications\ICustomerLevelService.cs" />
+    <Compile Include="Applications\ICustomerPayTypeService.cs" />
+    <Compile Include="Applications\ICustomerContactPropertyService.cs" />
+    <Compile Include="Applications\ICustomerPropertyService.cs" />
+    <Compile Include="Applications\ICustomerPropertyValueService.cs" />
+    <Compile Include="Applications\ICustomerReceiveService.cs" />
+    <Compile Include="Applications\ICustomerScoreService.cs" />
+    <Compile Include="Applications\ICustomerSearchService.cs" />
+    <Compile Include="Applications\ICustomerService.cs" />
+    <Compile Include="Applications\ICustomerVisitSearchService.cs" />
+    <Compile Include="Applications\ICustomerVisitService.cs" />
+    <Compile Include="Domain\CustomerAfterServiceEntity.cs" />
+    <Compile Include="Domain\CustomerContactEntity.cs" />
+    <Compile Include="Domain\CustomerContactPropertyEntity.cs" />
+    <Compile Include="Domain\CustomerContactPropertyValueEntity.cs" />
+    <Compile Include="Domain\CustomerEntity.cs" />
+    <Compile Include="Domain\CustomerFinancialEntity.cs" />
+    <Compile Include="Domain\CustomerFinancialStatusEntity.cs" />
+    <Compile Include="Domain\CustomerFinancialTypeEntity.cs" />
+    <Compile Include="Domain\CustomerLevelEntity.cs" />
+    <Compile Include="Domain\CustomerPayTypeEntity.cs" />
+    <Compile Include="Domain\CustomerPropertyEntity.cs" />
+    <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
+    <Compile Include="Domain\CustomerReceiveEntity.cs" />
+    <Compile Include="Domain\CustomerReceiver.cs" />
+    <Compile Include="Domain\CustomerRemindEntity.cs" />
+    <Compile Include="Domain\CustomerScoreEntity.cs" />
+    <Compile Include="Domain\CustomerVisitEntity.cs" />
+    <Compile Include="Domain\CustomerVisitor.cs" />
+    <Compile Include="Domain\ICustomerReceiver.cs" />
+    <Compile Include="Domain\ICustomerVisitor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CustomerContactPropertyValueRepository.cs" />
+    <Compile Include="Repositories\CustomerContactRepository.cs" />
+    <Compile Include="Repositories\CustomerContactSearchRepository.cs" />
+    <Compile Include="Repositories\CustomerContext.cs" />
+    <Compile Include="Repositories\CustomerContextProvider.cs" />
+    <Compile Include="Repositories\CustomerFinancialRepository.cs" />
+    <Compile Include="Repositories\CustomerFinancialSearchRepository.cs" />
+    <Compile Include="Repositories\CustomerFinancialStatusRepository.cs" />
+    <Compile Include="Repositories\CustomerFinancialTypeRepository.cs" />
+    <Compile Include="Repositories\CustomerLevelRepository.cs" />
+    <Compile Include="Repositories\CustomerPayTypeRepository.cs" />
+    <Compile Include="Repositories\CustomerContactPropertyRepository.cs" />
+    <Compile Include="Repositories\CustomerPropertyRepository.cs" />
+    <Compile Include="Repositories\CustomerPropertyValueRepository.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\CustomerScoreRepository.cs" />
+    <Compile Include="Repositories\CustomerSearchRepository.cs" />
+    <Compile Include="Repositories\CustomerReceiveRepository.cs" />
+    <Compile Include="Repositories\CustomerVisitRepository.cs" />
+    <Compile Include="Repositories\CustomerVisitSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerContactRepository.cs" />
+    <Compile Include="Repositories\ICustomerContactSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerContextProvider.cs" />
+    <Compile Include="Repositories\ICustomerFinancialRepository.cs" />
+    <Compile Include="Repositories\ICustomerFinancialSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerFinancialStatusRepository.cs" />
+    <Compile Include="Repositories\ICustomerFinancialTypeRepository.cs" />
+    <Compile Include="Repositories\ICustomerLevelRepository.cs" />
+    <Compile Include="Repositories\ICustomerPayTypeRepository.cs" />
+    <Compile Include="Repositories\ICustomerContactPropertyRepository.cs" />
+    <Compile Include="Repositories\ICustomerPropertyRepository.cs" />
+    <Compile Include="Repositories\ICustomerContactPropertyValueRepository.cs" />
+    <Compile Include="Repositories\ICustomerPropertyValueRepository.cs" />
+    <Compile Include="Repositories\ICustomerRepository.cs" />
+    <Compile Include="Repositories\ICustomerScoreRepository.cs" />
+    <Compile Include="Repositories\ICustomerSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerReceiveRepository.cs" />
+    <Compile Include="Repositories\ICustomerVisitRepository.cs" />
+    <Compile Include="Repositories\ICustomerVisitSearchRepository.cs" />
+    <Compile Include="Services\CustomerAutoMapper.cs" />
+    <Compile Include="Services\CustomerContactPropertyService.cs" />
+    <Compile Include="Services\CustomerContactPropertyValueService.cs" />
+    <Compile Include="Services\CustomerContactSearchService.cs" />
+    <Compile Include="Services\CustomerContactService.cs" />
+    <Compile Include="Services\CustomerFinancialSearchService.cs" />
+    <Compile Include="Services\CustomerFinancialService.cs" />
+    <Compile Include="Services\CustomerFinancialStatusService.cs" />
+    <Compile Include="Services\CustomerFinancialTypeService.cs" />
+    <Compile Include="Services\CustomerLevelService.cs" />
+    <Compile Include="Services\CustomerPayTypeService.cs" />
+    <Compile Include="Services\CustomerPropertyService.cs" />
+    <Compile Include="Services\CustomerPropertyValueService.cs" />
+    <Compile Include="Services\CustomerReceiveService.cs" />
+    <Compile Include="Services\CustomerScoreService.cs" />
+    <Compile Include="Services\CustomerSearchService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\CustomerVisitSearchService.cs" />
+    <Compile Include="Services\CustomerVisitService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
+      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
+      <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj">
+      <Project>{f42dbd6b-fab7-49a6-a06c-ca0c7407f172}</Project>
+      <Name>Smafac.Crm.Customer.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

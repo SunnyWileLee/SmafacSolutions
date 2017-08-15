@@ -1,0 +1,7 @@
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\bin\Debug\Smafac.Crm.Customer.Models.dll
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\bin\Debug\Smafac.Crm.Customer.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\bin\Debug\Smafac.Framework.Models.dll
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\bin\Debug\Smafac.Framework.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\obj\Debug\Smafac.Crm.Customer.Models.csprojResolveAssemblyReference.cache
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\obj\Debug\Smafac.Crm.Customer.Models.dll
+D:\Program\SmafacSolutions\Smafac.Crm\Smafac.Crm.Customer.Models\obj\Debug\Smafac.Crm.Customer.Models.pdb

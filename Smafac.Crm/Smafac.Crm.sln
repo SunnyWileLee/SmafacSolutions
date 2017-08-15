@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.Customer", "Smafac.Crm.Customer\Smafac.Crm.Customer.csproj", "{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.Customer.Models", "Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj", "{F42DBD6B-FAB7-49A6-A06C-CA0C7407F172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Core", "..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj", "{0202225A-FE39-4EE6-9BBA-C9E93EA12338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Models", "..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj", "{F12FACCF-3091-413D-8CD0-A99945EAC978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.Customer.WebApi", "Smafac.Crm.Customer.WebApi\Smafac.Crm.Customer.WebApi.csproj", "{2F71895D-3CB8-4A8D-911E-37EB30274462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.WebApi", "..\Smafac.Framework\Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj", "{9DFB1558-0810-42BA-A9E2-C5850FA162B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42DBD6B-FAB7-49A6-A06C-CA0C7407F172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42DBD6B-FAB7-49A6-A06C-CA0C7407F172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42DBD6B-FAB7-49A6-A06C-CA0C7407F172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42DBD6B-FAB7-49A6-A06C-CA0C7407F172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12FACCF-3091-413D-8CD0-A99945EAC978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12FACCF-3091-413D-8CD0-A99945EAC978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12FACCF-3091-413D-8CD0-A99945EAC978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12FACCF-3091-413D-8CD0-A99945EAC978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F71895D-3CB8-4A8D-911E-37EB30274462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F71895D-3CB8-4A8D-911E-37EB30274462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F71895D-3CB8-4A8D-911E-37EB30274462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F71895D-3CB8-4A8D-911E-37EB30274462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

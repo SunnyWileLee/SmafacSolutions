@@ -1,0 +1,7 @@
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\bin\Debug\Smafac.Account.Subscriber.Models.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\bin\Debug\Smafac.Account.Subscriber.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\obj\Debug\Smafac.Account.Subscriber.Models.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\obj\Debug\Smafac.Account.Subscriber.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\bin\Debug\Smafac.Framework.Models.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\bin\Debug\Smafac.Framework.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Subscriber.Models\obj\Debug\Smafac.Account.Subscriber.Models.csprojResolveAssemblyReference.cache

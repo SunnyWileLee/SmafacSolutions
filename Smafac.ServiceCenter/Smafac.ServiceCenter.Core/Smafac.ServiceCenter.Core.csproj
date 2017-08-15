@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9D44363-CDB0-446D-92B4-05F79B8AC564}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Smafac.ServiceCenter.Core</RootNamespace>
+    <AssemblyName>Smafac.ServiceCenter.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Applications\IAutofacScan.cs" />
+    <Compile Include="Applications\IServiceInvoker.cs" />
+    <Compile Include="Applications\IServiceRegister.cs" />
+    <Compile Include="Domain\ApiContext.cs" />
+    <Compile Include="Domain\ApiFinder.cs" />
+    <Compile Include="Domain\AppClientEntity.cs" />
+    <Compile Include="Domain\IApiFinder.cs" />
+    <Compile Include="Domain\IServiceFinder.cs" />
+    <Compile Include="Domain\ApiEntity.cs" />
+    <Compile Include="Domain\ApiCacheFinder.cs" />
+    <Compile Include="Domain\ApiDescription.cs" />
+    <Compile Include="Domain\ServiceCacheFinder.cs" />
+    <Compile Include="Domain\ServiceDescription.cs" />
+    <Compile Include="Domain\ServiceFinder.cs" />
+    <Compile Include="Domain\ServiceSubscriptionEntity.cs" />
+    <Compile Include="Domain\ServiceEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApiRepository.cs" />
+    <Compile Include="Repositories\ApiSearchRepository.cs" />
+    <Compile Include="Repositories\IApiRepository.cs" />
+    <Compile Include="Repositories\IApiSearchRepository.cs" />
+    <Compile Include="Repositories\IServiceCenterContextProvider.cs" />
+    <Compile Include="Repositories\IServiceRepository.cs" />
+    <Compile Include="Repositories\IServiceSearchRepository.cs" />
+    <Compile Include="Repositories\ServiceCenterContext.cs" />
+    <Compile Include="Repositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\ServiceSearchRepository.cs" />
+    <Compile Include="Services\ServiceCenterAutoMapper.cs" />
+    <Compile Include="Services\ServiceInvoker.cs" />
+    <Compile Include="Services\ServiceRegister.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
+      <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
+      <Name>Smafac.Framework.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smafac.ServiceCenter.Models\Smafac.ServiceCenter.Models.csproj">
+      <Project>{c193ae1a-14b6-476f-bcb4-f2af284a40c2}</Project>
+      <Name>Smafac.ServiceCenter.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

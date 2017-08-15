@@ -1,0 +1,7 @@
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\bin\Debug\Smafac.Wms.Goods.Models.dll
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\bin\Debug\Smafac.Wms.Goods.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\bin\Debug\Smafac.Framework.Models.dll
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\bin\Debug\Smafac.Framework.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\obj\Debug\Smafac.Wms.Goods.Models.csprojResolveAssemblyReference.cache
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\obj\Debug\Smafac.Wms.Goods.Models.dll
+D:\Program\SmafacSolutions\Smafac.Wms\Smafac.Wms.Goods.Models\obj\Debug\Smafac.Wms.Goods.Models.pdb

@@ -1,0 +1,4 @@
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power\bin\Debug\Smafac.Account.Power.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power\bin\Debug\Smafac.Account.Power.pdb
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power\obj\Debug\Smafac.Account.Power.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power\obj\Debug\Smafac.Account.Power.pdb

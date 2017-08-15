@@ -1,0 +1,5 @@
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter.Models\bin\Debug\Smafac.Account.FundCenter.Models.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter.Models\bin\Debug\Smafac.Account.FundCenter.Models.pdb
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter.Models\obj\Debug\Smafac.Account.FundCenter.Models.csprojResolveAssemblyReference.cache
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter.Models\obj\Debug\Smafac.Account.FundCenter.Models.dll
+D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter.Models\obj\Debug\Smafac.Account.FundCenter.Models.pdb

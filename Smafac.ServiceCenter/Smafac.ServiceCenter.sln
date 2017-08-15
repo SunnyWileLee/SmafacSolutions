@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.ServiceCenter.Core", "Smafac.ServiceCenter.Core\Smafac.ServiceCenter.Core.csproj", "{A9D44363-CDB0-446D-92B4-05F79B8AC564}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.ServiceCenter.Sdk", "Smafac.ServiceCenter.Sdk\Smafac.ServiceCenter.Sdk.csproj", "{6818B3E7-EEE5-425E-85E0-33EC96EE1ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.ServiceCenter.Models", "Smafac.ServiceCenter.Models\Smafac.ServiceCenter.Models.csproj", "{C193AE1A-14B6-476F-BCB4-F2AF284A40C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Core", "..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj", "{0202225A-FE39-4EE6-9BBA-C9E93EA12338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Infrustructure", "..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj", "{34ABE787-77A4-458E-981A-090C4C8CC038}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.ServiceCenter.WebApi", "Smafac.ServiceCenter.WebApi\Smafac.ServiceCenter.WebApi.csproj", "{BC476391-9727-4F02-9A44-852747002A9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.WebApi", "..\Smafac.Framework\Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj", "{9DFB1558-0810-42BA-A9E2-C5850FA162B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9D44363-CDB0-446D-92B4-05F79B8AC564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D44363-CDB0-446D-92B4-05F79B8AC564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D44363-CDB0-446D-92B4-05F79B8AC564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D44363-CDB0-446D-92B4-05F79B8AC564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6818B3E7-EEE5-425E-85E0-33EC96EE1ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6818B3E7-EEE5-425E-85E0-33EC96EE1ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6818B3E7-EEE5-425E-85E0-33EC96EE1ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6818B3E7-EEE5-425E-85E0-33EC96EE1ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C193AE1A-14B6-476F-BCB4-F2AF284A40C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C193AE1A-14B6-476F-BCB4-F2AF284A40C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C193AE1A-14B6-476F-BCB4-F2AF284A40C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C193AE1A-14B6-476F-BCB4-F2AF284A40C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC476391-9727-4F02-9A44-852747002A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC476391-9727-4F02-9A44-852747002A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC476391-9727-4F02-9A44-852747002A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC476391-9727-4F02-9A44-852747002A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
