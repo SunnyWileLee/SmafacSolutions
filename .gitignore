@@ -1,2 +1,10 @@
 *.dll
 *.pdb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+obj/
+bin/
+packages/

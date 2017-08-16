@@ -1,9 +1,0 @@
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\Smafac.Framework.Infrustructure.dll
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\Smafac.Framework.Infrustructure.pdb
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\obj\Debug\Smafac.Framework.Infrustructure.csprojResolveAssemblyReference.cache
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\obj\Debug\Smafac.Framework.Infrustructure.dll
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\obj\Debug\Smafac.Framework.Infrustructure.pdb
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\Newtonsoft.Json.dll
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\StackExchange.Redis.dll
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\Newtonsoft.Json.xml
-D:\Program\SmafacSolutions\Smafac.Framework\Smafac.Framework.Infrustructure\bin\Debug\StackExchange.Redis.xml
