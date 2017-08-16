@@ -1,5 +1,0 @@
-D:\Program\SmafacSolutions\Smafac.ServiceCenter\Smafac.ServiceCenter.Models\bin\Debug\Smafac.ServiceCenter.Models.dll
-D:\Program\SmafacSolutions\Smafac.ServiceCenter\Smafac.ServiceCenter.Models\bin\Debug\Smafac.ServiceCenter.Models.pdb
-D:\Program\SmafacSolutions\Smafac.ServiceCenter\Smafac.ServiceCenter.Models\obj\Debug\Smafac.ServiceCenter.Models.csprojResolveAssemblyReference.cache
-D:\Program\SmafacSolutions\Smafac.ServiceCenter\Smafac.ServiceCenter.Models\obj\Debug\Smafac.ServiceCenter.Models.dll
-D:\Program\SmafacSolutions\Smafac.ServiceCenter\Smafac.ServiceCenter.Models\obj\Debug\Smafac.ServiceCenter.Models.pdb
