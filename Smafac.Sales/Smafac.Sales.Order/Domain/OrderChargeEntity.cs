@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Domain
 {
-    class OrderItemEntity : SaasBaseEntity
+    class OrderChargeEntity : SaasBaseEntity
     {
-        public Guid OrderId { get; set; }
-        public Guid GoodsId { get; set; }
-        public decimal Quantity { get; set; }
+        public string Name { get; set; }
     }
 }
