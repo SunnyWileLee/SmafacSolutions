@@ -1,4 +1,0 @@
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power.Models\bin\Debug\Smafac.Account.Power.Models.dll
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power.Models\bin\Debug\Smafac.Account.Power.Models.pdb
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power.Models\obj\Debug\Smafac.Account.Power.Models.dll
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.Power.Models\obj\Debug\Smafac.Account.Power.Models.pdb

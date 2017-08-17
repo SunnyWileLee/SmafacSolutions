@@ -1,4 +1,0 @@
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter\bin\Debug\Smafac.Account.FundCenter.dll
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter\bin\Debug\Smafac.Account.FundCenter.pdb
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter\obj\Debug\Smafac.Account.FundCenter.dll
-D:\Program\SmafacSolutions\Smafac.Account\Smafac.Account.FundCenter\obj\Debug\Smafac.Account.FundCenter.pdb
