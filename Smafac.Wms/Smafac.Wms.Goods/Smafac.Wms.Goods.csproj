@@ -53,19 +53,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScan.cs" />
+    <Compile Include="Applications\IGoodsCategoryService.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />
+    <Compile Include="Domain\GoodsCategoryEntity.cs" />
     <Compile Include="Domain\GoodsEntity.cs" />
     <Compile Include="Domain\GoodsPropertyEntity.cs" />
     <Compile Include="Domain\GoodsPropertyValueEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GoodsCategoryRepository.cs" />
     <Compile Include="Repositories\GoodsContext.cs" />
+    <Compile Include="Repositories\GoodsContextProvider.cs" />
     <Compile Include="Repositories\GoodsRepository.cs" />
     <Compile Include="Repositories\GoodsSearchRepository.cs" />
+    <Compile Include="Repositories\IGoodsCategoryRepository.cs" />
     <Compile Include="Repositories\IGoodsContextProvider.cs" />
     <Compile Include="Repositories\IGoodsRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
     <Compile Include="Services\GoodsAutoMapper.cs" />
+    <Compile Include="Services\GoodsCategoryService.cs" />
     <Compile Include="Services\GoodsSearchService.cs" />
     <Compile Include="Services\GoodsService.cs" />
   </ItemGroup>

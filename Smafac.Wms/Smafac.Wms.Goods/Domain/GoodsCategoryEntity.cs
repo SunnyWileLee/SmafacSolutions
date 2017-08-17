@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Domain
 {
-    class GoodsPropertyValueEntity : SaasBaseEntity
+    class GoodsCategoryEntity : RecursionEntity
     {
-        public Guid GoodsId { get; set; }
-        public Guid PropertyId { get; set; }
         [MaxLength(100)]
-        public string Value { get; set; }
+        public string Name { get; set; }
     }
 }

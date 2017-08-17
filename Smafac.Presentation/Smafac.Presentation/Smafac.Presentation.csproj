@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,10 @@
     <Content Include="Views\Customer\CustomerAddView.cshtml" />
     <Content Include="Views\Customer\CustomerDetailView.cshtml" />
     <Content Include="Views\Customer\CustomerPageView.cshtml" />
+    <Content Include="Views\Goods\GoodsView.cshtml" />
+    <Content Include="Views\Goods\GoodsPageView.cshtml" />
+    <Content Include="Views\Goods\GoodsDetailView.cshtml" />
+    <Content Include="Views\Goods\GoodsAddView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

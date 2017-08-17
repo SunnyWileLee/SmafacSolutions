@@ -11,6 +11,7 @@ namespace Smafac.Crm.Customer.Models
     {
         public Guid CustomerId { get; set; }
         public Guid PropertyId { get; set; }
+        public string PropertyName { get; set; }
         public string Value { get; set; } 
     }
 }
