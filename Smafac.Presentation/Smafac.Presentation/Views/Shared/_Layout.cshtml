@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <title></title>
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg fixed-nav">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-1">
+                <ul class="nav" id="side-menu" style="margin-top:42px;">
+                    <li>
+                        <a href="#">
+                            <span>客户信息管理</span>
+                        </a>
+                        <ul class="nav">
+                            <li>
+                                <a href="Customer/CustomerView">
+                                    <span>客户管理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>销售信息管理</span>
+                        </a>
+                        <ul class="nav">
+                            <li>
+                                <a href="">
+                                    <span>订单管理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>物品信息管理</span>
+                        </a>
+                        <ul class="nav">
+                            <li>
+                                <a href="">
+                                    <span>商品管理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-11">
+                @RenderBody()
+                @RenderSection("scripts", required: false)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

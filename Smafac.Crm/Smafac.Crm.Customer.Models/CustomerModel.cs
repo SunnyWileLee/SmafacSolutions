@@ -14,5 +14,6 @@ namespace Smafac.Crm.Customer.Models
         public DateTime KnownDate { get; set; }
         public string MobileNumber { get; set; }
         public Guid LevelId { get; set; }
+        public string LevelName { get; set; }
     }
 }

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -140,6 +141,11 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Customer\CustomerView.cshtml" />
+    <Content Include="Views\Customer\CustomerAddView.cshtml" />
+    <Content Include="Views\Customer\CustomerDetailView.cshtml" />
+    <Content Include="Views\Customer\CustomerPageView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,6 +161,26 @@
     <ProjectReference Include="..\..\Smafac.Account\Smafac.Account.Subscriber.Models\Smafac.Account.Subscriber.Models.csproj">
       <Project>{ca960a9d-a635-44b6-a136-43601c76e77c}</Project>
       <Name>Smafac.Account.Subscriber.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Account\Smafac.Account.Subscriber\Smafac.Account.Subscriber.csproj">
+      <Project>{caf255e7-1974-414b-9578-9c07f2f965b3}</Project>
+      <Name>Smafac.Account.Subscriber</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj">
+      <Project>{f42dbd6b-fab7-49a6-a06c-ca0c7407f172}</Project>
+      <Name>Smafac.Crm.Customer.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.Customer\Smafac.Crm.Customer.csproj">
+      <Project>{f88afa3f-852d-4efc-8e30-3ed079a96f12}</Project>
+      <Name>Smafac.Crm.Customer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
+      <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>
+      <Name>Smafac.Wms.Goods.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods\Smafac.Wms.Goods.csproj">
+      <Project>{ee797919-0d92-4997-b52f-46ae6d8876fd}</Project>
+      <Name>Smafac.Wms.Goods</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

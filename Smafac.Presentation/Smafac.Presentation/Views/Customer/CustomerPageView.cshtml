@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CustomerModel>
+
+@{
+    Layout = null;
+}
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>地址</th>
+            <th>联系方式</th>
+            <th>认识时间</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+            {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.Address</td>
+                <td>@customer.MobileNumber</td>
+                <td>@customer.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
