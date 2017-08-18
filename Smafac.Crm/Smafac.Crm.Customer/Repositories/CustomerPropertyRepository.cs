@@ -32,7 +32,7 @@ namespace Smafac.Crm.Customer.Repositories
             using (var context = _customerContextProvider.Provide())
             {
                 var entity = context.CustomerProperties.Where(s => s.SubscriberId == property.SubscriberId && s.Id == property.Id).FirstOrDefault();
-                entity.Title = property.Title;
+                entity.Name = property.Name;
                 return context.SaveChanges() > 0;
             }
         }
@@ -67,7 +67,7 @@ namespace Smafac.Crm.Customer.Repositories
                                             SubscriberId = s.SubscriberId,
                                             CreateTime = s.CreateTime,
                                             Id = s.Id,
-                                            Title = s.Title
+                                            Name = s.Name
                                         }).ToList();
                 return properties;
             }

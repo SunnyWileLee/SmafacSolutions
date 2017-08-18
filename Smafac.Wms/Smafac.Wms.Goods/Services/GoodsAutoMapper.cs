@@ -15,7 +15,9 @@ namespace Smafac.Wms.Goods.Services
         public override void CreateMapper(IMapperConfigurationExpression cfg)
         {
             base.BipassMapper<GoodsEntity, GoodsModel>(cfg);
-
+            base.BipassMapper<GoodsPropertyEntity, GoodsPropertyModel>(cfg);
+            base.BipassMapper<GoodsPropertyValueEntity, GoodsModel>(cfg);
+            base.BipassMapper<GoodsCategoryEntity, GoodsModel>(cfg);
         }
     }
 }

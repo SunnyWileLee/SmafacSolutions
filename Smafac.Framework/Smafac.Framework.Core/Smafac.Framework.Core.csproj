@@ -51,9 +51,13 @@
   <ItemGroup>
     <Compile Include="Applications\IAutofacScan.cs" />
     <Compile Include="Applications\IVersionService.cs" />
+    <Compile Include="Domain\PropertyEntity.cs" />
+    <Compile Include="Domain\PropertyValueEntity.cs" />
     <Compile Include="Domain\RecursionEntity.cs" />
     <Compile Include="Domain\SaasBaseEntity.cs" />
     <Compile Include="Domain\SmafacPrincipal.cs" />
+    <Compile Include="Domain\StatusChangedEntity.cs" />
+    <Compile Include="Domain\StatusEntity.cs" />
     <Compile Include="Models\AutoMapperProxy.cs" />
     <Compile Include="Models\IAutoMapper.cs" />
     <Compile Include="Models\IAutoMapperProxy.cs" />

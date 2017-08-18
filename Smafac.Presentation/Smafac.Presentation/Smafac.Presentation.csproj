@@ -179,6 +179,14 @@
       <Project>{f88afa3f-852d-4efc-8e30-3ed079a96f12}</Project>
       <Name>Smafac.Crm.Customer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
+      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
+      <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
       <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>
       <Name>Smafac.Wms.Goods.Models</Name>

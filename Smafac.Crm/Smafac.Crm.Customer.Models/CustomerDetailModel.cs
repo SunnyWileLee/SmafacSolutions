@@ -9,5 +9,6 @@ namespace Smafac.Crm.Customer.Models
 {
     public class CustomerDetailModel : SaasBaseModel
     {
+        public CustomerModel Customer { get; set; }
     }
 }

@@ -1,18 +1,14 @@
 ﻿using Smafac.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Domain
 {
-    [Table("OrderChargeValue")]
-    class OrderChargeValueEntity : SaasBaseEntity
+    class OrderPropertyValueEntity : PropertyValueEntity
     {
         public Guid OrderId { get; set; }
-        public Guid ChargeId { get; set; }
-        public decimal Charge { get; set; }
     }
 }

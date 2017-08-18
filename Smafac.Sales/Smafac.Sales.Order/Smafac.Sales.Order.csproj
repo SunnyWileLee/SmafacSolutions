@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,9 @@
     <Compile Include="Domain\OrderChargeValueEntity.cs" />
     <Compile Include="Domain\OrderEntity.cs" />
     <Compile Include="Domain\OrderItemEntity.cs" />
+    <Compile Include="Domain\OrderPropertyEntity.cs" />
+    <Compile Include="Domain\OrderPropertyValueEntity.cs" />
+    <Compile Include="Domain\OrderStatusEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

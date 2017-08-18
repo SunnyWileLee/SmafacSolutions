@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Crm.Customer.Models
+namespace Smafac.Wms.Goods.Models
 {
-    public class CustomerPropertyValueModel : PropertyValueModel
+    public class GoodsPropertyValueModel : PropertyValueModel
     {
-        public Guid CustomerId { get; set; }
+        public Guid GoodsId { get; set; }
     }
 }

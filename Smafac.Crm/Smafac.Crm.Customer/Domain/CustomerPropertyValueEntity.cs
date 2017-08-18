@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 namespace Smafac.Crm.Customer.Domain
 {
     [Table("CustomerPropertyValue")]
-    class CustomerPropertyValueEntity : SaasBaseEntity
+    class CustomerPropertyValueEntity : PropertyValueEntity
     {
         public Guid CustomerId { get; set; }
-        public Guid PropertyId { get; set; }
-        public string Value { get; set; }
     }
 }

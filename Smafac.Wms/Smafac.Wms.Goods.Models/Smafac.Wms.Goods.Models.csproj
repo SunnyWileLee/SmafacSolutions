@@ -43,6 +43,8 @@
     <Compile Include="GoodsCategoryModel.cs" />
     <Compile Include="GoodsModel.cs" />
     <Compile Include="GoodsPageQueryModel.cs" />
+    <Compile Include="GoodsPropertyModel.cs" />
+    <Compile Include="GoodsPropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

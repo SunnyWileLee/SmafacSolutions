@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Crm.Customer.Models
 {
-    public class CustomerPropertyModel : SaasBaseModel
+    public class CustomerPropertyModel : PropertyModel
     {
-        public string Title { get; set; }
+        
     }
 }
