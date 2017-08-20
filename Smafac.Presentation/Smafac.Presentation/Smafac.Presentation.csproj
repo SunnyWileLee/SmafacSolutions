@@ -195,7 +195,6 @@
     <Content Include="Views\Goods\GoodsPageView.cshtml" />
     <Content Include="Views\Goods\GoodsDetailView.cshtml" />
     <Content Include="Views\Goods\GoodsAddView.cshtml" />
-    <Content Include="Views\Subscriber\RegisterView.cshtml" />
     <Content Include="Views\Subscriber\MainView.cshtml" />
     <Content Include="Views\CustomerProperty\CustomerPropertyView.cshtml" />
     <None Include="Web.Debug.config">

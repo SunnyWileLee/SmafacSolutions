@@ -51,5 +51,27 @@ namespace Smafac.Crm.Customer.Repositories
                 return values;
             }
         }
+
+        public IEnumerable<IGrouping<Guid, CustomerPropertyValueModel>> GetPropertyValues(Guid SubscriberId, IEnumerable<Guid> customerIds)
+        {
+            if (!customerIds.Any())
+            {
+                throw new ArgumentNullException("customerIds");
+            }
+            using (var context = _customerContextProvider.Provide())
+            {
+                var values = context.CustomerPropertityValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.CustomerId))
+                                    .Select(s => new CustomerPropertyValueModel
+                                    {
+                                        SubscriberId = s.SubscriberId,
+                                        CreateTime = s.CreateTime,
+                                        Id = s.Id,
+                                        CustomerId = s.CustomerId,
+                                        PropertyId = s.PropertyId,
+                                        Value = s.Value
+                                    }).ToList();
+                return values.GroupBy(s => s.CustomerId);
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace Smafac.Crm.Customer.Repositories
     interface ICustomerPropertyValueRepository
     {
         bool SetPropertyValue(CustomerPropertyValueEntity value);
-        List<CustomerPropertyValueModel> GetPropertyValues(Guid SubscriberId,Guid customerId);
+        List<CustomerPropertyValueModel> GetPropertyValues(Guid SubscriberId, Guid customerId);
+        IEnumerable<IGrouping<Guid, CustomerPropertyValueModel>> GetPropertyValues(Guid SubscriberId, IEnumerable<Guid> customerIds);
     }
 }

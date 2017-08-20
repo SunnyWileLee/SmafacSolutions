@@ -14,13 +14,13 @@ namespace Smafac.Presentation.Models
         public SmafacUser(PassportModel passport)
         {
             _passport = passport;
-            _username = _passport.UserName;
+            _username = string.Format("{0};{1}",_passport.SubscriberId.ToString(), _passport.Id.ToString());
         }
         public string Id
         {
             get
             {
-                return _passport.Id.ToString();
+                return _passport.SubscriberId.ToString();
             }
         }
 

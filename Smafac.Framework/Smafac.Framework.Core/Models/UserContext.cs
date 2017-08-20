@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Smafac.Framework.Core.Models
 {
@@ -15,8 +16,13 @@ namespace Smafac.Framework.Core.Models
         {
             get
             {
-                var principal = System.Threading.Thread.CurrentPrincipal;
-                return (principal as SmafacPrincipal).UserContext;
+                var name = Thread.CurrentPrincipal.Identity.Name;
+                var ids = name.Split(';');
+                return new UserContext
+                {
+                    SubscriberId = Guid.Parse(ids[0]),
+                    UserId = Guid.Parse(ids[1])
+                };
             }
         }
     }

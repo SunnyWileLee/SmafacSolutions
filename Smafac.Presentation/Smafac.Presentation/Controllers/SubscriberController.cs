@@ -58,5 +58,11 @@ namespace Smafac.Presentation.Controllers
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
+
+        [HttpGet]
+        public ActionResult MainView()
+        {
+            return View();
+        }
     }
 }

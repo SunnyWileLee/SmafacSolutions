@@ -86,7 +86,7 @@ function ajaxSuccess(data, callback) {
 }
 
 $(function () {
-    var paginator = $('#paginator-wrapper');
+    var paginator = $('#pagination-container');
     if (paginator.length == 0) {
         return;
     }
@@ -131,7 +131,7 @@ $(function () {
 
 function getPageHtml(page) {
     var form = $('#form-search');
-    var action = form.attr('action');
+    var action = form.attr('data-page');
     var data = form.serializeArray();
     data.push({ pageindex: page });
 
@@ -148,7 +148,7 @@ function getPageHtml(page) {
 
 function getTotalPage() {
     var form = $('#form-search');
-    var action = form.attr('action');
+    var action = form.attr('data-page');
     var url = action.replace('View', '');
     var data = form.serializeArray();
     data.push({ pageindex: 0 });
@@ -162,7 +162,7 @@ function getTotalPage() {
             if (totalpage == 0) {
                 totalpage = 1;
             }
-            $('#paginator-wrapper').jqPaginator({
+            $('#pagination-container').jqPaginator({
                 totalPages: totalpage,
                 visiblePages: 10,
                 currentPage: 1,

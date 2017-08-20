@@ -63,6 +63,7 @@ namespace Smafac.Account.Subscriber.Services
             {
                 return Guid.Empty;
             }
+            model.SubscriberId = passport.SubscriberId;
             return passport.Id;
         }
     }
