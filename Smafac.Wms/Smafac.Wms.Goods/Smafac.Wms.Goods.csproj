@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\IAutofacScan.cs" />
+    <Compile Include="Applications\IAutofacScanGoods.cs" />
     <Compile Include="Applications\IGoodsCategoryService.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />

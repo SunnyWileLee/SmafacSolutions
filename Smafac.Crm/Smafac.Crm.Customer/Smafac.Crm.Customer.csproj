@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\IAutofacScanCustomer.cs" />
     <Compile Include="Applications\ICustomerAfterService.cs" />
     <Compile Include="Applications\ICustomerAfterServiceSearchService.cs" />
-    <Compile Include="Applications\IAutofacScan.cs" />
     <Compile Include="Applications\ICustomerContactPropertyValueService.cs" />
     <Compile Include="Applications\ICustomerContactSearchService.cs" />
     <Compile Include="Applications\ICustomerContactService.cs" />

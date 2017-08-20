@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Account.Subscriber.Applications
 {
-    public interface IAutofacScan
+    public interface IAutofacScanSubscriber
     {
     }
 }

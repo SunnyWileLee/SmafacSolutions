@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\IAutofacScan.cs" />
+    <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
     <Compile Include="Applications\IVersionService.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />

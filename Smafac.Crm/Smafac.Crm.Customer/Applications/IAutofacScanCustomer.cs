@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Wms.Goods.Applications
+namespace Smafac.Crm.Customer.Applications
 {
-    public interface IAutofacScan
+    public interface IAutofacScanCustomer
     {
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications
 {
-    public interface IAutofacScan
+    public interface IAutofacScanFrameworkCore
     {
     }
 }
