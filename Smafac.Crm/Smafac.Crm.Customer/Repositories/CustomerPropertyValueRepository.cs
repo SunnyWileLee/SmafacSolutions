@@ -73,5 +73,13 @@ namespace Smafac.Crm.Customer.Repositories
                 return values.GroupBy(s => s.CustomerId);
             }
         }
+
+        public bool Any(Guid subscriberId, Guid propertyId)
+        {
+            using (var context = _customerContextProvider.Provide())
+            {
+                return context.CustomerPropertityValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $(document).on('click', '.btn-postid', function () {
         var link = $(this);
-        var action = link.attr("data-action");
+        var action = link.attr("data-url");
         var identity = link.attr("data-identity");
         var data = {
             id: identity
@@ -30,8 +30,7 @@ $(document).ready(function () {
     });
 });
 
-function btnviewCallback(btn)
-{
+function btnviewCallback(btn) {
     var view = btn.attr("data-view");
     $.ajax({
         type: "get",
@@ -58,9 +57,10 @@ $(document).ready(function () {
         if (formid == "undefined" || formid == null) {
             formid = "form-submit";
         }
+        console.log(formid);
         var form = $('#' + formid);
         var data = form.serializeArray();
-
+        console.log(data);
         $.ajax({
             type: "post",
             url: url,

@@ -47,7 +47,7 @@ namespace Smafac.Presentation.Controllers
         public ActionResult CustomerPage(CustomerPageQueryModel query)
         {
             var page = _customerSearchService.GetCustomerPage(query);
-            return View(page);
+            return Success(page);
         }
     }
 }

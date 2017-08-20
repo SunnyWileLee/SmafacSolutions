@@ -15,14 +15,20 @@ namespace Smafac.Crm.Customer.Services
     class CustomerPropertyService : ICustomerPropertyService
     {
         private readonly ICustomerPropertyRepository _customerPropertyRepository;
-        public CustomerPropertyService(ICustomerPropertyRepository customerPropertyRepository)
+        private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
+
+        public CustomerPropertyService(ICustomerPropertyRepository customerPropertyRepository,
+                                        ICustomerPropertyValueRepository customerPropertyValueRepository
+                                    )
         {
             _customerPropertyRepository = customerPropertyRepository;
+            _customerPropertyValueRepository = customerPropertyValueRepository;
         }
 
         public bool AddProperty(CustomerPropertyModel model)
         {
             var property = Mapper.Map<CustomerPropertyEntity>(model);
+            property.SubscriberId = UserContext.Current.SubscriberId;
             return _customerPropertyRepository.AddProperty(property);
         }
 
@@ -34,6 +40,10 @@ namespace Smafac.Crm.Customer.Services
 
         public bool DeleteProperty(Guid propertyId)
         {
+            if (_customerPropertyValueRepository.Any(UserContext.Current.SubscriberId, propertyId))
+            {
+                return false;
+            }
             return _customerPropertyRepository.DeleteProperty(UserContext.Current.SubscriberId, propertyId);
         }
 

@@ -172,6 +172,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerPropertyController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Global.asax.cs">
