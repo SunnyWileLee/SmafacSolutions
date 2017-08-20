@@ -11,5 +11,6 @@ namespace Smafac.Account.Subscriber.Applications
     {
         bool CreatePassport(PassportModel model);
         string Login(PassportModel model);
+        Guid SignIn(PassportModel model);
     }
 }

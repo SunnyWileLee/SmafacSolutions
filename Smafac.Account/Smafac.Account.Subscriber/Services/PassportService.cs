@@ -50,5 +50,20 @@ namespace Smafac.Account.Subscriber.Services
             _signInRepository.AddSignIn(signIn);
             return signIn.Token;
         }
+
+        public Guid SignIn(PassportModel model)
+        {
+            var passport = _passportSearchRepository.GetPassportByName(model.UserName);
+            if (passport == null)
+            {
+                return Guid.Empty;
+            }
+            var verify = passport.VerifyPassword(model.Password);
+            if (!verify)
+            {
+                return Guid.Empty;
+            }
+            return passport.Id;
+        }
     }
 }

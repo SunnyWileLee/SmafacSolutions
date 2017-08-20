@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Smafac.Presentation.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerController : SmafacController
     {
         private readonly ICustomerSearchService _customerSearchService;
         private readonly ICustomerService _customerService;

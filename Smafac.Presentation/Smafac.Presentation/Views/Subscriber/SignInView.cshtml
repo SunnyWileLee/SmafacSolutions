@@ -1,54 +1,54 @@
 ﻿@model PassportModel
-    @{
-        Layout = null;
-    }
+@{
+    Layout = null;
+}
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        <title></title>
-    </head>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <title></title>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-6 col-md-6">
-                    <form class="form-horizontal">
-                        <h3>智慧信息管理系统</h3>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="username" placeholder="用户名">
-                            <i class="fa fa-user"></i>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password" placeholder="密码">
-                            <i class="fa fa-lock"></i>
-                            <a href="#" class="fa fa-question-circle"></a>
-                        </div>
-                        <div class="form-group">
-                            <input type="button" value="登录" class="btn btn-success btn-block" onclick="login()">
-                        </div>
-                        <div>
-                            <a href="/Account/ForgetPasswordView">忘记密码</a>
-                            <a href="/Account/RegisterView" style="margin-left:50px">注册</a>
-                        </div>
-                    </form>
-                </div>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+                <form class="form-horizontal">
+                    <h3>智慧信息管理系统</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="用户名">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="密码">
+                        <i class="fa fa-lock"></i>
+                        <a href="#" class="fa fa-question-circle"></a>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" value="登录" class="btn btn-success btn-block" onclick="login()">
+                    </div>
+                    <div>
+                        @*<a href="/Account/ForgetPasswordView">忘记密码</a>
+                        <a href="/Account/RegisterView" style="margin-left:50px">注册</a>*@
+                    </div>
+                </form>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
 
 <script type="text/javascript">
     function login() {
-        var url = '/Account/Login';
+        var url = '/Subscriber/SignIn';
         var username = $('#username').val();
         var password = $('#password').val();
         var paras = {
@@ -63,7 +63,7 @@
             dataType: "json",
             success: function (data) {
                 ajaxSuccess(data, function (data) {
-                    window.location.href = "/Account/MainView";
+                    window.location.href = "/Subscriber/MainView";
                 })
             }
         });
