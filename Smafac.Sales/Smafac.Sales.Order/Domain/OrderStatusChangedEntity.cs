@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Domain
 {
-    [Table("OrderItem")]
-    class OrderItemEntity : SaasBaseEntity
+    [Table("OrderStatusChanged")]
+    class OrderStatusChangedEntity : StatusChangedEntity
     {
-        public Guid OrderId { get; set; }
-        public Guid GoodsId { get; set; }
-        public decimal Quantity { get; set; }
+
     }
 }

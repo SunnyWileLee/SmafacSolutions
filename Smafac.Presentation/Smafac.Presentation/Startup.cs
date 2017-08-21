@@ -27,7 +27,10 @@ namespace Smafac.Presentation
         public void ConfigureAuth(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            var mvcAssembly = typeof(MvcApplication).Assembly;
+            builder.RegisterControllers(mvcAssembly);
+            builder.RegisterAssemblyTypes(mvcAssembly)
+            .AsImplementedInterfaces();
 
             Register<IAutofacScanFrameworkCore>(builder);
             Register<IAutofacScanGoods>(builder);

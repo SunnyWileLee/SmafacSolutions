@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Models", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Core", "..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj", "{0202225A-FE39-4EE6-9BBA-C9E93EA12338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Sales.Order.Models", "..\Smafac.Sales\Smafac.Sales.Order.Models\Smafac.Sales.Order.Models.csproj", "{0B64BA49-8A65-4C2E-9D50-376B330DB6E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B64BA49-8A65-4C2E-9D50-376B330DB6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B64BA49-8A65-4C2E-9D50-376B330DB6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B64BA49-8A65-4C2E-9D50-376B330DB6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B64BA49-8A65-4C2E-9D50-376B330DB6E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

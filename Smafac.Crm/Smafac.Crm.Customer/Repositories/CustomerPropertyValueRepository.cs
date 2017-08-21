@@ -21,7 +21,7 @@ namespace Smafac.Crm.Customer.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                var entity = context.CustomerPropertityValues.FirstOrDefault(s => s.SubscriberId == value.SubscriberId && s.PropertyId == value.PropertyId);
+                var entity = context.CustomerPropertityValues.FirstOrDefault(s => s.SubscriberId == value.SubscriberId && s.CustomerId == value.CustomerId && s.PropertyId == value.PropertyId);
                 if (entity == null)
                 {
                     context.CustomerPropertityValues.Add(value);

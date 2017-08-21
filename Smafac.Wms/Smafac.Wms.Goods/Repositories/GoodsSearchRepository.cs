@@ -18,12 +18,12 @@ namespace Smafac.Wms.Goods.Repositories
             _goodsContextProvider = goodsContextProvider;
         }
 
-        public List<GoodsModel> GetGoods(Guid subscriberId, string key)
+        public List<GoodsEntity> GetGoods(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate)
         {
             using (var context = _goodsContextProvider.Provide())
             {
-                var goods = context.Goods.Where(s =>s.SubscriberId==subscriberId && s.Name.Contains(key))
-                                .Select(s => new GoodsModel { Name = s.Name, Price = s.Price }).ToList();
+                var goods = context.Goods.Where(s => s.SubscriberId == subscriberId).Where(predicate)
+                                .ToList();                            
                 return goods;
             }
         }

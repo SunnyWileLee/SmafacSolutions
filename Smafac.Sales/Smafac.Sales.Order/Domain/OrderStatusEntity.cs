@@ -11,6 +11,6 @@ namespace Smafac.Sales.Order.Domain
     [Table("OrderStatus")]
     class OrderStatusEntity : SaasBaseEntity
     {
-
+        public string Name { get; set; }
     }
 }

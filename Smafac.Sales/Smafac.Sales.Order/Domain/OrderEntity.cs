@@ -17,11 +17,13 @@ namespace Smafac.Sales.Order.Domain
             OrderDate = DateTime.Now;
             HopeDate = DateTime.Now;
         }
-
+        public decimal Price { get; set; }
         public Guid CustomerId { get; set; }
+        public Guid GoodsId { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Amount { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime HopeDate { get; set; }
-        public decimal Amount { get; set; }
         [MaxLength(500)]
         public string Memo { get; set; }
     }

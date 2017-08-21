@@ -8,5 +8,6 @@ namespace Smafac.Wms.Goods.Applications
 {
     public interface IAutofacScanGoods
     {
+
     }
 }

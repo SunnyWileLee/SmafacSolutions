@@ -8,6 +8,17 @@ namespace Smafac.Framework.Models
 {
     public class PageModel<TModel> where TModel : class
     {
+        public PageModel(PageQueryBaseModel query)
+        {
+            this.PageSize = query.PageSize;
+            this.PageIndex = query.PageIndex;
+        }
+
+        public PageModel()
+        {
+
+        }
+
         public List<TModel> PageData { get; set; }
         public int PageSize { get; set; }
         public int PageIndex { get; set; }

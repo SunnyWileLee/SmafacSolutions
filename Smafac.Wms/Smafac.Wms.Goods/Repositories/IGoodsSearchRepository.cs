@@ -11,7 +11,7 @@ namespace Smafac.Wms.Goods.Repositories
 {
     interface IGoodsSearchRepository
     {
-        List<GoodsModel> GetGoods(Guid subscriberId, string key);
+        List<GoodsEntity> GetGoods(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate);
         List<GoodsModel> GetGoodsPage(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate, int skip, int take);
         int GetGoodsCount(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate);
     }

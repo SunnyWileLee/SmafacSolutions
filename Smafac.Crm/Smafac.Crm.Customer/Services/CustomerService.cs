@@ -15,9 +15,13 @@ namespace Smafac.Crm.Customer.Services
     class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepository;
-        public CustomerService(ICustomerRepository customerRepository)
+        private readonly ICustomerPropertyRepository _customerPropertyRepository;
+
+        public CustomerService(ICustomerRepository customerRepository,
+                                ICustomerPropertyRepository customerPropertyRepository)
         {
             _customerRepository = customerRepository;
+            _customerPropertyRepository = customerPropertyRepository;
         }
 
         public bool AddCustomer(CustomerModel model)
@@ -38,6 +42,14 @@ namespace Smafac.Crm.Customer.Services
         public bool DeleteCustomer(Guid customerId)
         {
             return _customerRepository.DeleteCustomer(UserContext.Current.SubscriberId, customerId);
+        }
+
+        public CustomerModel CreateEmptyCustomer()
+        {
+            var customer = new CustomerModel();
+            var properties = _customerPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
+            customer.Properties = properties.Select(s => new CustomerPropertyValueModel { PropertyId = s.Id, PropertyName = s.Name }).ToList();
+            return customer;
         }
     }
 }

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Smafac.Crm.Customer.Domain;
+using System.Linq.Expressions;
 
 namespace Smafac.Crm.Customer.Services
 {
@@ -23,34 +25,50 @@ namespace Smafac.Crm.Customer.Services
             _customerSearchRepository = customerSearchRepository;
             _customerPropertyValueRepository = customerPropertyValueRepository;
         }
-        public CustomerDetailModel GetCustomerDetail(Guid customerId)
+
+        public CustomerModel GetCustomer(Guid customerId)
         {
             var customer = _customerSearchRepository.GetById(UserContext.Current.SubscriberId, customerId);
             var model = Mapper.Map<CustomerModel>(customer);
             var properties = _customerPropertyValueRepository.GetPropertyValues(UserContext.Current.SubscriberId, customerId);
             SetCustomerPropertyValues(model, properties);
-            return new CustomerDetailModel { SubscriberId = UserContext.Current.SubscriberId, Customer = model };
+            return model;
+        }
+
+        public CustomerDetailModel GetCustomerDetail(Guid customerId)
+        {
+            var customer = GetCustomer(customerId);
+            return new CustomerDetailModel { SubscriberId = UserContext.Current.SubscriberId, Customer = customer };
         }
 
         public PageModel<CustomerModel> GetCustomerPage(CustomerPageQueryModel query)
         {
-            var customers = _customerSearchRepository.GetCustomerPage(query);
-            if (customers.Any())
+            var predicate = query.CreatePredicate<CustomerEntity>();
+            var subscriberId = UserContext.Current.SubscriberId;
+            var customers = _customerSearchRepository.GetCustomerPage(subscriberId, predicate, query.Skip, query.PageSize);
+            var models = Mapper.Map<List<CustomerModel>>(customers);
+            if (models.Any())
             {
                 var properties = _customerPropertyValueRepository.GetPropertyValues(UserContext.Current.SubscriberId, customers.Select(s => s.Id));
-                customers.ForEach(customer =>
+                models.ForEach(customer =>
                 {
                     SetCustomerPropertyValues(customer, properties.FirstOrDefault(s => s.Key == customer.Id));
                 });
             }
-            var count = _customerSearchRepository.GetCustomerCount(query);
-            return new PageModel<CustomerModel>
+            var count = _customerSearchRepository.GetCustomerCount(subscriberId, predicate);
+            return new PageModel<CustomerModel>(query)
             {
-                PageData = customers,
-                PageSize = query.PageSize,
-                PageIndex = query.PageIndex,
+                PageData = models,
                 TotalCount = count
             };
+        }
+
+        public List<CustomerModel> GetCustomers(IEnumerable<Guid> customerIds)
+        {
+            Expression<Func<CustomerEntity, bool>> predicate = s => customerIds.Contains(s.Id);
+            var subscriberId = UserContext.Current.SubscriberId;
+            var customers = _customerSearchRepository.GetCustomers(subscriberId, predicate);
+            return Mapper.Map<List<CustomerModel>>(customers);
         }
 
         private void SetCustomerPropertyValues(CustomerModel customer, IEnumerable<CustomerPropertyValueModel> properties)

@@ -12,12 +12,15 @@ namespace Smafac.Presentation.Controllers
     {
         private readonly ICustomerSearchService _customerSearchService;
         private readonly ICustomerService _customerService;
+        private readonly ICustomerPropertyService _customerPropertyService;
 
         public CustomerController(ICustomerSearchService customerSearchService,
+            ICustomerPropertyService customerPropertyService,
                                     ICustomerService customerService)
         {
             _customerSearchService = customerSearchService;
             _customerService = customerService;
+            _customerPropertyService = customerPropertyService;
         }
 
         [HttpGet]
@@ -38,9 +41,10 @@ namespace Smafac.Presentation.Controllers
             return View(customer);
         }
         [HttpGet]
-        public ActionResult CustomerAddView()
+        public ActionResult CustomerAddView(Guid? customerid)
         {
-            return View();
+            var model = customerid == null ? _customerService.CreateEmptyCustomer() : _customerSearchService.GetCustomer(customerid.Value);
+            return View(model);
         }
 
         [HttpPost]

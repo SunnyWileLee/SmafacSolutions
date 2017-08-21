@@ -12,5 +12,6 @@ namespace Smafac.Crm.Customer.Applications
         bool AddCustomer(CustomerModel model);
         bool UpdateCustomer(CustomerModel model);
         bool DeleteCustomer(Guid customerId);
+        CustomerModel CreateEmptyCustomer();
     }
 }

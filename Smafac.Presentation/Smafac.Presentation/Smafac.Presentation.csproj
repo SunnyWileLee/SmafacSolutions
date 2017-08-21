@@ -173,8 +173,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerPropertyController.cs" />
+    <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
+    <Compile Include="Domain\IOrderWrapper.cs" />
+    <Compile Include="Domain\OrderCustomerWrapper.cs" />
+    <Compile Include="Domain\OrderGoodsWrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,6 +203,7 @@
     <Content Include="Views\Goods\GoodsAddView.cshtml" />
     <Content Include="Views\Subscriber\MainView.cshtml" />
     <Content Include="Views\CustomerProperty\CustomerPropertyView.cshtml" />
+    <Content Include="Views\Order\OrderDetailView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,6 +239,14 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
       <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
       <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.Order.Models\Smafac.Sales.Order.Models.csproj">
+      <Project>{0b64ba49-8a65-4c2e-9d50-376b330db6e7}</Project>
+      <Name>Smafac.Sales.Order.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.Order\Smafac.Sales.Order.csproj">
+      <Project>{c9ee6ef4-53e6-4331-8dd4-598b3166b7a7}</Project>
+      <Name>Smafac.Sales.Order</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
       <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>

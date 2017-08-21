@@ -7,7 +7,9 @@ using Smafac.Wms.Goods.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using AutoMapper;
 using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Services
@@ -24,8 +26,18 @@ namespace Smafac.Wms.Goods.Services
 
         public List<GoodsModel> GetGoods(string key)
         {
-            var goods = _goodsSearchRepository.GetGoods(UserContext.Current.SubscriberId, key);
-            return goods;
+            var subscriberId = UserContext.Current.SubscriberId;
+            Expression<Func<GoodsEntity, bool>> predicate = s => s.Name.Contains(key);
+            var goods = _goodsSearchRepository.GetGoods(subscriberId, predicate);
+            return Mapper.Map<List<GoodsModel>>(goods);
+        }
+
+        public List<GoodsModel> GetGoods(IEnumerable<Guid> goodsIds)
+        {
+            var subscriberId = UserContext.Current.SubscriberId;
+            Expression<Func<GoodsEntity, bool>> predicate = s => goodsIds.Contains(s.Id);
+            var goods = _goodsSearchRepository.GetGoods(subscriberId, predicate);
+            return Mapper.Map<List<GoodsModel>>(goods);
         }
 
         public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model)
