@@ -1,0 +1,55 @@
+﻿using AutoMapper;
+using Smafac.Framework.Core.Models;
+using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Goods.Domain;
+using Smafac.Wms.Goods.Models;
+using Smafac.Wms.Goods.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Smafac.Wms.Goods.Services
+{
+    class GoodsPropertyService : IGoodsPropertyService
+    {
+        private readonly IGoodsPropertyRepository _goodsPropertyRepository;
+        private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
+
+        public GoodsPropertyService(IGoodsPropertyRepository goodsPropertyRepository,
+                                        IGoodsPropertyValueRepository goodsPropertyValueRepository
+                                    )
+        {
+            _goodsPropertyRepository = goodsPropertyRepository;
+            _goodsPropertyValueRepository = goodsPropertyValueRepository;
+        }
+
+        public bool AddProperty(GoodsPropertyModel model)
+        {
+            var property = Mapper.Map<GoodsPropertyEntity>(model);
+            property.SubscriberId = UserContext.Current.SubscriberId;
+            return _goodsPropertyRepository.AddProperty(property);
+        }
+
+        public bool UpdateProperty(GoodsPropertyModel model)
+        {
+            return _goodsPropertyRepository.UpdateProperty(model);
+        }
+
+        public bool DeleteProperty(Guid propertyId)
+        {
+            if (_goodsPropertyValueRepository.Any(UserContext.Current.SubscriberId, propertyId))
+            {
+                return false;
+            }
+            return _goodsPropertyRepository.DeleteProperty(UserContext.Current.SubscriberId, propertyId);
+        }
+
+        public List<GoodsPropertyModel> GetProperties()
+        {
+            var properties = _goodsPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
+            return Mapper.Map<List<GoodsPropertyModel>>(properties);
+        }
+    }
+}

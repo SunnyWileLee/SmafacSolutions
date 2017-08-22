@@ -9,6 +9,7 @@ using Smafac.Wms.Goods.Repositories;
 using AutoMapper;
 using Smafac.Wms.Goods.Domain;
 using Smafac.Framework.Core.Models;
+using Smafac.Framework.Core.Domain;
 
 namespace Smafac.Wms.Goods.Services
 {
@@ -38,6 +39,19 @@ namespace Smafac.Wms.Goods.Services
             var categories = _goodsCategoryRepository.GetCategories(UserContext.Current.SubscriberId, parentId);
             var models = Mapper.Map<List<GoodsCategoryModel>>(categories);
             return models;
+        }
+
+        public GoodsCategoryModel GetCategory(Guid Id)
+        {
+            var category= _goodsCategoryRepository.GetCategory(UserContext.Current.SubscriberId, Id);
+            return Mapper.Map<GoodsCategoryModel>(category);
+        }
+
+        public List<GoodsCategoryModel> GetLeafCategories()
+        {
+            var categories = _goodsCategoryRepository.GetCategories(UserContext.Current.SubscriberId, s => s.NodeType == TreeNodeEntity.LeafNodeType)
+                                                    .OrderBy(s => s.ParentId).ToList();
+            return Mapper.Map<List<GoodsCategoryModel>>(categories);
         }
 
         public bool UpdateCategory(GoodsCategoryModel model)

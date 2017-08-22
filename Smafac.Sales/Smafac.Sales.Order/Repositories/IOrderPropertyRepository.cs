@@ -14,5 +14,6 @@ namespace Smafac.Sales.Order.Repositories
         List<OrderPropertyEntity> GetProperties(Guid subscriberId);
         bool UpdateProperty(OrderPropertyModel model);
         bool DeleteProperty(Guid subscriberId, Guid propertyId);
+        bool Any(Guid subscriberId, string name);
     }
 }

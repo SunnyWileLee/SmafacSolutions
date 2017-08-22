@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanOrder.cs" />
+    <Compile Include="Applications\IOrderPropertyService.cs" />
     <Compile Include="Applications\IOrderChargeService.cs" />
+    <Compile Include="Applications\IOrderChargeValueService.cs" />
     <Compile Include="Applications\IOrderSearchService.cs" />
     <Compile Include="Applications\IOrderService.cs" />
     <Compile Include="Domain\OrderChargeEntity.cs" />
@@ -76,8 +81,12 @@
     <Compile Include="Repositories\OrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\OrderSearchRepository.cs" />
+    <Compile Include="Services\OrderAutoMapper.cs" />
+    <Compile Include="Services\OrderPropertyService.cs" />
     <Compile Include="Services\OrderChargeService.cs" />
+    <Compile Include="Services\OrderChargeValueService.cs" />
     <Compile Include="Services\OrderSearchService.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">

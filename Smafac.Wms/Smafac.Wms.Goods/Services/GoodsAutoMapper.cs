@@ -16,8 +16,8 @@ namespace Smafac.Wms.Goods.Services
         {
             base.BipassMapper<GoodsEntity, GoodsModel>(cfg);
             base.BipassMapper<GoodsPropertyEntity, GoodsPropertyModel>(cfg);
-            base.BipassMapper<GoodsPropertyValueEntity, GoodsModel>(cfg);
-            base.BipassMapper<GoodsCategoryEntity, GoodsModel>(cfg);
+            base.BipassMapper<GoodsPropertyValueEntity, GoodsPropertyValueModel>(cfg);
+            base.BipassMapper<GoodsCategoryEntity, GoodsCategoryModel>(cfg);
         }
     }
 }

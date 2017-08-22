@@ -12,12 +12,15 @@ namespace Smafac.Presentation.Controllers
     {
         private readonly IGoodsService _goodsService;
         private readonly IGoodsSearchService _goodsSearchService;
+        private readonly IGoodsCategoryService _goodsCategoryService;
 
         public GoodsController(IGoodsService goodsService,
-                                IGoodsSearchService goodsSearchService)
+                                IGoodsSearchService goodsSearchService,
+                                IGoodsCategoryService goodsCategoryService)
         {
             _goodsService = goodsService;
             _goodsSearchService = goodsSearchService;
+            _goodsCategoryService = goodsCategoryService;
         }
 
         [HttpGet]
@@ -38,9 +41,13 @@ namespace Smafac.Presentation.Controllers
             return Success(page);
         }
         [HttpGet]
-        public ActionResult AddGoodsView(Guid? goodsId)
+        public ActionResult GoodsAddView()
         {
-            return View();
+            var categories = _goodsCategoryService.GetLeafCategories()
+                            .Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+            ViewData["categories"] = categories;
+            var goods = _goodsService.CreateEmptyGoods();
+            return View(goods);
         }
 
         [HttpPost]

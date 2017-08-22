@@ -26,6 +26,14 @@ namespace Smafac.Sales.Order.Repositories
             }
         }
 
+        public bool Any(Guid subscriberId, string name)
+        {
+            using (var context = _orderContextProvider.Provide())
+            {
+                return context.OrderCharges.Any(s => s.SubscriberId == subscriberId && s.Name.Equals(name));
+            }
+        }
+
         public bool DeleteCharge(Guid subscriberId, Guid chargeId)
         {
             using (var context = _orderContextProvider.Provide())

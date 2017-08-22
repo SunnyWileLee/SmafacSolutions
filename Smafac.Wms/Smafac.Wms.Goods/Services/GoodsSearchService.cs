@@ -16,7 +16,6 @@ namespace Smafac.Wms.Goods.Services
 {
     class GoodsSearchService : IGoodsSearchService
     {
-
         private readonly IGoodsSearchRepository _goodsSearchRepository;
 
         public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository)
@@ -28,16 +27,14 @@ namespace Smafac.Wms.Goods.Services
         {
             var subscriberId = UserContext.Current.SubscriberId;
             Expression<Func<GoodsEntity, bool>> predicate = s => s.Name.Contains(key);
-            var goods = _goodsSearchRepository.GetGoods(subscriberId, predicate);
-            return Mapper.Map<List<GoodsModel>>(goods);
+            return _goodsSearchRepository.GetGoods(subscriberId, predicate);
         }
 
         public List<GoodsModel> GetGoods(IEnumerable<Guid> goodsIds)
         {
             var subscriberId = UserContext.Current.SubscriberId;
             Expression<Func<GoodsEntity, bool>> predicate = s => goodsIds.Contains(s.Id);
-            var goods = _goodsSearchRepository.GetGoods(subscriberId, predicate);
-            return Mapper.Map<List<GoodsModel>>(goods);
+            return _goodsSearchRepository.GetGoods(subscriberId, predicate);
         }
 
         public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model)

@@ -12,6 +12,16 @@ namespace Smafac.Wms.Goods.Domain
     [Table("GoodsProperty")]
     class GoodsPropertyEntity : PropertyEntity
     {
-        
+        public GoodsPropertyValueEntity CreateEmptyValue()
+        {
+            return this.CreateValue(Guid.Empty, string.Empty);
+        }
+
+        public GoodsPropertyValueEntity CreateValue(Guid goodsId, string value)
+        {
+            var propertyValue = base.CreateValueBase<GoodsPropertyValueEntity>(value);
+            propertyValue.GoodsId = goodsId;
+            return propertyValue;
+        }
     }
 }

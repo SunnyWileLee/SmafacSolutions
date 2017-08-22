@@ -51,7 +51,7 @@ namespace Smafac.Sales.Order.Repositories
                 }
                 order.GoodsId = model.GoodsId;
                 order.Quantity = model.Quantity;
-                order.Amount = model.Amount;
+                order.Charge = model.Charge;
                 order.CustomerId = model.CustomerId;
                 order.HopeDate = model.HopeDate;
                 order.OrderDate = model.OrderDate;

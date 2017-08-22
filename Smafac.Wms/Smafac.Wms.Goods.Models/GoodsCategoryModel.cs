@@ -8,9 +8,17 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Models
 {
-    public class GoodsCategoryModel : RecursionModel
+    public class GoodsCategoryModel : TreeNodeModel
     {
+        public GoodsCategoryModel()
+        {
+            Children = new List<GoodsCategoryModel>();
+        }
+
         [MaxLength(100)]
+        [Display(Name = "类别")]
         public string Name { get; set; }
+
+        public List<GoodsCategoryModel> Children { get; set; }
     }
 }

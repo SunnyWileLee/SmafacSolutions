@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-2" id="category-slice-0">
+    </div>
+    <div class="col-lg-2" id="category-slice-1">
+    </div>
+    <div class="col-lg-2" id="category-slice-2">
+    </div>
+    <div class="col-lg-2" id="category-slice-3">
+    </div>
+    <div class="col-lg-2" id="category-slice-4">
+    </div>
+    <div class="col-lg-2" id="category-slice-5">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on('click', '.btn-category-slice', function () {
+            var btn = $(this);
+            var slice = btn.attr('data-slice');
+            var id = btn.attr('data-id');
+            GetCategorySlice(slice, id);
+        });
+    });
+
+    $(document).ready(function () {
+        $(document).on('click', '.btn-addcategory', function () {
+            var btn = $(this);
+            var slice = btn.attr('data-slice');
+            var id = btn.attr('data-id');
+            var name = $('#input-category-' + slice).val();
+            if (name == null || name == '') {
+                alert('类别不能为空');
+                return false;
+            }
+            AddCategory(id, name, slice);
+        });
+    });
+
+    function AddCategory(parentId, name, slice) {
+        var url = "/GoodsCategory/AddGoodsCategory";
+        var paras = { parentId: parentId, name: category };
+        $.ajax({
+            type: "post",
+            url: url,
+            data: paras,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+
+    function GetCategorySlice(slice, categoryId) {
+        var url = "/GoodsCategory/GoodsCategorySliceView?categoryId=" + categoryId;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "html",
+            success: function (data) {
+                var container = 'category-slice-' + slice;
+                $('#' + container).html(data);
+            },
+            error: function (data) {
+                $('#' + container).html('页面错误');
+            }
+        });
+    }
+
+    $(function () {
+        GetCategorySlice(0, '');
+    })
+</script>
+
+

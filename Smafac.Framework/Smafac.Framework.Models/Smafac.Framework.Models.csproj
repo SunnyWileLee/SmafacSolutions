@@ -46,7 +46,7 @@
     <Compile Include="PropertyModel.cs" />
     <Compile Include="PropertyValueModel.cs" />
     <Compile Include="QueryBaseModel.cs" />
-    <Compile Include="RecursionModel.cs" />
+    <Compile Include="TreeNodeModel.cs" />
     <Compile Include="SaasBaseModel.cs" />
     <Compile Include="StatusModel.cs" />
   </ItemGroup>

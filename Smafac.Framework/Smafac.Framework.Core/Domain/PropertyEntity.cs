@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain
 {
-    public class PropertyEntity : SaasBaseEntity
+    public abstract class PropertyEntity : SaasBaseEntity
     {
         [MaxLength(20)]
         public string Name { get; set; }
+
+        protected virtual TPropertyValueEntity CreateValueBase<TPropertyValueEntity>(string value) where TPropertyValueEntity : PropertyValueEntity
+        {
+            var propertyValue = default(TPropertyValueEntity);
+            propertyValue.PropertyId = this.Id;
+            propertyValue.SubscriberId = this.SubscriberId;
+            propertyValue.Value = value;
+
+            return propertyValue;
+        }
     }
 }

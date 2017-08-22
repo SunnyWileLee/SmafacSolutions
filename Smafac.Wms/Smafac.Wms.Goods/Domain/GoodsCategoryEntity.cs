@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Smafac.Wms.Goods.Domain
 {
     [Table("GoodsCategory")]
-    class GoodsCategoryEntity : RecursionEntity
+    class GoodsCategoryEntity : TreeNodeEntity
     {
         [MaxLength(100)]
         public string Name { get; set; }

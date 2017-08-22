@@ -1,17 +1,34 @@
-﻿@{
-    Layout = null;
+﻿@model GoodsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
+<div class="row">
+    <div class="col-lg-6">
+        <form class=" form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(s => s.Name, new { @class = "col-lg-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Price, new { @class = "col-lg-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(s => s.CategoryId, categories, string.Empty, new { @class = "form-control" })
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-6">
 
     </div>
-</body>
-</html>
+</div>

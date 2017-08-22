@@ -13,6 +13,7 @@ namespace Smafac.Wms.Goods.Repositories
     {
         public DbSet<GoodsEntity> Goods { get; set; }
         public DbSet<GoodsCategoryEntity> GoodsCategories { get; set; }
+        public DbSet<GoodsCategoryPropertyEntity> GoodsCategoryProperties { get; set; }
         public DbSet<GoodsPropertyEntity> GoodsProperties { get; set; }
         public DbSet<GoodsPropertyValueEntity> GoodsPropertyValues { get; set; }
     }

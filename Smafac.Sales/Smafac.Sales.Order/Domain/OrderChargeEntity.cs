@@ -12,5 +12,23 @@ namespace Smafac.Sales.Order.Domain
     class OrderChargeEntity : SaasBaseEntity
     {
         public string Name { get; set; }
+
+        public OrderChargeValueEntity CreateEmptyValue()
+        {
+            return this.CreateValue(Guid.Empty, 0);
+        }
+
+
+        public OrderChargeValueEntity CreateValue(Guid orderId, decimal charge)
+        {
+            return new OrderChargeValueEntity
+            {
+                Charge = charge,
+                SubscriberId = this.SubscriberId,
+                ChargeId = this.Id,
+                CreateTime = DateTime.Now,
+                OrderId = orderId
+            };
+        }
     }
 }

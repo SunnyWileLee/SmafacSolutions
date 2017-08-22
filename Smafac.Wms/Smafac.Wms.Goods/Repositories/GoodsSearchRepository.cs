@@ -18,13 +18,12 @@ namespace Smafac.Wms.Goods.Repositories
             _goodsContextProvider = goodsContextProvider;
         }
 
-        public List<GoodsEntity> GetGoods(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate)
+        public List<GoodsModel> GetGoods(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate)
         {
             using (var context = _goodsContextProvider.Provide())
             {
-                var goods = context.Goods.Where(s => s.SubscriberId == subscriberId).Where(predicate)
-                                .ToList();                            
-                return goods;
+                var goodses = context.Goods.Where(s => s.SubscriberId == subscriberId).Where(predicate);
+                return JoinCategory(goodses, context.GoodsCategories);
             }
         }
 
@@ -32,12 +31,29 @@ namespace Smafac.Wms.Goods.Repositories
         {
             using (var context = _goodsContextProvider.Provide())
             {
-                var goods = context.Goods.Where(s=>s.SubscriberId==subscriberId).Where(predicate).Skip(skip).Take(take)
-                                 .Select(s => new GoodsModel { Name = s.Name, Price = s.Price }).ToList();
-                return goods;
+                var goodses = context.Goods.Where(s => s.SubscriberId == subscriberId)
+                                        .Where(predicate).OrderByDescending(s => s.CreateTime)
+                                        .Skip(skip).Take(take);
+                return JoinCategory(goodses, context.GoodsCategories);
             }
         }
 
+        private List<GoodsModel> JoinCategory(IQueryable<GoodsEntity> goodses, IQueryable<GoodsCategoryEntity> categories)
+        {
+            var query = from goods in goodses
+                        join category in categories on goods.CategoryId equals category.Id
+                        select new GoodsModel
+                        {
+                            CategoryId = goods.CategoryId,
+                            SubscriberId = goods.SubscriberId,
+                            CategoryName = category.Name,
+                            CreateTime = goods.CreateTime,
+                            Id = goods.Id,
+                            Name = goods.Name,
+                            Price = goods.Price
+                        };
+            return query.ToList();
+        }
 
         public int GetGoodsCount(Guid subscriberId, Expression<Func<GoodsEntity, bool>> predicate)
         {

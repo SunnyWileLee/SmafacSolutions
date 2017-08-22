@@ -11,7 +11,12 @@ namespace Smafac.Sales.Order.Domain
     [Table("OrderProperty")]
     class OrderPropertyEntity : PropertyEntity
     {
-        public OrderPropertyValueEntity SetValue(Guid orderId, string value)
+        public OrderPropertyValueEntity CreateEmptyValue()
+        {
+            return this.CreateValue(Guid.Empty, string.Empty);
+        }
+
+        public OrderPropertyValueEntity CreateValue(Guid orderId, string value)
         {
             return new OrderPropertyValueEntity
             {

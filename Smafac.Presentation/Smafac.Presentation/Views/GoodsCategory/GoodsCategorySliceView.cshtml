@@ -1,0 +1,24 @@
+﻿@model GoodsCategoryModel
+
+@{
+    Layout = null;
+    var slice = Convert.ToInt32(ViewData["slice"]) + 1;
+}
+
+<form class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" id="input-category-@slice" />
+        <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Id" />
+    </div>
+</form>
+<ul class="list-group">
+    @foreach (var category in Model.Children)
+            {
+        <li class="list-group-item">
+            @category.Name
+            <input type="button" class="btn btn-success pull-right btn-category-slice" data-slice="@slice" data-id="@category.Id" value="子类别" />
+        </li>
+    }
+</ul>
+
+

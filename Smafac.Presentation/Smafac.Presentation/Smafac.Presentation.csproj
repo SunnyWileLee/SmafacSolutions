@@ -173,7 +173,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerPropertyController.cs" />
+    <Compile Include="Controllers\GoodsCategoryController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\GoodsPropertyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
@@ -204,6 +206,9 @@
     <Content Include="Views\Subscriber\MainView.cshtml" />
     <Content Include="Views\CustomerProperty\CustomerPropertyView.cshtml" />
     <Content Include="Views\Order\OrderDetailView.cshtml" />
+    <Content Include="Views\GoodsCategory\GoodsCategoryView.cshtml" />
+    <Content Include="Views\GoodsCategory\GoodsCategorySliceView.cshtml" />
+    <Content Include="Views\GoodsProperty\GoodsPropertyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

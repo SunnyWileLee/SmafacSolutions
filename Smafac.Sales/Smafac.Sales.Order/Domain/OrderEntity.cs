@@ -21,7 +21,8 @@ namespace Smafac.Sales.Order.Domain
         public Guid CustomerId { get; set; }
         public Guid GoodsId { get; set; }
         public decimal Quantity { get; set; }
-        public decimal Amount { get; set; }
+        public decimal Charge { get; set; }
+        public decimal TotalCharge { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime HopeDate { get; set; }
         [MaxLength(500)]

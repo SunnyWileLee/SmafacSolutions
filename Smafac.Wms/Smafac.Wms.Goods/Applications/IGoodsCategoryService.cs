@@ -12,6 +12,8 @@ namespace Smafac.Wms.Goods.Applications
         bool AddCategory(GoodsCategoryModel model);
         bool UpdateCategory(GoodsCategoryModel model);
         bool DeleteCategory(Guid categoryId);
+        GoodsCategoryModel GetCategory(Guid Id);
         List<GoodsCategoryModel> GetCategories(Guid parentId);
+        List<GoodsCategoryModel> GetLeafCategories();
     }
 }

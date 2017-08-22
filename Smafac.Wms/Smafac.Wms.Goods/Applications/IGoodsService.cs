@@ -10,5 +10,6 @@ namespace Smafac.Wms.Goods.Applications
     public interface IGoodsService
     {
         bool AddGoods(GoodsModel model);
+        GoodsModel CreateEmptyGoods();
     }
 }

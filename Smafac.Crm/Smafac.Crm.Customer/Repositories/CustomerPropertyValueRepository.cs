@@ -21,10 +21,10 @@ namespace Smafac.Crm.Customer.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                var entity = context.CustomerPropertityValues.FirstOrDefault(s => s.SubscriberId == value.SubscriberId && s.CustomerId == value.CustomerId && s.PropertyId == value.PropertyId);
+                var entity = context.CustomerPropertyValues.FirstOrDefault(s => s.SubscriberId == value.SubscriberId && s.CustomerId == value.CustomerId && s.PropertyId == value.PropertyId);
                 if (entity == null)
                 {
-                    context.CustomerPropertityValues.Add(value);
+                    context.CustomerPropertyValues.Add(value);
                 }
                 else
                 {
@@ -38,7 +38,7 @@ namespace Smafac.Crm.Customer.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.CustomerPropertityValues.Where(s => s.SubscriberId == SubscriberId && s.CustomerId == customerId)
+                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && s.CustomerId == customerId)
                                     .Select(s => new CustomerPropertyValueModel
                                     {
                                         SubscriberId = s.SubscriberId,
@@ -60,7 +60,7 @@ namespace Smafac.Crm.Customer.Repositories
             }
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.CustomerPropertityValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.CustomerId))
+                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.CustomerId))
                                     .Select(s => new CustomerPropertyValueModel
                                     {
                                         SubscriberId = s.SubscriberId,
@@ -78,7 +78,7 @@ namespace Smafac.Crm.Customer.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                return context.CustomerPropertityValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
+                return context.CustomerPropertyValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
             }
         }
     }

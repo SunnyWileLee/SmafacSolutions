@@ -11,7 +11,7 @@ namespace Smafac.Sales.Order.Applications
     {
         bool AddCharge(OrderChargeModel model);
         List<OrderChargeModel> GetCharges();
-        bool DeleteCharge(Guid chargeId);
+        bool DeleteCharge(Guid chargeId, bool isDeleteValues);
         bool UpdateCharge(OrderChargeModel model);
     }
 }

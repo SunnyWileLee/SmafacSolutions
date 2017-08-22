@@ -25,7 +25,9 @@ namespace Smafac.Sales.Order.Models
         public decimal Quantity { get; set; }
         [Display(Name = "金额")]
         [Required]
-        public decimal Amount { get; set; }
+        public decimal Charge { get; set; }
+        [Display(Name = "总价")]
+        public decimal TotalCharge { get; set; }
         [Display(Name = "下单日期")]
         public DateTime OrderDate { get; set; }
         [Display(Name = "交货日期")]

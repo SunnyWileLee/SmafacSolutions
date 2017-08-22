@@ -1,5 +1,25 @@
-﻿@{
+﻿@model IEnumerable<GoodsModel>
+
+@{
     Layout = null;
 }
 
-
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>售价</th>
+            <th>类别</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goods in Model)
+            {
+            <tr>
+                <td>@goods.Name</td>
+                <td>@goods.Price.ToString()</td>
+                <td>@goods.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>

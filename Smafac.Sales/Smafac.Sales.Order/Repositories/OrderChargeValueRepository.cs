@@ -34,6 +34,28 @@ namespace Smafac.Sales.Order.Repositories
             }
         }
 
+        public bool Any(Guid subscriberId, Guid chargeId)
+        {
+            using (var context = _orderContextProvider.Provide())
+            {
+                return context.OrderChargeValues.Any(s => s.SubscriberId == subscriberId && s.ChargeId == chargeId);
+            }
+        }
+
+        public bool Delete(Guid subscriberId, Guid chargeId)
+        {
+            using (var context = _orderContextProvider.Provide())
+            {
+                var charges = context.OrderChargeValues.Where(s => s.SubscriberId == subscriberId && s.ChargeId == chargeId).ToList();
+                if (!charges.Any())
+                {
+                    return true;
+                }
+                context.OrderChargeValues.RemoveRange(charges);
+                return context.SaveChanges() > 0;
+            }
+        }
+
         public List<OrderChargeValueModel> GetChargeValues(Guid subscriberId, Guid orderId)
         {
             using (var context = _orderContextProvider.Provide())
@@ -55,12 +77,23 @@ namespace Smafac.Sales.Order.Repositories
             }
         }
 
-        public IEnumerable<IGrouping<Guid, OrderChargeValueEntity>> GetChargeValues(Guid subscriberId, IEnumerable<Guid> orderIds)
+        public IEnumerable<IGrouping<Guid, OrderChargeValueModel>> GetChargeValues(Guid subscriberId, IEnumerable<Guid> orderIds)
         {
             using (var context = _orderContextProvider.Provide())
             {
-                var values = context.OrderChargeValues.Where(s => s.SubscriberId == subscriberId && orderIds.Contains(s.OrderId))
-                                                    .ToList();
+                var values = from value in context.OrderChargeValues
+                             join charge in context.OrderCharges on value.ChargeId equals charge.Id
+                             where value.SubscriberId == subscriberId && orderIds.Contains(value.OrderId)
+                             select new OrderChargeValueModel
+                             {
+                                 Id = value.Id,
+                                 SubscriberId = value.SubscriberId,
+                                 Charge = value.Charge,
+                                 ChargeId = value.ChargeId,
+                                 CreateTime = value.CreateTime,
+                                 OrderId = value.OrderId,
+                                 ChargeName = charge.Name
+                             };
                 return values.GroupBy(s => s.OrderId);
             }
         }

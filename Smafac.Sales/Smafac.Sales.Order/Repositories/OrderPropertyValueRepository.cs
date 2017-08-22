@@ -34,6 +34,28 @@ namespace Smafac.Sales.Order.Repositories
             }
         }
 
+        public bool Any(Guid subscriberId, Guid propertyId)
+        {
+            using (var context = _orderContextProvider.Provide())
+            {
+                return context.OrderPropertyValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
+            }
+        }
+
+        public bool Delete(Guid subscriberId, Guid propertyId)
+        {
+            using (var context = _orderContextProvider.Provide())
+            {
+                var properties = context.OrderPropertyValues.Where(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId).ToList();
+                if (!properties.Any())
+                {
+                    return true;
+                }
+                context.OrderPropertyValues.RemoveRange(properties);
+                return context.SaveChanges() > 0;
+            }
+        }
+
         public List<OrderPropertyValueModel> GetPropertyValues(Guid subscriberId, Guid orderId)
         {
             using (var context = _orderContextProvider.Provide())

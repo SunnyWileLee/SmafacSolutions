@@ -23,7 +23,7 @@ namespace Smafac.Crm.Customer.Repositories
 
         public DbSet<CustomerEntity> Customers { get; set; }
         public DbSet<CustomerPropertyEntity> CustomerProperties { get; set; }
-        public DbSet<CustomerPropertyValueEntity> CustomerPropertityValues { get; set; }
+        public DbSet<CustomerPropertyValueEntity> CustomerPropertyValues { get; set; }
         public DbSet<CustomerLevelEntity> CustomerLevels { get; set; }
         public DbSet<CustomerFinancialEntity> CustomerFinancials { get; set; }
         public DbSet<CustomerFinancialTypeEntity> CustomerFinancialTypes { get; set; }

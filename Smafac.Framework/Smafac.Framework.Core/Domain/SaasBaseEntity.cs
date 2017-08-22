@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain
 {
-   public  class SaasBaseEntity
+    public abstract class SaasBaseEntity
     {
-       public SaasBaseEntity()
-       {
-           Id = Guid.NewGuid();
-           CreateTime = DateTime.Now;
-       }
-       [Key]
-       public Guid Id { get; set; }
-       public Guid SubscriberId { get; set; }
-       public DateTime CreateTime { get; set; }
+        public SaasBaseEntity()
+        {
+            Id = Guid.NewGuid();
+            CreateTime = DateTime.Now;
+        }
+        [Key]
+        public virtual Guid Id { get; set; }
+        public virtual Guid SubscriberId { get; set; }
+        public virtual DateTime CreateTime { get; set; }
     }
 }

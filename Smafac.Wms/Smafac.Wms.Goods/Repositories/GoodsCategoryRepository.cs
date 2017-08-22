@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Smafac.Wms.Goods.Domain;
@@ -20,6 +21,15 @@ namespace Smafac.Wms.Goods.Repositories
         {
             using (var context = _goodsContextProvider.Provide())
             {
+                if (!entity.IsRoot())
+                {
+                    var parent = context.GoodsCategories.FirstOrDefault(s => s.Id == entity.ParentId && s.SubscriberId == entity.SubscriberId);
+                    if (parent == null)
+                    {
+                        return false;
+                    }
+                    var catetory = parent.SetChild<GoodsCategoryEntity>(entity);
+                }
                 context.GoodsCategories.Add(entity);
                 return context.SaveChanges() > 0;
             }
@@ -41,12 +51,29 @@ namespace Smafac.Wms.Goods.Repositories
 
         public List<GoodsCategoryEntity> GetCategories(Guid subscriberId, Guid parentId)
         {
+            return this.GetCategories(subscriberId, s => s.ParentId == parentId);
+        }
+
+        public List<GoodsCategoryEntity> GetCategories(Guid subscriberId, Expression<Func<GoodsCategoryEntity, bool>> predicate)
+        {
             using (var context = _goodsContextProvider.Provide())
             {
                 var categories = context.GoodsCategories
-                                .Where(s => s.SubscriberId == subscriberId && s.ParentId == parentId)
+                                .Where(s => s.SubscriberId == subscriberId)
+                                .Where(predicate)
                                 .ToList();
                 return categories;
+            }
+        }
+
+        public GoodsCategoryEntity GetCategory(Guid subscriberId, Guid categoryId)
+        {
+            using (var context = _goodsContextProvider.Provide())
+            {
+                var category = context.GoodsCategories
+                                .Where(s => s.SubscriberId == subscriberId)
+                                .FirstOrDefault(s => s.Id == categoryId);
+                return category;
             }
         }
 

@@ -1,0 +1,40 @@
+﻿@model  IEnumerable<GoodsPropertyModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <ul class="list-group">
+            @foreach (var property in Model)
+            {
+                <li class="list-group-item">
+                    @property.Name
+                    <input type="button" class="btn btn-postid btn-danger pull-right" data-url="/GoodsProperty/DeleteGoodsProperty" data-identity="@property.Id" href="" value="删除" />
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-lg-6">
+        <form class="form-horizontal" id="form-submit">
+            <div class="form-group">
+                <label for="Name" class="col-lg-2 control-label">属性名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <div class="btn-group">
+                        <input type="button" value="保存" class="btn btn-success btn-submit" data-url="AddGoodsProperty">
+                        <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,5 +1,36 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<div>
+    <form class="form-inline  inline-block" id="form-search" data-page="GoodsPageView">
+        <div class="form-group">
+            <label for="Name">名称</label>
+            <input type="text" class="form-control" id="Name">
+        </div>
+        <div class="form-group">
+            <div class="btn-group">
+                <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
+                    <i class="icon-search"></i>
+                    查询
+                </button>
+                <a class="btn btn-success" href="GoodsAddView">
+                    <i class="icon-plus"></i>
+                    新增商品
+                </a>
+                <a class="btn btn-success" href="/GoodsCategory/GoodsCategoryView">
+                    <i class="icon-plus"></i>
+                    商品分类设置
+                </a>
+                <a class="btn btn-success" href="/GoodsProperty/GoodsPropertyView">
+                    <i class="icon-plus"></i>
+                    商品属性设置
+                </a>
+            </div>
+        </div>
+    </form>
+    <div id="table-container"></div>
+    <div>
+        <ul class="pagination" id="pagination-container"></ul>
+    </div>
+</div>

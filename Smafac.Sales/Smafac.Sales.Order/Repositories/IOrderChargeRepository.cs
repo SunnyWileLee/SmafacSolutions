@@ -14,5 +14,6 @@ namespace Smafac.Sales.Order.Repositories
         bool DeleteCharge(Guid subscriberId, Guid chargeId);
         bool UpdateCharge(OrderChargeModel model);
         List<OrderChargeEntity> GetCharges(Guid subscriberId);
+        bool Any(Guid subscriberId, string name);
     }
 }

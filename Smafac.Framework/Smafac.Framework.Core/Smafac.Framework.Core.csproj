@@ -53,7 +53,7 @@
     <Compile Include="Applications\IVersionService.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
-    <Compile Include="Domain\RecursionEntity.cs" />
+    <Compile Include="Domain\TreeNodeEntity.cs" />
     <Compile Include="Domain\SaasBaseEntity.cs" />
     <Compile Include="Domain\SmafacPrincipal.cs" />
     <Compile Include="Domain\StatusChangedEntity.cs" />

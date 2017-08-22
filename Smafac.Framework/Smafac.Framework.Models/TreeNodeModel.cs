@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Models
 {
-    public class RecursionModel : SaasBaseModel
+    public class TreeNodeModel : SaasBaseModel
     {
         public Guid ParentId { get; set; }
 

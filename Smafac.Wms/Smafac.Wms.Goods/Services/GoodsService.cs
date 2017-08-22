@@ -28,5 +28,10 @@ namespace Smafac.Wms.Goods.Services
             model.SubscriberId = UserContext.Current.SubscriberId;
             return _goodsRepository.AddGoods(goods);
         }
+
+        public GoodsModel CreateEmptyGoods()
+        {
+            return new GoodsModel();
+        }
     }
 }
