@@ -12,43 +12,17 @@ namespace Smafac.Account.Subscriber.Services
 {
     class SubscriberService : ISubscriberService
     {
-        private readonly ISubscriberRepository _subscriberRepository;
-        private readonly IPassportSearchRepository _passportSearchRepository;
-        private readonly IPassportRepository _passportRepository;
+        private readonly ISubscriberRegister _subscriberRegister;
 
-        public SubscriberService(ISubscriberRepository subscriberRepository,
-                                IPassportSearchRepository passportSearchRepository,
-                                IPassportRepository passportRepository)
+        public SubscriberService(ISubscriberRegister subscriberRegister)
         {
-            _subscriberRepository = subscriberRepository;
-            _passportSearchRepository = passportSearchRepository;
-            _passportRepository = passportRepository;
+            _subscriberRegister = subscriberRegister;
         }
+
         public bool Register(PassportModel model)
         {
-            var passport = _passportSearchRepository.GetPassportByName(model.UserName);
-            if (passport != null)
-            {
-                return false;
-            }
-            SubscriberEntity subscriber = new SubscriberEntity
-            {
-                Id = Guid.NewGuid(),
-                CreateTime = DateTime.Now,
-                Name = model.UserName
-            };
-            var addSubscriber = _subscriberRepository.AddSubscriber(subscriber);
-            if (!addSubscriber)
-            {
-                return false;
-            }
-            passport = new PassportEntity
-            {
-                UserName = model.UserName,
-                Password = model.Password,
-                SubscriberId = subscriber.Id
-            };
-            return _passportRepository.AddPassport(passport);
+            var id = _subscriberRegister.Register(model);
+            return id != Guid.Empty;
         }
     }
 }

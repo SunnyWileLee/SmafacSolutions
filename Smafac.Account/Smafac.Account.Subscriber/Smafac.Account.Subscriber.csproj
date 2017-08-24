@@ -56,8 +56,10 @@
     <Compile Include="Applications\IPassportService.cs" />
     <Compile Include="Applications\ISignInService.cs" />
     <Compile Include="Applications\ISubscriberService.cs" />
+    <Compile Include="Domain\ISubscriberRegister.cs" />
     <Compile Include="Domain\ISignInCreater.cs" />
     <Compile Include="Domain\PassportEntity.cs" />
+    <Compile Include="Domain\SubscriberRegister.cs" />
     <Compile Include="Domain\SignInEntity.cs" />
     <Compile Include="Domain\SubscriberEntity.cs" />
     <Compile Include="Migrations\201707310907155_InitialCreate.cs" />
@@ -100,6 +102,10 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
+      <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
+      <Name>Smafac.Framework.Infrustructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
       <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>

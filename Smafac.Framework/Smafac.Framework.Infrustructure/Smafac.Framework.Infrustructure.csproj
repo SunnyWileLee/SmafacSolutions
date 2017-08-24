@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DictionaryCacher.cs" />
-    <Compile Include="IAutofacScan.cs" />
+    <Compile Include="IAutofacScanInfrustructure.cs" />
     <Compile Include="ICacher.cs" />
+    <Compile Include="IEncrypt.cs" />
     <Compile Include="IHttpInvoker.cs" />
+    <Compile Include="Md5Encrypt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedisCacher.cs" />
   </ItemGroup>

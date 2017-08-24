@@ -8,6 +8,7 @@ using Smafac.Account.Subscriber.Applications;
 using Smafac.Crm.Customer.Applications;
 using Smafac.Framework.Core.Applications;
 using Smafac.Framework.Core.Models;
+using Smafac.Framework.Infrustructure;
 using Smafac.Presentation;
 using Smafac.Wms.Goods.Applications;
 using System.Web.Mvc;
@@ -36,6 +37,7 @@ namespace Smafac.Presentation
             Register<IAutofacScanGoods>(builder);
             Register<IAutofacScanCustomer>(builder);
             Register<IAutofacScanSubscriber>(builder);
+            Register<IAutofacScanInfrustructure>(builder);
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
