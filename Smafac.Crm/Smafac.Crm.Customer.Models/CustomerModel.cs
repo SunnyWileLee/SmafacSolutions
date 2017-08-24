@@ -22,5 +22,13 @@ namespace Smafac.Crm.Customer.Models
         [Display(Name = "等级")]
         public string LevelName { get; set; }
         public List<CustomerPropertyValueModel> Properties { get; set; }
+
+        public bool HasProperties
+        {
+            get
+            {
+                return Properties != null && Properties.Any();
+            }
+        }
     }
 }

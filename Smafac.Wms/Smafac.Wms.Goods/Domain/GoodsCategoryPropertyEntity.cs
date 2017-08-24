@@ -11,7 +11,7 @@ namespace Smafac.Wms.Goods.Domain
     [Table("GoodsCategoryProperty")]
     class GoodsCategoryPropertyEntity : SaasBaseEntity
     {
-        public Guid GoodsId { get; set; }
+        public Guid CategoryId { get; set; }
         public Guid PropertyId { get; set; }
     }
 }

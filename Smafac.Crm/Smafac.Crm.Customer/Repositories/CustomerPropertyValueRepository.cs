@@ -81,5 +81,26 @@ namespace Smafac.Crm.Customer.Repositories
                 return context.CustomerPropertyValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
             }
         }
+
+        public bool AddPropertyValues(Guid subscriberId, Guid customerId, IEnumerable<CustomerPropertyValueEntity> values)
+        {
+            using (var context = _customerContextProvider.Provide())
+            {
+                if (!context.Customers.Any(s => s.Id == customerId && s.SubscriberId == subscriberId))
+                {
+                    return false;
+                }
+                if (context.CustomerPropertyValues.Any(s => s.SubscriberId == subscriberId && s.CustomerId == customerId))
+                {
+                    return false;
+                }
+                if (values.Any(s => s.CustomerId != customerId || s.SubscriberId != subscriberId))
+                {
+                    return false;
+                }
+                context.CustomerPropertyValues.AddRange(values);
+                return context.SaveChanges() > 0;
+            }
+        }
     }
 }

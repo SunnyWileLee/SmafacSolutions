@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Models
 {
-    public class GoodsPropertyModel : PropertyModel
+    public class GoodsCategoryPropertyModel : SaasBaseModel
     {
-        
+        public Guid CategoryId { get; set; }
+        public Guid PropertyId { get; set; }
     }
 }

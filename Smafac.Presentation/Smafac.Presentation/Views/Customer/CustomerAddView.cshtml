@@ -9,34 +9,34 @@
         <form class=" form-horizontal">
             <div class="form-group">
                 @Html.LabelFor(s => s.Name, new { @class = "col-lg-2 control-label" })
-                <div class="col-sm-10">
+                <div class="col-lg-10">
                     @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Address, new { @class = "col-lg-2 control-label" })
-                <div class="col-sm-10">
+                <div class="col-lg-10">
                     @Html.TextBoxFor(s => s.Address, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.MobileNumber, new { @class = "col-lg-2 control-label" })
-                <div class="col-sm-10">
+                <div class="col-lg-10">
                     @Html.TextBoxFor(s => s.MobileNumber, new { @class = "form-control" })
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.KnownDate, new { @class = "col-lg-2 control-label" })
-                <div class="col-sm-10">
-                    @Html.TextBoxFor(s => s.KnownDate, new { @class = "form-control" })
+            @*<div class="form-group">
+                    @Html.LabelFor(s => s.KnownDate, new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @Html.TextBoxFor(s => s.KnownDate, new { @class = "form-control" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.LevelName, new { @class = "col-lg-2 control-label" })
-                <div class="col-sm-10">
-                    @Html.TextBoxFor(s => s.LevelName, new { @class = "form-control" })
-                </div>
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.LevelName, new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @Html.TextBoxFor(s => s.LevelName, new { @class = "form-control" })
+                    </div>
+                </div>*@
         </form>
     </div>
     <div class="col-lg-6">
@@ -44,17 +44,56 @@
             @foreach (var property in Model.Properties)
             {
                 <div class="form-group">
-                    @Html.Label(property.PropertyName, new { @class = "col-lg-2 control-label" })
-                    <div class="col-sm-10">
-                        @Html.TextBox(property.PropertyId.ToString(), property.Value, new { @class = "form-control" })
+                    <label class="col-lg-2 control-label">@property.PropertyName</label>
+                    <div class="col-lg-10">
+                        <input name="@property.PropertyId.ToString()" class="form-control input-propertyValue" />
                     </div>
                 </div>
             }
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default">提交</button>
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="button" class="btn btn-default" onclick="addCustomer()">提交</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    function addCustomer() {
+        var name = $('#Name').val();
+        var address = $('#Address').val();
+        var mobileNumber = $('#MobileNumber').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var propertyId = input.attr('id').val();
+            var value = inpu.val();
+            var property = {
+                propertyId: propertyId,
+                value: value
+            };
+            properties.push(property);
+        })
+        var data = {
+            name: name,
+            address: address,
+            mobileNumber: mobileNumber,
+            properties: properties
+        };
+        console.log(data);
+        var url = '/Customer/AddCustomer';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>

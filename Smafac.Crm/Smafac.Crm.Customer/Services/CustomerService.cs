@@ -16,19 +16,34 @@ namespace Smafac.Crm.Customer.Services
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly ICustomerPropertyRepository _customerPropertyRepository;
+        private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
 
         public CustomerService(ICustomerRepository customerRepository,
-                                ICustomerPropertyRepository customerPropertyRepository)
+                                ICustomerPropertyRepository customerPropertyRepository,
+                                ICustomerPropertyValueRepository customerPropertyValueRepository)
         {
             _customerRepository = customerRepository;
             _customerPropertyRepository = customerPropertyRepository;
+            _customerPropertyValueRepository = customerPropertyValueRepository;
         }
 
         public bool AddCustomer(CustomerModel model)
         {
+            var subscriberId = UserContext.Current.SubscriberId;
             var customer = Mapper.Map<CustomerEntity>(model);
-            customer.SubscriberId = UserContext.Current.SubscriberId;
-            return _customerRepository.AddCustomer(customer);
+            customer.SubscriberId = subscriberId;
+            var addCustomer = _customerRepository.AddCustomer(customer);
+            if (addCustomer && model.HasProperties)
+            {
+                model.Properties.ForEach(property =>
+                {
+                    property.CustomerId = customer.Id;
+                    property.SubscriberId = customer.SubscriberId;
+                });
+                var values = Mapper.Map<List<CustomerPropertyValueEntity>>(model.Properties);
+                return _customerPropertyValueRepository.AddPropertyValues(customer.SubscriberId, customer.Id, values);
+            }
+            return addCustomer;
         }
 
 

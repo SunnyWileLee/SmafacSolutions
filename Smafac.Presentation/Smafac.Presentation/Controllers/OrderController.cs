@@ -52,9 +52,9 @@ namespace Smafac.Presentation.Controllers
             return Success(page);
         }
         [HttpGet]
-        public ActionResult OrderAddView(Guid? orderId)
+        public ActionResult OrderAddView()
         {
-            OrderModel order = orderId == null ? _orderService.CreateEmptyOrder() : _orderSearchService.GetOrder(orderId.Value);
+            OrderModel order = _orderService.CreateEmptyOrder();
             return View(order);
         }
         [HttpPost]

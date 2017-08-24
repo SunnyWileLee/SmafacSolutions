@@ -14,5 +14,6 @@ namespace Smafac.Crm.Customer.Repositories
         List<CustomerPropertyValueModel> GetPropertyValues(Guid SubscriberId, Guid customerId);
         IEnumerable<IGrouping<Guid, CustomerPropertyValueModel>> GetPropertyValues(Guid SubscriberId, IEnumerable<Guid> customerIds);
         bool Any(Guid SubscriberId, Guid propertyId);
+        bool AddPropertyValues(Guid subscriberId, Guid customerId, IEnumerable<CustomerPropertyValueEntity> values);
     }
 }

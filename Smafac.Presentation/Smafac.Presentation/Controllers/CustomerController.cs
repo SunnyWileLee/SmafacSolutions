@@ -53,5 +53,11 @@ namespace Smafac.Presentation.Controllers
             var page = _customerSearchService.GetCustomerPage(query);
             return Success(page);
         }
+        [HttpPost]
+        public ActionResult AddCustomer(CustomerModel model)
+        {
+            var result = _customerService.AddCustomer(model);
+            return Success(result);
+        }
     }
 }

@@ -16,13 +16,16 @@ namespace Smafac.Wms.Goods.Services
     {
         private readonly IGoodsPropertyRepository _goodsPropertyRepository;
         private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
+        private readonly IGoodsPropertyProvider _goodsPropertyProvider;
 
         public GoodsPropertyService(IGoodsPropertyRepository goodsPropertyRepository,
-                                        IGoodsPropertyValueRepository goodsPropertyValueRepository
+                                        IGoodsPropertyValueRepository goodsPropertyValueRepository,
+                                        IGoodsPropertyProvider goodsPropertyProvider
                                     )
         {
             _goodsPropertyRepository = goodsPropertyRepository;
             _goodsPropertyValueRepository = goodsPropertyValueRepository;
+            _goodsPropertyProvider = goodsPropertyProvider;
         }
 
         public bool AddProperty(GoodsPropertyModel model)
@@ -50,6 +53,12 @@ namespace Smafac.Wms.Goods.Services
         {
             var properties = _goodsPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
             return Mapper.Map<List<GoodsPropertyModel>>(properties);
+        }
+
+        public List<GoodsPropertyModel> GetProperties(Guid goodsId)
+        {
+            return _goodsPropertyProvider.Provide(goodsId);
+
         }
     }
 }

@@ -63,5 +63,14 @@ namespace Smafac.Wms.Goods.Repositories
                 return count;
             }
         }
+
+        public GoodsEntity GetGoods(Guid subscriberId, Guid goodsId)
+        {
+            using (var context = _goodsContextProvider.Provide())
+            {
+                var goods = context.Goods.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == goodsId);
+                return goods;
+            }
+        }
     }
 }

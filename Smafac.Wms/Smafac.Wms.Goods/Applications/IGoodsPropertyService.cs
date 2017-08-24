@@ -13,5 +13,6 @@ namespace Smafac.Wms.Goods.Applications
         bool UpdateProperty(GoodsPropertyModel model);
         bool DeleteProperty(Guid propertyId);
         List<GoodsPropertyModel> GetProperties();
+        List<GoodsPropertyModel> GetProperties(Guid goodsId);
     }
 }

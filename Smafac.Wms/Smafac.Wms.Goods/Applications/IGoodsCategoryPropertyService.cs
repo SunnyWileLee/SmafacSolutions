@@ -9,6 +9,8 @@ namespace Smafac.Wms.Goods.Applications
 {
     public interface IGoodsCategoryPropertyService
     {
+        List<PropertyModel> GetPropertiesIncludeParents(Guid categoryId);
         List<PropertyModel> GetProperties(Guid categoryId);
+        bool BindProperties(Guid categoryId, IEnumerable<Guid> propertyIds);
     }
 }
