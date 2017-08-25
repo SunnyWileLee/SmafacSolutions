@@ -13,14 +13,17 @@ namespace Smafac.Presentation.Controllers
         private readonly IGoodsService _goodsService;
         private readonly IGoodsSearchService _goodsSearchService;
         private readonly IGoodsCategoryService _goodsCategoryService;
+        private readonly IGoodsCategroySearchService _goodsCategroySearchService;
 
         public GoodsController(IGoodsService goodsService,
                                 IGoodsSearchService goodsSearchService,
-                                IGoodsCategoryService goodsCategoryService)
+                                IGoodsCategoryService goodsCategoryService,
+                                IGoodsCategroySearchService goodsCategroySearchService)
         {
             _goodsService = goodsService;
             _goodsSearchService = goodsSearchService;
             _goodsCategoryService = goodsCategoryService;
+            _goodsCategroySearchService = goodsCategroySearchService;
         }
 
         [HttpGet]
@@ -43,7 +46,7 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsAddView()
         {
-            var categories = _goodsCategoryService.GetLeafCategories()
+            var categories = _goodsCategroySearchService.GetLeafCategories()
                             .Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
             ViewData["categories"] = categories;
             var goods = _goodsService.CreateEmptyGoods();
@@ -55,6 +58,13 @@ namespace Smafac.Presentation.Controllers
         {
             var result = _goodsService.AddGoods(model);
             return BoolResult(result);
+        }
+
+        [HttpGet]
+        public ActionResult GoodsDetailView(Guid goodsId)
+        {
+            var goods = _goodsSearchService.GetGoodsDetail(goodsId);
+            return View(goods);
         }
     }
 }

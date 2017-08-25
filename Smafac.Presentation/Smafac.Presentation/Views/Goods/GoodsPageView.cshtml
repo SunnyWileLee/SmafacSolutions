@@ -10,6 +10,7 @@
             <th>名称</th>
             <th>售价</th>
             <th>类别</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,9 @@
                 <td>@goods.Name</td>
                 <td>@goods.Price.ToString()</td>
                 <td>@goods.CategoryName</td>
+                <td>
+                    <a class="btn btn-default" href="/Goods/GoodsDetailView?customerId=@goods.Id" type="button">详情</a>
+                </td>
             </tr>
         }
     </tbody>

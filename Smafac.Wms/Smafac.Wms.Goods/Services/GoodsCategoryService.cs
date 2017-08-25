@@ -34,26 +34,6 @@ namespace Smafac.Wms.Goods.Services
             return _goodsCategoryRepository.DeleteCategory(UserContext.Current.SubscriberId, categoryId);
         }
 
-        public List<GoodsCategoryModel> GetCategories(Guid parentId)
-        {
-            var categories = _goodsCategoryRepository.GetCategories(UserContext.Current.SubscriberId, parentId);
-            var models = Mapper.Map<List<GoodsCategoryModel>>(categories);
-            return models;
-        }
-
-        public GoodsCategoryModel GetCategory(Guid Id)
-        {
-            var category= _goodsCategoryRepository.GetCategory(UserContext.Current.SubscriberId, Id);
-            return Mapper.Map<GoodsCategoryModel>(category);
-        }
-
-        public List<GoodsCategoryModel> GetLeafCategories()
-        {
-            var categories = _goodsCategoryRepository.GetCategories(UserContext.Current.SubscriberId, s => s.NodeType == TreeNodeEntity.LeafNodeType)
-                                                    .OrderBy(s => s.ParentId).ToList();
-            return Mapper.Map<List<GoodsCategoryModel>>(categories);
-        }
-
         public bool UpdateCategory(GoodsCategoryModel model)
         {
             var category = Mapper.Map<GoodsCategoryEntity>(model);

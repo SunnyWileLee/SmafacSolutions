@@ -13,15 +13,18 @@ namespace Smafac.Presentation.Controllers
         private readonly IGoodsCategoryService _goodsCategoryService;
         private readonly IGoodsCategoryPropertyService _goodsCategoryPropertyService;
         private readonly IGoodsPropertyService _goodsPropertyService;
+        private readonly IGoodsCategroySearchService _goodsCategroySearchService;
 
         public GoodsCategoryController(IGoodsCategoryService goodsCategoryService,
                                         IGoodsCategoryPropertyService goodsCategoryPropertyService,
-                                        IGoodsPropertyService goodsPropertyService
+                                        IGoodsPropertyService goodsPropertyService,
+                                        IGoodsCategroySearchService goodsCategroySearchService
                                         )
         {
             _goodsCategoryService = goodsCategoryService;
             _goodsCategoryPropertyService = goodsCategoryPropertyService;
             _goodsPropertyService = goodsPropertyService;
+            _goodsCategroySearchService = goodsCategroySearchService;
         }
         [HttpGet]
         public ActionResult GoodsCategoryView()
@@ -29,9 +32,13 @@ namespace Smafac.Presentation.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult GoodsCategorySliceView(Guid categoryId)
+        public ActionResult GoodsCategorySliceView(Guid? categoryId, int slice)
         {
-            return View();
+            GoodsCategoryModel model = (categoryId == null || categoryId.Value == Guid.Empty)
+                                        ? new GoodsCategoryModel { Children = _goodsCategroySearchService.GetCategories(Guid.Empty), Id = Guid.Empty }
+                                        : _goodsCategroySearchService.GetCategoryWithChildren(categoryId.Value);
+            ViewData["slice"] = slice;
+            return View(model);
         }
 
         [HttpPost]
@@ -44,7 +51,7 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsCategoryPropertyBindView(Guid categoryId)
         {
-            var category = _goodsCategoryService.GetCategory(categoryId);
+            var category = _goodsCategroySearchService.GetCategory(categoryId);
             ViewData["category"] = category;
             var properties = _goodsPropertyService.GetProperties();
             var bounds = _goodsCategoryPropertyService.GetProperties(categoryId).Select(s => s.Id).ToList();
@@ -57,7 +64,7 @@ namespace Smafac.Presentation.Controllers
         public ActionResult BindProperties(GoodsCategoryPropertyColletionModel model)
         {
             var result = _goodsCategoryPropertyService.BindProperties(model.CategoryId, model.PropertyIds);
-            return Success(result);
+            return BoolResult(result);
         }
 
         [HttpGet]

@@ -1,4 +1,5 @@
 ﻿using Smafac.Framework.Models;
+using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Smafac.Wms.Goods.Applications
 {
     public interface IGoodsCategoryPropertyService
     {
-        List<PropertyModel> GetPropertiesIncludeParents(Guid categoryId);
-        List<PropertyModel> GetProperties(Guid categoryId);
+        List<GoodsPropertyModel> GetPropertiesIncludeParents(Guid categoryId);
+        List<GoodsPropertyModel> GetProperties(Guid categoryId);
         bool BindProperties(Guid categoryId, IEnumerable<Guid> propertyIds);
     }
 }

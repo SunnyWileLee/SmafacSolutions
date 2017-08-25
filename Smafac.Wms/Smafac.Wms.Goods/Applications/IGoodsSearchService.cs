@@ -10,6 +10,8 @@ namespace Smafac.Wms.Goods.Applications
 {
     public interface IGoodsSearchService
     {
+        GoodsModel GetGoods(Guid goodsId);
+        GoodsDetailModel GetGoodsDetail(Guid goodsId);
         List<GoodsModel> GetGoods(string key);
         PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model);
         List<GoodsModel> GetGoods(IEnumerable<Guid> goodsIds);

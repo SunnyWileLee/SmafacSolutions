@@ -81,5 +81,26 @@ namespace Smafac.Wms.Goods.Repositories
                 return context.GoodsPropertyValues.Any(s => s.SubscriberId == subscriberId && s.PropertyId == propertyId);
             }
         }
+
+        public bool AddPropertyValues(Guid subscriberId, Guid goodsId, IEnumerable<GoodsPropertyValueEntity> values)
+        {
+            using (var context = _customerContextProvider.Provide())
+            {
+                if (!context.Goods.Any(s => s.Id == goodsId && s.SubscriberId == subscriberId))
+                {
+                    return false;
+                }
+                if (context.GoodsPropertyValues.Any(s => s.SubscriberId == subscriberId && s.GoodsId == goodsId))
+                {
+                    return false;
+                }
+                if (values.Any(s => s.GoodsId != goodsId || s.SubscriberId != subscriberId))
+                {
+                    return false;
+                }
+                context.GoodsPropertyValues.AddRange(values);
+                return context.SaveChanges() > 0;
+            }
+        }
     }
 }

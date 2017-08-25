@@ -34,6 +34,9 @@
             var slice = btn.attr('data-slice');
             var id = btn.attr('data-id');
             var name = $('#input-category-' + slice).val();
+            console.log(slice);
+            console.log(name);
+            console.log(id);
             if (name == null || name == '') {
                 alert('类别不能为空');
                 return false;
@@ -44,7 +47,7 @@
 
     function AddCategory(parentId, name, slice) {
         var url = "/GoodsCategory/AddGoodsCategory";
-        var paras = { parentId: parentId, name: category };
+        var paras = { parentId: parentId, name: name };
         $.ajax({
             type: "post",
             url: url,
@@ -52,7 +55,7 @@
             dataType: "json",
             success: function (data) {
                 ajaxSuccess(data, function (data) {
-                    window.location.reload();
+                    GetCategorySlice(slice - 1, parentId)
                 })
             },
             error: function (data) { }
@@ -60,7 +63,7 @@
     }
 
     function GetCategorySlice(slice, categoryId) {
-        var url = "/GoodsCategory/GoodsCategorySliceView?categoryId=" + categoryId;
+        var url = "/GoodsCategory/GoodsCategorySliceView?categoryId=" + categoryId + "&slice=" + slice;
         $.ajax({
             type: "get",
             url: url,
@@ -79,5 +82,4 @@
         GetCategorySlice(0, '');
     })
 </script>
-
 

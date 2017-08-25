@@ -14,5 +14,6 @@ namespace Smafac.Wms.Goods.Repositories
         List<GoodsPropertyValueModel> GetPropertyValues(Guid SubscriberId, Guid goodsId);
         IEnumerable<IGrouping<Guid, GoodsPropertyValueModel>> GetPropertyValues(Guid SubscriberId, IEnumerable<Guid> goodsIds);
         bool Any(Guid SubscriberId, Guid propertyId);
+        bool AddPropertyValues(Guid subscriberId, Guid goodsId, IEnumerable<GoodsPropertyValueEntity> values);
     }
 }

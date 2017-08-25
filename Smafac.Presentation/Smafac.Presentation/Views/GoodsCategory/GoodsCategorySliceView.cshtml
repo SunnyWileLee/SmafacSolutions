@@ -1,10 +1,13 @@
 ﻿@model GoodsCategoryModel
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
     var slice = Convert.ToInt32(ViewData["slice"]) + 1;
 }
 
+<h3>
+    @Model.Name
+</h3>
 <form class="form-inline">
     <div class="form-group">
         <input type="text" class="form-control" id="input-category-@slice" />
@@ -16,7 +19,24 @@
             {
         <li class="list-group-item">
             @category.Name
-            <input type="button" class="btn btn-success pull-right btn-category-slice" data-slice="@slice" data-id="@category.Id" value="子类别" />
+            <div class="btn-group pull-right " role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    操作
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="btn btn-success" href="/GoodsCategory/GoodsCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
+                    </li>
+                    @if (slice < 6)
+                    {
+                        <li>
+                            <a class="btn btn-success btn-category-slice" data-slice="@slice" data-id="@category.Id">子类别</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
         </li>
     }
 </ul>

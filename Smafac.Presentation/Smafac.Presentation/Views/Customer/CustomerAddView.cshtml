@@ -53,6 +53,10 @@
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
                     <button type="button" class="btn btn-default" onclick="addCustomer()">提交</button>
+                    <a class="btn btn-default" href="/Customer/CustomerView" type="button">
+                        <i class="m-icon-swapleft m-icon-white"></i>
+                        返回列表
+                    </a>
                 </div>
             </div>
         </form>
@@ -67,8 +71,8 @@
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
-            var propertyId = input.attr('id').val();
-            var value = inpu.val();
+            var propertyId = input.attr('name');
+            var value = input.val();
             var property = {
                 propertyId: propertyId,
                 value: value

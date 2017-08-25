@@ -16,9 +16,18 @@ namespace Smafac.Wms.Goods.Models
         [Display(Name = "售价")]
         [Required]
         public decimal Price { get; set; }
+        [Display(Name = "类别")]
         public Guid CategoryId { get; set; }
         [Display(Name = "类别")]
         public string CategoryName { get; set; }
         public List<GoodsPropertyValueModel> Properties { get; set; }
+
+        public bool HasProperties
+        {
+            get
+            {
+                return Properties != null && Properties.Any();
+            }
+        }
     }
 }

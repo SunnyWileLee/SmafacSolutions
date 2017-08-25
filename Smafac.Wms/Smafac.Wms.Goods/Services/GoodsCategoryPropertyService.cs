@@ -9,6 +9,7 @@ using Smafac.Wms.Goods.Repositories;
 using Smafac.Framework.Core.Models;
 using AutoMapper;
 using Smafac.Wms.Goods.Domain;
+using Smafac.Wms.Goods.Models;
 
 namespace Smafac.Wms.Goods.Services
 {
@@ -37,16 +38,16 @@ namespace Smafac.Wms.Goods.Services
             return _goodsCategoryPropertyRepository.BindProperties(subscriberId, categoryId, propertyIds);
         }
 
-        public List<PropertyModel> GetProperties(Guid categoryId)
+        public List<GoodsPropertyModel> GetProperties(Guid categoryId)
         {
             var properties = _goodsCategoryPropertyRepository.GetProperties(UserContext.Current.SubscriberId, categoryId);
-            return Mapper.Map<List<PropertyModel>>(properties);
+            return Mapper.Map<List<GoodsPropertyModel>>(properties);
         }
 
-        public List<PropertyModel> GetPropertiesIncludeParents(Guid categoryId)
+        public List<GoodsPropertyModel> GetPropertiesIncludeParents(Guid categoryId)
         {
             var properties = _goodsCategoryPropertyProvider.Provide(categoryId);
-            return Mapper.Map<List<PropertyModel>>(properties);
+            return properties;
         }
     }
 }

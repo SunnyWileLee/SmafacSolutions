@@ -210,7 +210,7 @@
     <Content Include="Views\GoodsCategory\GoodsCategorySliceView.cshtml" />
     <Content Include="Views\GoodsProperty\GoodsPropertyView.cshtml" />
     <Content Include="Views\GoodsCategory\GoodsCategoryPropertyBindView.cshtml" />
-    <Content Include="Views\Goods\GoodsCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\GoodsCategory\GoodsCategoryPropertyValueView.cshtml" />
     <Content Include="Views\Order\OrderAddView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

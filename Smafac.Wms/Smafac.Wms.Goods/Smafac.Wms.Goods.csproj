@@ -55,6 +55,7 @@
     <Compile Include="Applications\IAutofacScanGoods.cs" />
     <Compile Include="Applications\IGoodsCategoryPropertyService.cs" />
     <Compile Include="Applications\IGoodsCategoryService.cs" />
+    <Compile Include="Applications\IGoodsCategroySearchService.cs" />
     <Compile Include="Applications\IGoodsPropertyService.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Repositories\IGoodsPropertyRepository.cs" />
     <Compile Include="Repositories\GoodsPropertyRepository.cs" />
     <Compile Include="Services\GoodsCategoryPropertyService.cs" />
+    <Compile Include="Services\GoodsCategroySearchService.cs" />
     <Compile Include="Services\GoodsPropertyService.cs" />
     <Compile Include="Services\GoodsAutoMapper.cs" />
     <Compile Include="Services\GoodsCategoryService.cs" />

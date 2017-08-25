@@ -13,6 +13,11 @@ namespace Smafac.Crm.Customer.Domain
     [Table("Customer")]
     class CustomerEntity : SaasBaseEntity
     {
+        public CustomerEntity()
+        {
+            KnownDate = DateTime.Now;
+        }
+
         public string Name { get; set; }
         public string Address { get; set; }
         public DateTime KnownDate { get; set; }

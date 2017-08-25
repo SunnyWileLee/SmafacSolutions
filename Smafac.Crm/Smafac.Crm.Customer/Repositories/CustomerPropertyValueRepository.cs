@@ -38,17 +38,8 @@ namespace Smafac.Crm.Customer.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && s.CustomerId == customerId)
-                                    .Select(s => new CustomerPropertyValueModel
-                                    {
-                                        SubscriberId = s.SubscriberId,
-                                        CreateTime = s.CreateTime,
-                                        Id = s.Id,
-                                        CustomerId = s.CustomerId,
-                                        PropertyId = s.PropertyId,
-                                        Value = s.Value
-                                    }).ToList();
-                return values;
+                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && s.CustomerId == customerId);
+                return JoinProperyName(values, context.CustomerProperties).ToList();
             }
         }
 
@@ -60,18 +51,28 @@ namespace Smafac.Crm.Customer.Repositories
             }
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.CustomerId))
-                                    .Select(s => new CustomerPropertyValueModel
-                                    {
-                                        SubscriberId = s.SubscriberId,
-                                        CreateTime = s.CreateTime,
-                                        Id = s.Id,
-                                        CustomerId = s.CustomerId,
-                                        PropertyId = s.PropertyId,
-                                        Value = s.Value
-                                    }).ToList();
-                return values.GroupBy(s => s.CustomerId);
+                var values = context.CustomerPropertyValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.CustomerId));
+                var models = JoinProperyName(values, context.CustomerProperties);
+                return models.GroupBy(s => s.CustomerId);
             }
+        }
+
+        private IEnumerable<CustomerPropertyValueModel> JoinProperyName(IQueryable<CustomerPropertyValueEntity> values,
+                                                                        IQueryable<CustomerPropertyEntity> properties)
+        {
+            var query = from value in values
+                        join property in properties on value.PropertyId equals property.Id
+                        select new CustomerPropertyValueModel
+                        {
+                            SubscriberId = value.SubscriberId,
+                            CreateTime = value.CreateTime,
+                            Id = value.Id,
+                            CustomerId = value.CustomerId,
+                            PropertyId = value.PropertyId,
+                            Value = value.Value,
+                            PropertyName = property.Name
+                        };
+            return query.ToList();
         }
 
         public bool Any(Guid subscriberId, Guid propertyId)

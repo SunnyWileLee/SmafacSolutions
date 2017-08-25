@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var category = ViewData["categoryId"] as GoodsCategoryModel;
+    var category = ViewData["category"] as GoodsCategoryModel;
     var boundIds = ViewData["boundIds"] as IEnumerable<Guid>;
 }
 
@@ -11,9 +11,9 @@
     <div class="col-lg-6">
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="col-lg-2 lable-control">类别</label>
+                <label class="col-lg-2 control-lable">类别</label>
                 <div class="col-lg-10">
-                    <input class="form-control" readonly="readonly" name="@category.Id.ToString()" value="@category.Name" />
+                    <input class="form-control" readonly="readonly" name="@category.Id.ToString()" value="@category.Name" id="id-categoryId" />
                 </div>
             </div>
         </form>
@@ -29,22 +29,53 @@
                                 var bound = boundIds.Contains(property.Id);
                                 if (bound)
                                 {
-                                    <input type="checkbox" aria-label="..." checked="checked">
+                                    <input class="checkbox-property" type="checkbox" aria-label="..." checked="checked" id="@property.Id">
                                 }
                                 else
                                 {
-                                    <input type="checkbox" aria-label="...">
+                                    <input class="checkbox-property" type="checkbox" aria-label="..." id="@property.Id">
                                 }
                             }
                         </span>
                         <input type="text" readonly="readonly" class="form-control" aria-label="..." value="@property.Name">
                     </div>
                 </li>
-            }
+                                }
         </ul>
+        <input type="button" class="btn btn-success" onclick="bindProperties()" value="确定" />
     </div>
 </div>
 
 <script type="text/javascript">
+    function bindProperties() {
+        var categoryId = $('#id-categoryId').attr('name');
+        var propertyIds = [];
+        $('.checkbox-property').each(function (index) {
+            var checkbox = $(this);
+            var checked = checkbox.is(':checked');
+            if (checked) {
+                var propertyId = checkbox.attr('id');
+                propertyIds.push(propertyId);
+            }
+        });
 
+        var data = {
+            categoryId: categoryId,
+            propertyIds: propertyIds
+        };
+
+        var url = '/GoodsCategory/BindProperties';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
 </script>

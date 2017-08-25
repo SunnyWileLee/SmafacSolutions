@@ -10,6 +10,12 @@ namespace Smafac.Crm.Customer.Models
 {
     public class CustomerModel : SaasBaseModel
     {
+
+        public CustomerModel()
+        {
+            KnownDate = DateTime.Now;
+        }
+
         [Display(Name = "名称")]
         public string Name { get; set; }
         [Display(Name = "地址")]

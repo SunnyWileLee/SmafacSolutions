@@ -130,10 +130,18 @@ $(function () {
 
 
 function getPageHtml(page) {
+    if (page > 0) {
+        page = page - 1;
+    }
     var form = $('#form-search');
     var action = form.attr('data-page');
-    var data = form.serializeArray();
-    data.push({ pageindex: page });
+    var data = { pageindex: page };
+    $('.input-search').each(function (index) {
+        var input = $(this);
+        var name = input.attr('name');
+        var value = input.val();
+        data[name] = value;
+    })
 
     $.ajax({
         type: "get",
@@ -146,12 +154,20 @@ function getPageHtml(page) {
     });
 }
 
+
 function getTotalPage() {
     var form = $('#form-search');
     var action = form.attr('data-page');
     var url = action.replace('View', '');
-    var data = form.serializeArray();
-    data.push({ pageindex: 0 });
+
+    var data = { pageindex: 0 };
+    $('.input-search').each(function (index) {
+        var input = $(this);
+        var name = input.attr('name');
+        var value = input.val();
+        data[name] = value;
+    })
+
     $.ajax({
         type: "post",
         url: url,

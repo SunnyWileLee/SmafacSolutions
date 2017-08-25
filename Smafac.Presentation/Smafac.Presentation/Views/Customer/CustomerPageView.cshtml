@@ -10,7 +10,7 @@
             <th>姓名</th>
             <th>地址</th>
             <th>联系方式</th>
-            <th>认识时间</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +20,9 @@
                 <td>@customer.Name</td>
                 <td>@customer.Address</td>
                 <td>@customer.MobileNumber</td>
-                <td>@customer.Name</td>
+                <td>
+                    <a class="btn btn-default" href="/Customer/CustomerDetailView?customerId=@customer.Id" type="button">详情</a>
+                </td>
             </tr>
         }
     </tbody>

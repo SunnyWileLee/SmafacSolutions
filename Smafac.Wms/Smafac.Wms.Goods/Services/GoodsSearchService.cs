@@ -37,6 +37,17 @@ namespace Smafac.Wms.Goods.Services
             return _goodsSearchRepository.GetGoods(subscriberId, predicate);
         }
 
+        public GoodsModel GetGoods(Guid goodsId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GoodsDetailModel GetGoodsDetail(Guid goodsId)
+        {
+            throw new NotImplementedException();
+        }
+
+
         public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model)
         {
             var predicate = model.CreatePredicate<GoodsEntity>();
