@@ -18,10 +18,18 @@ namespace Smafac.Account.Subscriber.Repositories
 
         public PassportEntity GetPassportByName(string userName)
         {
+
             using (var context = _subscriberContextProvider.Provide())
             {
-                var passport = context.Passports.FirstOrDefault(s => s.UserName == userName);
-                return passport;
+                try
+                {
+                    var passport = context.Passports.FirstOrDefault(s => s.UserName == userName);
+                    return passport;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
     }
