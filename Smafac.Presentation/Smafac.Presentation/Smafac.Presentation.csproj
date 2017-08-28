@@ -212,6 +212,8 @@
     <Content Include="Views\GoodsCategory\GoodsCategoryPropertyBindView.cshtml" />
     <Content Include="Views\GoodsCategory\GoodsCategoryPropertyValueView.cshtml" />
     <Content Include="Views\Order\OrderAddView.cshtml" />
+    <Content Include="Views\Order\OrderView.cshtml" />
+    <Content Include="Views\Order\OrderPageView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

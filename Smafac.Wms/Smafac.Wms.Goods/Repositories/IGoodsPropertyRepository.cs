@@ -15,5 +15,6 @@ namespace Smafac.Wms.Goods.Repositories
         bool UpdateProperty(GoodsPropertyModel model);
         bool DeleteProperty(Guid subscriberId, Guid propertyId);
         bool Any(Guid subscriberId, string name);
+        bool IsUsed(Guid subscriberId, Guid propertyId);
     }
 }

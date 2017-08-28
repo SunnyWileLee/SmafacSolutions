@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 namespace Smafac.Wms.Goods.Domain
 {
     [Table("GoodsCategory")]
-    class GoodsCategoryEntity : TreeNodeEntity
+    class GoodsCategoryEntity : CategoryEntity
     {
-        [MaxLength(100)]
-        public string Name { get; set; }
+
     }
 }

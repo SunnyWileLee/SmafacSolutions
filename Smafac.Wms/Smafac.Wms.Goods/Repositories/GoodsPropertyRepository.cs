@@ -57,6 +57,15 @@ namespace Smafac.Wms.Goods.Repositories
             }
         }
 
+        public bool IsUsed(Guid subscriberId, Guid propertyId)
+        {
+            using (var context = _goodsContextProvider.Provide())
+            {
+                var any = context.GoodsCategoryProperties.Any(s => s.SubscriberId == subscriberId && s.PropertyId ==propertyId);
+                return any;
+            }
+        }
+
         public bool UpdateProperty(GoodsPropertyModel model)
         {
             using (var context = _goodsContextProvider.Provide())

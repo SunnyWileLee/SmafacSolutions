@@ -17,10 +17,13 @@ namespace Smafac.Wms.Goods.Services
     class GoodsSearchService : IGoodsSearchService
     {
         private readonly IGoodsSearchRepository _goodsSearchRepository;
+        private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
 
-        public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository)
+        public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository,
+                                    IGoodsPropertyValueRepository goodsPropertyValueRepository)
         {
             _goodsSearchRepository = goodsSearchRepository;
+            _goodsPropertyValueRepository = goodsPropertyValueRepository;
         }
 
         public List<GoodsModel> GetGoods(string key)
@@ -39,12 +42,17 @@ namespace Smafac.Wms.Goods.Services
 
         public GoodsModel GetGoods(Guid goodsId)
         {
-            throw new NotImplementedException();
+            var subscriberId = UserContext.Current.SubscriberId;
+            var goods = _goodsSearchRepository.GetGoods(subscriberId, goodsId);
+            var properties = _goodsPropertyValueRepository.GetPropertyValues(subscriberId, goodsId);
+            goods.Properties = properties;
+            return goods;
         }
 
         public GoodsDetailModel GetGoodsDetail(Guid goodsId)
         {
-            throw new NotImplementedException();
+            var goods = this.GetGoods(goodsId);
+            return new GoodsDetailModel { Goods = goods };
         }
 
 

@@ -59,6 +59,7 @@
     <Compile Include="Applications\IOrderSearchService.cs" />
     <Compile Include="Applications\IOrderService.cs" />
     <Compile Include="Domain\OrderCategoryEntity.cs" />
+    <Compile Include="Domain\OrderCategoryPropertyEntity.cs" />
     <Compile Include="Domain\OrderChargeEntity.cs" />
     <Compile Include="Domain\OrderChargeValueEntity.cs" />
     <Compile Include="Domain\OrderEntity.cs" />

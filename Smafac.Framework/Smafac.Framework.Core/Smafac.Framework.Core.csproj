@@ -51,7 +51,12 @@
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
     <Compile Include="Applications\IVersionService.cs" />
+    <Compile Include="Domain\CategoryEntity.cs" />
+    <Compile Include="Domain\CategoryPropertyEntity.cs" />
+    <Compile Include="Domain\CategoryPropertyProvider.cs" />
+    <Compile Include="Domain\ICategoryPropertyProvider.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
+    <Compile Include="Domain\PropertyIdComparer.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
     <Compile Include="Domain\TreeNodeEntity.cs" />
     <Compile Include="Domain\SaasBaseEntity.cs" />

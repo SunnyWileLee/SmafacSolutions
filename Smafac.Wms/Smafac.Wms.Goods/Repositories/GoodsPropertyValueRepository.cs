@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Repositories
 {
-    class GoodsPropertyValueRepository: IGoodsPropertyValueRepository
+    class GoodsPropertyValueRepository : IGoodsPropertyValueRepository
     {
         private readonly IGoodsContextProvider _customerContextProvider;
 
@@ -38,17 +38,8 @@ namespace Smafac.Wms.Goods.Repositories
         {
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.GoodsPropertyValues.Where(s => s.SubscriberId == SubscriberId && s.GoodsId == customerId)
-                                    .Select(s => new GoodsPropertyValueModel
-                                    {
-                                        SubscriberId = s.SubscriberId,
-                                        CreateTime = s.CreateTime,
-                                        Id = s.Id,
-                                        GoodsId = s.GoodsId,
-                                        PropertyId = s.PropertyId,
-                                        Value = s.Value
-                                    }).ToList();
-                return values;
+                var values = context.GoodsPropertyValues.Where(s => s.SubscriberId == SubscriberId && s.GoodsId == customerId);
+                return this.JoinProperyName(values, context.GoodsProperties).ToList();
             }
         }
 
@@ -60,17 +51,8 @@ namespace Smafac.Wms.Goods.Repositories
             }
             using (var context = _customerContextProvider.Provide())
             {
-                var values = context.GoodsPropertyValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.GoodsId))
-                                    .Select(s => new GoodsPropertyValueModel
-                                    {
-                                        SubscriberId = s.SubscriberId,
-                                        CreateTime = s.CreateTime,
-                                        Id = s.Id,
-                                        GoodsId = s.GoodsId,
-                                        PropertyId = s.PropertyId,
-                                        Value = s.Value
-                                    }).ToList();
-                return values.GroupBy(s => s.GoodsId);
+                var values = context.GoodsPropertyValues.Where(s => s.SubscriberId == SubscriberId && customerIds.Contains(s.GoodsId));
+                return this.JoinProperyName(values, context.GoodsProperties).ToList().GroupBy(s => s.GoodsId);
             }
         }
 
@@ -101,6 +83,24 @@ namespace Smafac.Wms.Goods.Repositories
                 context.GoodsPropertyValues.AddRange(values);
                 return context.SaveChanges() > 0;
             }
+        }
+
+        private IQueryable<GoodsPropertyValueModel> JoinProperyName(IQueryable<GoodsPropertyValueEntity> values,
+                                                                    IQueryable<GoodsPropertyEntity> properties)
+        {
+            var query = from value in values
+                        join property in properties on value.PropertyId equals property.Id
+                        select new GoodsPropertyValueModel
+                        {
+                            SubscriberId = value.SubscriberId,
+                            CreateTime = value.CreateTime,
+                            Id = value.Id,
+                            GoodsId = value.GoodsId,
+                            PropertyId = value.PropertyId,
+                            Value = value.Value,
+                            PropertyName = property.Name
+                        };
+            return query;
         }
     }
 }

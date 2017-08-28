@@ -13,7 +13,7 @@ namespace Smafac.Account.Subscriber.Services
 {
     class PassportService : IPassportService
     {
-        private readonly List<string> _defaultPassports = new List<string> { "13405121696" };
+        private readonly List<string> _defaultPassports = new List<string> { "13405121696", "13776302438" };
 
         private readonly IPassportSearchRepository _passportSearchRepository;
         private readonly ISubscriberSearchRepository _subscriberSearchRepository;

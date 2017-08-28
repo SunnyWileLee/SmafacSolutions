@@ -8,10 +8,11 @@ using Smafac.Wms.Goods.Repositories;
 using Smafac.Framework.Core.Models;
 using AutoMapper;
 using Smafac.Wms.Goods.Models;
+using Smafac.Framework.Core.Domain;
 
 namespace Smafac.Wms.Goods.Domain
 {
-    class GoodsCategoryPropertyProvider : IGoodsCategoryPropertyProvider
+    class GoodsCategoryPropertyProvider : CategoryPropertyProvider<GoodsPropertyEntity>, IGoodsCategoryPropertyProvider
     {
         private readonly IGoodsCategoryPropertyRepository _goodsCategoryPropertyRepository;
         private readonly IGoodsCategoryRepository _goodsCategoryRepository;
@@ -25,22 +26,18 @@ namespace Smafac.Wms.Goods.Domain
 
         public List<GoodsPropertyModel> Provide(Guid categoryId)
         {
-            if (categoryId == Guid.Empty)
-            {
-                return new List<GoodsPropertyModel>();
-            }
-            var subscriberId = UserContext.Current.SubscriberId;
-            var category = _goodsCategoryRepository.GetCategory(subscriberId, categoryId);
-            if (category == null)
-            {
-                return new List<GoodsPropertyModel>();
-            }
-            var properties = _goodsCategoryPropertyRepository.GetProperties(subscriberId, categoryId) ?? new List<GoodsPropertyEntity>();
-            if (category.IsRoot())
-            {
-                return Mapper.Map<List<GoodsPropertyModel>>(properties);
-            }
-            return Provide(category.ParentId).Union(Mapper.Map<List<GoodsPropertyModel>>(properties)).ToList();
+            var properties = base.ProvideProperties(categoryId);
+            return Mapper.Map<List<GoodsPropertyModel>>(properties);
+        }
+
+        protected override CategoryEntity GetCategory(Guid categoryId)
+        {
+            return _goodsCategoryRepository.GetCategory(UserContext.Current.SubscriberId, categoryId);
+        }
+
+        protected override IEnumerable<GoodsPropertyEntity> GetProperties(Guid categoryId)
+        {
+            return _goodsCategoryPropertyRepository.GetProperties(UserContext.Current.SubscriberId, categoryId) ?? new List<GoodsPropertyEntity>();
         }
     }
 }

@@ -42,11 +42,16 @@ namespace Smafac.Wms.Goods.Services
 
         public bool DeleteProperty(Guid propertyId)
         {
-            if (_goodsPropertyValueRepository.Any(UserContext.Current.SubscriberId, propertyId))
+            var subscriberId = UserContext.Current.SubscriberId;
+            if (_goodsPropertyRepository.IsUsed(subscriberId, propertyId))
             {
                 return false;
             }
-            return _goodsPropertyRepository.DeleteProperty(UserContext.Current.SubscriberId, propertyId);
+            if (_goodsPropertyValueRepository.Any(subscriberId, propertyId))
+            {
+                return false;
+            }
+            return _goodsPropertyRepository.DeleteProperty(subscriberId, propertyId);
         }
 
         public List<GoodsPropertyModel> GetProperties()

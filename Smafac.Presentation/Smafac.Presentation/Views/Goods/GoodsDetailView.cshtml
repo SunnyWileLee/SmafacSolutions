@@ -1,17 +1,54 @@
-﻿@{
+﻿@model GoodsDetailModel
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
+<div class="row">
+    <div class="col-lg-6">
+        <form class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                        <i class="m-icon-swapleft m-icon-white"></i>
+                        返回列表
+                    </a>
+                </div>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+    <div class="col-lg-6">
+        <form class="form-horizontal">
+            @if (Model.Goods.HasProperties)
+            {
+                foreach (var property in Model.Goods.Properties)
+                {
+                    <div class="form-group">
+                        @Html.Label(property.PropertyName, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-10">
+                            @Html.TextBox(property.PropertyId.ToString(), property.Value, new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+            }
+        </form>
+    </div>
+</div>
