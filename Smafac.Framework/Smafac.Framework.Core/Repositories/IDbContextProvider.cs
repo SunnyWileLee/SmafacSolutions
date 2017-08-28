@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Repositories
 {
-    public interface IDbContextProvider<TDbContext> where TDbContext : DbContext
+    public interface IDbContextProvider<TContext> where TContext : DbContext
     {
-        TDbContext Provide();
-        TDbContext ProvideSlave();
+        TContext Provide();
+        TContext ProvideSlave();
     }
 }

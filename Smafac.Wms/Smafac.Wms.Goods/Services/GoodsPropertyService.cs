@@ -4,6 +4,7 @@ using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Domain;
 using Smafac.Wms.Goods.Models;
 using Smafac.Wms.Goods.Repositories;
+using Smafac.Wms.Goods.Repositories.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,25 @@ namespace Smafac.Wms.Goods.Services
 {
     class GoodsPropertyService : IGoodsPropertyService
     {
-        private readonly IGoodsPropertyRepository _goodsPropertyRepository;
+        private readonly IGoodsPropertyAddRepository _goodsPropertyAddRepository;
+        private readonly IGoodsPropertyDeleteRepository _goodsPropertyDeleteRepository;
+        private readonly IGoodsPropertyUpdateRepository _goodsPropertyUpdateRepository;
+        private readonly IGoodsPropertySearchRepository _goodsPropertySearchRepository;
         private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
         private readonly IGoodsPropertyProvider _goodsPropertyProvider;
 
-        public GoodsPropertyService(IGoodsPropertyRepository goodsPropertyRepository,
-                                        IGoodsPropertyValueRepository goodsPropertyValueRepository,
-                                        IGoodsPropertyProvider goodsPropertyProvider
+        public GoodsPropertyService(IGoodsPropertyAddRepository goodsPropertyAddRepository,
+                                    IGoodsPropertyDeleteRepository goodsPropertyDeleteRepository,
+                                    IGoodsPropertyUpdateRepository goodsPropertyUpdateRepository,
+                                    IGoodsPropertySearchRepository goodsPropertySearchRepository,
+                                    IGoodsPropertyValueRepository goodsPropertyValueRepository,
+                                    IGoodsPropertyProvider goodsPropertyProvider
                                     )
         {
-            _goodsPropertyRepository = goodsPropertyRepository;
+            _goodsPropertyAddRepository = goodsPropertyAddRepository;
+            _goodsPropertyDeleteRepository = goodsPropertyDeleteRepository;
+            _goodsPropertyUpdateRepository = goodsPropertyUpdateRepository;
+            _goodsPropertySearchRepository = goodsPropertySearchRepository;
             _goodsPropertyValueRepository = goodsPropertyValueRepository;
             _goodsPropertyProvider = goodsPropertyProvider;
         }
@@ -32,14 +42,14 @@ namespace Smafac.Wms.Goods.Services
         {
             var property = Mapper.Map<GoodsPropertyEntity>(model);
             property.SubscriberId = UserContext.Current.SubscriberId;
-            return _goodsPropertyRepository.AddProperty(property);
+            return _goodsPropertyAddRepository.AddEntity(property);
         }
 
         public bool UpdateProperty(GoodsPropertyModel model)
         {
             var property = Mapper.Map<GoodsPropertyEntity>(model);
             property.SubscriberId = UserContext.Current.SubscriberId;
-            return _goodsPropertyRepository.UpdateProperty(property);
+            return _goodsPropertyUpdateRepository.UpdateEntity(property);
         }
 
         public bool DeleteProperty(Guid propertyId)
@@ -53,12 +63,12 @@ namespace Smafac.Wms.Goods.Services
             {
                 return false;
             }
-            return _goodsPropertyRepository.DeleteProperty(subscriberId, propertyId);
+            return _goodsPropertyDeleteRepository.DeleteEntity(subscriberId, propertyId);
         }
 
         public List<GoodsPropertyModel> GetProperties()
         {
-            var properties = _goodsPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
+            var properties = _goodsPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             return Mapper.Map<List<GoodsPropertyModel>>(properties);
         }
 

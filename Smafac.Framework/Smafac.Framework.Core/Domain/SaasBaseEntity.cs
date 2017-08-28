@@ -18,5 +18,10 @@ namespace Smafac.Framework.Core.Domain
         public virtual Guid Id { get; set; }
         public virtual Guid SubscriberId { get; set; }
         public virtual DateTime CreateTime { get; set; }
+
+        public virtual bool IsAllowAnonymous()
+        {
+            return SubscriberId.Equals(Guid.Empty);
+        }
     }
 }

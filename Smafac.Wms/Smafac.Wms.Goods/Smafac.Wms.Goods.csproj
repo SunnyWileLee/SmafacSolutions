@@ -82,8 +82,14 @@
     <Compile Include="Repositories\IGoodsPropertyValueRepository.cs" />
     <Compile Include="Repositories\IGoodsRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
-    <Compile Include="Repositories\IGoodsPropertyRepository.cs" />
-    <Compile Include="Repositories\GoodsPropertyRepository.cs" />
+    <Compile Include="Repositories\Property\GoodsPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\GoodsPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\GoodsPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\GoodsPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\IGoodsPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\IGoodsPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\IGoodsPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\IGoodsPropertyUpdateRepository.cs" />
     <Compile Include="Services\GoodsCategoryPropertyService.cs" />
     <Compile Include="Services\GoodsCategroySearchService.cs" />
     <Compile Include="Services\GoodsPropertyService.cs" />
