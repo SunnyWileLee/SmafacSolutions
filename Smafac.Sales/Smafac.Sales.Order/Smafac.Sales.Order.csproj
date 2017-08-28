@@ -58,8 +58,10 @@
     <Compile Include="Applications\IOrderChargeValueService.cs" />
     <Compile Include="Applications\IOrderSearchService.cs" />
     <Compile Include="Applications\IOrderService.cs" />
+    <Compile Include="Domain\IOrderCategoryPropertyProvider.cs" />
     <Compile Include="Domain\OrderCategoryEntity.cs" />
     <Compile Include="Domain\OrderCategoryPropertyEntity.cs" />
+    <Compile Include="Domain\OrderCategoryPropertyProvider.cs" />
     <Compile Include="Domain\OrderChargeEntity.cs" />
     <Compile Include="Domain\OrderChargeValueEntity.cs" />
     <Compile Include="Domain\OrderEntity.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Domain\OrderStatusChangedEntity.cs" />
     <Compile Include="Domain\OrderStatusEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IOrderCategoryRepository.cs" />
     <Compile Include="Repositories\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />

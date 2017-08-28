@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Smafac.Sales.Order.Domain
     [Table("OrderCharge")]
     class OrderChargeEntity : SaasBaseEntity
     {
+        [MaxLength(20)]
         public string Name { get; set; }
 
         public OrderChargeValueEntity CreateEmptyValue()

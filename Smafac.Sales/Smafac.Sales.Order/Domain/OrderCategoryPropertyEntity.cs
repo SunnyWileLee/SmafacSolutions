@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 namespace Smafac.Sales.Order.Domain
 {
     [Table("OrderCategoryProperty")]
-    class OrderCategoryPropertyEntity : SaasBaseEntity
+    class OrderCategoryPropertyEntity : CategoryPropertyEntity
     {
-        public Guid CategoryId { get; set; }
-        public Guid PropertyId { get; set; }
+
     }
 }

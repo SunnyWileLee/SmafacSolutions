@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
+    <Compile Include="Applications\IPropertyAddService.cs" />
+    <Compile Include="Applications\IPropertyDeleteService.cs" />
+    <Compile Include="Applications\IPropertyService.cs" />
+    <Compile Include="Applications\IPropertyUpdateService.cs" />
     <Compile Include="Applications\IVersionService.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
@@ -69,10 +73,22 @@
     <Compile Include="Models\SmafacAutoMapper.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DbContextProvider.cs" />
+    <Compile Include="Repositories\IDbContextProvider.cs" />
+    <Compile Include="Repositories\IPropertyRepository.cs" />
+    <Compile Include="Repositories\PropertyRepository.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
+    <Compile Include="Services\PropertyAddService.cs" />
+    <Compile Include="Services\PropertyDeleteService.cs" />
+    <Compile Include="Services\PropertyUpdateService.cs" />
     <Compile Include="Services\VersionService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
+      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
+      <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

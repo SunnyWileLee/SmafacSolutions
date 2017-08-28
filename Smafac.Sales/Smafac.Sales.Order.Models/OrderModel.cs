@@ -42,5 +42,21 @@ namespace Smafac.Sales.Order.Models
 
         public List<OrderChargeValueModel> Charges { get; set; }
         public List<OrderPropertyValueModel> Properties { get; set; }
+
+        public bool HasCharges
+        {
+            get
+            {
+                return Charges != null && Charges.Any();
+            }
+        }
+
+        public bool HasProperties
+        {
+            get
+            {
+                return Properties != null && Properties.Any();
+            }
+        }
     }
 }

@@ -1,17 +1,32 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
+<div>
+    <form class="form-inline  inline-block" id="form-search" data-page="OrderPageView">
+        <div class="form-group">
+            <label for="Name">名称</label>
+            <input type="text" class="form-control input-search" id="Name">
+        </div>
+        <div class="form-group">
+            <div class="btn-group">
+                <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
+                    <i class="icon-search"></i>
+                    查询
+                </button>
+                <a class="btn btn-success" href="/OrderCategory/OrderCategoryView">
+                    <i class="icon-plus"></i>
+                    订单分类设置
+                </a>
+                <a class="btn btn-success" href="/OrderProperty/OrderPropertyView">
+                    <i class="icon-plus"></i>
+                    订单属性设置
+                </a>
+            </div>
+        </div>
+    </form>
+    <div id="table-container"></div>
     <div>
-    
+        <ul class="pagination" id="pagination-container"></ul>
     </div>
-</body>
-</html>
+</div>

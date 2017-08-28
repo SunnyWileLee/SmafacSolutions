@@ -37,16 +37,18 @@ namespace Smafac.Wms.Goods.Services
 
         public bool UpdateProperty(GoodsPropertyModel model)
         {
-            return _goodsPropertyRepository.UpdateProperty(model);
+            var property = Mapper.Map<GoodsPropertyEntity>(model);
+            property.SubscriberId = UserContext.Current.SubscriberId;
+            return _goodsPropertyRepository.UpdateProperty(property);
         }
 
         public bool DeleteProperty(Guid propertyId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            if (_goodsPropertyRepository.IsUsed(subscriberId, propertyId))
-            {
-                return false;
-            }
+            //if (_goodsPropertyRepository.IsUsed(subscriberId, propertyId))
+            //{
+            //    return false;
+            //}
             if (_goodsPropertyValueRepository.Any(subscriberId, propertyId))
             {
                 return false;
@@ -63,7 +65,6 @@ namespace Smafac.Wms.Goods.Services
         public List<GoodsPropertyModel> GetProperties(Guid goodsId)
         {
             return _goodsPropertyProvider.Provide(goodsId);
-
         }
     }
 }

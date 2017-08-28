@@ -177,6 +177,7 @@
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderPropertyController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Domain\IOrderWrapper.cs" />
@@ -223,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\OrderProperty\" />
     <Folder Include="Views\Smafac\" />
   </ItemGroup>
   <ItemGroup>
