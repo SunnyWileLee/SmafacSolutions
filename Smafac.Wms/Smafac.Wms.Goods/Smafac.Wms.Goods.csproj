@@ -52,13 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryProperty\IGoodsCategoryPropertyBindService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryAddService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryDeleteService.cs" />
     <Compile Include="Applications\Category\IGoodsCategorySearchService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryUpdateService.cs" />
     <Compile Include="Applications\IAutofacScanGoods.cs" />
-    <Compile Include="Applications\IGoodsCategoryPropertyService.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />
     <Compile Include="Applications\Property\IGoodsPropertyAddService.cs" />
@@ -76,6 +76,10 @@
     <Compile Include="Domain\IGoodsCategoryPropertyProvider.cs" />
     <Compile Include="Domain\IGoodsPropertyProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\IGoodsCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\IGoodsCategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\Category\GoodsCategoryAddRepository.cs" />
     <Compile Include="Repositories\Category\GoodsCategoryDeleteRepository.cs" />
     <Compile Include="Repositories\Category\GoodsCategorySearchRepository.cs" />
@@ -108,7 +112,6 @@
     <Compile Include="Services\Category\GoodsCategorySearchService.cs" />
     <Compile Include="Services\Category\GoodsCategoryService.cs" />
     <Compile Include="Services\Category\GoodsCategoryUpdateService.cs" />
-    <Compile Include="Services\GoodsCategoryPropertyService.cs" />
     <Compile Include="Services\GoodsAutoMapper.cs" />
     <Compile Include="Services\GoodsSearchService.cs" />
     <Compile Include="Services\GoodsService.cs" />

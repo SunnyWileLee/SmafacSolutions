@@ -10,35 +10,19 @@ using AutoMapper;
 using Smafac.Wms.Goods.Models;
 using Smafac.Framework.Core.Domain;
 using Smafac.Wms.Goods.Repositories.Category;
+using Smafac.Wms.Goods.Repositories.CategoryProperty;
 
 namespace Smafac.Wms.Goods.Domain
 {
-    class GoodsCategoryPropertyProvider : CategoryPropertyProvider<GoodsPropertyEntity>, IGoodsCategoryPropertyProvider
+    class GoodsCategoryPropertyProvider : CategoryPropertyProvider<GoodsCategoryEntity, GoodsPropertyEntity, GoodsPropertyModel>,
+                                            IGoodsCategoryPropertyProvider
     {
-        private readonly IGoodsCategoryPropertyRepository _goodsCategoryPropertyRepository;
-        private readonly IGoodsCategorySearchRepository _goodsCategorySearchRepository;
 
-        public GoodsCategoryPropertyProvider(IGoodsCategoryPropertyRepository goodsCategoryPropertyRepository,
+        public GoodsCategoryPropertyProvider(IGoodsCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
                                             IGoodsCategorySearchRepository goodsCategorySearchRepository)
         {
-            _goodsCategoryPropertyRepository = goodsCategoryPropertyRepository;
-            _goodsCategorySearchRepository = goodsCategorySearchRepository;
-        }
-
-        public List<GoodsPropertyModel> Provide(Guid categoryId)
-        {
-            var properties = base.ProvideProperties(categoryId);
-            return Mapper.Map<List<GoodsPropertyModel>>(properties);
-        }
-
-        protected override CategoryEntity GetCategory(Guid categoryId)
-        {
-            return _goodsCategorySearchRepository.GetCategory(UserContext.Current.SubscriberId, categoryId);
-        }
-
-        protected override IEnumerable<GoodsPropertyEntity> GetProperties(Guid categoryId)
-        {
-            return _goodsCategoryPropertyRepository.GetProperties(UserContext.Current.SubscriberId, categoryId) ?? new List<GoodsPropertyEntity>();
+            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryPropertySearchRepository = goodsCategoryPropertySearchRepository;
         }
     }
 }

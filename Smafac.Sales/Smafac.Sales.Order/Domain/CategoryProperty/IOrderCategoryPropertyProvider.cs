@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.Order.Domain
+namespace Smafac.Sales.Order.Domain.CategoryProperty
 {
-
-    interface IOrderCategoryPropertyProvider : ICategoryPropertyProvider<OrderPropertyEntity>
+    interface IOrderCategoryPropertyProvider : ICategoryPropertyProvider<OrderPropertyEntity, OrderPropertyModel>
     {
-        List<OrderPropertyModel> Provide(Guid categoryId);
+
     }
 }

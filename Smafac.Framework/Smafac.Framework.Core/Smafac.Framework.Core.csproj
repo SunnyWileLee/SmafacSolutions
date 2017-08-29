@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryProperty\ICategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\ICategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\ICategoryAddService.cs" />
     <Compile Include="Applications\Category\ICategoryDeleteService.cs" />
     <Compile Include="Applications\Category\ICategorySearchService.cs" />
@@ -83,6 +85,10 @@
     <Compile Include="Models\SmafacAutoMapper.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryProperty\CategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\CategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\ICategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\ICategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\Category\ICategoryAddRepository.cs" />
     <Compile Include="Repositories\Category\ICategoryDeleteRepository.cs" />
     <Compile Include="Repositories\Category\ICategorySearchRepository.cs" />
@@ -113,6 +119,8 @@
     <Compile Include="Repositories\Property\PropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\PropertyUpdateRepository.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
+    <Compile Include="Services\CategoryProperty\CategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\CategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\CategoryAddService.cs" />
     <Compile Include="Services\Category\CategoryDeleteService.cs" />
     <Compile Include="Services\Category\CategorySearchService.cs" />
@@ -134,7 +142,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\CategoryProperty\" />
     <Folder Include="Repositories\PropertyValue\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

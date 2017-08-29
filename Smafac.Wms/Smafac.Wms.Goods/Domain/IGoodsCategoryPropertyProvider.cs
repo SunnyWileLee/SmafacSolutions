@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Domain
 {
-    interface IGoodsCategoryPropertyProvider:ICategoryPropertyProvider<GoodsPropertyEntity>
+    interface IGoodsCategoryPropertyProvider:ICategoryPropertyProvider<GoodsPropertyEntity,GoodsPropertyModel>
     {
-        List<GoodsPropertyModel> Provide(Guid categoryId);
+        
     }
 }

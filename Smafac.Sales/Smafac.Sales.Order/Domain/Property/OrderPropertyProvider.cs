@@ -7,6 +7,7 @@ using Smafac.Framework.Models;
 using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Repositories;
 using Smafac.Sales.Order.Models;
+using Smafac.Sales.Order.Domain.CategoryProperty;
 
 namespace Smafac.Sales.Order.Domain.Property
 {
@@ -27,7 +28,7 @@ namespace Smafac.Sales.Order.Domain.Property
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var order = _orderSearchRepository.GetById(subscriberId, orderId);
-            return _orderCategoryPropertyProvider.Provide(order.CategoryId);
+            return _orderCategoryPropertyProvider.ProvideProperties(order.CategoryId);
         }
     }
 }
