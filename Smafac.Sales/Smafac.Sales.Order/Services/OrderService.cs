@@ -10,6 +10,7 @@ using Smafac.Framework.Core.Models;
 using AutoMapper;
 using Smafac.Sales.Order.Domain;
 using Newtonsoft.Json;
+using Smafac.Sales.Order.Repositories.Property;
 
 namespace Smafac.Sales.Order.Services
 {
@@ -19,19 +20,19 @@ namespace Smafac.Sales.Order.Services
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
         private readonly IOrderPropertyValueRepository _orderPropertyValueRepository;
         private readonly IOrderChargeRepository _orderChargeRepository;
-        private readonly IOrderPropertyRepository _orderPropertyRepository;
+        private readonly IOrderPropertySearchRepository _orderPropertySearchRepository;
 
         public OrderService(IOrderRepository orderRepository,
                             IOrderChargeValueRepository orderChargeValueRepository,
                             IOrderPropertyValueRepository orderPropertyValueRepository,
                             IOrderChargeRepository orderChargeRepository,
-                            IOrderPropertyRepository orderPropertyRepository)
+                            IOrderPropertySearchRepository orderPropertySearchRepository)
         {
             _orderRepository = orderRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
             _orderPropertyValueRepository = orderPropertyValueRepository;
             _orderChargeRepository = orderChargeRepository;
-            _orderPropertyRepository = orderPropertyRepository;
+            _orderPropertySearchRepository = orderPropertySearchRepository;
         }
 
         public bool AddOrder(OrderModel model)
@@ -56,7 +57,7 @@ namespace Smafac.Sales.Order.Services
         {
             var charges = _orderChargeRepository.GetCharges(UserContext.Current.SubscriberId);
             var chargeValues = charges.Select(s => s.CreateEmptyValue()).ToList();
-            var properties = _orderPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
+            var properties = _orderPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             var propertyValues = properties.Select(s => s.CreateEmptyValue()).ToList();
             var order = new OrderModel
             {

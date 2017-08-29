@@ -50,10 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
-    <Compile Include="Applications\IPropertyAddService.cs" />
-    <Compile Include="Applications\IPropertyDeleteService.cs" />
-    <Compile Include="Applications\IPropertyService.cs" />
-    <Compile Include="Applications\IPropertyUpdateService.cs" />
+    <Compile Include="Applications\Property\IPropertyAddService.cs" />
+    <Compile Include="Applications\Property\IPropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\IPropertySearchService.cs" />
+    <Compile Include="Applications\Property\IPropertyService.cs" />
+    <Compile Include="Applications\Property\IPropertyUpdateService.cs" />
     <Compile Include="Applications\IVersionService.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
@@ -99,9 +100,10 @@
     <Compile Include="Repositories\Property\PropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\PropertyUpdateRepository.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
-    <Compile Include="Services\PropertyAddService.cs" />
-    <Compile Include="Services\PropertyDeleteService.cs" />
-    <Compile Include="Services\PropertyUpdateService.cs" />
+    <Compile Include="Services\Property\PropertyAddService.cs" />
+    <Compile Include="Services\Property\PropertyDeleteService.cs" />
+    <Compile Include="Services\Property\PropertySearchService.cs" />
+    <Compile Include="Services\Property\PropertyUpdateService.cs" />
     <Compile Include="Services\VersionService.cs" />
   </ItemGroup>
   <ItemGroup>

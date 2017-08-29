@@ -1,4 +1,5 @@
 ﻿using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
@@ -20,21 +21,21 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsPropertyView()
         {
-            var properties = _goodsPropertyService.GetProperties();
+            var properties = _goodsPropertyService.SearchService.GetProperties();
             return View(properties);
         }
 
         [HttpPost]
         public ActionResult AddGoodsProperty(GoodsPropertyModel model)
         {
-            var result = _goodsPropertyService.AddProperty(model);
+            var result = _goodsPropertyService.AddService.AddProperty(model);
             return BoolResult(result);
         }
 
         [HttpPost]
         public ActionResult DeleteGoodsProperty(Guid id)
         {
-            var result = _goodsPropertyService.DeleteProperty(id);
+            var result = _goodsPropertyService.DeleteService.DeleteProperty(id);
             return BoolResult(result);
         }
     }

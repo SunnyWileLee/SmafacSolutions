@@ -1,4 +1,5 @@
 ﻿using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace Smafac.Presentation.Controllers
         {
             var category = _goodsCategroySearchService.GetCategory(categoryId);
             ViewData["category"] = category;
-            var properties = _goodsPropertyService.GetProperties();
+            var properties = _goodsPropertyService.SearchService.GetProperties();
             var bounds = _goodsCategoryPropertyService.GetProperties(categoryId).Select(s => s.Id).ToList();
             ViewData["boundIds"] = bounds;
             return View(properties);

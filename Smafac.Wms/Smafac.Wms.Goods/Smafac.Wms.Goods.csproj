@@ -56,9 +56,13 @@
     <Compile Include="Applications\IGoodsCategoryPropertyService.cs" />
     <Compile Include="Applications\IGoodsCategoryService.cs" />
     <Compile Include="Applications\IGoodsCategroySearchService.cs" />
-    <Compile Include="Applications\IGoodsPropertyService.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />
+    <Compile Include="Applications\Property\IGoodsPropertyAddService.cs" />
+    <Compile Include="Applications\Property\IGoodsPropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\IGoodsPropertySearchService.cs" />
+    <Compile Include="Applications\Property\IGoodsPropertyService.cs" />
+    <Compile Include="Applications\Property\IGoodsPropertyUpdateService.cs" />
     <Compile Include="Domain\GoodsCategoryEntity.cs" />
     <Compile Include="Domain\GoodsCategoryPropertyEntity.cs" />
     <Compile Include="Domain\GoodsCategoryPropertyProvider.cs" />
@@ -92,11 +96,15 @@
     <Compile Include="Repositories\Property\IGoodsPropertyUpdateRepository.cs" />
     <Compile Include="Services\GoodsCategoryPropertyService.cs" />
     <Compile Include="Services\GoodsCategroySearchService.cs" />
-    <Compile Include="Services\GoodsPropertyService.cs" />
     <Compile Include="Services\GoodsAutoMapper.cs" />
     <Compile Include="Services\GoodsCategoryService.cs" />
     <Compile Include="Services\GoodsSearchService.cs" />
     <Compile Include="Services\GoodsService.cs" />
+    <Compile Include="Services\Property\GoodsPropertyAddService.cs" />
+    <Compile Include="Services\Property\GoodsPropertyDeleteService.cs" />
+    <Compile Include="Services\Property\GoodsPropertySearchService.cs" />
+    <Compile Include="Services\Property\GoodsPropertyService.cs" />
+    <Compile Include="Services\Property\GoodsPropertyUpdateService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

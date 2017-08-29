@@ -73,6 +73,10 @@ namespace Smafac.Crm.Customer.Services
 
         private void SetCustomerPropertyValues(CustomerModel customer, IEnumerable<CustomerPropertyValueModel> properties)
         {
+            if (properties == null)
+            {
+                return;
+            }
             if (properties.Any(s => s.CustomerId != customer.Id))
             {
                 throw new ArgumentException();

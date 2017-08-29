@@ -74,7 +74,6 @@
     <Compile Include="Repositories\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
-    <Compile Include="Repositories\IOrderPropertyRepository.cs" />
     <Compile Include="Repositories\IOrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IOrderSearchRepository.cs" />
@@ -82,10 +81,17 @@
     <Compile Include="Repositories\OrderChargeValueRepository.cs" />
     <Compile Include="Repositories\OrderContext.cs" />
     <Compile Include="Repositories\OrderContextProvider.cs" />
-    <Compile Include="Repositories\OrderPropertyRepository.cs" />
     <Compile Include="Repositories\OrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\OrderSearchRepository.cs" />
+    <Compile Include="Repositories\Property\OrderPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\OrderPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\OrderPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\OrderPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\IOrderPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\IOrderPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\IOrderPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\IOrderPropertyUpdateRepository.cs" />
     <Compile Include="Services\OrderAutoMapper.cs" />
     <Compile Include="Services\OrderPropertyService.cs" />
     <Compile Include="Services\OrderChargeService.cs" />
