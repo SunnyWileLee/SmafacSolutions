@@ -1,4 +1,5 @@
 ﻿using Smafac.Sales.Order.Applications;
+using Smafac.Sales.Order.Applications.Property;
 using Smafac.Sales.Order.Models;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,14 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult OrderPropertyView()
         {
-            var properties = _goodsPropertyService.GetProperties();
+            var properties = _goodsPropertyService.SearchService.GetProperties();
             return View(properties);
         }
 
         [HttpPost]
         public ActionResult AddOrderProperty(OrderPropertyModel model)
         {
-            var result = _goodsPropertyService.AddProperty(model);
+            var result = _goodsPropertyService.AddService.AddProperty(model);
             return BoolResult(result);
         }
 

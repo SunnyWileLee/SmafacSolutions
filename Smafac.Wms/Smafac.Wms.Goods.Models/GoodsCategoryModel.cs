@@ -8,16 +8,12 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Models
 {
-    public class GoodsCategoryModel : TreeNodeModel
+    public class GoodsCategoryModel : CategoryModel
     {
         public GoodsCategoryModel()
         {
             Children = new List<GoodsCategoryModel>();
         }
-
-        [MaxLength(100)]
-        [Display(Name = "类别")]
-        public string Name { get; set; }
 
         public List<GoodsCategoryModel> Children { get; set; }
     }

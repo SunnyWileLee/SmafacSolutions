@@ -1,4 +1,6 @@
-﻿using Smafac.Wms.Goods.Applications;
+﻿using Smafac.Framework.Models;
+using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
@@ -14,18 +16,15 @@ namespace Smafac.Presentation.Controllers
         private readonly IGoodsCategoryService _goodsCategoryService;
         private readonly IGoodsCategoryPropertyService _goodsCategoryPropertyService;
         private readonly IGoodsPropertyService _goodsPropertyService;
-        private readonly IGoodsCategroySearchService _goodsCategroySearchService;
 
         public GoodsCategoryController(IGoodsCategoryService goodsCategoryService,
                                         IGoodsCategoryPropertyService goodsCategoryPropertyService,
-                                        IGoodsPropertyService goodsPropertyService,
-                                        IGoodsCategroySearchService goodsCategroySearchService
+                                        IGoodsPropertyService goodsPropertyService
                                         )
         {
             _goodsCategoryService = goodsCategoryService;
             _goodsCategoryPropertyService = goodsCategoryPropertyService;
             _goodsPropertyService = goodsPropertyService;
-            _goodsCategroySearchService = goodsCategroySearchService;
         }
         [HttpGet]
         public ActionResult GoodsCategoryView()
@@ -35,9 +34,9 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsCategorySliceView(Guid? categoryId, int slice)
         {
-            GoodsCategoryModel model = (categoryId == null || categoryId.Value == Guid.Empty)
-                                        ? new GoodsCategoryModel { Children = _goodsCategroySearchService.GetCategories(Guid.Empty), Id = Guid.Empty }
-                                        : _goodsCategroySearchService.GetCategoryWithChildren(categoryId.Value);
+            CategoryModelSet<GoodsCategoryModel> model = (categoryId == null || categoryId.Value == Guid.Empty)
+                                         ? new CategoryModelSet<GoodsCategoryModel> { Children = _goodsCategoryService.SearchService.GetCategories(Guid.Empty), Category = new GoodsCategoryModel { Id = Guid.Empty } }
+                                         : _goodsCategoryService.SearchService.GetCategoryWithChildren(categoryId.Value);
             ViewData["slice"] = slice;
             return View(model);
         }
@@ -45,14 +44,14 @@ namespace Smafac.Presentation.Controllers
         [HttpPost]
         public ActionResult AddGoodsCategory(GoodsCategoryModel model)
         {
-            var result = _goodsCategoryService.AddCategory(model);
+            var result = _goodsCategoryService.AddService.AddCategory(model);
             return BoolResult(result);
         }
 
         [HttpGet]
         public ActionResult GoodsCategoryPropertyBindView(Guid categoryId)
         {
-            var category = _goodsCategroySearchService.GetCategory(categoryId);
+            var category = _goodsCategoryService.SearchService.GetCategory(categoryId);
             ViewData["category"] = category;
             var properties = _goodsPropertyService.SearchService.GetProperties();
             var bounds = _goodsCategoryPropertyService.GetProperties(categoryId).Select(s => s.Id).ToList();

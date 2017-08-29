@@ -1,4 +1,5 @@
 ﻿using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
@@ -13,17 +14,14 @@ namespace Smafac.Presentation.Controllers
         private readonly IGoodsService _goodsService;
         private readonly IGoodsSearchService _goodsSearchService;
         private readonly IGoodsCategoryService _goodsCategoryService;
-        private readonly IGoodsCategroySearchService _goodsCategroySearchService;
 
         public GoodsController(IGoodsService goodsService,
                                 IGoodsSearchService goodsSearchService,
-                                IGoodsCategoryService goodsCategoryService,
-                                IGoodsCategroySearchService goodsCategroySearchService)
+                                IGoodsCategoryService goodsCategoryService)
         {
             _goodsService = goodsService;
             _goodsSearchService = goodsSearchService;
             _goodsCategoryService = goodsCategoryService;
-            _goodsCategroySearchService = goodsCategroySearchService;
         }
 
         [HttpGet]
@@ -46,7 +44,7 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsAddView()
         {
-            var categories = _goodsCategroySearchService.GetLeafCategories()
+            var categories = _goodsCategoryService.SearchService.GetLeafCategories()
                             .Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
             ViewData["categories"] = categories;
             var goods = _goodsService.CreateEmptyGoods();

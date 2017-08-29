@@ -9,19 +9,20 @@ using Smafac.Framework.Core.Models;
 using AutoMapper;
 using Smafac.Wms.Goods.Models;
 using Smafac.Framework.Core.Domain;
+using Smafac.Wms.Goods.Repositories.Category;
 
 namespace Smafac.Wms.Goods.Domain
 {
     class GoodsCategoryPropertyProvider : CategoryPropertyProvider<GoodsPropertyEntity>, IGoodsCategoryPropertyProvider
     {
         private readonly IGoodsCategoryPropertyRepository _goodsCategoryPropertyRepository;
-        private readonly IGoodsCategoryRepository _goodsCategoryRepository;
+        private readonly IGoodsCategorySearchRepository _goodsCategorySearchRepository;
 
         public GoodsCategoryPropertyProvider(IGoodsCategoryPropertyRepository goodsCategoryPropertyRepository,
-                                            IGoodsCategoryRepository goodsCategoryRepository)
+                                            IGoodsCategorySearchRepository goodsCategorySearchRepository)
         {
             _goodsCategoryPropertyRepository = goodsCategoryPropertyRepository;
-            _goodsCategoryRepository = goodsCategoryRepository;
+            _goodsCategorySearchRepository = goodsCategorySearchRepository;
         }
 
         public List<GoodsPropertyModel> Provide(Guid categoryId)
@@ -32,7 +33,7 @@ namespace Smafac.Wms.Goods.Domain
 
         protected override CategoryEntity GetCategory(Guid categoryId)
         {
-            return _goodsCategoryRepository.GetCategory(UserContext.Current.SubscriberId, categoryId);
+            return _goodsCategorySearchRepository.GetCategory(UserContext.Current.SubscriberId, categoryId);
         }
 
         protected override IEnumerable<GoodsPropertyEntity> GetProperties(Guid categoryId)

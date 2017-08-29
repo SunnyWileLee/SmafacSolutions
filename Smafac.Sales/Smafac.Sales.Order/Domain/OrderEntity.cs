@@ -18,6 +18,7 @@ namespace Smafac.Sales.Order.Domain
             HopeDate = DateTime.Now;
         }
         public decimal Price { get; set; }
+        public Guid CategoryId { get; set; }
         public Guid CustomerId { get; set; }
         public Guid GoodsId { get; set; }
         public decimal Quantity { get; set; }

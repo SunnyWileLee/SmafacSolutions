@@ -1,4 +1,4 @@
-﻿@model GoodsCategoryModel
+﻿@model CategoryModelSet<GoodsCategoryModel>
 
 @{
     Layout = null;
@@ -6,12 +6,12 @@
 }
 
 <h3>
-    @Model.Name
+    @Model.Category.Name
 </h3>
 <form class="form-inline">
     <div class="form-group">
         <input type="text" class="form-control" id="input-category-@slice" />
-        <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Id" />
+        <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Category.Id" />
     </div>
 </form>
 <ul class="list-group">

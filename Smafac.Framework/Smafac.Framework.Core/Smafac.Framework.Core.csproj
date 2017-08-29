@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\Category\ICategoryAddService.cs" />
+    <Compile Include="Applications\Category\ICategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\ICategorySearchService.cs" />
+    <Compile Include="Applications\Category\ICategoryService.cs" />
+    <Compile Include="Applications\Category\ICategoryUpdateService.cs" />
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
     <Compile Include="Applications\Property\IPropertyAddService.cs" />
     <Compile Include="Applications\Property\IPropertyDeleteService.cs" />
@@ -78,6 +83,14 @@
     <Compile Include="Models\SmafacAutoMapper.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Category\ICategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\ICategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\ICategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\ICategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\Category\CategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\CategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\CategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\CategoryUpdateRepository.cs" />
     <Compile Include="Repositories\DbContextProvider.cs" />
     <Compile Include="Repositories\EntityAddRepository.cs" />
     <Compile Include="Repositories\EntityDeleteRepository.cs" />
@@ -100,6 +113,10 @@
     <Compile Include="Repositories\Property\PropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\PropertyUpdateRepository.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
+    <Compile Include="Services\Category\CategoryAddService.cs" />
+    <Compile Include="Services\Category\CategoryDeleteService.cs" />
+    <Compile Include="Services\Category\CategorySearchService.cs" />
+    <Compile Include="Services\Category\CategoryUpdateService.cs" />
     <Compile Include="Services\Property\PropertyAddService.cs" />
     <Compile Include="Services\Property\PropertyDeleteService.cs" />
     <Compile Include="Services\Property\PropertySearchService.cs" />
@@ -115,6 +132,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\CategoryProperty\" />
+    <Folder Include="Repositories\PropertyValue\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
