@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryAssociation\ICategoryAssociationBindService.cs" />
+    <Compile Include="Applications\CategoryAssociation\ICategoryAssociationSearchService.cs" />
     <Compile Include="Applications\CategoryProperty\ICategoryPropertyBindService.cs" />
     <Compile Include="Applications\CategoryProperty\ICategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\ICategoryAddService.cs" />
@@ -56,6 +58,8 @@
     <Compile Include="Applications\Category\ICategorySearchService.cs" />
     <Compile Include="Applications\Category\ICategoryService.cs" />
     <Compile Include="Applications\Category\ICategoryUpdateService.cs" />
+    <Compile Include="Applications\EntityAssociation\IEntityAssociationBindService.cs" />
+    <Compile Include="Applications\EntityAssociation\IEntityAssociationSearchService.cs" />
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
     <Compile Include="Applications\Property\IPropertyAddService.cs" />
     <Compile Include="Applications\Property\IPropertyDeleteService.cs" />
@@ -63,6 +67,7 @@
     <Compile Include="Applications\Property\IPropertyService.cs" />
     <Compile Include="Applications\Property\IPropertyUpdateService.cs" />
     <Compile Include="Applications\IVersionService.cs" />
+    <Compile Include="Domain\CategoryAssociationEntity.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
     <Compile Include="Domain\CategoryPropertyProvider.cs" />
@@ -85,6 +90,10 @@
     <Compile Include="Models\SmafacAutoMapper.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryAssociation\CategoryAssociationBindRepository.cs" />
+    <Compile Include="Repositories\CategoryAssociation\CategoryAssociationSearchRepository.cs" />
+    <Compile Include="Repositories\CategoryAssociation\ICategoryAssociationBindRepository.cs" />
+    <Compile Include="Repositories\CategoryAssociation\ICategoryAssociationSearchRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\CategoryPropertyBindRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\CategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\ICategoryPropertyBindRepository.cs" />
@@ -99,6 +108,10 @@
     <Compile Include="Repositories\Category\CategoryUpdateRepository.cs" />
     <Compile Include="Repositories\DbContextProvider.cs" />
     <Compile Include="Repositories\EntityAddRepository.cs" />
+    <Compile Include="Repositories\EntityAssociation\EntityAssociationBindRepository.cs" />
+    <Compile Include="Repositories\EntityAssociation\EntityAssociationSearchRepository.cs" />
+    <Compile Include="Repositories\EntityAssociation\IEntityAssociationBindRepository.cs" />
+    <Compile Include="Repositories\EntityAssociation\IEntityAssociationSearchRepository.cs" />
     <Compile Include="Repositories\EntityDeleteRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Repositories\EntitySearchRepository.cs" />
@@ -125,6 +138,7 @@
     <Compile Include="Services\Category\CategoryDeleteService.cs" />
     <Compile Include="Services\Category\CategorySearchService.cs" />
     <Compile Include="Services\Category\CategoryUpdateService.cs" />
+    <Compile Include="Services\EntityAssociation\EntityAssociationBindService.cs" />
     <Compile Include="Services\Property\PropertyAddService.cs" />
     <Compile Include="Services\Property\PropertyDeleteService.cs" />
     <Compile Include="Services\Property\PropertySearchService.cs" />

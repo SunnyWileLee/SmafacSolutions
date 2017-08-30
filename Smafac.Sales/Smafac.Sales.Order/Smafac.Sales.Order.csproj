@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryCharge\IOrderCategoryChargeBindService.cs" />
+    <Compile Include="Applications\CategoryCharge\IOrderCategoryChargeSearchService.cs" />
     <Compile Include="Applications\CategoryProperty\IOrderCategoryPropertyBindService.cs" />
     <Compile Include="Applications\CategoryProperty\IOrderCategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\IOrderCategoryAddService.cs" />
@@ -59,6 +61,8 @@
     <Compile Include="Applications\Category\IOrderCategorySearchService.cs" />
     <Compile Include="Applications\Category\IOrderCategoryService.cs" />
     <Compile Include="Applications\Category\IOrderCategoryUpdateService.cs" />
+    <Compile Include="Applications\Charge\IOrderChargeSearchService.cs" />
+    <Compile Include="Applications\Charge\IOrderChargeService.cs" />
     <Compile Include="Applications\IAutofacScanOrder.cs" />
     <Compile Include="Applications\IOrderChargeService.cs" />
     <Compile Include="Applications\IOrderChargeValueService.cs" />
@@ -158,8 +162,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\CategoryCharge\" />
-    <Folder Include="Applications\Charge\" />
     <Folder Include="Repositories\Charge\" />
     <Folder Include="Services\Charge\" />
   </ItemGroup>

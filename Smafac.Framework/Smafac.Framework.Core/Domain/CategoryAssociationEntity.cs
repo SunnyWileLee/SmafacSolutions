@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain
 {
-    public abstract class CategoryPropertyEntity : CategoryAssociationEntity
+    public abstract class CategoryAssociationEntity : SaasBaseEntity
     {
-        public virtual Guid PropertyId { get; set; }
+        public virtual Guid CategoryId { get; set; }
     }
 }

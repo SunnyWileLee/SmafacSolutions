@@ -1,4 +1,5 @@
-﻿using Smafac.Framework.Core.Domain;
+﻿using Smafac.Framework.Core.Applications.CategoryAssociation;
+using Smafac.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.CategoryProperty
 {
-    public interface ICategoryPropertyBindService
+    public interface ICategoryPropertyBindService : ICategoryAssociationBindService
     {
-        bool BindProperties(Guid categoryId, IEnumerable<Guid> propertyIds);
+
     }
 }
