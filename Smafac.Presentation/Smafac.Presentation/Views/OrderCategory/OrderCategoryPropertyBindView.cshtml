@@ -1,8 +1,8 @@
-﻿@model IEnumerable<GoodsPropertyModel>
+﻿@model IEnumerable<OrderPropertyModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var category = ViewData["category"] as GoodsCategoryModel;
+    var category = ViewData["category"] as OrderCategoryModel;
     var boundIds = ViewData["boundIds"] as IEnumerable<Guid>;
 }
 
@@ -42,13 +42,13 @@
                 </li>
                                 }
         </ul>
-        <div class="btn-group">
+        <div class=" btn-group">
             <input type="button" class="btn btn-success" onclick="bindProperties()" value="确定" />
-            <a class="btn btn-default" href="/GoodsCategory/GoodsCategoryView" type="button">
+            <a class="btn btn-default" href="/OrderCategory/OrderCategoryView" type="button">
                 <i class="m-icon-swapleft m-icon-white"></i>
                 返回列表
             </a>
-        </div>
+        </div>      
     </div>
 </div>
 
@@ -70,7 +70,7 @@
             propertyIds: propertyIds
         };
 
-        var url = '/GoodsCategory/BindProperties';
+        var url = '/OrderCategory/BindProperties';
         $.ajax({
             type: "post",
             url: url,

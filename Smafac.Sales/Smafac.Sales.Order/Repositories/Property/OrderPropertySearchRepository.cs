@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.Property
 {
     class OrderPropertySearchRepository : PropertySearchRepository<OrderContext, OrderPropertyEntity>, IOrderPropertySearchRepository
     {
-        public OrderPropertySearchRepository(IOrderContextProvider OrderContextProvider)
+        public OrderPropertySearchRepository(IOrderContextProvider orderContextProvider)
         {
-            base.ContextProvider = OrderContextProvider;
+            base.ContextProvider = orderContextProvider;
         }
     }
 }

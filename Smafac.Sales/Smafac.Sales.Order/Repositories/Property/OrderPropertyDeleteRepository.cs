@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.Property
 {
     class OrderPropertyDeleteRepository : PropertyDeleteRepository<OrderContext, OrderPropertyEntity>, IOrderPropertyDeleteRepository
     {
-        public OrderPropertyDeleteRepository(IOrderContextProvider OrderContextProvider)
+        public OrderPropertyDeleteRepository(IOrderContextProvider orderContextProvider)
         {
-            base.ContextProvider = OrderContextProvider;
+            base.ContextProvider = orderContextProvider;
         }
     }
 }

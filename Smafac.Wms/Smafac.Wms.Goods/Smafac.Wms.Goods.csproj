@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\CategoryProperty\IGoodsCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\IGoodsCategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryAddService.cs" />
     <Compile Include="Applications\Category\IGoodsCategoryDeleteService.cs" />
     <Compile Include="Applications\Category\IGoodsCategorySearchService.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Repositories\Property\IGoodsPropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\IGoodsPropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\IGoodsPropertyUpdateRepository.cs" />
+    <Compile Include="Services\CategoryProperty\GoodsCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\GoodsCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\GoodsCategoryAddService.cs" />
     <Compile Include="Services\Category\GoodsCategoryDeleteService.cs" />
     <Compile Include="Services\Category\GoodsCategorySearchService.cs" />

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\GoodsCategoryController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
+    <Compile Include="Controllers\OrderCategoryController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderPropertyController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
@@ -216,6 +217,11 @@
     <Content Include="Views\Order\OrderAddView.cshtml" />
     <Content Include="Views\Order\OrderView.cshtml" />
     <Content Include="Views\Order\OrderPageView.cshtml" />
+    <Content Include="Views\OrderCategory\OrderCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\OrderCategory\OrderCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\OrderCategory\OrderCategorySliceView.cshtml" />
+    <Content Include="Views\OrderCategory\OrderCategoryView.cshtml" />
+    <Content Include="Views\OrderProperty\OrderPropertyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -225,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\OrderProperty\" />
     <Folder Include="Views\Smafac\" />
   </ItemGroup>
   <ItemGroup>

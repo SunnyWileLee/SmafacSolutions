@@ -11,33 +11,32 @@ namespace Smafac.Presentation.Controllers
 {
     public class OrderPropertyController : SmafacController
     {
-        private readonly IOrderPropertyService _goodsPropertyService;
+        private readonly IOrderPropertyService _orderPropertyService;
 
-        public OrderPropertyController(IOrderPropertyService goodsPropertyService)
+        public OrderPropertyController(IOrderPropertyService orderPropertyService)
         {
-            _goodsPropertyService = goodsPropertyService;
+            _orderPropertyService = orderPropertyService;
         }
 
         [HttpGet]
         public ActionResult OrderPropertyView()
         {
-            var properties = _goodsPropertyService.SearchService.GetProperties();
+            var properties = _orderPropertyService.SearchService.GetProperties();
             return View(properties);
         }
 
         [HttpPost]
         public ActionResult AddOrderProperty(OrderPropertyModel model)
         {
-            var result = _goodsPropertyService.AddService.AddProperty(model);
+            var result = _orderPropertyService.AddService.AddProperty(model);
             return BoolResult(result);
         }
 
         [HttpPost]
         public ActionResult DeleteOrderProperty(Guid id)
         {
-            throw new NotImplementedException();
-            //var result = _goodsPropertyService.DeleteProperty(id);
-            //return BoolResult(result);
+            var result = _orderPropertyService.DeleteService.DeleteProperty(id);
+            return BoolResult(result);
         }
     }
 }

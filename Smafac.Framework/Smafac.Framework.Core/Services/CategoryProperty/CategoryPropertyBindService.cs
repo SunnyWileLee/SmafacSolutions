@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Services.CategoryProperty
 {
-    public abstract class CategoryPropertyBindService<TCategory, TProperty> : ICategoryPropertyBindService<TCategory, TProperty>
+    public abstract class CategoryPropertyBindService<TCategory, TProperty> : ICategoryPropertyBindService
         where TCategory : CategoryEntity
         where TProperty : PropertyEntity
     {
@@ -22,13 +22,13 @@ namespace Smafac.Framework.Core.Services.CategoryProperty
             }
         }
 
-        public ICategoryPropertyBindRepository<TCategory, TProperty> CategoryPropertyBindRepository
+        public virtual ICategoryPropertyBindRepository<TCategory, TProperty> CategoryPropertyBindRepository
         {
             get;
             protected set;
         }
 
-        public ICategoryPropertySearchRepository<TCategory, TProperty> CategoryPropertySearchRepository
+        public virtual ICategoryPropertySearchRepository<TCategory, TProperty> CategoryPropertySearchRepository
         {
             get;
             protected set;

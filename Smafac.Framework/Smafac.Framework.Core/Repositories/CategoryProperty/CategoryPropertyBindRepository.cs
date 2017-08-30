@@ -39,7 +39,7 @@ namespace Smafac.Framework.Core.Repositories.CategoryProperty
         {
             var binds = propertyIds.Select(propertyId =>
             {
-                var bind = default(TCategoryProperty);
+                var bind = Activator.CreateInstance<TCategoryProperty>();
                 bind.SubscriberId = subscriberId;
                 bind.CategoryId = categoryId;
                 bind.PropertyId = propertyId;

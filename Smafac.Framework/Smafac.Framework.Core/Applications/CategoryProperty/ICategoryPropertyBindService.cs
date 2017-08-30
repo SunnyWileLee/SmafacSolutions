@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.CategoryProperty
 {
-    public interface ICategoryPropertyBindService<TCategory, TProperty>
-        where TCategory : CategoryEntity
-        where TProperty : PropertyEntity
+    public interface ICategoryPropertyBindService
     {
         bool BindProperties(Guid categoryId, IEnumerable<Guid> propertyIds);
     }

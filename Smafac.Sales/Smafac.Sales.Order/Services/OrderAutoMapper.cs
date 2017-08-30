@@ -16,6 +16,7 @@ namespace Smafac.Sales.Order.Services
         {
             base.BipassMapper<OrderEntity, OrderModel>(cfg);
             base.BipassMapper<OrderPropertyEntity, OrderPropertyModel>(cfg);
+            base.BipassMapper<OrderCategoryEntity, OrderCategoryModel>(cfg);
             base.BipassMapper<OrderPropertyValueEntity, OrderPropertyValueModel>(cfg);
             base.BipassMapper<OrderChargeEntity, OrderChargeModel>(cfg);
             base.BipassMapper<OrderChargeValueEntity, OrderChargeValueModel>(cfg);

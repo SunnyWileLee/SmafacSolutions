@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderCategoryModel.cs" />
     <Compile Include="OrderChargeModel.cs" />
     <Compile Include="OrderChargeValueModel.cs" />
     <Compile Include="OrderDetailModel.cs" />

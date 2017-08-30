@@ -1,14 +1,13 @@
 ﻿using Smafac.Framework.Core.Applications.CategoryProperty;
-using Smafac.Wms.Goods.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Wms.Goods.Applications.CategoryProperty
+namespace Smafac.Sales.Order.Applications.CategoryProperty
 {
-    public interface IGoodsCategoryPropertyBindService : ICategoryPropertyBindService
+    public interface IOrderCategoryPropertyBindService : ICategoryPropertyBindService
     {
     }
 }

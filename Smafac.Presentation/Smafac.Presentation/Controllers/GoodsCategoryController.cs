@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Models;
 using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Applications.Category;
+using Smafac.Wms.Goods.Applications.CategoryProperty;
 using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
@@ -14,16 +15,19 @@ namespace Smafac.Presentation.Controllers
     public class GoodsCategoryController : SmafacController
     {
         private readonly IGoodsCategoryService _goodsCategoryService;
-        private readonly IGoodsCategoryPropertyService _goodsCategoryPropertyService;
+        private readonly IGoodsCategoryPropertyBindService _goodsCategoryPropertyBindService;
+        private readonly IGoodsCategoryPropertySearchService _goodsCategoryPropertySearchService;
         private readonly IGoodsPropertyService _goodsPropertyService;
 
         public GoodsCategoryController(IGoodsCategoryService goodsCategoryService,
-                                        IGoodsCategoryPropertyService goodsCategoryPropertyService,
-                                        IGoodsPropertyService goodsPropertyService
+                                       IGoodsCategoryPropertyBindService goodsCategoryPropertyBindService,
+                                       IGoodsCategoryPropertySearchService goodsCategoryPropertySearchService,
+                                       IGoodsPropertyService goodsPropertyService
                                         )
         {
             _goodsCategoryService = goodsCategoryService;
-            _goodsCategoryPropertyService = goodsCategoryPropertyService;
+            _goodsCategoryPropertyBindService = goodsCategoryPropertyBindService;
+            _goodsCategoryPropertySearchService = goodsCategoryPropertySearchService;
             _goodsPropertyService = goodsPropertyService;
         }
         [HttpGet]
@@ -54,23 +58,23 @@ namespace Smafac.Presentation.Controllers
             var category = _goodsCategoryService.SearchService.GetCategory(categoryId);
             ViewData["category"] = category;
             var properties = _goodsPropertyService.SearchService.GetProperties();
-            var bounds = _goodsCategoryPropertyService.GetProperties(categoryId).Select(s => s.Id).ToList();
+            var bounds = _goodsCategoryPropertySearchService.GetProperties(categoryId).Select(s => s.Id).ToList();
             ViewData["boundIds"] = bounds;
             return View(properties);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult BindProperties(GoodsCategoryPropertyColletionModel model)
+        public ActionResult BindProperties(CategoryPropertyCollectionModel model)
         {
-            var result = _goodsCategoryPropertyService.BindProperties(model.CategoryId, model.PropertyIds);
+            var result = _goodsCategoryPropertyBindService.BindProperties(model.CategoryId, model.PropertyIds);
             return BoolResult(result);
         }
 
         [HttpGet]
         public ActionResult GoodsCategoryPropertyValueView(Guid categoryId)
         {
-            var properties = _goodsCategoryPropertyService.GetPropertiesIncludeParents(categoryId);
+            var properties = _goodsCategoryPropertySearchService.GetPropertiesIncludeParents(categoryId);
             return View(properties);
         }
     }

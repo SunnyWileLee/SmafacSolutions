@@ -52,6 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryProperty\IOrderCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\IOrderCategoryPropertySearchService.cs" />
+    <Compile Include="Applications\Category\IOrderCategoryAddService.cs" />
+    <Compile Include="Applications\Category\IOrderCategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\IOrderCategorySearchService.cs" />
+    <Compile Include="Applications\Category\IOrderCategoryService.cs" />
+    <Compile Include="Applications\Category\IOrderCategoryUpdateService.cs" />
     <Compile Include="Applications\IAutofacScanOrder.cs" />
     <Compile Include="Applications\IOrderChargeService.cs" />
     <Compile Include="Applications\IOrderChargeValueService.cs" />
@@ -75,7 +82,18 @@
     <Compile Include="Domain\OrderStatusEntity.cs" />
     <Compile Include="Domain\Property\OrderPropertyProvider.cs" />
     <Compile Include="Domain\Property\IOrderPropertyProvider.cs" />
+    <Compile Include="Migrations\201708280551355_InitialCreate.cs" />
+    <Compile Include="Migrations\201708280551355_InitialCreate.Designer.cs">
+      <DependentUpon>201708280551355_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708300340530_InitialCreate1.cs" />
+    <Compile Include="Migrations\201708300340530_InitialCreate1.Designer.cs">
+      <DependentUpon>201708300340530_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryProperty\OrderCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\IOrderCategoryPropertyBindRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\OrderCategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\IOrderCategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\Category\OrderCategoryAddRepository.cs" />
@@ -107,6 +125,13 @@
     <Compile Include="Repositories\Property\IOrderPropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\IOrderPropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\IOrderPropertyUpdateRepository.cs" />
+    <Compile Include="Services\CategoryProperty\OrderCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\OrderCategoryPropertySearchService.cs" />
+    <Compile Include="Services\Category\OrderCategoryAddService.cs" />
+    <Compile Include="Services\Category\OrderCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\OrderCategorySearchService.cs" />
+    <Compile Include="Services\Category\OrderCategoryService.cs" />
+    <Compile Include="Services\Category\OrderCategoryUpdateService.cs" />
     <Compile Include="Services\OrderAutoMapper.cs" />
     <Compile Include="Services\OrderChargeService.cs" />
     <Compile Include="Services\OrderChargeValueService.cs" />
@@ -133,12 +158,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Applications\CategoryCharge\" />
     <Folder Include="Applications\Charge\" />
+    <Folder Include="Repositories\Charge\" />
     <Folder Include="Services\Charge\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708280551355_InitialCreate.resx">
+      <DependentUpon>201708280551355_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708300340530_InitialCreate1.resx">
+      <DependentUpon>201708300340530_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

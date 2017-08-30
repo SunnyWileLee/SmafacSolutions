@@ -1,4 +1,4 @@
-﻿@model CategoryModelSet<GoodsCategoryModel>
+﻿@model CategoryModelSet<OrderCategoryModel>
 
 @{
     Layout = null;
@@ -26,7 +26,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="btn btn-default" href="/GoodsCategory/GoodsCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
+                        <a class="btn btn-default" href="/OrderCategory/OrderCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
                     </li>
                     @if (slice < 6)
                     {

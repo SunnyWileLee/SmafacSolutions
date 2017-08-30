@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Repositories.CategoryProperty
 {
-    class OrderCategoryPropertySearchRepository : CategoryPropertySearchRepository<OrderContext, OrderCategoryEntity, OrderPropertyEntity, OrderCategoryPropertyEntity>,
-                                                  IOrderCategoryPropertySearchRepository
+    class OrderCategoryPropertyBindRepository : CategoryPropertyBindRepository<OrderContext, OrderCategoryEntity, OrderPropertyEntity, OrderCategoryPropertyEntity>,
+                                                IOrderCategoryPropertyBindRepository
     {
-        public OrderCategoryPropertySearchRepository(IOrderContextProvider orderContextProvider)
+        public OrderCategoryPropertyBindRepository(IOrderContextProvider orderContextProvider)
         {
             base.ContextProvider = orderContextProvider;
         }

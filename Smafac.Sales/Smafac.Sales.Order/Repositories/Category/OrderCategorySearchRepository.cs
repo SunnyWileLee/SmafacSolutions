@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.Category
 {
     class OrderCategorySearchRepository : CategorySearchRepository<OrderContext, OrderCategoryEntity>, IOrderCategorySearchRepository
     {
-        public OrderCategorySearchRepository(IOrderContextProvider OrderContextProvider)
+        public OrderCategorySearchRepository(IOrderContextProvider orderContextProvider)
         {
-            base.ContextProvider = OrderContextProvider;
+            base.ContextProvider = orderContextProvider;
         }
     }
 }
