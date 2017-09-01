@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Models;
 
-namespace Smafac.Sales.Order.Repositories
+namespace Smafac.Sales.Order.Repositories.Property
 {
     class OrderPropertyValueRepository : IOrderPropertyValueRepository
     {
@@ -21,7 +21,7 @@ namespace Smafac.Sales.Order.Repositories
         {
             using (var context = _orderContextProvider.Provide())
             {
-                if (values.Any(s => s.OrderId == orderId))
+                if (values.Any(s => s.OrderId != orderId))
                 {
                     return false;
                 }

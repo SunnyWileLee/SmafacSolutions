@@ -24,7 +24,7 @@ namespace Smafac.Framework.Core.Services.CategoryAssociation
             get; protected set;
         }
 
-        public virtual List<TAssociationModel> GetPropertiesIncludeParents(Guid categoryId)
+        public virtual List<TAssociationModel> GetAssociationsIncludeParents(Guid categoryId)
         {
             var associations = CategoryAssociationProvider.ProvideAssociations(categoryId);
             return associations;

@@ -15,6 +15,7 @@ namespace Smafac.Sales.Order.Models
             OrderDate = DateTime.Now;
             HopeDate = DateTime.Now;
         }
+        [Display(Name = "客户")]
         public Guid CustomerId { get; set; }
         public Guid GoodsId { get; set; }
         [Display(Name = "单价")]
@@ -39,6 +40,8 @@ namespace Smafac.Sales.Order.Models
         public string CustomerName { get; set; }
         [Display(Name = "商品")]
         public string GoodsName { get; set; }
+        [Display(Name = "类别")]
+        public Guid CategoryId { get; set; }
 
         public List<OrderChargeValueModel> Charges { get; set; }
         public List<OrderPropertyValueModel> Properties { get; set; }

@@ -102,7 +102,14 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult OrderCategoryPropertyValueView(Guid categoryId)
         {
-            var properties = _orderCategoryPropertySearchService.GetPropertiesIncludeParents(categoryId);
+            var properties = _orderCategoryPropertySearchService.GetAssociationsIncludeParents(categoryId);
+            return View(properties);
+        }
+
+        [HttpGet]
+        public ActionResult OrderCategoryChargeValueView(Guid categoryId)
+        {
+            var properties = _orderCategoryChargeSearchService.GetAssociationsIncludeParents(categoryId);
             return View(properties);
         }
     }

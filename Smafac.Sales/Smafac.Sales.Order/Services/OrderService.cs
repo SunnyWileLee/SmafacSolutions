@@ -39,19 +39,42 @@ namespace Smafac.Sales.Order.Services
         public bool AddOrder(OrderModel model)
         {
             var order = Mapper.Map<OrderEntity>(model);
+            order.SubscriberId = UserContext.Current.SubscriberId;
             if (_orderRepository.AddOrder(order))
             {
-                if (!_orderChargeValueRepository.AddChargeValues(order.Id, Mapper.Map<List<OrderChargeValueEntity>>(model.Charges)))
+                if (!AddChargeValues(order, model.Charges))
                 {
                     var charges = JsonConvert.SerializeObject(model.Charges);
                 }
-                if (!_orderPropertyValueRepository.AddPropertyValues(order.Id, Mapper.Map<List<OrderPropertyValueEntity>>(model.Properties)))
+                if (!AddPropertyValues(order, model.Properties))
                 {
-                    var charges = JsonConvert.SerializeObject(model.Properties);
+                    var properties = JsonConvert.SerializeObject(model.Properties);
                 }
                 return true;
             }
             return false;
+        }
+
+        private bool AddChargeValues(OrderEntity order, IEnumerable<OrderChargeValueModel> values)
+        {
+            var charges = Mapper.Map<List<OrderChargeValueEntity>>(values);
+            charges.ForEach(charge =>
+            {
+                charge.OrderId = order.Id;
+                charge.SubscriberId = order.SubscriberId;
+            });
+            return _orderChargeValueRepository.AddChargeValues(order.Id, charges);
+        }
+
+        private bool AddPropertyValues(OrderEntity order, IEnumerable<OrderPropertyValueModel> values)
+        {
+            var properties = Mapper.Map<List<OrderPropertyValueEntity>>(values);
+            properties.ForEach(property =>
+            {
+                property.OrderId = order.Id;
+                property.SubscriberId = order.SubscriberId;
+            });
+            return _orderPropertyValueRepository.AddPropertyValues(order.Id, properties);
         }
 
         public OrderModel CreateEmptyOrder()

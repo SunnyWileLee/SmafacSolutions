@@ -74,7 +74,7 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsCategoryPropertyValueView(Guid categoryId)
         {
-            var properties = _goodsCategoryPropertySearchService.GetPropertiesIncludeParents(categoryId);
+            var properties = _goodsCategoryPropertySearchService.GetAssociationsIncludeParents(categoryId);
             return View(properties);
         }
     }

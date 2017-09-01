@@ -123,14 +123,14 @@
     <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
-    <Compile Include="Repositories\IOrderPropertyValueRepository.cs" />
+    <Compile Include="Repositories\Property\IOrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IOrderSearchRepository.cs" />
     <Compile Include="Repositories\Charge\OrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\OrderChargeValueRepository.cs" />
     <Compile Include="Repositories\OrderContext.cs" />
     <Compile Include="Repositories\OrderContextProvider.cs" />
-    <Compile Include="Repositories\OrderPropertyValueRepository.cs" />
+    <Compile Include="Repositories\Property\OrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\OrderSearchRepository.cs" />
     <Compile Include="Repositories\Property\OrderPropertyAddRepository.cs" />

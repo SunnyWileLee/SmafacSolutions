@@ -18,16 +18,22 @@ namespace Smafac.Framework.Core.Repositories.CategoryAssociation
         where TAssociation : SaasBaseEntity
         where TCategoryAssociation : CategoryAssociationEntity
     {
-        protected override IEnumerable<TCategoryAssociation> CreateBinds(Guid subscriberId, Guid categoryId, IEnumerable<Guid> propertyIds)
+        protected override IEnumerable<TCategoryAssociation> CreateBinds(Guid subscriberId, Guid categoryId, IEnumerable<Guid> associationIds)
         {
-            var binds = propertyIds.Select(propertyId =>
+            var binds = associationIds.Select(associationId =>
             {
-                var bind = Activator.CreateInstance<TCategoryAssociation>();
+                var bind = this.CreateBind(associationId);
                 bind.SubscriberId = subscriberId;
                 bind.CategoryId = categoryId;
                 return bind;
             });
             return binds;
+        }
+
+        protected virtual TCategoryAssociation CreateBind(Guid associationId)
+        {
+            var bind = Activator.CreateInstance<TCategoryAssociation>();
+            return bind;
         }
 
         protected override IEnumerable<TCategoryAssociation> GetBinds(IQueryable<TCategoryAssociation> binds, Guid entityId)

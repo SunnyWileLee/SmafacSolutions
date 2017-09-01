@@ -225,6 +225,7 @@
     <Content Include="Views\OrderProperty\OrderPropertyView.cshtml" />
     <Content Include="Views\OrderCharge\OrderChargeView.cshtml" />
     <Content Include="Views\OrderCategory\OrderCategoryChargeBindView.cshtml" />
+    <Content Include="Views\OrderCategory\OrderCategoryChargeValueView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

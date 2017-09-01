@@ -8,63 +8,71 @@
     <div class="col-lg-4">
         <form class=" form-horizontal">
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.CustomerName, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.CustomerName, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.CustomerName, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.GoodsName, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.GoodsName, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.GoodsName, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.Price, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.Price, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.Price, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.Quantity, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.Quantity, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.Quantity, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.Charge, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.Charge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.Charge, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.TotalCharge, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.TotalCharge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.TotalCharge, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.CreateTime, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.CreateTime, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.CreateTime, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.OrderDate, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.OrderDate, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.OrderDate, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.HopeDate, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.HopeDate, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.HopeDate, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.Memo, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Order.Memo, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.Memo, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <a class="btn btn-default" href="/Order/OrderView" type="button">
+                        <i class="m-icon-swapleft m-icon-white"></i>
+                        返回列表
+                    </a>
                 </div>
             </div>
         </form>
@@ -74,8 +82,8 @@
             @foreach (var charge in Model.Order.Charges)
             {
                 <div class="form-group">
-                    @Html.Label(charge.ChargeName, charge.ChargeName, new { @class = "col-lg-2 control-label" });
-                    <div class="col-lg-10">
+                    @Html.Label(charge.ChargeName, charge.ChargeName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.TextBox(charge.Id.ToString(), charge.Charge, new { @class = "form-control", @readonly = "readonly" })
                     </div>
                 </div>
@@ -87,8 +95,8 @@
             @foreach (var property in Model.Order.Properties)
             {
                 <div class="form-group">
-                    @Html.Label(property.PropertyName, property.PropertyName, new { @class = "col-lg-2 control-label" });
-                    <div class="col-lg-10">
+                    @Html.Label(property.PropertyName, property.PropertyName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control", @readonly = "readonly" })
                     </div>
                 </div>

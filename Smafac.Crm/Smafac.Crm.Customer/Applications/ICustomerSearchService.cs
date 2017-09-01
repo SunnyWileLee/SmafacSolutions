@@ -14,5 +14,6 @@ namespace Smafac.Crm.Customer.Applications
         PageModel<CustomerModel> GetCustomerPage(CustomerPageQueryModel query);
         CustomerModel GetCustomer(Guid customerId);
         List<CustomerModel> GetCustomers(IEnumerable<Guid> customerIds);
+        List<CustomerModel> GetCustomers();
     }
 }

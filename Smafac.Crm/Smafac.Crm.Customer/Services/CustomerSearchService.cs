@@ -71,6 +71,13 @@ namespace Smafac.Crm.Customer.Services
             return Mapper.Map<List<CustomerModel>>(customers);
         }
 
+        public List<CustomerModel> GetCustomers()
+        {
+            var subscriberId = UserContext.Current.SubscriberId;
+            var customers = _customerSearchRepository.GetCustomers(subscriberId, s => true);
+            return Mapper.Map<List<CustomerModel>>(customers);
+        }
+
         private void SetCustomerPropertyValues(CustomerModel customer, IEnumerable<CustomerPropertyValueModel> properties)
         {
             if (properties == null)

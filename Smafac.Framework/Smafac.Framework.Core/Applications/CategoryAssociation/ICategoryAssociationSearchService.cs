@@ -11,6 +11,6 @@ namespace Smafac.Framework.Core.Applications.CategoryAssociation
     public interface ICategoryAssociationSearchService<TAssociationModel> : IEntityAssociationSearchService<TAssociationModel>
         where TAssociationModel : SaasBaseModel
     {
-        List<TAssociationModel> GetPropertiesIncludeParents(Guid categoryId);
+        List<TAssociationModel> GetAssociationsIncludeParents(Guid categoryId);
     }
 }

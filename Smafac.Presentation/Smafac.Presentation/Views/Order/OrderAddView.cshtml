@@ -1,106 +1,237 @@
 ﻿@model OrderModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var customers = ViewData["customers"] as IEnumerable<SelectListItem>;
+    var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
 <div class="row">
     <div class="col-lg-4">
-        <form class=" form-horizontal">
+        <form class="form-horizontal">
+            @Html.HiddenFor(s => s.GoodsId, new { @class = "input-orderValue" })
             <div class="form-group">
-                @Html.LabelFor(s => s.CustomerName, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.CustomerName, new { @class = "form-control" })
+                @Html.LabelFor(s => s.GoodsName, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.GoodsName, new { @class = "form-control " })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.GoodsName, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.GoodsName, new { @class = "form-control" })
+                @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.DropDownListFor(s => s.CategoryId, categories, "", new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Price, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control" })
+                @Html.LabelFor(s => s.CustomerId, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.DropDownListFor(s => s.CustomerId, customers, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Price, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Charge, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Charge, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.TotalCharge, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.TotalCharge, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Charge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Charge, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.CreateTime, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.CreateTime, new { @class = "form-control" })
+                @Html.LabelFor(s => s.TotalCharge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.TotalCharge, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.OrderDate, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.OrderDate, new { @class = "form-control" })
+                @Html.LabelFor(s => s.OrderDate, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.OrderDate, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.HopeDate, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.HopeDate, new { @class = "form-control" })
+                @Html.LabelFor(s => s.HopeDate, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.HopeDate, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Memo, new { @class = "col-lg-2 control-label" });
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Memo, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Memo, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Memo, new { @class = "form-control input-orderValue" })
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-2 col-lg-9">
                     <button type="button" class="btn btn-default" onclick="addOrder()">提交</button>
+                    <a class="btn btn-default" href="/Order/OrderView" type="button">
+                        <i class="m-icon-swapleft m-icon-white"></i>
+                        返回列表
+                    </a>
                 </div>
             </div>
         </form>
     </div>
-    <div class="col-lg-4">
-        <form class=" form-horizontal">
-            @foreach (var charge in Model.Charges)
-            {
-                <div class="form-group">
-                    @Html.Label(charge.ChargeName, charge.ChargeName, new { @class = "col-lg-2 control-label" });
-                    <div class="col-lg-10">
-                        @Html.TextBox(charge.Id.ToString(), charge.Charge, new { @class = "form-control", @readonly = "readonly" })
-                    </div>
-                </div>
-            }
-        </form>
+    <div class="col-lg-4" id="charge-container">
+
     </div>
-    <div class="col-lg-4">
-        <form class=" form-horizontal">
-            @foreach (var property in Model.Properties)
-            {
-                <div class="form-group">
-                    @Html.Label(property.PropertyName, property.PropertyName, new { @class = "col-lg-2 control-label" });
-                    <div class="col-lg-10">
-                        @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control", @readonly = "readonly" })
-                    </div>
-                </div>
-            }
-        </form>
+    <div class="col-lg-4" id="property-container">
+
     </div>
 </div>
 <script>
+    function sumCharge() {
+        var totalCharge = 0;
+        var reg = /^\d+(\.\d+)?$/;
+        $('.input-chargeValue').each(function (index) {
+            var input = $(this);
+            var charge = input.val();
+            if (reg.test(charge)) {
+                totalCharge += parseFloat(charge);
+            }
+            else {
+                input.val("请出入正确的数字");
+                return false;
+            }
+        })
 
+        var quantity = $('#Quantity').val();
+        var price = $('#Price').val();
+        if (!reg.test(quantity)) {
+            $('#Quantity').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(price)) {
+            $('#Price').val("请出入正确的数字");
+        }
+        var money = (parseFloat(quantity) * parseFloat(price)).toFixed(2);
+        $('#Charge').val(money);
+        totalCharge += parseFloat(money);
+        $('#TotalCharge').val(totalCharge.toFixed(2));
+    }
+
+    function addOrder() {
+        var goodsId = $('#GoodsId').val();
+        var categoryId = $('#CategoryId').val();
+        var customerId = $('#CustomerId').val();
+        var quantity = $('#Quantity').val();
+        var price = $('#Price').val();
+        var charge = $('#Charge').val();
+        var totalCharge = $('#TotalCharge').val();
+        var orderDate = $('#OrderDate').val();
+        var hopeDate = $('#HopeDate').val();
+        var memo = $('#Memo').val();
+
+        if (totalCharge == '') {
+            alert('请出入总价，或计算总价');
+            return false;
+        }
+        var reg = /^\d+(\.\d+)?$/;
+        if (!reg.test(quantity)) {
+            $('#Quantity').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(price)) {
+            $('#Price').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(charge)) {
+            $('#Charge').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(totalCharge)) {
+            $('#TotalCharge').val("请出入正确的数字");
+            return false;
+        }
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var propertyId = input.attr('name');
+            var value = input.val();
+            var property = { propertyId: propertyId, value: value };
+            properties.push(property);
+        })
+
+        var charges = [];
+        $('.input-chargeValue').each(function (index) {
+            var input = $(this);
+            var chargeId = input.attr('name');
+            var charge = input.val();
+            var chargeEntity = { chargeId: chargeId, charge: charge };
+            charges.push(chargeEntity);
+        })
+
+        var data = {
+            goodsId: goodsId,
+            categoryId: categoryId,
+            customerId: customerId,
+            quantity: quantity,
+            price: price,
+            charge: charge,
+            totalCharge: totalCharge,
+            orderDate: orderDate,
+            hopeDate: hopeDate,
+            memo: memo,
+            properties: properties,
+            charges: charges
+        }
+
+        var url = '/Order/AddOrder';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+
+
+    $(document).ready(function () {
+        $('#CategoryId').change(function () {
+            var categoryId = $(this).children('option:selected').val();
+            if (categoryId == '' || categoryId == null) {
+                return false;
+            }
+            var url = "/OrderCategory/OrderCategoryPropertyValueView?categoryId=" + categoryId;
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "html",
+                success: function (data) {
+                    $('#property-container').html(data);
+                },
+                error: function (data) {
+                    $('#property-container').html('<p>页面错误</p>');
+                }
+            });
+
+            var url = "/OrderCategory/OrderCategoryChargeValueView?categoryId=" + categoryId;
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "html",
+                success: function (data) {
+                    $('#charge-container').html(data);
+                },
+                error: function (data) {
+                    $('#property-container').html('<p>页面错误</p>');
+                }
+            });
+        })
+    })
 </script>

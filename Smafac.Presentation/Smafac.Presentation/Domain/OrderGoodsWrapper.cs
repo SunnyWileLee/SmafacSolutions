@@ -22,8 +22,8 @@ namespace Smafac.Presentation.Domain
             {
                 return;
             }
-            var orderIds = orders.Select(s => s.Id);
-            var goodses = _goodsSearchService.GetGoods(orderIds);
+            var goodsIds = orders.Select(s => s.GoodsId);
+            var goodses = _goodsSearchService.GetGoods(goodsIds);
             orders.ForEach(order =>
             {
                 var goods = goodses.FirstOrDefault(s => s.Id == order.GoodsId);
