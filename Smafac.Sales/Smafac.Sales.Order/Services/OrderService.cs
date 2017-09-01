@@ -42,13 +42,19 @@ namespace Smafac.Sales.Order.Services
             order.SubscriberId = UserContext.Current.SubscriberId;
             if (_orderRepository.AddOrder(order))
             {
-                if (!AddChargeValues(order, model.Charges))
+                if (model.HasCharges)
                 {
-                    var charges = JsonConvert.SerializeObject(model.Charges);
+                    if (!AddChargeValues(order, model.Charges))
+                    {
+                        var charges = JsonConvert.SerializeObject(model.Charges);
+                    }
                 }
-                if (!AddPropertyValues(order, model.Properties))
+                if (model.HasProperties)
                 {
-                    var properties = JsonConvert.SerializeObject(model.Properties);
+                    if (!AddPropertyValues(order, model.Properties))
+                    {
+                        var properties = JsonConvert.SerializeObject(model.Properties);
+                    }
                 }
                 return true;
             }

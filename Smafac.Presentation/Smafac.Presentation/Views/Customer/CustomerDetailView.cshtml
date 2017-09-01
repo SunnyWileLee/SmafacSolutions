@@ -25,18 +25,6 @@
                     @Html.TextBoxFor(s => s.Customer.MobileNumber, new { @class = "form-control" })
                 </div>
             </div>
-            @*<div class="form-group">
-                @Html.LabelFor(s => s.Customer.KnownDate, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Customer.KnownDate, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Customer.LevelName, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Customer.LevelName, new { @class = "form-control" })
-                </div>
-            </div>*@
             @foreach (var property in Model.Customer.Properties)
             {
                 <div class="form-group">
@@ -48,7 +36,6 @@
             }
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
-                    <button type="button" class="btn btn-default" onclick="addCustomer()">提交</button>
                     <a class="btn btn-default" href="/Customer/CustomerView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
