@@ -1,4 +1,5 @@
 ﻿using Smafac.Framework.Core.Domain;
+using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 using Smafac.Sales.Order.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Domain.CategoryProperty
 {
-    interface IOrderCategoryPropertyProvider : ICategoryPropertyProvider<OrderPropertyEntity, OrderPropertyModel>
+    interface IOrderCategoryPropertyProvider : IEntityAssociationProvider<OrderPropertyModel>
     {
 
     }

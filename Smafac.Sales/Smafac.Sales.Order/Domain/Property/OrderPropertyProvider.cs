@@ -28,7 +28,7 @@ namespace Smafac.Sales.Order.Domain.Property
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var order = _orderSearchRepository.GetById(subscriberId, orderId);
-            return _orderCategoryPropertyProvider.ProvideProperties(order.CategoryId);
+            return _orderCategoryPropertyProvider.ProvideAssociations(order.CategoryId);
         }
     }
 }

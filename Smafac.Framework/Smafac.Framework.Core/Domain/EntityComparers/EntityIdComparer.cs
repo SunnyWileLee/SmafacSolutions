@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Framework.Core.Domain
+namespace Smafac.Framework.Core.Domain.EntityComparers
 {
-    public class PropertyIdComparer<TProperty> : IEqualityComparer<TProperty> where TProperty : PropertyEntity
+    public class EntityIdComparer<TEntity> : IEqualityComparer<TEntity> where TEntity : SaasBaseEntity
     {
-        public bool Equals(TProperty x, TProperty y)
+        public bool Equals(TEntity x, TEntity y)
         {
             if (x == null)
                 return y == null;
             return x.Id == y.Id && x.SubscriberId == y.SubscriberId;
         }
 
-        public int GetHashCode(TProperty obj)
+        public int GetHashCode(TEntity obj)
         {
             if (obj == null)
                 return 0;

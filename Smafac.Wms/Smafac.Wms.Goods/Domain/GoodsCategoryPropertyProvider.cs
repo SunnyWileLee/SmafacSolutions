@@ -11,6 +11,7 @@ using Smafac.Wms.Goods.Models;
 using Smafac.Framework.Core.Domain;
 using Smafac.Wms.Goods.Repositories.Category;
 using Smafac.Wms.Goods.Repositories.CategoryProperty;
+using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 
 namespace Smafac.Wms.Goods.Domain
 {
@@ -22,7 +23,7 @@ namespace Smafac.Wms.Goods.Domain
                                             IGoodsCategorySearchRepository goodsCategorySearchRepository)
         {
             base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.CategoryPropertySearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategoryAssociationSearchRepository = goodsCategoryPropertySearchRepository;
         }
     }
 }

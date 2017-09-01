@@ -27,7 +27,7 @@ namespace Smafac.Wms.Goods.Domain
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var goods = _goodsSearchRepository.GetGoods(subscriberId, goodsId);
-            return _goodsCategoryPropertyProvider.ProvideProperties(goods.CategoryId);
+            return _goodsCategoryPropertyProvider.ProvideAssociations(goods.CategoryId);
         }
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.CategoryAssociation
 {
-    public interface ICategoryAssociationSearchService<TAssociation> : IEntityAssociationSearchService<TAssociation>
-        where TAssociation : SaasBaseModel
+    public interface ICategoryAssociationSearchService<TAssociationModel> : IEntityAssociationSearchService<TAssociationModel>
+        where TAssociationModel : SaasBaseModel
     {
-        List<TAssociation> GetPropertiesIncludeParents(Guid categoryId);
+        List<TAssociationModel> GetPropertiesIncludeParents(Guid categoryId);
     }
 }

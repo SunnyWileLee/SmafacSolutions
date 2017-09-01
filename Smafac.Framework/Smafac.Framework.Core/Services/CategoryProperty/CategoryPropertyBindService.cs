@@ -2,6 +2,7 @@
 using Smafac.Framework.Core.Domain;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.CategoryProperty;
+using Smafac.Framework.Core.Services.CategoryAssociation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +11,12 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Services.CategoryProperty
 {
-    public abstract class CategoryPropertyBindService<TCategory, TProperty> : ICategoryPropertyBindService
+    public abstract class CategoryPropertyBindService<TCategory, TProperty> :
+        CategoryAssociationBindService<TCategory, TProperty>,
+        ICategoryPropertyBindService
         where TCategory : CategoryEntity
         where TProperty : PropertyEntity
     {
-        protected virtual bool AllowCover
-        {
-            get
-            {
-                return true;
-            }
-        }
 
-        public virtual ICategoryPropertyBindRepository<TCategory, TProperty> CategoryPropertyBindRepository
-        {
-            get;
-            protected set;
-        }
-
-        public virtual ICategoryPropertySearchRepository<TCategory, TProperty> CategoryPropertySearchRepository
-        {
-            get;
-            protected set;
-        }
-
-        public virtual bool BindProperties(Guid categoryId, IEnumerable<Guid> propertyIds)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            if (CategoryPropertySearchRepository.IsBound(subscriberId, categoryId))
-            {
-                if (!AllowCover)
-                {
-                    return false;
-                }
-                if (!CategoryPropertyBindRepository.UnbindProperties(subscriberId, categoryId))
-                {
-                    return false;
-                }
-            }
-            return CategoryPropertyBindRepository.BindProperties(subscriberId, categoryId, propertyIds);
-        }
     }
 }

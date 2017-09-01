@@ -15,11 +15,11 @@ namespace Smafac.Wms.Goods.Services.CategoryProperty
                                         IGoodsCategoryPropertyBindService
     {
         public GoodsCategoryPropertyBindService(IGoodsCategoryPropertyBindRepository goodsCategoryPropertyBindRepository,
-                                                IGoodsCategoryPropertySearchRepository gategoryPropertySearchRepository
+                                                IGoodsCategoryPropertySearchRepository goodsCategoryPropertySearchRepository
                                                 )
         {
-            base.CategoryPropertyBindRepository = goodsCategoryPropertyBindRepository;
-            base.CategoryPropertySearchRepository = gategoryPropertySearchRepository;
+            base.EntityAssociationBindRepository = goodsCategoryPropertyBindRepository;
+            base.EntityAssociationSearchRepository = goodsCategoryPropertySearchRepository;
         }
 
     }

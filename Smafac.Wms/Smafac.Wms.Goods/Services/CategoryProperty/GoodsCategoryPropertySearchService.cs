@@ -18,8 +18,8 @@ namespace Smafac.Wms.Goods.Services.CategoryProperty
             IGoodsCategoryPropertyProvider goodsCategoryPropertyProvider
             )
         {
-            base.CategoryPropertyProvider = goodsCategoryPropertyProvider;
-            base.CategoryPropertySearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategoryAssociationProvider = goodsCategoryPropertyProvider;
+            base.EntityAssociationSearchRepository = goodsCategoryPropertySearchRepository;
         }
     }
 }

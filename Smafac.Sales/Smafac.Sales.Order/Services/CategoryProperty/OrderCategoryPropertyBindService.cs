@@ -11,15 +11,16 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Services.CategoryProperty
 {
-    class OrderCategoryPropertyBindService : CategoryPropertyBindService<OrderCategoryEntity, OrderPropertyEntity>,
+    class OrderCategoryPropertyBindService : 
+                                        CategoryPropertyBindService<OrderCategoryEntity, OrderPropertyEntity>,
                                         IOrderCategoryPropertyBindService
     {
         public OrderCategoryPropertyBindService(IOrderCategoryPropertyBindRepository orderCategoryPropertyBindRepository,
                                                 IOrderCategoryPropertySearchRepository orderCategoryPropertySearchRepository
                                                 )
         {
-            base.CategoryPropertyBindRepository = orderCategoryPropertyBindRepository;
-            base.CategoryPropertySearchRepository = orderCategoryPropertySearchRepository;
+            base.EntityAssociationBindRepository = orderCategoryPropertyBindRepository;
+            base.EntityAssociationSearchRepository = orderCategoryPropertySearchRepository;
         }
 
     }

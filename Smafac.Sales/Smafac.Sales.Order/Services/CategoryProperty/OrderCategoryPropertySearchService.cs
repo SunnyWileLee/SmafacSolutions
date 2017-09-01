@@ -19,8 +19,9 @@ namespace Smafac.Sales.Order.Services.CategoryProperty
             IOrderCategoryPropertyProvider orderCategoryPropertyProvider
             )
         {
-            base.CategoryPropertyProvider = orderCategoryPropertyProvider;
-            base.CategoryPropertySearchRepository = orderCategoryPropertySearchRepository;
+           
+            base.CategoryAssociationProvider = orderCategoryPropertyProvider;
+            base.EntityAssociationSearchRepository = orderCategoryPropertySearchRepository;
         }
     }
 }

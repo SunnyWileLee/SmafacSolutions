@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.EntityAssociation
 {
-    public interface IEntityAssociationSearchService<TAssociation> where TAssociation : SaasBaseModel
+    public interface IEntityAssociationSearchService<TAssociationModel> where TAssociationModel : SaasBaseModel
     {
-        List<TAssociation> GetAssociations(Guid entityId);
+        List<TAssociationModel> GetAssociations(Guid entityId);
     }
 }

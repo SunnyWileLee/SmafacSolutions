@@ -9,34 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Smafac.Framework.Core.Services.CategoryAssociation;
 
 namespace Smafac.Framework.Core.Services.CategoryProperty
 {
-    public abstract class CategoryPropertySearchService<TCategory, TProperty, TPropertyModel> : ICategoryPropertySearchService<TPropertyModel>
+    public abstract class CategoryPropertySearchService<TCategory, TProperty, TPropertyModel> :
+        CategoryAssociationSearchService<TCategory, TProperty, TPropertyModel>,
+        ICategoryPropertySearchService<TPropertyModel>
         where TCategory : CategoryEntity
         where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
-        public virtual ICategoryPropertySearchRepository<TCategory, TProperty> CategoryPropertySearchRepository
-        {
-            get; protected set;
-        }
 
-        public virtual ICategoryPropertyProvider<TProperty, TPropertyModel> CategoryPropertyProvider
-        {
-            get; protected set;
-        }
-
-        public List<TPropertyModel> GetProperties(Guid categoryId)
-        {
-            var properties = CategoryPropertySearchRepository.GetProperties(UserContext.Current.SubscriberId, categoryId);
-            return Mapper.Map<List<TPropertyModel>>(properties);
-        }
-
-        public List<TPropertyModel> GetPropertiesIncludeParents(Guid categoryId)
-        {
-            var properties = CategoryPropertyProvider.ProvideProperties(categoryId);
-            return properties;
-        }
     }
 }

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace Smafac.Framework.Core.Repositories.EntityAssociation
 {
     public abstract class EntityAssociationBindRepository<TContext, TEntity, TAssociation, TEntityAssociation> : IEntityAssociationBindRepository<TEntity, TAssociation>
-            where TContext : DbContext
-    where TEntity : SaasBaseEntity
+        where TContext : DbContext
+        where TEntity : SaasBaseEntity
         where TAssociation : SaasBaseEntity
         where TEntityAssociation : SaasBaseEntity
     {

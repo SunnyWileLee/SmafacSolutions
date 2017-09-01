@@ -57,7 +57,7 @@ namespace Smafac.Presentation.Controllers
             var category = _orderCategoryService.SearchService.GetCategory(categoryId);
             ViewData["category"] = category;
             var properties = _orderPropertyService.SearchService.GetProperties();
-            var bounds = _orderCategoryPropertySearchService.GetProperties(categoryId).Select(s => s.Id).ToList();
+            var bounds = _orderCategoryPropertySearchService.GetAssociations(categoryId).Select(s => s.Id).ToList();
             ViewData["boundIds"] = bounds;
             return View(properties);
         }
@@ -66,7 +66,7 @@ namespace Smafac.Presentation.Controllers
         [AllowAnonymous]
         public ActionResult BindProperties(CategoryPropertyCollectionModel model)
         {
-            var result = _orderCategoryPropertyBindService.BindProperties(model.CategoryId, model.PropertyIds);
+            var result = _orderCategoryPropertyBindService.BindAssociations(model.CategoryId, model.PropertyIds);
             return BoolResult(result);
         }
 

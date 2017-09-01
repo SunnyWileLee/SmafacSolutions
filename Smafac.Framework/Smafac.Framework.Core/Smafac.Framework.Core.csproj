@@ -70,14 +70,15 @@
     <Compile Include="Domain\CategoryAssociationEntity.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
-    <Compile Include="Domain\CategoryPropertyProvider.cs" />
+    <Compile Include="Domain\EntityAssociationProviders\CategoryAssociationProvider.cs" />
+    <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
+    <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />
     <Compile Include="Domain\PropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\PropertyUsedChecker.cs" />
-    <Compile Include="Domain\ICategoryPropertyProvider.cs" />
+    <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
     <Compile Include="Domain\IEntityChecker.cs" />
     <Compile Include="Domain\IEntityUsedChecker.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
-    <Compile Include="Domain\PropertyIdComparer.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
     <Compile Include="Domain\TreeNodeEntity.cs" />
     <Compile Include="Domain\SaasBaseEntity.cs" />
@@ -132,6 +133,8 @@
     <Compile Include="Repositories\Property\PropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\PropertyUpdateRepository.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
+    <Compile Include="Services\CategoryAssociation\CategoryAssociationBindService.cs" />
+    <Compile Include="Services\CategoryAssociation\CategoryAssociationSearchService.cs" />
     <Compile Include="Services\CategoryProperty\CategoryPropertyBindService.cs" />
     <Compile Include="Services\CategoryProperty\CategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\CategoryAddService.cs" />
@@ -139,6 +142,7 @@
     <Compile Include="Services\Category\CategorySearchService.cs" />
     <Compile Include="Services\Category\CategoryUpdateService.cs" />
     <Compile Include="Services\EntityAssociation\EntityAssociationBindService.cs" />
+    <Compile Include="Services\EntityAssociation\EntityAssociationSearchService.cs" />
     <Compile Include="Services\Property\PropertyAddService.cs" />
     <Compile Include="Services\Property\PropertyDeleteService.cs" />
     <Compile Include="Services\Property\PropertySearchService.cs" />

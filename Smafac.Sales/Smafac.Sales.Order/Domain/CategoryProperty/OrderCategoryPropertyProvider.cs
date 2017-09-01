@@ -1,4 +1,5 @@
 ﻿using Smafac.Framework.Core.Domain;
+using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories.Category;
 using Smafac.Sales.Order.Repositories.CategoryProperty;
@@ -17,7 +18,7 @@ namespace Smafac.Sales.Order.Domain.CategoryProperty
                                                IOrderCategoryPropertySearchRepository orderCategoryPropertySearchRepository)
         {
             base.CategorySearchRepository = orderCategorySearchRepository;
-            base.CategoryPropertySearchRepository = orderCategoryPropertySearchRepository;
+            base.CategoryAssociationSearchRepository = orderCategoryPropertySearchRepository;
         }
     }
 }
