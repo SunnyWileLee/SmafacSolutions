@@ -1,8 +1,8 @@
-﻿@model IEnumerable<GoodsPropertyModel>
+﻿@model IEnumerable<OrderChargeModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var category = ViewData["category"] as GoodsCategoryModel;
+    var category = ViewData["category"] as OrderCategoryModel;
     var boundIds = ViewData["boundIds"] as IEnumerable<Guid>;
 }
 
@@ -20,35 +20,35 @@
     </div>
     <div class="col-lg-6">
         <ul class="list-group">
-            @foreach (var property in Model)
+            @foreach (var charge in Model)
             {
                 <li class="list-group-item">
                     <div class="input-group">
                         <span class="input-group-addon">
                             @{
-                                var bound = boundIds.Contains(property.Id);
+                                var bound = boundIds.Contains(charge.Id);
                                 if (bound)
                                 {
-                                    <input class="checkbox-property" type="checkbox" aria-label="..." checked="checked" id="@property.Id">
+                                    <input class="checkbox-charge" type="checkbox" aria-label="..." checked="checked" id="@charge.Id">
                                 }
                                 else
                                 {
-                                    <input class="checkbox-property" type="checkbox" aria-label="..." id="@property.Id">
+                                    <input class="checkbox-charge" type="checkbox" aria-label="..." id="@charge.Id">
                                 }
                             }
                         </span>
-                        <input type="text" readonly="readonly" class="form-control" aria-label="..." value="@property.Name">
+                        <input type="text" readonly="readonly" class="form-control" aria-label="..." value="@charge.Name">
                     </div>
                 </li>
                                 }
         </ul>
-        <div class="btn-group">
+        <div class=" btn-group">
             <input type="button" class="btn btn-success" onclick="bindProperties()" value="确定" />
-            <a class="btn btn-default" href="/GoodsCategory/GoodsCategoryView" type="button">
+            <a class="btn btn-default" href="/OrderCategory/OrderCategoryView" type="button">
                 <i class="m-icon-swapleft m-icon-white"></i>
                 返回列表
             </a>
-        </div>
+        </div>      
     </div>
 </div>
 
@@ -56,12 +56,12 @@
     function bindProperties() {
         var categoryId = $('#id-categoryId').attr('name');
         var bindIds = [];
-        $('.checkbox-property').each(function (index) {
+        $('.checkbox-charge').each(function (index) {
             var checkbox = $(this);
             var checked = checkbox.is(':checked');
             if (checked) {
-                var propertyId = checkbox.attr('id');
-                bindIds.push(propertyId);
+                var chargeId = checkbox.attr('id');
+                bindIds.push(chargeId);
             }
         });
 
@@ -70,7 +70,7 @@
             bindIds: bindIds
         };
 
-        var url = '/GoodsCategory/BindProperties';
+        var url = '/OrderCategory/BindCharges';
         $.ajax({
             type: "post",
             url: url,

@@ -13,6 +13,7 @@ namespace Smafac.Sales.Order.Repositories
     {
         public DbSet<OrderEntity> Orders { get; set; }
         public DbSet<OrderChargeEntity> OrderCharges { get; set; }
+        public DbSet<OrderCategoryChargeEntity> OrderCategoryCharges { get; set; }
         public DbSet<OrderChargeValueEntity> OrderChargeValues { get; set; }
         public DbSet<OrderCategoryEntity> OrderCategories { get; set; }
         public DbSet<OrderCategoryPropertyEntity> OrderCategoryProperties { get; set; }

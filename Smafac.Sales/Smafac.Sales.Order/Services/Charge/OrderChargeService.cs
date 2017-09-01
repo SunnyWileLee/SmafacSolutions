@@ -9,8 +9,10 @@ using Smafac.Sales.Order.Repositories;
 using AutoMapper;
 using Smafac.Sales.Order.Domain;
 using Smafac.Framework.Core.Models;
+using Smafac.Sales.Order.Applications.Charge;
+using Smafac.Sales.Order.Repositories.Charge;
 
-namespace Smafac.Sales.Order.Services
+namespace Smafac.Sales.Order.Services.Charge
 {
     class OrderChargeService : IOrderChargeService
     {
@@ -27,35 +29,28 @@ namespace Smafac.Sales.Order.Services
 
         public bool AddCharge(OrderChargeModel model)
         {
-            if (_orderChargeRepository.Any(UserContext.Current.SubscriberId, model.Name))
+            var subscriberId = UserContext.Current.SubscriberId;
+            if (_orderChargeRepository.Any(subscriberId, model.Name))
             {
                 return false;
             }
             var charge = Mapper.Map<OrderChargeEntity>(model);
+            charge.SubscriberId = subscriberId;
             return _orderChargeRepository.AddCharge(charge);
         }
 
-        public bool DeleteCharge(Guid chargeId, bool isDeleteValues = false)
+        public bool DeleteCharge(Guid chargeId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            if (!isDeleteValues)
+            if (_orderChargeValueRepository.Any(subscriberId, chargeId))
             {
-                if (_orderChargeValueRepository.Any(subscriberId, chargeId))
-                {
-                    return false;
-                }
+                return false;
             }
-            if (_orderChargeRepository.DeleteCharge(subscriberId, chargeId) && isDeleteValues)
+            if (_orderChargeRepository.DeleteCharge(subscriberId, chargeId))
             {
                 return _orderChargeValueRepository.Delete(subscriberId, chargeId);
             }
             return true;
-        }
-
-        public List<OrderChargeModel> GetCharges()
-        {
-            var charges = _orderChargeRepository.GetCharges(UserContext.Current.SubscriberId);
-            return Mapper.Map<List<OrderChargeModel>>(charges);
         }
 
         public bool UpdateCharge(OrderChargeModel model)

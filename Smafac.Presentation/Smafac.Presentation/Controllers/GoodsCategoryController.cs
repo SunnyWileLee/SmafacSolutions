@@ -65,9 +65,9 @@ namespace Smafac.Presentation.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult BindProperties(CategoryPropertyCollectionModel model)
+        public ActionResult BindProperties(CategoryBindIdsModel model)
         {
-            var result = _goodsCategoryPropertyBindService.BindAssociations(model.CategoryId, model.PropertyIds);
+            var result = _goodsCategoryPropertyBindService.BindAssociations(model.CategoryId, model.BindIds);
             return BoolResult(result);
         }
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Models
 {
-    public class CategoryPropertyCollectionModel : SaasBaseModel
+    public class CategoryBindIdsModel
     {
         public Guid CategoryId { get; set; }
-        public List<Guid> PropertyIds { get; set; }
+        public List<Guid> BindIds { get; set; }
     }
 }

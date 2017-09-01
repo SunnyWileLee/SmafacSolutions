@@ -55,19 +55,19 @@
 <script type="text/javascript">
     function bindProperties() {
         var categoryId = $('#id-categoryId').attr('name');
-        var propertyIds = [];
+        var bindIds = [];
         $('.checkbox-property').each(function (index) {
             var checkbox = $(this);
             var checked = checkbox.is(':checked');
             if (checked) {
                 var propertyId = checkbox.attr('id');
-                propertyIds.push(propertyId);
+                bindIds.push(propertyId);
             }
         });
 
         var data = {
             categoryId: categoryId,
-            propertyIds: propertyIds
+            bindIds: bindIds
         };
 
         var url = '/OrderCategory/BindProperties';

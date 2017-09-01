@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Models;
 
-namespace Smafac.Sales.Order.Repositories
+namespace Smafac.Sales.Order.Repositories.Charge
 {
     class OrderChargeRepository : IOrderChargeRepository
     {

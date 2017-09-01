@@ -17,7 +17,7 @@ namespace Smafac.Sales.Order.Services.Property
         private readonly IOrderPropertyProvider _orderPropertyProvider;
 
         public OrderPropertySearchService(IOrderPropertySearchRepository orderSearchRepository,
-            IOrderPropertyProvider orderPropertyProvider)
+                                            IOrderPropertyProvider orderPropertyProvider)
         {
             base.PropertySearchRepository = orderSearchRepository;
             _orderPropertyProvider = orderPropertyProvider;

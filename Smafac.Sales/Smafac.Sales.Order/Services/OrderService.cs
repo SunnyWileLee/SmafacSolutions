@@ -11,6 +11,7 @@ using AutoMapper;
 using Smafac.Sales.Order.Domain;
 using Newtonsoft.Json;
 using Smafac.Sales.Order.Repositories.Property;
+using Smafac.Sales.Order.Repositories.Charge;
 
 namespace Smafac.Sales.Order.Services
 {

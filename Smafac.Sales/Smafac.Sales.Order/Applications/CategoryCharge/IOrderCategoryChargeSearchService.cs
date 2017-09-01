@@ -1,4 +1,5 @@
-﻿using Smafac.Framework.Core.Applications.CategoryProperty;
+﻿using Smafac.Framework.Core.Applications.CategoryAssociation;
+using Smafac.Framework.Core.Applications.CategoryProperty;
 using Smafac.Sales.Order.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Applications.CategoryCharge
 {
-    public interface IOrderCategoryChargeSearchService : ICategoryPropertySearchService<OrderPropertyModel>
+    public interface IOrderCategoryChargeSearchService : ICategoryAssociationSearchService<OrderChargeModel>
     {
+
     }
 }

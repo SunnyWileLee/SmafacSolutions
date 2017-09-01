@@ -1,4 +1,4 @@
-﻿using Smafac.Framework.Core.Applications.CategoryProperty;
+﻿using Smafac.Framework.Core.Applications.CategoryAssociation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Applications.CategoryCharge
 {
-    public interface IOrderCategoryChargeBindService : ICategoryPropertyBindService
+    public interface IOrderCategoryChargeBindService : ICategoryAssociationBindService
     {
     }
 }

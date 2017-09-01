@@ -29,5 +29,10 @@ namespace Smafac.Framework.Core.Repositories.CategoryAssociation
             });
             return binds;
         }
+
+        protected override IEnumerable<TCategoryAssociation> GetBinds(IQueryable<TCategoryAssociation> binds, Guid entityId)
+        {
+            return binds.Where(s => s.CategoryId.Equals(entityId));
+        }
     }
 }

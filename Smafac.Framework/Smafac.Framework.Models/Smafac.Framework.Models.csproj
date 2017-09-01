@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryBindIdsModel.cs" />
     <Compile Include="CategoryModel.cs" />
     <Compile Include="CategoryModelSet.cs" />
-    <Compile Include="CategoryPropertyCollectionModel.cs" />
     <Compile Include="PageModel.cs" />
     <Compile Include="PageQueryBaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

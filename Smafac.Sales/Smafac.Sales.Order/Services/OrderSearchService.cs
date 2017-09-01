@@ -10,6 +10,7 @@ using Smafac.Sales.Order.Repositories;
 using Smafac.Framework.Core.Models;
 using AutoMapper;
 using Smafac.Sales.Order.Domain;
+using Smafac.Sales.Order.Repositories.Charge;
 
 namespace Smafac.Sales.Order.Services
 {
