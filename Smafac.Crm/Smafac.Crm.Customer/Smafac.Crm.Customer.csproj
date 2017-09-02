@@ -58,10 +58,6 @@
     <Compile Include="Applications\ICustomerContactPropertyValueService.cs" />
     <Compile Include="Applications\ICustomerContactSearchService.cs" />
     <Compile Include="Applications\ICustomerContactService.cs" />
-    <Compile Include="Applications\ICustomerFinancialSearchService.cs" />
-    <Compile Include="Applications\ICustomerFinancialService.cs" />
-    <Compile Include="Applications\ICustomerFinancialTypeService.cs" />
-    <Compile Include="Applications\ICustomerFinancialStatusService.cs" />
     <Compile Include="Applications\ICustomerLevelService.cs" />
     <Compile Include="Applications\ICustomerPayTypeService.cs" />
     <Compile Include="Applications\ICustomerContactPropertyService.cs" />
@@ -78,9 +74,6 @@
     <Compile Include="Domain\CustomerContactPropertyEntity.cs" />
     <Compile Include="Domain\CustomerContactPropertyValueEntity.cs" />
     <Compile Include="Domain\CustomerEntity.cs" />
-    <Compile Include="Domain\CustomerFinancialEntity.cs" />
-    <Compile Include="Domain\CustomerFinancialStatusEntity.cs" />
-    <Compile Include="Domain\CustomerFinancialTypeEntity.cs" />
     <Compile Include="Domain\CustomerLevelEntity.cs" />
     <Compile Include="Domain\CustomerPayTypeEntity.cs" />
     <Compile Include="Domain\CustomerPropertyEntity.cs" />
@@ -99,10 +92,6 @@
     <Compile Include="Repositories\CustomerContactSearchRepository.cs" />
     <Compile Include="Repositories\CustomerContext.cs" />
     <Compile Include="Repositories\CustomerContextProvider.cs" />
-    <Compile Include="Repositories\CustomerFinancialRepository.cs" />
-    <Compile Include="Repositories\CustomerFinancialSearchRepository.cs" />
-    <Compile Include="Repositories\CustomerFinancialStatusRepository.cs" />
-    <Compile Include="Repositories\CustomerFinancialTypeRepository.cs" />
     <Compile Include="Repositories\CustomerLevelRepository.cs" />
     <Compile Include="Repositories\CustomerPayTypeRepository.cs" />
     <Compile Include="Repositories\CustomerContactPropertyRepository.cs" />
@@ -117,10 +106,6 @@
     <Compile Include="Repositories\ICustomerContactRepository.cs" />
     <Compile Include="Repositories\ICustomerContactSearchRepository.cs" />
     <Compile Include="Repositories\ICustomerContextProvider.cs" />
-    <Compile Include="Repositories\ICustomerFinancialRepository.cs" />
-    <Compile Include="Repositories\ICustomerFinancialSearchRepository.cs" />
-    <Compile Include="Repositories\ICustomerFinancialStatusRepository.cs" />
-    <Compile Include="Repositories\ICustomerFinancialTypeRepository.cs" />
     <Compile Include="Repositories\ICustomerLevelRepository.cs" />
     <Compile Include="Repositories\ICustomerPayTypeRepository.cs" />
     <Compile Include="Repositories\ICustomerContactPropertyRepository.cs" />
@@ -138,10 +123,6 @@
     <Compile Include="Services\CustomerContactPropertyValueService.cs" />
     <Compile Include="Services\CustomerContactSearchService.cs" />
     <Compile Include="Services\CustomerContactService.cs" />
-    <Compile Include="Services\CustomerFinancialSearchService.cs" />
-    <Compile Include="Services\CustomerFinancialService.cs" />
-    <Compile Include="Services\CustomerFinancialStatusService.cs" />
-    <Compile Include="Services\CustomerFinancialTypeService.cs" />
     <Compile Include="Services\CustomerLevelService.cs" />
     <Compile Include="Services\CustomerPayTypeService.cs" />
     <Compile Include="Services\CustomerPropertyService.cs" />

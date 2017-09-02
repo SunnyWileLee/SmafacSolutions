@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Smafac.Crm.CustomerFinance</RootNamespace>
+    <AssemblyName>Smafac.Crm.CustomerFinance</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Applications\CategoryProperty\ICustomerFinanceCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\ICustomerFinanceCategoryPropertySearchService.cs" />
+    <Compile Include="Applications\Category\ICustomerFinanceCategoryAddService.cs" />
+    <Compile Include="Applications\Category\ICustomerFinanceCategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\ICustomerFinanceCategorySearchService.cs" />
+    <Compile Include="Applications\Category\ICustomerFinanceCategoryService.cs" />
+    <Compile Include="Applications\Category\ICustomerFinanceCategoryUpdateService.cs" />
+    <Compile Include="Applications\IAutofacScanCustomerFinance.cs" />
+    <Compile Include="Applications\ICustomerFinanceSearchService.cs" />
+    <Compile Include="Applications\ICustomerFinanceService.cs" />
+    <Compile Include="Applications\Propety\ICustomerFinancePropertyAddService.cs" />
+    <Compile Include="Applications\Propety\ICustomerFinancePropertyDeleteService.cs" />
+    <Compile Include="Applications\Propety\ICustomerFinancePropertySearchService.cs" />
+    <Compile Include="Applications\Propety\ICustomerFinancePropertyService.cs" />
+    <Compile Include="Applications\Propety\ICustomerFinancePropertyUpdateService.cs" />
+    <Compile Include="Domain\CategoryProperty\ICustomerFinanceCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryProperty\CustomerFinanceCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CustomerFinanceCategoryPropertyEntity.cs" />
+    <Compile Include="Domain\CustomerFinancePropertyEntity.cs" />
+    <Compile Include="Domain\CustomerFinanceCategoryEntity.cs" />
+    <Compile Include="Domain\CustomerFinanceEntity.cs" />
+    <Compile Include="Domain\CustomerFinancePropertyValueEntity.cs" />
+    <Compile Include="Domain\Property\ICustomerFinancePropertyProvider.cs" />
+    <Compile Include="Domain\Property\CustomerFinancePropertyProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryProperty\IOrderCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repository\CategoryProperty\IOrderCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repository\CategoryProperty\OrderCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repository\CategoryProperty\OrderCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repository\Category\ICustomerFinanceCategoryAddRepository.cs" />
+    <Compile Include="Repository\Category\ICustomerFinanceCategoryDeleteRepository.cs" />
+    <Compile Include="Repository\Category\ICustomerFinanceCategorySearchRepository.cs" />
+    <Compile Include="Repository\Category\ICustomerFinanceCategoryUpdateRepository.cs" />
+    <Compile Include="Repository\Category\CustomerFinanceCategoryAddRepository.cs" />
+    <Compile Include="Repository\Category\CustomerFinanceCategoryDeleteRepository.cs" />
+    <Compile Include="Repository\Category\CustomerFinanceCategorySearchRepository.cs" />
+    <Compile Include="Repository\Category\CustomerFinanceCategoryUpdateRepository.cs" />
+    <Compile Include="Repository\CustomerFinanceContext.cs" />
+    <Compile Include="Repository\CustomerFinanceContextProvider.cs" />
+    <Compile Include="Repository\ICustomerFinanceContextProvider.cs" />
+    <Compile Include="Repository\ICustomerFinanceRepository.cs" />
+    <Compile Include="Repository\ICustomerFinanceSearchRepository.cs" />
+    <Compile Include="Repository\CustomerFinanceRepository.cs" />
+    <Compile Include="Repository\CustomerFinanceSearchRepository.cs" />
+    <Compile Include="Repository\Property\ICustomerFinancePropertyAddRepository.cs" />
+    <Compile Include="Repository\Property\ICustomerFinancePropertyDeleteRepository.cs" />
+    <Compile Include="Repository\Property\ICustomerFinancePropertySearchRepository.cs" />
+    <Compile Include="Repository\Property\ICustomerFinancePropertyUpdateRepository.cs" />
+    <Compile Include="Repository\Property\ICustomerFinancePropertyValueRepository.cs" />
+    <Compile Include="Repository\Property\CustomerFinancePropertyAddRepository.cs" />
+    <Compile Include="Repository\Property\CustomerFinancePropertyDeleteRepository.cs" />
+    <Compile Include="Repository\Property\CustomerFinancePropertySearchRepository.cs" />
+    <Compile Include="Repository\Property\CustomerFinancePropertyUpdateRepository.cs" />
+    <Compile Include="Repository\Property\CustomerFinancePropertyValueRepository.cs" />
+    <Compile Include="Services\CategoryProperty\CustomerFinanceCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\CustomerFinanceCategoryPropertySearchService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategoryAddService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategorySearchService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategoryService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategoryUpdateService.cs" />
+    <Compile Include="Services\CustomerFinanceAutoMapper.cs" />
+    <Compile Include="Services\CustomerFinanceSearchService.cs" />
+    <Compile Include="Services\CustomerFinanceService.cs" />
+    <Compile Include="Services\Property\CustomerFinancePropertyAddService.cs" />
+    <Compile Include="Services\Property\CustomerFinancePropertyDeleteService.cs" />
+    <Compile Include="Services\Property\CustomerFinancePropertySearchService.cs" />
+    <Compile Include="Services\Property\CustomerFinancePropertyService.cs" />
+    <Compile Include="Services\Property\CustomerFinancePropertyUpdateService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
+      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
+      <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smafac.Crm.CustomerFinance.Model\Smafac.Crm.CustomerFinance.Model.csproj">
+      <Project>{a7d4d597-95f6-44da-826c-a3880ce7fcde}</Project>
+      <Name>Smafac.Crm.CustomerFinance.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

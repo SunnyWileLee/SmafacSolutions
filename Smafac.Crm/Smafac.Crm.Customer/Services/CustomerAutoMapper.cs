@@ -18,9 +18,6 @@ namespace Smafac.Crm.Customer.Services
             base.BipassMapper<CustomerPropertyEntity, CustomerPropertyModel>(cfg);
             base.BipassMapper<CustomerPropertyValueEntity, CustomerPropertyValueModel>(cfg);
             base.BipassMapper<CustomerLevelEntity, CustomerLevelModel>(cfg);
-            base.BipassMapper<CustomerFinancialEntity, CustomerFinancialModel>(cfg);
-            base.BipassMapper<CustomerFinancialTypeEntity, CustomerFinancialTypeModel>(cfg);
-            base.BipassMapper<CustomerFinancialStatusEntity, CustomerFinancialStatusModel>(cfg);
             base.BipassMapper<CustomerPayTypeEntity, CustomerPayTypeModel>(cfg);
             base.BipassMapper<CustomerContactEntity, CustomerContactModel>(cfg);
             base.BipassMapper<CustomerContactPropertyEntity, CustomerContactPropertyModel>(cfg);

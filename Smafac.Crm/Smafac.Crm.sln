@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.Customer", "Smafac.Crm.Customer\Smafac.Crm.Customer.csproj", "{F88AFA3F-852D-4EFC-8E30-3ED079A96F12}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.Customer.WebApi", "Smafac.Crm.Customer.WebApi\Smafac.Crm.Customer.WebApi.csproj", "{2F71895D-3CB8-4A8D-911E-37EB30274462}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.WebApi", "..\Smafac.Framework\Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj", "{9DFB1558-0810-42BA-A9E2-C5850FA162B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.CustomerFinance", "Smafac.Crm.CustomerFinance\Smafac.Crm.CustomerFinance.csproj", "{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.CustomerFinance.Model", "Smafac.Crm.CustomerFinance.Model\Smafac.Crm.CustomerFinance.Model.csproj", "{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +49,19 @@ Global
 		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DFB1558-0810-42BA-A9E2-C5850FA162B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E648E1A-D971-46AA-83CF-C7D827850B44}
 	EndGlobalSection
 EndGlobal

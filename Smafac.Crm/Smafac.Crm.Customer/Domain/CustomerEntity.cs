@@ -24,14 +24,6 @@ namespace Smafac.Crm.Customer.Domain
         public string MobileNumber { get; set; }
         public Guid LevelId { get; set; }
 
-        public CustomerFinancialEntity Pay(CustomerFinancialModel model)
-        {
-            var financial = Mapper.Map<CustomerFinancialEntity>(model);
-            financial.SubscriberId = this.SubscriberId;
-            financial.CustomerId = this.Id;
-            return financial;
-        }
-
         public CustomerPropertyValueEntity SetProperty(Guid propertyId, string value)
         {
             return new CustomerPropertyValueEntity

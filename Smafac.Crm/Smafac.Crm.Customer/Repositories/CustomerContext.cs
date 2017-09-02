@@ -25,9 +25,6 @@ namespace Smafac.Crm.Customer.Repositories
         public DbSet<CustomerPropertyEntity> CustomerProperties { get; set; }
         public DbSet<CustomerPropertyValueEntity> CustomerPropertyValues { get; set; }
         public DbSet<CustomerLevelEntity> CustomerLevels { get; set; }
-        public DbSet<CustomerFinancialEntity> CustomerFinancials { get; set; }
-        public DbSet<CustomerFinancialTypeEntity> CustomerFinancialTypes { get; set; }
-        public DbSet<CustomerFinancialStatusEntity> CustomerFinancialStatuses { get; set; }
         public DbSet<CustomerPayTypeEntity> CustomerPayTypes { get; set; }
         public DbSet<CustomerContactEntity> CustomerContacts { get; set; }
         public DbSet<CustomerContactPropertyEntity> CustomerContactPropertites { get; set; }
