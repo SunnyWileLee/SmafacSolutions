@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Smafac.Crm.CustomerFinance.Model")]
+[assembly: AssemblyTitle("Smafac.Crm.CustomerFinance.Models")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Smafac.Crm.CustomerFinance.Model")]
+[assembly: AssemblyProduct("Smafac.Crm.CustomerFinance.Models")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("a7d4d597-95f6-44da-826c-a3880ce7fcde")]
+[assembly: Guid("9bba760c-6c88-400e-8287-f4d33002ec13")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

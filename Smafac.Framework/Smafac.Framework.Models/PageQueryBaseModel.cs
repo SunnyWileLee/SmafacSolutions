@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Models
 {
-    public class PageQueryBaseModel : QueryBaseModel
+    public abstract class PageQueryBaseModel : QueryBaseModel
     {
         public const int DefaultPageSize = 20;
         public PageQueryBaseModel()
         {
             PageSize = DefaultPageSize;
         }
-        public int PageSize { get; set; }
-        public int PageIndex { get; set; }
+        public virtual int PageSize { get; set; }
+        public virtual int PageIndex { get; set; }
 
-        public int Skip
+        public virtual int Skip
         {
             get
             {

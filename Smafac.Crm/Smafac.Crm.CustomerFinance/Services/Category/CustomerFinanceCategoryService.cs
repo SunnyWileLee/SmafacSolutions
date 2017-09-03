@@ -1,5 +1,5 @@
 ﻿using Smafac.Crm.CustomerFinance.Applications.Category;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Framework.Core.Applications.Category;
 
 namespace Smafac.Crm.CustomerFinance.Services.Category

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CustomerFinanceModel>
+
+@{
+    Layout = null;
+}
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>客户</th>
+            <th>金额</th>
+            <th>时间</th>
+            <th>类别</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var finance in Model)
+            {
+            <tr>
+                <td>@finance.CustomerName</td>
+                <td>@finance.Amount</td>
+                <td>@finance.FinanceTime.ToShortDateString()</td>
+                <td>@finance.CategoryName</td>
+                <td>@finance.Memo</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="/CustomerFinance/CustomerFinanceDetailView?financeId=@finance.Id" type="button">详情</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

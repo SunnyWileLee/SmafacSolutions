@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Crm.CustomerFinance.Model
+namespace Smafac.Framework.Core.Repositories.Query
 {
-    public class CustomerFinanceCategoryModel:CategoryModel
+    public interface IQueryPropertyProvider
     {
+        List<QueryPropertyDescription> Provide(QueryBaseModel model);
     }
 }

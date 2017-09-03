@@ -1,12 +1,17 @@
-﻿@{
+﻿@model CustomerPageQueryModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div>
     <form class="form-inline  inline-block" id="form-search" data-page="CustomerPageView">
         <div class="form-group">
-            <label for="Name">名称</label>
-            <input type="text" class="form-control input-search" name="Name" id="Name">
+            @Html.LabelFor(s => s.Name)
+            @Html.TextBoxFor(s => s.Name, new { @class = "form-control input-search" })
+        </div>
+        <div  class="form-group">
+            @Html.LabelFor(s => s.MobileNumber)
+            @Html.TextBoxFor(s => s.MobileNumber, new { @class = "form-control input-search" })
         </div>
         <div class="form-group">
             <div class="btn-group">

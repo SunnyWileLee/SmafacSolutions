@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Models
 {
-    public class QueryBaseModel
+    public abstract class QueryBaseModel
     {
         public Guid SubscriberId { get; set; }
-
-        public virtual Expression<Func<TEntity, bool>> CreatePredicate<TEntity>()
-            where TEntity : class
-        {
-            return s => true;
-        }
     }
 }

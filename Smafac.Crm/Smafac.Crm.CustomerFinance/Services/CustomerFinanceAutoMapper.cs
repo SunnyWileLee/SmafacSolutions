@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Smafac.Crm.CustomerFinance.Domain;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Framework.Core.Models;
 
 namespace Smafac.Crm.CustomerFinance.Services

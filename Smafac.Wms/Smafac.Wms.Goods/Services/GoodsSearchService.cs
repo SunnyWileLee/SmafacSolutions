@@ -11,6 +11,7 @@ using System.Linq.Expressions;
 using System.Text;
 using AutoMapper;
 using System.Threading.Tasks;
+using Smafac.Framework.Core.Repositories.Query;
 
 namespace Smafac.Wms.Goods.Services
 {
@@ -18,12 +19,16 @@ namespace Smafac.Wms.Goods.Services
     {
         private readonly IGoodsSearchRepository _goodsSearchRepository;
         private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
+        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository,
-                                    IGoodsPropertyValueRepository goodsPropertyValueRepository)
+                                    IGoodsPropertyValueRepository goodsPropertyValueRepository,
+                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider
+                                    )
         {
             _goodsSearchRepository = goodsSearchRepository;
             _goodsPropertyValueRepository = goodsPropertyValueRepository;
+            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
         public List<GoodsModel> GetGoods(string key)
@@ -58,7 +63,7 @@ namespace Smafac.Wms.Goods.Services
 
         public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model)
         {
-            var predicate = model.CreatePredicate<GoodsEntity>();
+            var predicate = _queryExpressionCreaterProvider.Provide<GoodsEntity>().Create(model);
             var goods = _goodsSearchRepository.GetGoodsPage(UserContext.Current.SubscriberId, predicate, model.Skip, model.PageSize);
             var count = _goodsSearchRepository.GetGoodsCount(UserContext.Current.SubscriberId, predicate);
             return new PageModel<GoodsModel> { PageSize = model.PageSize, PageData = goods, PageIndex = model.PageIndex, TotalCount = count };

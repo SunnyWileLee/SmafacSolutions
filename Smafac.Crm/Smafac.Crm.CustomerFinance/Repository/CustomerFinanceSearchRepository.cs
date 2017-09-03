@@ -1,4 +1,5 @@
 ﻿using Smafac.Crm.CustomerFinance.Domain;
+using Smafac.Crm.CustomerFinance.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,40 +9,60 @@ namespace Smafac.Crm.CustomerFinance.Repository
 {
     class CustomerFinanceSearchRepository : ICustomerFinanceSearchRepository
     {
-        private readonly ICustomerFinanceContextProvider _orderContextProvider;
+        private readonly ICustomerFinanceContextProvider _financeContextProvider;
 
-        public CustomerFinanceSearchRepository(ICustomerFinanceContextProvider orderContextProvider)
+        public CustomerFinanceSearchRepository(ICustomerFinanceContextProvider financeContextProvider)
         {
-            _orderContextProvider = orderContextProvider;
+            _financeContextProvider = financeContextProvider;
         }
 
-        public CustomerFinanceEntity GetById(Guid subscriberId, Guid orderId)
+        public CustomerFinanceModel GetById(Guid subscriberId, Guid financeId)
         {
-            using (var context = _orderContextProvider.Provide())
+            using (var context = _financeContextProvider.Provide())
             {
-                var order = context.CustomerFinances.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == orderId);
-                return order;
+                var finances = context.CustomerFinances.Where(s => s.SubscriberId == subscriberId && s.Id == financeId);
+                var finance = JoinFinanceCategory(finances, context.CustomerFinanceCategories).FirstOrDefault();
+                return finance;
             }
         }
 
         public int GetCustomerFinanceCount(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate)
         {
-            using (var context = _orderContextProvider.Provide())
+            using (var context = _financeContextProvider.Provide())
             {
                 var count = context.CustomerFinances.Where(s => s.SubscriberId == subscriberId).Count(predicate);
                 return count;
             }
         }
 
-        public List<CustomerFinanceEntity> GetCustomerFinancePage(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate, int skip, int take)
+        public List<CustomerFinanceModel> GetCustomerFinancePage(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate, int skip, int take)
         {
-            using (var context = _orderContextProvider.Provide())
+            using (var context = _financeContextProvider.Provide())
             {
-                var orders = context.CustomerFinances.Where(s => s.SubscriberId == subscriberId)
+                var finances = context.CustomerFinances.Where(s => s.SubscriberId == subscriberId)
                                         .Where(predicate).OrderByDescending(s => s.CreateTime)
-                                        .Skip(skip).Take(take).ToList();
-                return orders;
+                                        .Skip(skip).Take(take);
+                return JoinFinanceCategory(finances, context.CustomerFinanceCategories).ToList();
             }
+        }
+
+        private IQueryable<CustomerFinanceModel> JoinFinanceCategory(IQueryable<CustomerFinanceEntity> finances, IQueryable<CustomerFinanceCategoryEntity> categories)
+        {
+            var query = from finance in finances
+                        join category in categories on finance.CategoryId equals category.Id
+                        select new CustomerFinanceModel
+                        {
+                            SubscriberId = finance.SubscriberId,
+                            Amount = finance.Amount,
+                            CategoryId = finance.CategoryId,
+                            CategoryName = category.Name,
+                            CreateTime = finance.CreateTime,
+                            CustomerId = finance.CustomerId,
+                            FinanceTime = finance.FinanceTime,
+                            Id = finance.Id,
+                            Memo = finance.Memo,
+                        };
+            return query;
         }
     }
 }

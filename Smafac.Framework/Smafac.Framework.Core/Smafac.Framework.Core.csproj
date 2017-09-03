@@ -124,6 +124,9 @@
     <Compile Include="Repositories\IEntitySearchRepository.cs" />
     <Compile Include="Repositories\IEntityUpdateRepository.cs" />
     <Compile Include="Repositories\IPropertyValueRepository.cs" />
+    <Compile Include="Repositories\Query\IQueryExpressionCreater.cs" />
+    <Compile Include="Repositories\Query\IQueryExpressionCreaterProvider.cs" />
+    <Compile Include="Repositories\Query\IQueryPropertyProvider.cs" />
     <Compile Include="Repositories\Property\IPropertyAddRepository.cs" />
     <Compile Include="Repositories\Property\IPropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\IPropertySearchRepository.cs" />
@@ -132,6 +135,10 @@
     <Compile Include="Repositories\Property\PropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\PropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\PropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Query\QueryExpressionCreater.cs" />
+    <Compile Include="Repositories\Query\QueryExpressionCreaterProvider.cs" />
+    <Compile Include="Repositories\Query\QueryPropertyDescription.cs" />
+    <Compile Include="Repositories\Query\QueryPropertyProvider.cs" />
     <Compile Include="Repositories\SmafacContext.cs" />
     <Compile Include="Services\CategoryAssociation\CategoryAssociationBindService.cs" />
     <Compile Include="Services\CategoryAssociation\CategoryAssociationSearchService.cs" />

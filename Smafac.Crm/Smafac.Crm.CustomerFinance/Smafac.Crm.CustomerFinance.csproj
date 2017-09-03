@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Smafac.Crm.CustomerFinance</RootNamespace>
     <AssemblyName>Smafac.Crm.CustomerFinance</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,6 +78,15 @@
     <Compile Include="Domain\CustomerFinancePropertyValueEntity.cs" />
     <Compile Include="Domain\Property\ICustomerFinancePropertyProvider.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyProvider.cs" />
+    <Compile Include="Migrations\201709020949033_InitialCreate.cs" />
+    <Compile Include="Migrations\201709020949033_InitialCreate.Designer.cs">
+      <DependentUpon>201709020949033_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709020958029_InitialCreate1.cs" />
+    <Compile Include="Migrations\201709020958029_InitialCreate1.Designer.cs">
+      <DependentUpon>201709020958029_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryProperty\IOrderCategoryPropertyBindRepository.cs" />
     <Compile Include="Repository\CategoryProperty\IOrderCategoryPropertySearchRepository.cs" />
@@ -123,7 +133,14 @@
     <Compile Include="Services\Property\CustomerFinancePropertyService.cs" />
     <Compile Include="Services\Property\CustomerFinancePropertyUpdateService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709020949033_InitialCreate.resx">
+      <DependentUpon>201709020949033_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709020958029_InitialCreate1.resx">
+      <DependentUpon>201709020958029_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
@@ -133,9 +150,9 @@
       <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
       <Name>Smafac.Framework.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Smafac.Crm.CustomerFinance.Model\Smafac.Crm.CustomerFinance.Model.csproj">
-      <Project>{a7d4d597-95f6-44da-826c-a3880ce7fcde}</Project>
-      <Name>Smafac.Crm.CustomerFinance.Model</Name>
+    <ProjectReference Include="..\Smafac.Crm.CustomerFinance.Models\Smafac.Crm.CustomerFinance.Models.csproj">
+      <Project>{9bba760c-6c88-400e-8287-f4d33002ec13}</Project>
+      <Name>Smafac.Crm.CustomerFinance.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

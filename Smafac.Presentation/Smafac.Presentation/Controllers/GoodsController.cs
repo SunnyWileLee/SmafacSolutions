@@ -27,6 +27,8 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult GoodsView()
         {
+            var categories = _goodsCategoryService.SearchService.GetCategories();
+            ViewData["categories"] = categories.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
             return View();
         }
         [HttpGet]

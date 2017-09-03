@@ -2,6 +2,7 @@
 using Smafac.Crm.Customer.Domain;
 using Smafac.Crm.Customer.Models;
 using Smafac.Crm.Customer.Repositories;
+using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,17 @@ namespace Smafac.Crm.Customer.Services
     class CustomerVisitSearchService : ICustomerVisitSearchService
     {
         private readonly ICustomerVisitSearchRepository _customerVisitSearchRepository;
+        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
-        public CustomerVisitSearchService(ICustomerVisitSearchRepository customerVisitSearchRepository)
+        public CustomerVisitSearchService(ICustomerVisitSearchRepository customerVisitSearchRepository,
+                                        IQueryExpressionCreaterProvider queryExpressionCreaterProvider)
         {
             _customerVisitSearchRepository = customerVisitSearchRepository;
+            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
         public PageModel<CustomerVisitModel> GetVisitPage(CustomerVisitPageQueryModel query)
         {
-            var predicate = query.CreatePredicate<CustomerVisitEntity>();
+            var predicate = _queryExpressionCreaterProvider.Provide<CustomerVisitEntity>().Create(query);
             var visits = _customerVisitSearchRepository.GetVisits(predicate, query.Skip, query.PageSize);
             var count = _customerVisitSearchRepository.GetVisitCount(predicate);
             return new PageModel<CustomerVisitModel>

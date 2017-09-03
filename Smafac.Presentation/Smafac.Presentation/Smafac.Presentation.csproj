@@ -173,7 +173,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerFinanceController.cs" />
+    <Compile Include="Controllers\CustomerFinancePropertyController.cs" />
     <Compile Include="Controllers\CustomerPropertyController.cs" />
+    <Compile Include="Controllers\CustomerFinanceCategoryController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
@@ -183,6 +186,8 @@
     <Compile Include="Controllers\OrderPropertyController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
+    <Compile Include="Domain\CustomerFinanceCustomerWrapper.cs" />
+    <Compile Include="Domain\ICustomerFinanceWrapper.cs" />
     <Compile Include="Domain\IOrderWrapper.cs" />
     <Compile Include="Domain\OrderCustomerWrapper.cs" />
     <Compile Include="Domain\OrderGoodsWrapper.cs" />
@@ -226,6 +231,15 @@
     <Content Include="Views\OrderCharge\OrderChargeView.cshtml" />
     <Content Include="Views\OrderCategory\OrderCategoryChargeBindView.cshtml" />
     <Content Include="Views\OrderCategory\OrderCategoryChargeValueView.cshtml" />
+    <Content Include="Views\CustomerFinance\CustomerFinanceAddView.cshtml" />
+    <Content Include="Views\CustomerFinance\CustomerFinanceDetailView.cshtml" />
+    <Content Include="Views\CustomerFinance\CustomerFinancePageView.cshtml" />
+    <Content Include="Views\CustomerFinance\CustomerFinanceView.cshtml" />
+    <Content Include="Views\CustomerFinanceProperty\CustomerFinancePropertyView.cshtml" />
+    <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategorySliceView.cshtml" />
+    <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,6 +263,14 @@
     <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj">
       <Project>{f42dbd6b-fab7-49a6-a06c-ca0c7407f172}</Project>
       <Name>Smafac.Crm.Customer.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.CustomerFinance.Models\Smafac.Crm.CustomerFinance.Models.csproj">
+      <Project>{9bba760c-6c88-400e-8287-f4d33002ec13}</Project>
+      <Name>Smafac.Crm.CustomerFinance.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.CustomerFinance\Smafac.Crm.CustomerFinance.csproj">
+      <Project>{8f2d04cb-ebbd-4a3a-aa2a-bdf32713e4ad}</Project>
+      <Name>Smafac.Crm.CustomerFinance</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.Customer\Smafac.Crm.Customer.csproj">
       <Project>{f88afa3f-852d-4efc-8e30-3ed079a96f12}</Project>

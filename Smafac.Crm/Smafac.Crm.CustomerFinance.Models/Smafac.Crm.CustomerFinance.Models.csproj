@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7D4D597-95F6-44DA-826C-A3880CE7FCDE}</ProjectGuid>
+    <ProjectGuid>{9BBA760C-6C88-400E-8287-F4D33002EC13}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Smafac.Crm.CustomerFinance.Model</RootNamespace>
-    <AssemblyName>Smafac.Crm.CustomerFinance.Model</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Smafac.Crm.CustomerFinance.Models</RootNamespace>
+    <AssemblyName>Smafac.Crm.CustomerFinance.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

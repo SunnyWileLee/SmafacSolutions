@@ -86,6 +86,15 @@
     <Compile Include="Domain\CustomerVisitor.cs" />
     <Compile Include="Domain\ICustomerReceiver.cs" />
     <Compile Include="Domain\ICustomerVisitor.cs" />
+    <Compile Include="Migrations\201708250611458_InitialCreate.cs" />
+    <Compile Include="Migrations\201708250611458_InitialCreate.Designer.cs">
+      <DependentUpon>201708250611458_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709020958534_InitialCreate1.cs" />
+    <Compile Include="Migrations\201709020958534_InitialCreate1.Designer.cs">
+      <DependentUpon>201709020958534_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerContactPropertyValueRepository.cs" />
     <Compile Include="Repositories\CustomerContactRepository.cs" />
@@ -134,7 +143,14 @@
     <Compile Include="Services\CustomerVisitSearchService.cs" />
     <Compile Include="Services\CustomerVisitService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708250611458_InitialCreate.resx">
+      <DependentUpon>201708250611458_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709020958534_InitialCreate1.resx">
+      <DependentUpon>201709020958534_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>

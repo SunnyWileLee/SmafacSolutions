@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Smafac.Crm.Customer.Domain;
 using System.Linq.Expressions;
+using Smafac.Framework.Core.Repositories.Query;
 
 namespace Smafac.Crm.Customer.Services
 {
@@ -18,12 +19,15 @@ namespace Smafac.Crm.Customer.Services
     {
         private readonly ICustomerSearchRepository _customerSearchRepository;
         private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
+        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public CustomerSearchService(ICustomerSearchRepository customerSearchRepository,
-                                    ICustomerPropertyValueRepository customerPropertyValueRepository)
+                                    ICustomerPropertyValueRepository customerPropertyValueRepository,
+                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider)
         {
             _customerSearchRepository = customerSearchRepository;
             _customerPropertyValueRepository = customerPropertyValueRepository;
+            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
         public CustomerModel GetCustomer(Guid customerId)
@@ -43,7 +47,7 @@ namespace Smafac.Crm.Customer.Services
 
         public PageModel<CustomerModel> GetCustomerPage(CustomerPageQueryModel query)
         {
-            var predicate = query.CreatePredicate<CustomerEntity>();
+            var predicate = _queryExpressionCreaterProvider.Provide<CustomerEntity>().Create(query);
             var subscriberId = UserContext.Current.SubscriberId;
             var customers = _customerSearchRepository.GetCustomerPage(subscriberId, predicate, query.Skip, query.PageSize);
             var models = Mapper.Map<List<CustomerModel>>(customers);

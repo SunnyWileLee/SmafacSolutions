@@ -39,6 +39,10 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult OrderView()
         {
+            var customers = _customerSearchService.GetCustomers();
+            var categories = _orderCategorySearchService.GetCategories();
+            ViewData["customers"] = customers.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+            ViewData["categories"] = categories.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
             return View();
         }
         [HttpGet]

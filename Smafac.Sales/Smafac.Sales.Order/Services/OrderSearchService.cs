@@ -12,6 +12,7 @@ using AutoMapper;
 using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Repositories.Charge;
 using Smafac.Sales.Order.Repositories.Property;
+using Smafac.Framework.Core.Repositories.Query;
 
 namespace Smafac.Sales.Order.Services
 {
@@ -20,15 +21,18 @@ namespace Smafac.Sales.Order.Services
         private readonly IOrderSearchRepository _orderSearchRepository;
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
         private readonly IOrderPropertyValueRepository _orderPropertyValueRepository;
+        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public OrderSearchService(IOrderSearchRepository orderSearchRepository,
                                     IOrderChargeValueRepository orderChargeValueRepository,
-                                    IOrderPropertyValueRepository orderPropertyValueRepository
+                                    IOrderPropertyValueRepository orderPropertyValueRepository,
+                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider
                                     )
         {
             _orderSearchRepository = orderSearchRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
             _orderPropertyValueRepository = orderPropertyValueRepository;
+            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
         public OrderModel GetOrder(Guid orderId)
@@ -52,7 +56,7 @@ namespace Smafac.Sales.Order.Services
         public PageModel<OrderModel> GetOrderPage(OrderPageQueryModel model)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var predicate = model.CreatePredicate<OrderEntity>();
+            var predicate = _queryExpressionCreaterProvider.Provide<OrderEntity>().Create(model);
             var orders = _orderSearchRepository.GetOrderPage(subscriberId, predicate, model.Skip, model.PageSize);
             var count = _orderSearchRepository.GetOrderCount(subscriberId, predicate);
             return new PageModel<OrderModel>(model)

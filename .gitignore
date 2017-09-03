@@ -7,6 +7,5 @@
 *.userprefs
 obj/
 bin/
-Migrations/
 packages/
 Smafac.Presentation/.vs/config/applicationhost.config

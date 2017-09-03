@@ -1,5 +1,5 @@
 ﻿using Smafac.Crm.CustomerFinance.Domain;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using System;
 
 namespace Smafac.Crm.CustomerFinance.Repository

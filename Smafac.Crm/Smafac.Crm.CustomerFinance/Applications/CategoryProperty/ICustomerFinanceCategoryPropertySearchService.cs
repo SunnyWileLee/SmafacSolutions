@@ -1,4 +1,4 @@
-﻿using Smafac.Crm.CustomerFinance.Model;
+﻿using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Framework.Core.Applications.CategoryProperty;
 
 namespace Smafac.Crm.CustomerFinance.Applications.CategoryProperty

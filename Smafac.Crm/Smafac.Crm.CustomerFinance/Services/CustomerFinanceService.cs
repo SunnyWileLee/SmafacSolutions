@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Domain;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repository;
 using Smafac.Crm.CustomerFinance.Repository.Property;
 using Smafac.Framework.Core.Models;
@@ -14,28 +14,28 @@ namespace Smafac.Crm.CustomerFinance.Services
 {
     class CustomerFinanceService : ICustomerFinanceService
     {
-        private readonly ICustomerFinanceRepository _orderRepository;
-        private readonly ICustomerFinancePropertyValueRepository _orderPropertyValueRepository;
-        private readonly ICustomerFinancePropertySearchRepository _orderPropertySearchRepository;
+        private readonly ICustomerFinanceRepository _financeRepository;
+        private readonly ICustomerFinancePropertyValueRepository _financePropertyValueRepository;
+        private readonly ICustomerFinancePropertySearchRepository _financePropertySearchRepository;
 
-        public CustomerFinanceService(ICustomerFinanceRepository orderRepository,
-                            ICustomerFinancePropertyValueRepository orderPropertyValueRepository,
-                            ICustomerFinancePropertySearchRepository orderPropertySearchRepository)
+        public CustomerFinanceService(ICustomerFinanceRepository financeRepository,
+                            ICustomerFinancePropertyValueRepository financePropertyValueRepository,
+                            ICustomerFinancePropertySearchRepository financePropertySearchRepository)
         {
-            _orderRepository = orderRepository;
-            _orderPropertyValueRepository = orderPropertyValueRepository;
-            _orderPropertySearchRepository = orderPropertySearchRepository;
+            _financeRepository = financeRepository;
+            _financePropertyValueRepository = financePropertyValueRepository;
+            _financePropertySearchRepository = financePropertySearchRepository;
         }
 
         public bool AddCustomerFinance(CustomerFinanceModel model)
         {
-            var order = Mapper.Map<CustomerFinanceEntity>(model);
-            order.SubscriberId = UserContext.Current.SubscriberId;
-            if (_orderRepository.AddCustomerFinance(order))
+            var finance = Mapper.Map<CustomerFinanceEntity>(model);
+            finance.SubscriberId = UserContext.Current.SubscriberId;
+            if (_financeRepository.AddCustomerFinance(finance))
             {
                 if (model.HasProperties)
                 {
-                    if (!AddPropertyValues(order, model.Properties))
+                    if (!AddPropertyValues(finance, model.Properties))
                     {
                         var properties = JsonConvert.SerializeObject(model.Properties);
                     }
@@ -45,36 +45,36 @@ namespace Smafac.Crm.CustomerFinance.Services
             return false;
         }
 
-        private bool AddPropertyValues(CustomerFinanceEntity order, IEnumerable<CustomerFinancePropertyValueModel> values)
+        private bool AddPropertyValues(CustomerFinanceEntity finance, IEnumerable<CustomerFinancePropertyValueModel> values)
         {
             var properties = Mapper.Map<List<CustomerFinancePropertyValueEntity>>(values);
             properties.ForEach(property =>
             {
-                property.CustomerFinanceId = order.Id;
-                property.SubscriberId = order.SubscriberId;
+                property.CustomerFinanceId = finance.Id;
+                property.SubscriberId = finance.SubscriberId;
             });
-            return _orderPropertyValueRepository.AddPropertyValues(order.Id, properties);
+            return _financePropertyValueRepository.AddPropertyValues(finance.Id, properties);
         }
 
         public CustomerFinanceModel CreateEmptyCustomerFinance()
         {
-            var properties = _orderPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
+            var properties = _financePropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             var propertyValues = properties.Select(s => s.CreateEmptyValue()).ToList();
-            var order = new CustomerFinanceModel
+            var finance = new CustomerFinanceModel
             {
                 Properties = Mapper.Map<List<CustomerFinancePropertyValueModel>>(propertyValues)
             };
-            return order;
+            return finance;
         }
 
-        public bool DeleteCustomerFinance(Guid orderId)
+        public bool DeleteCustomerFinance(Guid financeId)
         {
-            return _orderRepository.DeleteCustomerFinance(UserContext.Current.SubscriberId, orderId);
+            return _financeRepository.DeleteCustomerFinance(UserContext.Current.SubscriberId, financeId);
         }
 
         public bool UpdateCustomerFinance(CustomerFinanceModel model)
         {
-            return _orderRepository.UpdateCustomerFinance(model);
+            return _financeRepository.UpdateCustomerFinance(model);
         }
     }
 }

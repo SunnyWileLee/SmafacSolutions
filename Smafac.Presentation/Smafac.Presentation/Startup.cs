@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Smafac.Account.Subscriber.Applications;
 using Smafac.Crm.Customer.Applications;
+using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Framework.Core.Applications;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Infrustructure;
@@ -40,6 +41,7 @@ namespace Smafac.Presentation
             Register<IAutofacScanCustomer>(builder);
             Register<IAutofacScanSubscriber>(builder);
             Register<IAutofacScanInfrustructure>(builder);
+            Register<IAutofacScanCustomerFinance>(builder);
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

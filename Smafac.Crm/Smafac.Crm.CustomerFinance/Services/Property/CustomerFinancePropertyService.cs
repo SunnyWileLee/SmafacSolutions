@@ -1,5 +1,5 @@
 ﻿using Smafac.Crm.CustomerFinance.Applications.Propety;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Framework.Core.Applications.Property;
 
 namespace Smafac.Crm.CustomerFinance.Services.Property

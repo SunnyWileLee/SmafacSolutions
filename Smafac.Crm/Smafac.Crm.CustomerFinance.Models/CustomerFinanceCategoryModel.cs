@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Crm.CustomerFinance.Model
+namespace Smafac.Crm.CustomerFinance.Models
 {
-    public class CustomerFinancePropertyModel : PropertyModel
+    public class CustomerFinanceCategoryModel:CategoryModel
     {
     }
 }

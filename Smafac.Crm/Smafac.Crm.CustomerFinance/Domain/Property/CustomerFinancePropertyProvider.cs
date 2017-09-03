@@ -1,5 +1,5 @@
 ﻿using Smafac.Crm.CustomerFinance.Domain.CategoryProperty;
-using Smafac.Crm.CustomerFinance.Model;
+using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repository;
 using Smafac.Framework.Core.Models;
 using System;

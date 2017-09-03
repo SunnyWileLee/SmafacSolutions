@@ -11,6 +11,7 @@ namespace Smafac.Crm.CustomerFinance.Repository
 {
     class CustomerFinanceContext : SmafacContext
     {
+        public DbSet<CustomerFinanceCategoryPropertyEntity> CustomerFinanceCategoryProperties { get; set; }
         public DbSet<CustomerFinanceCategoryEntity> CustomerFinanceCategories { get; set; }
         public DbSet<CustomerFinanceEntity> CustomerFinances{ get; set; }
         public DbSet<CustomerFinancePropertyEntity> CustomerFinanceProperties { get; set; }
