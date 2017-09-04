@@ -19,7 +19,7 @@ namespace Smafac.Framework.Core.Domain
         public virtual Guid SubscriberId { get; set; }
         public virtual DateTime CreateTime { get; set; }
 
-        public virtual bool IsAllowAnonymous()
+        public virtual bool IsAnonymous()
         {
             return SubscriberId.Equals(Guid.Empty);
         }

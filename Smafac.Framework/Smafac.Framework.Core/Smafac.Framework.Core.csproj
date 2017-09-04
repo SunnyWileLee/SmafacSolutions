@@ -123,7 +123,10 @@
     <Compile Include="Repositories\IEntityRepository.cs" />
     <Compile Include="Repositories\IEntitySearchRepository.cs" />
     <Compile Include="Repositories\IEntityUpdateRepository.cs" />
-    <Compile Include="Repositories\IPropertyValueRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IPropertyValueSerachRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\PropertyValueRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\PropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\Query\IQueryExpressionCreater.cs" />
     <Compile Include="Repositories\Query\IQueryExpressionCreaterProvider.cs" />
     <Compile Include="Repositories\Query\IQueryPropertyProvider.cs" />
@@ -168,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Property\" />
-    <Folder Include="Repositories\PropertyValue\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

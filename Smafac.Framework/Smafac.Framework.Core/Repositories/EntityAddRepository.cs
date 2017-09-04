@@ -25,7 +25,7 @@ namespace Smafac.Framework.Core.Repositories
         {
             using (var context = ContextProvider.Provide())
             {
-                if (!AllowAnonymous && entity.IsAllowAnonymous())
+                if (!AllowAnonymous && entity.IsAnonymous())
                 {
                     return false;
                 }
