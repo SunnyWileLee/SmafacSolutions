@@ -53,39 +53,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanCustomer.cs" />
-    <Compile Include="Applications\ICustomerAfterService.cs" />
-    <Compile Include="Applications\ICustomerAfterServiceSearchService.cs" />
-    <Compile Include="Applications\ICustomerContactPropertyValueService.cs" />
-    <Compile Include="Applications\ICustomerContactSearchService.cs" />
-    <Compile Include="Applications\ICustomerContactService.cs" />
-    <Compile Include="Applications\ICustomerLevelService.cs" />
-    <Compile Include="Applications\ICustomerPayTypeService.cs" />
-    <Compile Include="Applications\ICustomerContactPropertyService.cs" />
-    <Compile Include="Applications\ICustomerPropertyService.cs" />
-    <Compile Include="Applications\ICustomerPropertyValueService.cs" />
-    <Compile Include="Applications\ICustomerReceiveService.cs" />
-    <Compile Include="Applications\ICustomerScoreService.cs" />
     <Compile Include="Applications\ICustomerSearchService.cs" />
     <Compile Include="Applications\ICustomerService.cs" />
-    <Compile Include="Applications\ICustomerVisitSearchService.cs" />
-    <Compile Include="Applications\ICustomerVisitService.cs" />
-    <Compile Include="Domain\CustomerAfterServiceEntity.cs" />
-    <Compile Include="Domain\CustomerContactEntity.cs" />
-    <Compile Include="Domain\CustomerContactPropertyEntity.cs" />
-    <Compile Include="Domain\CustomerContactPropertyValueEntity.cs" />
+    <Compile Include="Applications\Property\ICustomerPropertyAddService.cs" />
+    <Compile Include="Applications\Property\ICustomerPropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\ICustomerPropertySearchService.cs" />
+    <Compile Include="Applications\Property\ICustomerPropertyService.cs" />
+    <Compile Include="Applications\Property\ICustomerPropertyUpdateService.cs" />
     <Compile Include="Domain\CustomerEntity.cs" />
-    <Compile Include="Domain\CustomerLevelEntity.cs" />
-    <Compile Include="Domain\CustomerPayTypeEntity.cs" />
     <Compile Include="Domain\CustomerPropertyEntity.cs" />
     <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
-    <Compile Include="Domain\CustomerReceiveEntity.cs" />
-    <Compile Include="Domain\CustomerReceiver.cs" />
-    <Compile Include="Domain\CustomerRemindEntity.cs" />
-    <Compile Include="Domain\CustomerScoreEntity.cs" />
-    <Compile Include="Domain\CustomerVisitEntity.cs" />
-    <Compile Include="Domain\CustomerVisitor.cs" />
-    <Compile Include="Domain\ICustomerReceiver.cs" />
-    <Compile Include="Domain\ICustomerVisitor.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.Designer.cs">
       <DependentUpon>201708250611458_InitialCreate.cs</DependentUpon>
@@ -94,54 +71,45 @@
     <Compile Include="Migrations\201709020958534_InitialCreate1.Designer.cs">
       <DependentUpon>201709020958534_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709040634378_InitialCreate2.cs" />
+    <Compile Include="Migrations\201709040634378_InitialCreate2.Designer.cs">
+      <DependentUpon>201709040634378_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709040737199_i.cs" />
+    <Compile Include="Migrations\201709040737199_i.Designer.cs">
+      <DependentUpon>201709040737199_i.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709040817368_customer.cs" />
+    <Compile Include="Migrations\201709040817368_customer.Designer.cs">
+      <DependentUpon>201709040817368_customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CustomerContactPropertyValueRepository.cs" />
-    <Compile Include="Repositories\CustomerContactRepository.cs" />
-    <Compile Include="Repositories\CustomerContactSearchRepository.cs" />
     <Compile Include="Repositories\CustomerContext.cs" />
     <Compile Include="Repositories\CustomerContextProvider.cs" />
-    <Compile Include="Repositories\CustomerLevelRepository.cs" />
-    <Compile Include="Repositories\CustomerPayTypeRepository.cs" />
-    <Compile Include="Repositories\CustomerContactPropertyRepository.cs" />
-    <Compile Include="Repositories\CustomerPropertyRepository.cs" />
-    <Compile Include="Repositories\CustomerPropertyValueRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
-    <Compile Include="Repositories\CustomerScoreRepository.cs" />
     <Compile Include="Repositories\CustomerSearchRepository.cs" />
-    <Compile Include="Repositories\CustomerReceiveRepository.cs" />
-    <Compile Include="Repositories\CustomerVisitRepository.cs" />
-    <Compile Include="Repositories\CustomerVisitSearchRepository.cs" />
-    <Compile Include="Repositories\ICustomerContactRepository.cs" />
-    <Compile Include="Repositories\ICustomerContactSearchRepository.cs" />
     <Compile Include="Repositories\ICustomerContextProvider.cs" />
-    <Compile Include="Repositories\ICustomerLevelRepository.cs" />
-    <Compile Include="Repositories\ICustomerPayTypeRepository.cs" />
-    <Compile Include="Repositories\ICustomerContactPropertyRepository.cs" />
-    <Compile Include="Repositories\ICustomerPropertyRepository.cs" />
-    <Compile Include="Repositories\ICustomerContactPropertyValueRepository.cs" />
-    <Compile Include="Repositories\ICustomerPropertyValueRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
-    <Compile Include="Repositories\ICustomerScoreRepository.cs" />
     <Compile Include="Repositories\ICustomerSearchRepository.cs" />
-    <Compile Include="Repositories\ICustomerReceiveRepository.cs" />
-    <Compile Include="Repositories\ICustomerVisitRepository.cs" />
-    <Compile Include="Repositories\ICustomerVisitSearchRepository.cs" />
+    <Compile Include="Repositories\Property\CustomerPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\CustomerPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\CustomerPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\CustomerPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\CustomerPropertyValueRepository.cs" />
+    <Compile Include="Repositories\Property\ICustomerPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\ICustomerPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\ICustomerPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\ICustomerPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\ICustomerPropertyValueRepository.cs" />
     <Compile Include="Services\CustomerAutoMapper.cs" />
-    <Compile Include="Services\CustomerContactPropertyService.cs" />
-    <Compile Include="Services\CustomerContactPropertyValueService.cs" />
-    <Compile Include="Services\CustomerContactSearchService.cs" />
-    <Compile Include="Services\CustomerContactService.cs" />
-    <Compile Include="Services\CustomerLevelService.cs" />
-    <Compile Include="Services\CustomerPayTypeService.cs" />
-    <Compile Include="Services\CustomerPropertyService.cs" />
-    <Compile Include="Services\CustomerPropertyValueService.cs" />
-    <Compile Include="Services\CustomerReceiveService.cs" />
-    <Compile Include="Services\CustomerScoreService.cs" />
     <Compile Include="Services\CustomerSearchService.cs" />
     <Compile Include="Services\CustomerService.cs" />
-    <Compile Include="Services\CustomerVisitSearchService.cs" />
-    <Compile Include="Services\CustomerVisitService.cs" />
+    <Compile Include="Services\Property\CustomerPropertyAddService.cs" />
+    <Compile Include="Services\Property\CustomerPropertyDeleteService.cs" />
+    <Compile Include="Services\Property\CustomerPropertySearchService.cs" />
+    <Compile Include="Services\Property\CustomerPropertyService.cs" />
+    <Compile Include="Services\Property\CustomerPropertyUpdateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708250611458_InitialCreate.resx">
@@ -149,6 +117,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709020958534_InitialCreate1.resx">
       <DependentUpon>201709020958534_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040634378_InitialCreate2.resx">
+      <DependentUpon>201709040634378_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040737199_i.resx">
+      <DependentUpon>201709040737199_i.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040817368_customer.resx">
+      <DependentUpon>201709040817368_customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +146,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

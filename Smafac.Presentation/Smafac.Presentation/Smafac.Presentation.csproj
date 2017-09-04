@@ -189,8 +189,10 @@
     <Compile Include="Domain\CustomerFinanceCustomerWrapper.cs" />
     <Compile Include="Domain\ICustomerFinanceWrapper.cs" />
     <Compile Include="Domain\IOrderWrapper.cs" />
+    <Compile Include="Domain\IPropertyTypeProvider.cs" />
     <Compile Include="Domain\OrderCustomerWrapper.cs" />
     <Compile Include="Domain\OrderGoodsWrapper.cs" />
+    <Compile Include="Domain\PropertyTypeProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

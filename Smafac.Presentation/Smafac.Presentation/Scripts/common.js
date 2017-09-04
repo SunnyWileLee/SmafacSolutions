@@ -68,6 +68,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 ajaxSuccess(data, function () {
+                    alert('保存成功');
                     window.location.reload();
                 });
             },

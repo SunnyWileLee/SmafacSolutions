@@ -34,20 +34,5 @@ namespace Smafac.Crm.Customer.Domain
                 Value = value
             };
         }
-
-        public CustomerContactEntity CreateContact(CustomerContactModel model)
-        {
-            if (model.CustomerId != this.Id)
-            {
-                throw new ArgumentOutOfRangeException("错误的CustomerId=>" + model.CustomerId.ToString());
-            }
-            return new CustomerContactEntity
-            {
-                SubscriberId = this.SubscriberId,
-                CustomerId = this.Id,
-                MobileNumber = model.MobileNumber,
-                Name = model.Name
-            };
-        }
     }
 }

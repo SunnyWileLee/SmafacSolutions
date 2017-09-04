@@ -2,7 +2,7 @@
 using Smafac.Crm.CustomerFinance.Domain;
 using Smafac.Crm.CustomerFinance.Domain.CategoryProperty;
 using Smafac.Crm.CustomerFinance.Models;
-using Smafac.Crm.CustomerFinance.Repository.CategoryProperty;
+using Smafac.Crm.CustomerFinance.Repositories.CategoryProperty;
 using Smafac.Framework.Core.Services.CategoryProperty;
 
 namespace Smafac.Crm.CustomerFinance.Services.CategoryProperty

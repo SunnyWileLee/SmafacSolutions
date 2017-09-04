@@ -14,5 +14,7 @@ namespace Smafac.Framework.Models
         public string Value { get; set; }
         [MaxLength(20)]
         public string PropertyName { get; set; }
+        public bool IsTableColumn { get; set; }
+        public PropertyType Type { get; set; }
     }
 }

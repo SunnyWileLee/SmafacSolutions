@@ -1,6 +1,6 @@
 ﻿using Smafac.Crm.CustomerFinance.Domain.CategoryProperty;
 using Smafac.Crm.CustomerFinance.Models;
-using Smafac.Crm.CustomerFinance.Repository;
+using Smafac.Crm.CustomerFinance.Repositories;
 using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;

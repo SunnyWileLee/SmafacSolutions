@@ -2,14 +2,13 @@
 using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Domain;
 using Smafac.Crm.CustomerFinance.Models;
-using Smafac.Crm.CustomerFinance.Repository;
-using Smafac.Crm.CustomerFinance.Repository.Property;
+using Smafac.Crm.CustomerFinance.Repositories;
+using Smafac.Crm.CustomerFinance.Repositories.Property;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Smafac.Crm.CustomerFinance.Services
 {

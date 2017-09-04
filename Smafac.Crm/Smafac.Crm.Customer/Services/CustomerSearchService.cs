@@ -12,6 +12,7 @@ using AutoMapper;
 using Smafac.Crm.Customer.Domain;
 using System.Linq.Expressions;
 using Smafac.Framework.Core.Repositories.Query;
+using Smafac.Crm.Customer.Repositories.Property;
 
 namespace Smafac.Crm.Customer.Services
 {

@@ -40,27 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerAfterServiceModel.cs" />
-    <Compile Include="CustomerAfterServicePageQueryModel.cs" />
-    <Compile Include="CustomerContactDetailModel.cs" />
-    <Compile Include="CustomerContactModel.cs" />
-    <Compile Include="CustomerContactPropertyModel.cs" />
-    <Compile Include="CustomerContactPropertyValueModel.cs" />
     <Compile Include="CustomerDetailModel.cs" />
-    <Compile Include="CustomerFinancialModel.cs" />
-    <Compile Include="CustomerFinancialPageQueryModel.cs" />
-    <Compile Include="CustomerFinancialStatusModel.cs" />
-    <Compile Include="CustomerFinancialTypeModel.cs" />
-    <Compile Include="CustomerLevelModel.cs" />
     <Compile Include="CustomerModel.cs" />
     <Compile Include="CustomerPageQueryModel.cs" />
-    <Compile Include="CustomerPayTypeModel.cs" />
     <Compile Include="CustomerPropertyModel.cs" />
     <Compile Include="CustomerPropertyValueModel.cs" />
-    <Compile Include="CustomerReceiveModel.cs" />
-    <Compile Include="CustomerScoreModel.cs" />
-    <Compile Include="CustomerVisitModel.cs" />
-    <Compile Include="CustomerVisitPageQueryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

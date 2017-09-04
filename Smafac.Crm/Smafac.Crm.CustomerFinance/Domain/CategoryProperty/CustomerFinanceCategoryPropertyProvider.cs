@@ -1,6 +1,6 @@
 ﻿using Smafac.Crm.CustomerFinance.Models;
-using Smafac.Crm.CustomerFinance.Repository.Category;
-using Smafac.Crm.CustomerFinance.Repository.CategoryProperty;
+using Smafac.Crm.CustomerFinance.Repositories.Category;
+using Smafac.Crm.CustomerFinance.Repositories.CategoryProperty;
 using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 
 namespace Smafac.Crm.CustomerFinance.Domain.CategoryProperty

@@ -1,4 +1,5 @@
 ﻿using Smafac.Crm.Customer.Applications;
+using Smafac.Crm.Customer.Applications.Propety;
 using Smafac.Crm.Customer.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Smafac.Presentation.Controllers
         private readonly ICustomerPropertyService _customerPropertyService;
 
         public CustomerController(ICustomerSearchService customerSearchService,
-            ICustomerPropertyService customerPropertyService,
+                                    ICustomerPropertyService customerPropertyService,
                                     ICustomerService customerService)
         {
             _customerSearchService = customerSearchService;

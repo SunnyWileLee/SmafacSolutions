@@ -5,7 +5,7 @@ namespace Smafac.Crm.CustomerFinance.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Smafac.Crm.CustomerFinance.Repository.CustomerFinanceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Smafac.Crm.CustomerFinance.Repositories.CustomerFinanceContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace Smafac.Crm.CustomerFinance.Migrations
             ContextKey = "Smafac.Crm.CustomerFinance.Repository.CustomerFinanceContext";
         }
 
-        protected override void Seed(Smafac.Crm.CustomerFinance.Repository.CustomerFinanceContext context)
+        protected override void Seed(Smafac.Crm.CustomerFinance.Repositories.CustomerFinanceContext context)
         {
             //  This method will be called after migrating to the latest version.
 

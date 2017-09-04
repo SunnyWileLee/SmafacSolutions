@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smafac.Framework.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,8 +10,16 @@ namespace Smafac.Framework.Core.Domain
 {
     public abstract class PropertyEntity : SaasBaseEntity
     {
+        public PropertyEntity()
+        {
+            IsTableColumn = false;
+        }
+
         [MaxLength(20)]
         public string Name { get; set; }
+        public PropertyType Type { get; set; }
+        public bool IsTableColumn { get; set; }
+
 
         protected virtual TPropertyValueEntity CreateValueBase<TPropertyValueEntity>(string value) where TPropertyValueEntity : PropertyValueEntity
         {

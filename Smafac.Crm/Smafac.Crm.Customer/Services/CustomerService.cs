@@ -3,6 +3,7 @@ using Smafac.Crm.Customer.Applications;
 using Smafac.Crm.Customer.Domain;
 using Smafac.Crm.Customer.Models;
 using Smafac.Crm.Customer.Repositories;
+using Smafac.Crm.Customer.Repositories.Property;
 using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,15 @@ namespace Smafac.Crm.Customer.Services
     class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly ICustomerPropertyRepository _customerPropertyRepository;
         private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
+        private readonly ICustomerPropertySearchRepository _customerPropertySearchRepository;
 
         public CustomerService(ICustomerRepository customerRepository,
-                                ICustomerPropertyRepository customerPropertyRepository,
+                                ICustomerPropertySearchRepository customerPropertySearchRepository,
                                 ICustomerPropertyValueRepository customerPropertyValueRepository)
         {
             _customerRepository = customerRepository;
-            _customerPropertyRepository = customerPropertyRepository;
+            _customerPropertySearchRepository = customerPropertySearchRepository;
             _customerPropertyValueRepository = customerPropertyValueRepository;
         }
 
@@ -41,7 +42,7 @@ namespace Smafac.Crm.Customer.Services
                     property.SubscriberId = customer.SubscriberId;
                 });
                 var values = Mapper.Map<List<CustomerPropertyValueEntity>>(model.Properties);
-                return _customerPropertyValueRepository.AddPropertyValues(customer.SubscriberId, customer.Id, values);
+                return _customerPropertyValueRepository.AddPropertyValues(customer.Id, values);
             }
             return addCustomer;
         }
@@ -62,7 +63,7 @@ namespace Smafac.Crm.Customer.Services
         public CustomerModel CreateEmptyCustomer()
         {
             var customer = new CustomerModel();
-            var properties = _customerPropertyRepository.GetProperties(UserContext.Current.SubscriberId);
+            var properties = Mapper.Map<List<CustomerPropertyModel>>(_customerPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true));
             customer.Properties = properties.Select(s => new CustomerPropertyValueModel { PropertyId = s.Id, PropertyName = s.Name }).ToList();
             return customer;
         }
