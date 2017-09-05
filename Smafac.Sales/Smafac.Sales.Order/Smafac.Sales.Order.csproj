@@ -102,6 +102,10 @@
     <Compile Include="Migrations\201709010607473_InitialCreate2.Designer.cs">
       <DependentUpon>201709010607473_InitialCreate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709050528465_intit.cs" />
+    <Compile Include="Migrations\201709050528465_intit.Designer.cs">
+      <DependentUpon>201709050528465_intit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryCharge\IOrderCategoryChargeBindRepository.cs" />
@@ -123,14 +127,16 @@
     <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
-    <Compile Include="Repositories\Property\IOrderPropertyValueRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\OrderPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\OrderPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IOrderPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IOrderPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IOrderSearchRepository.cs" />
     <Compile Include="Repositories\Charge\OrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\OrderChargeValueRepository.cs" />
     <Compile Include="Repositories\OrderContext.cs" />
     <Compile Include="Repositories\OrderContextProvider.cs" />
-    <Compile Include="Repositories\Property\OrderPropertyValueRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\OrderSearchRepository.cs" />
     <Compile Include="Repositories\Property\OrderPropertyAddRepository.cs" />
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709010607473_InitialCreate2.resx">
       <DependentUpon>201709010607473_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709050528465_intit.resx">
+      <DependentUpon>201709050528465_intit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

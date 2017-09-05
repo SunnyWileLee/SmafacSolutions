@@ -13,6 +13,7 @@ using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Repositories.Charge;
 using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Framework.Core.Repositories.Query;
+using Smafac.Sales.Order.Repositories.PropertyValue;
 
 namespace Smafac.Sales.Order.Services
 {
@@ -20,18 +21,18 @@ namespace Smafac.Sales.Order.Services
     {
         private readonly IOrderSearchRepository _orderSearchRepository;
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
-        private readonly IOrderPropertyValueRepository _orderPropertyValueRepository;
+        private readonly IOrderPropertyValueSearchRepository _orderPropertyValueSearchRepository;
         private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public OrderSearchService(IOrderSearchRepository orderSearchRepository,
                                     IOrderChargeValueRepository orderChargeValueRepository,
-                                    IOrderPropertyValueRepository orderPropertyValueRepository,
+                                    IOrderPropertyValueSearchRepository orderPropertyValueSearchRepository,
                                     IQueryExpressionCreaterProvider queryExpressionCreaterProvider
                                     )
         {
             _orderSearchRepository = orderSearchRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
-            _orderPropertyValueRepository = orderPropertyValueRepository;
+            _orderPropertyValueSearchRepository = orderPropertyValueSearchRepository;
             _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
@@ -39,7 +40,7 @@ namespace Smafac.Sales.Order.Services
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var order = _orderSearchRepository.GetById(subscriberId, orderId);
-            var properties = _orderPropertyValueRepository.GetPropertyValues(subscriberId, orderId);
+            var properties = _orderPropertyValueSearchRepository.GetPropertyValues(subscriberId, orderId);
             var charges = _orderChargeValueRepository.GetChargeValues(subscriberId, orderId);
             var model = Mapper.Map<OrderModel>(order);
             model.Properties = properties;

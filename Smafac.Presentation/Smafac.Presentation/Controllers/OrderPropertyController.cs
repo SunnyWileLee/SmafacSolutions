@@ -1,4 +1,5 @@
-﻿using Smafac.Sales.Order.Applications;
+﻿using Smafac.Presentation.Domain;
+using Smafac.Sales.Order.Applications;
 using Smafac.Sales.Order.Applications.Property;
 using Smafac.Sales.Order.Models;
 using System;
@@ -12,15 +13,20 @@ namespace Smafac.Presentation.Controllers
     public class OrderPropertyController : SmafacController
     {
         private readonly IOrderPropertyService _orderPropertyService;
+        private readonly IPropertyTypeProvider _propertyTypeProvider;
 
-        public OrderPropertyController(IOrderPropertyService orderPropertyService)
+        public OrderPropertyController(IOrderPropertyService orderPropertyService,
+                    IPropertyTypeProvider propertyTypeProvider)
         {
             _orderPropertyService = orderPropertyService;
+            _propertyTypeProvider = propertyTypeProvider;
         }
 
         [HttpGet]
         public ActionResult OrderPropertyView()
         {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
             var properties = _orderPropertyService.SearchService.GetProperties();
             return View(properties);
         }

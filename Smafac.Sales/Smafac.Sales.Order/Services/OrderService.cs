@@ -12,6 +12,7 @@ using Smafac.Sales.Order.Domain;
 using Newtonsoft.Json;
 using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Sales.Order.Repositories.Charge;
+using Smafac.Sales.Order.Repositories.PropertyValue;
 
 namespace Smafac.Sales.Order.Services
 {
@@ -19,19 +20,19 @@ namespace Smafac.Sales.Order.Services
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
-        private readonly IOrderPropertyValueRepository _orderPropertyValueRepository;
+        private readonly IOrderPropertyValueSetRepository _orderPropertyValueSetRepository;
         private readonly IOrderChargeRepository _orderChargeRepository;
         private readonly IOrderPropertySearchRepository _orderPropertySearchRepository;
 
         public OrderService(IOrderRepository orderRepository,
                             IOrderChargeValueRepository orderChargeValueRepository,
-                            IOrderPropertyValueRepository orderPropertyValueRepository,
+                            IOrderPropertyValueSetRepository orderPropertyValueSetRepository,
                             IOrderChargeRepository orderChargeRepository,
                             IOrderPropertySearchRepository orderPropertySearchRepository)
         {
             _orderRepository = orderRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
-            _orderPropertyValueRepository = orderPropertyValueRepository;
+            _orderPropertyValueSetRepository = orderPropertyValueSetRepository;
             _orderChargeRepository = orderChargeRepository;
             _orderPropertySearchRepository = orderPropertySearchRepository;
         }
@@ -80,7 +81,7 @@ namespace Smafac.Sales.Order.Services
                 property.OrderId = order.Id;
                 property.SubscriberId = order.SubscriberId;
             });
-            return _orderPropertyValueRepository.AddPropertyValues(order.Id, properties);
+            return _orderPropertyValueSetRepository.AddPropertyValues(order.Id, properties);
         }
 
         public OrderModel CreateEmptyOrder()
