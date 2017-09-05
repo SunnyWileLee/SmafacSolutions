@@ -1,5 +1,6 @@
 ﻿using Smafac.Crm.CustomerFinance.Applications.Propety;
 using Smafac.Crm.CustomerFinance.Models;
+using Smafac.Presentation.Domain;
 using System;
 using System.Web.Mvc;
 
@@ -8,15 +9,21 @@ namespace Smafac.Presentation.Controllers
     public class CustomerFinancePropertyController : SmafacController
     {
         private readonly ICustomerFinancePropertyService _financePropertyService;
+        private readonly IPropertyTypeProvider _propertyTypeProvider;
 
-        public CustomerFinancePropertyController(ICustomerFinancePropertyService financePropertyService)
+        public CustomerFinancePropertyController(ICustomerFinancePropertyService financePropertyService,
+                                    IPropertyTypeProvider propertyTypeProvider
+                                                )
         {
             _financePropertyService = financePropertyService;
+            _propertyTypeProvider = propertyTypeProvider;
         }
 
         [HttpGet]
         public ActionResult CustomerFinancePropertyView()
         {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
             var properties = _financePropertyService.SearchService.GetProperties();
             return View(properties);
         }

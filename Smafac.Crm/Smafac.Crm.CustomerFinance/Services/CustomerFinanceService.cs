@@ -5,6 +5,7 @@ using Smafac.Crm.CustomerFinance.Domain;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repositories;
 using Smafac.Crm.CustomerFinance.Repositories.Property;
+using Smafac.Crm.CustomerFinance.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,15 @@ namespace Smafac.Crm.CustomerFinance.Services
     class CustomerFinanceService : ICustomerFinanceService
     {
         private readonly ICustomerFinanceRepository _financeRepository;
-        private readonly ICustomerFinancePropertyValueRepository _financePropertyValueRepository;
+        private readonly ICustomerFinancePropertyValueSetRepository _financePropertyValueSetRepository;
         private readonly ICustomerFinancePropertySearchRepository _financePropertySearchRepository;
 
         public CustomerFinanceService(ICustomerFinanceRepository financeRepository,
-                            ICustomerFinancePropertyValueRepository financePropertyValueRepository,
+                            ICustomerFinancePropertyValueSetRepository financePropertyValueSetRepository,
                             ICustomerFinancePropertySearchRepository financePropertySearchRepository)
         {
             _financeRepository = financeRepository;
-            _financePropertyValueRepository = financePropertyValueRepository;
+            _financePropertyValueSetRepository = financePropertyValueSetRepository;
             _financePropertySearchRepository = financePropertySearchRepository;
         }
 
@@ -53,7 +54,7 @@ namespace Smafac.Crm.CustomerFinance.Services
                 property.CustomerFinanceId = finance.Id;
                 property.SubscriberId = finance.SubscriberId;
             });
-            return _financePropertyValueRepository.AddPropertyValues(finance.Id, properties);
+            return _financePropertyValueSetRepository.AddPropertyValues(finance.Id, properties);
         }
 
         public CustomerFinanceModel CreateEmptyCustomerFinance()

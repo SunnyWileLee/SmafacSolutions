@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201709020958029_InitialCreate1.Designer.cs">
       <DependentUpon>201709020958029_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709050258490_finance.cs" />
+    <Compile Include="Migrations\201709050258490_finance.Designer.cs">
+      <DependentUpon>201709050258490_finance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryProperty\IOrderCategoryPropertyBindRepository.cs" />
@@ -107,16 +111,18 @@
     <Compile Include="Repositories\ICustomerFinanceSearchRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ICustomerFinancePropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ICustomerFinancePropertyValueSetRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertyAddRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertyUpdateRepository.cs" />
-    <Compile Include="Repositories\Property\ICustomerFinancePropertyValueRepository.cs" />
     <Compile Include="Repositories\Property\CustomerFinancePropertyAddRepository.cs" />
     <Compile Include="Repositories\Property\CustomerFinancePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\CustomerFinancePropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\CustomerFinancePropertyUpdateRepository.cs" />
-    <Compile Include="Repositories\Property\CustomerFinancePropertyValueRepository.cs" />
     <Compile Include="Services\CategoryProperty\CustomerFinanceCategoryPropertyBindService.cs" />
     <Compile Include="Services\CategoryProperty\CustomerFinanceCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategoryAddService.cs" />
@@ -140,6 +146,9 @@
     <EmbeddedResource Include="Migrations\201709020958029_InitialCreate1.resx">
       <DependentUpon>201709020958029_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709050258490_finance.resx">
+      <DependentUpon>201709050258490_finance.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
@@ -159,5 +168,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

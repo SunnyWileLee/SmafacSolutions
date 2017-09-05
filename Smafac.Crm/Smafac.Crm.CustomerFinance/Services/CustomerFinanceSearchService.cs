@@ -4,6 +4,7 @@ using Smafac.Crm.CustomerFinance.Domain;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repositories;
 using Smafac.Crm.CustomerFinance.Repositories.Property;
+using Smafac.Crm.CustomerFinance.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Framework.Models;
@@ -15,16 +16,16 @@ namespace Smafac.Crm.CustomerFinance.Services
     class CustomerFinanceSearchService : ICustomerFinanceSearchService
     {
         private readonly ICustomerFinanceSearchRepository _financeSearchRepository;
-        private readonly ICustomerFinancePropertyValueRepository _financePropertyValueRepository;
+        private readonly ICustomerFinancePropertyValueSearchRepository _financePropertyValueSearchRepository;
         private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public CustomerFinanceSearchService(ICustomerFinanceSearchRepository financeSearchRepository,
-                                    ICustomerFinancePropertyValueRepository financePropertyValueRepository,
+                                    ICustomerFinancePropertyValueSearchRepository financePropertyValueSearchRepository,
                                     IQueryExpressionCreaterProvider queryExpressionCreaterProvider
                                     )
         {
             _financeSearchRepository = financeSearchRepository;
-            _financePropertyValueRepository = financePropertyValueRepository;
+            _financePropertyValueSearchRepository = financePropertyValueSearchRepository;
             _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
@@ -32,7 +33,7 @@ namespace Smafac.Crm.CustomerFinance.Services
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var finance = _financeSearchRepository.GetById(subscriberId, financeId);
-            var properties = _financePropertyValueRepository.GetPropertyValues(subscriberId, financeId);
+            var properties = _financePropertyValueSearchRepository.GetPropertyValues(subscriberId, financeId);
             finance.Properties = properties;
             return finance;
         }
