@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201709050258490_finance.Designer.cs">
       <DependentUpon>201709050258490_finance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709050640133_intit.cs" />
+    <Compile Include="Migrations\201709050640133_intit.Designer.cs">
+      <DependentUpon>201709050640133_intit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryProperty\IOrderCategoryPropertyBindRepository.cs" />
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709050258490_finance.resx">
       <DependentUpon>201709050258490_finance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709050640133_intit.resx">
+      <DependentUpon>201709050640133_intit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

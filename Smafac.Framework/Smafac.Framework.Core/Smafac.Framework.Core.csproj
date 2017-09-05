@@ -70,6 +70,7 @@
     <Compile Include="Domain\CategoryAssociationEntity.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
+    <Compile Include="Domain\CustomizedColumnEntity.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryAssociationProvider.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
     <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />

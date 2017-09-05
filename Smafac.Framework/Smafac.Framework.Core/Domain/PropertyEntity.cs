@@ -8,18 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain
 {
-    public abstract class PropertyEntity : SaasBaseEntity
+    public abstract class PropertyEntity : CustomizedColumnEntity
     {
-        public PropertyEntity()
-        {
-            IsTableColumn = false;
-        }
-
-        [MaxLength(20)]
-        public string Name { get; set; }
         public PropertyType Type { get; set; }
-        public bool IsTableColumn { get; set; }
-
 
         protected virtual TPropertyValueEntity CreateValueBase<TPropertyValueEntity>(string value) where TPropertyValueEntity : PropertyValueEntity
         {

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Models
 {
-    public class OrderChargeModel : SaasBaseModel
+    public class OrderChargeModel : CustomizedColumnModel
     {
-        public string Name { get; set; }
+
     }
 }

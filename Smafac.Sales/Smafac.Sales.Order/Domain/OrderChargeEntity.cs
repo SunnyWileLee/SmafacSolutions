@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 namespace Smafac.Sales.Order.Domain
 {
     [Table("OrderCharge")]
-    class OrderChargeEntity : SaasBaseEntity
+    class OrderChargeEntity : CustomizedColumnEntity
     {
-        [MaxLength(20)]
-        public string Name { get; set; }
 
         public OrderChargeValueEntity CreateEmptyValue()
         {
