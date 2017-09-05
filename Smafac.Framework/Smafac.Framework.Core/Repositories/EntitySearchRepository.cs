@@ -18,8 +18,17 @@ namespace Smafac.Framework.Core.Repositories
         {
             using (var context = ContextProvider.Provide())
             {
-                var properties = context.Set<TEntity>();
-                return properties.Where(s => s.SubscriberId == subscriberId).ToList();
+                var entites = context.Set<TEntity>();
+                return entites.Where(s => s.SubscriberId == subscriberId).ToList();
+            }
+        }
+
+        public virtual TEntity GetEntity(Guid subscriberId, Guid id)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var entites = context.Set<TEntity>();
+                return entites.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == id);
             }
         }
     }

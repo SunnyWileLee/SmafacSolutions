@@ -23,18 +23,9 @@ namespace Smafac.Framework.Core.Repositories
                 {
                     return true;
                 }
-                if (CheckDeleteable(entity))
-                {
-                    return false;
-                }
                 entities.Remove(entity);
                 return context.SaveChanges() > 0;
             }
-        }
-
-        protected virtual bool CheckDeleteable(TEntity entity)
-        {
-            return true;
         }
     }
 }

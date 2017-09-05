@@ -17,6 +17,14 @@ namespace Smafac.Sales.Order.Repositories.CategoryCharge
             base.ContextProvider = orderContextProvider;
         }
 
+        public override bool Any(Guid subscriberId, Guid associationId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                return context.Set<OrderCategoryChargeEntity>().Any(s => s.SubscriberId == subscriberId && s.ChargeId == associationId);
+            }
+        }
+
         protected override IEnumerable<Guid> GetAssociationIds(IQueryable<OrderCategoryChargeEntity> binds, Guid entityId)
         {
             return binds.Where(s => s.CategoryId.Equals(entityId)).Select(s => s.ChargeId).ToList();

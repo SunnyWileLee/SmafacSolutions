@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Services.Property;
 using Smafac.Sales.Order.Applications.Property;
 using Smafac.Sales.Order.Domain;
+using Smafac.Sales.Order.Domain.Property;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories.Property;
 using System;
@@ -13,14 +14,13 @@ namespace Smafac.Sales.Order.Services.Property
 {
     class OrderPropertyDeleteService : PropertyDeleteService<OrderPropertyEntity, OrderPropertyModel>, IOrderPropertyDeleteService
     {
-        public OrderPropertyDeleteService(IOrderPropertyDeleteRepository OrderPropertyDeleteRepository)
+        public OrderPropertyDeleteService(IOrderPropertyDeleteRepository orderPropertyDeleteRepository,
+                                           IOrderPropertySearchRepository orderPropertySearchRepository,
+                                           IEnumerable<IOrderPropertyUsedChecker> orderPropertyUsedCheckers)
         {
-            base.PropertyDeleteRepository = OrderPropertyDeleteRepository;
-        }
-
-        protected override bool IsUsed(Guid propertyId)
-        {
-            return false;
+            base.PropertyDeleteRepository = orderPropertyDeleteRepository;
+            base.PropertyUsedCheckers = orderPropertyUsedCheckers;
+            base.PropertySearchRepository = orderPropertySearchRepository;
         }
     }
 }

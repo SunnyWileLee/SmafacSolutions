@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Framework.Core.Domain
+namespace Smafac.Framework.Core.Domain.CustomizedColumn
 {
     public abstract class CustomizedColumnEntity : SaasBaseEntity
     {

@@ -76,8 +76,11 @@
     <Compile Include="Domain\CustomerFinanceCategoryEntity.cs" />
     <Compile Include="Domain\CustomerFinanceEntity.cs" />
     <Compile Include="Domain\CustomerFinancePropertyValueEntity.cs" />
+    <Compile Include="Domain\Property\CustomerFinancePropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\CustomerFinancePropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\ICustomerFinancePropertyProvider.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyProvider.cs" />
+    <Compile Include="Domain\Property\ICustomerFinancePropertyUsedChecker.cs" />
     <Compile Include="Migrations\201709020949033_InitialCreate.cs" />
     <Compile Include="Migrations\201709020949033_InitialCreate.Designer.cs">
       <DependentUpon>201709020949033_InitialCreate.cs</DependentUpon>

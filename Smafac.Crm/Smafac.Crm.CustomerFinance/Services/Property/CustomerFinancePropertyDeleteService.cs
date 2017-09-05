@@ -1,5 +1,6 @@
 ﻿using Smafac.Crm.CustomerFinance.Applications.Propety;
 using Smafac.Crm.CustomerFinance.Domain;
+using Smafac.Crm.CustomerFinance.Domain.Property;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repositories.Property;
 using Smafac.Framework.Core.Services.Property;
@@ -9,14 +10,14 @@ namespace Smafac.Crm.CustomerFinance.Services.Property
 {
     class CustomerFinancePropertyDeleteService : PropertyDeleteService<CustomerFinancePropertyEntity, CustomerFinancePropertyModel>, ICustomerFinancePropertyDeleteService
     {
-        public CustomerFinancePropertyDeleteService(ICustomerFinancePropertyDeleteRepository goodsPropertyDeleteRepository)
+        public CustomerFinancePropertyDeleteService(ICustomerFinancePropertyDeleteRepository customerFinancePropertyDeleteRepository,
+                                                    ICustomerFinancePropertySearchRepository customerFinancePropertySearchRepository,
+                                                    ICustomerFinancePropertyUsedChecker[] customerFinancePropertyUsedCheckers)
         {
-            base.PropertyDeleteRepository = goodsPropertyDeleteRepository;
+            base.PropertyDeleteRepository = customerFinancePropertyDeleteRepository;
+            base.PropertyUsedCheckers = customerFinancePropertyUsedCheckers;
+            base.PropertySearchRepository = customerFinancePropertySearchRepository;
         }
 
-        protected override bool IsUsed(Guid propertyId)
-        {
-            return false;
-        }
     }
 }

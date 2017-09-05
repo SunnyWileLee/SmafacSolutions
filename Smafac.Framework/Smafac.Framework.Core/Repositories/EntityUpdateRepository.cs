@@ -28,6 +28,6 @@ namespace Smafac.Framework.Core.Repositories
             }
         }
 
-        protected abstract void SetValue(TEntity entity, TEntity souce);
+        protected abstract void SetValue(TEntity entity, TEntity source);
     }
 }

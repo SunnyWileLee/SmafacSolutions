@@ -39,5 +39,7 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
         }
 
         protected abstract bool IsBound(IQueryable<TEntityAssociation> binds, Guid entityId);
+
+        public abstract bool Any(Guid subscriberId, Guid associationId);
     }
 }

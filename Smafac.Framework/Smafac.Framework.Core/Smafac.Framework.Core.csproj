@@ -70,17 +70,17 @@
     <Compile Include="Domain\CategoryAssociationEntity.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
-    <Compile Include="Domain\CustomizedColumnEntity.cs" />
+    <Compile Include="Domain\CustomizedColumn\CustomizedColumnEntity.cs" />
+    <Compile Include="Domain\CustomizedColumn\ICustomizedColumnUsedChecker.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryAssociationProvider.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
     <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />
-    <Compile Include="Domain\PropertyUsedByValueChecker.cs" />
-    <Compile Include="Domain\PropertyUsedChecker.cs" />
     <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
-    <Compile Include="Domain\IEntityChecker.cs" />
-    <Compile Include="Domain\IEntityUsedChecker.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
+    <Compile Include="Domain\Property\IPropertyUsedChecker.cs" />
+    <Compile Include="Domain\Property\PropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\PropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\TreeNodeEntity.cs" />
     <Compile Include="Domain\SaasBaseEntity.cs" />
     <Compile Include="Domain\SmafacPrincipal.cs" />
@@ -108,6 +108,14 @@
     <Compile Include="Repositories\Category\CategoryDeleteRepository.cs" />
     <Compile Include="Repositories\Category\CategorySearchRepository.cs" />
     <Compile Include="Repositories\Category\CategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\ICustomizedColumnAddRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\ICustomizedColumnDeleteRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\ICustomizedColumnSearchRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\ICustomizedColumnUpdateRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\CustomizedColumnAddRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\CustomizedColumnDeleteRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\CustomizedColumnSearchRepository.cs" />
+    <Compile Include="Repositories\CustomizedColumn\CustomizedColumnUpdateRepository.cs" />
     <Compile Include="Repositories\DbContextProvider.cs" />
     <Compile Include="Repositories\EntityAddRepository.cs" />
     <Compile Include="Repositories\EntityAssociation\EntityAssociationBindRepository.cs" />
@@ -170,9 +178,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Property\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

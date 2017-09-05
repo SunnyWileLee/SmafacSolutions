@@ -88,6 +88,9 @@
     <Compile Include="Domain\OrderPropertyValueEntity.cs" />
     <Compile Include="Domain\OrderStatusChangedEntity.cs" />
     <Compile Include="Domain\OrderStatusEntity.cs" />
+    <Compile Include="Domain\Property\OrderPropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\OrderPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\IOrderPropertyUsedChecker.cs" />
     <Compile Include="Domain\Property\OrderPropertyProvider.cs" />
     <Compile Include="Domain\Property\IOrderPropertyProvider.cs" />
     <Compile Include="Migrations\201708280551355_InitialCreate.cs" />

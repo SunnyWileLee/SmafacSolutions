@@ -76,6 +76,9 @@
     <Compile Include="Domain\GoodsPropertyValueEntity.cs" />
     <Compile Include="Domain\IGoodsCategoryPropertyProvider.cs" />
     <Compile Include="Domain\IGoodsPropertyProvider.cs" />
+    <Compile Include="Domain\Property\GoodsPropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\GoodsPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\IGoodsPropertyUsedChecker.cs" />
     <Compile Include="Migrations\201709040628082_InitialCreate.cs" />
     <Compile Include="Migrations\201709040628082_InitialCreate.Designer.cs">
       <DependentUpon>201709040628082_InitialCreate.cs</DependentUpon>

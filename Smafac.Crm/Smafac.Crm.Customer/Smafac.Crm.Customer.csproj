@@ -63,6 +63,8 @@
     <Compile Include="Domain\CustomerEntity.cs" />
     <Compile Include="Domain\CustomerPropertyEntity.cs" />
     <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
+    <Compile Include="Domain\Property\CustomerPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\ICustomerPropertyUsedChecker.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.Designer.cs">
       <DependentUpon>201708250611458_InitialCreate.cs</DependentUpon>

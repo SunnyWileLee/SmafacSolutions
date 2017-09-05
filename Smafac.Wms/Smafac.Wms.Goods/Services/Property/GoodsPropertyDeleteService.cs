@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Services.Property;
 using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Domain;
+using Smafac.Wms.Goods.Domain.Property;
 using Smafac.Wms.Goods.Models;
 using Smafac.Wms.Goods.Repositories.Property;
 using System;
@@ -13,14 +14,13 @@ namespace Smafac.Wms.Goods.Services.Property
 {
     class GoodsPropertyDeleteService : PropertyDeleteService<GoodsPropertyEntity, GoodsPropertyModel>, IGoodsPropertyDeleteService
     {
-        public GoodsPropertyDeleteService(IGoodsPropertyDeleteRepository goodsPropertyDeleteRepository)
+        public GoodsPropertyDeleteService(IGoodsPropertyDeleteRepository goodsPropertyDeleteRepository,
+                                          IGoodsPropertySearchRepository goodsPropertySearchRepository,
+                                          IGoodsPropertyUsedChecker[] goodsFinancePropertyUsedCheckers)
         {
             base.PropertyDeleteRepository = goodsPropertyDeleteRepository;
-        }
-
-        protected override bool IsUsed(Guid propertyId)
-        {
-            return false;
+            base.PropertyUsedCheckers = goodsFinancePropertyUsedCheckers;
+            base.PropertySearchRepository = goodsPropertySearchRepository;
         }
     }
 }

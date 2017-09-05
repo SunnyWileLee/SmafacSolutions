@@ -1,4 +1,5 @@
 ﻿using Smafac.Framework.Core.Domain;
+using Smafac.Framework.Core.Domain.CustomizedColumn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

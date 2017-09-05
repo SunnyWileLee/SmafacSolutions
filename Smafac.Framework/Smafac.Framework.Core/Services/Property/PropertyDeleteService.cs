@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Applications;
 using Smafac.Framework.Core.Applications.Property;
 using Smafac.Framework.Core.Domain;
+using Smafac.Framework.Core.Domain.Property;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Property;
 using Smafac.Framework.Models;
@@ -16,6 +17,8 @@ namespace Smafac.Framework.Core.Services.Property
         where TPropertyEntity : PropertyEntity
         where TPropertyModel : PropertyModel
     {
+        public virtual IEnumerable<IPropertyUsedChecker<TPropertyEntity>> PropertyUsedCheckers { get; protected set; }
+        public virtual IPropertySearchRepository<TPropertyEntity> PropertySearchRepository { get; protected set; }
 
         public virtual IPropertyDeleteRepository<TPropertyEntity> PropertyDeleteRepository
         {
@@ -33,14 +36,14 @@ namespace Smafac.Framework.Core.Services.Property
 
         public virtual bool DeleteProperty(Guid propertyId)
         {
-            if (!AllowDeleteWhenUsed && IsUsed(propertyId))
+            var subscriberId = UserContext.Current.SubscriberId;
+            var property = PropertySearchRepository.GetEntity(subscriberId, propertyId);
+            if (!property.IsDeleteAssociations && PropertyUsedCheckers.Any(checker => checker.Check(property)))
             {
                 return false;
             }
             return Delete(propertyId);
         }
-
-        protected abstract bool IsUsed(Guid propertyId);
 
         protected virtual bool Delete(Guid propertyId)
         {

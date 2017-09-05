@@ -23,5 +23,12 @@ namespace Smafac.Framework.Core.Repositories.CategoryProperty
                 .Select(s => s.PropertyId).ToList();
             return propertyIds;
         }
+        public override bool Any(Guid subscriberId, Guid associationId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                return context.Set<TCategoryProperty>().Any(s => s.SubscriberId == subscriberId && s.PropertyId == associationId);
+            }
+        }
     }
 }

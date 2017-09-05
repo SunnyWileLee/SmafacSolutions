@@ -13,5 +13,6 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
     {
         bool IsBound(Guid subscriberId, Guid entityId);
         List<TAssociation> GetAssociations(Guid subscriberId, Guid entityId);
+        bool Any(Guid subscriberId, Guid associationId);
     }
 }
