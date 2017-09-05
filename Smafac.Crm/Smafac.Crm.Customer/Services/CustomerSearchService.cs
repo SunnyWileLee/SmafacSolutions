@@ -13,21 +13,22 @@ using Smafac.Crm.Customer.Domain;
 using System.Linq.Expressions;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Crm.Customer.Repositories.Property;
+using Smafac.Crm.Customer.Repositories.PropertyValue;
 
 namespace Smafac.Crm.Customer.Services
 {
     class CustomerSearchService : ICustomerSearchService
     {
         private readonly ICustomerSearchRepository _customerSearchRepository;
-        private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
         private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
+        private readonly ICustomerPropertyValueSearchRepository _customerPropertyValueSearchRepository;
 
         public CustomerSearchService(ICustomerSearchRepository customerSearchRepository,
-                                    ICustomerPropertyValueRepository customerPropertyValueRepository,
+                                    ICustomerPropertyValueSearchRepository customerPropertyValueSearchRepository,
                                     IQueryExpressionCreaterProvider queryExpressionCreaterProvider)
         {
             _customerSearchRepository = customerSearchRepository;
-            _customerPropertyValueRepository = customerPropertyValueRepository;
+            _customerPropertyValueSearchRepository = customerPropertyValueSearchRepository;
             _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
@@ -35,7 +36,7 @@ namespace Smafac.Crm.Customer.Services
         {
             var customer = _customerSearchRepository.GetById(UserContext.Current.SubscriberId, customerId);
             var model = Mapper.Map<CustomerModel>(customer);
-            var properties = _customerPropertyValueRepository.GetPropertyValues(UserContext.Current.SubscriberId, customerId);
+            var properties = _customerPropertyValueSearchRepository.GetPropertyValues(UserContext.Current.SubscriberId, customerId);
             SetCustomerPropertyValues(model, properties);
             return model;
         }
@@ -54,7 +55,7 @@ namespace Smafac.Crm.Customer.Services
             var models = Mapper.Map<List<CustomerModel>>(customers);
             if (models.Any())
             {
-                var properties = _customerPropertyValueRepository.GetPropertyValues(UserContext.Current.SubscriberId, customers.Select(s => s.Id));
+                var properties = _customerPropertyValueSearchRepository.GetPropertyValues(UserContext.Current.SubscriberId, customers.Select(s => s.Id));
                 models.ForEach(customer =>
                 {
                     SetCustomerPropertyValues(customer, properties.FirstOrDefault(s => s.Key == customer.Id));

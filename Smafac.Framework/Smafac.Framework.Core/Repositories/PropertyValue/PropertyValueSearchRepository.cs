@@ -15,7 +15,7 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
          where TContext : DbContext
          where TPropertyValue : PropertyValueEntity
          where TProperty : PropertyEntity
-         where TPropertyValueModel : PropertyValueModel, new()
+         where TPropertyValueModel : PropertyValueModel
     {
         public virtual bool Any(Guid subscriberId, Guid propertyId)
         {
@@ -49,7 +49,7 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
         protected abstract Expression<Func<TPropertyValue, bool>> CreateEntityQueryExpression(Guid entityId);
         protected abstract Expression<Func<TPropertyValue, bool>> CreateEntityQueryExpression(IEnumerable<Guid> entityIds);
 
-        protected abstract IQueryable<TPropertyValueModel> JoinProperty(IQueryable<PropertyValueEntity> values, IQueryable<TProperty> properties);
+        protected abstract IQueryable<TPropertyValueModel> JoinProperty(IQueryable<TPropertyValue> values, IQueryable<TProperty> properties);
 
         public IEnumerable<IGrouping<Guid, TPropertyValueModel>> GetPropertyValues(Guid subscriberId, IEnumerable<Guid> entityIds)
         {

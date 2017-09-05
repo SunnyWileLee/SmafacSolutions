@@ -4,6 +4,7 @@ using Smafac.Crm.Customer.Domain;
 using Smafac.Crm.Customer.Models;
 using Smafac.Crm.Customer.Repositories;
 using Smafac.Crm.Customer.Repositories.Property;
+using Smafac.Crm.Customer.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -16,16 +17,16 @@ namespace Smafac.Crm.Customer.Services
     class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly ICustomerPropertyValueRepository _customerPropertyValueRepository;
+        private readonly ICustomerPropertyValueSetRepository _customerPropertyValueSetRepository;
         private readonly ICustomerPropertySearchRepository _customerPropertySearchRepository;
 
         public CustomerService(ICustomerRepository customerRepository,
                                 ICustomerPropertySearchRepository customerPropertySearchRepository,
-                                ICustomerPropertyValueRepository customerPropertyValueRepository)
+                                ICustomerPropertyValueSetRepository customerPropertyValueSetRepository)
         {
             _customerRepository = customerRepository;
             _customerPropertySearchRepository = customerPropertySearchRepository;
-            _customerPropertyValueRepository = customerPropertyValueRepository;
+            _customerPropertyValueSetRepository = customerPropertyValueSetRepository;
         }
 
         public bool AddCustomer(CustomerModel model)
@@ -42,7 +43,7 @@ namespace Smafac.Crm.Customer.Services
                     property.SubscriberId = customer.SubscriberId;
                 });
                 var values = Mapper.Map<List<CustomerPropertyValueEntity>>(model.Properties);
-                return _customerPropertyValueRepository.AddPropertyValues(customer.Id, values);
+                return _customerPropertyValueSetRepository.AddPropertyValues(customer.Id, values);
             }
             return addCustomer;
         }

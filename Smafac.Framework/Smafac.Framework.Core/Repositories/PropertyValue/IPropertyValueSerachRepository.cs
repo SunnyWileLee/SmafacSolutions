@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Repositories.PropertyValue
 {
-    public interface IPropertyValueSearchRepository<TPropertyModel> where TPropertyModel : PropertyValueModel
+    public interface IPropertyValueSearchRepository<TPropertyValueModel> where TPropertyValueModel : PropertyValueModel
     {
-        List<TPropertyModel> GetPropertyValues(Guid subscriberId, Guid entityId);
-        IEnumerable<IGrouping<Guid, TPropertyModel>> GetPropertyValues(Guid subscriberId, IEnumerable<Guid> entityIds);
+        List<TPropertyValueModel> GetPropertyValues(Guid subscriberId, Guid entityId);
+        IEnumerable<IGrouping<Guid, TPropertyValueModel>> GetPropertyValues(Guid subscriberId, IEnumerable<Guid> entityIds);
         bool Any(Guid subscriberId, Guid propertyId);
     }
 }

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Repositories.PropertyValue
 {
-    public abstract class PropertyValueRepository<TContext, TPropertyValue> : EntityRepository<TContext, TPropertyValue>
-                                                            , IPropertyValueRepository<TPropertyValue>
+    public abstract class PropertyValueSetRepository<TContext, TPropertyValue> : EntityRepository<TContext, TPropertyValue>
+                                                            , IPropertyValueSetRepository<TPropertyValue>
         where TContext : DbContext
         where TPropertyValue : PropertyValueEntity
     {
@@ -38,7 +38,7 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
                 {
                     return false;
                 }
-                valueQuery.AddRange(valueQuery);
+                valueQuery.AddRange(values);
                 return context.SaveChanges() > 0;
             }
         }

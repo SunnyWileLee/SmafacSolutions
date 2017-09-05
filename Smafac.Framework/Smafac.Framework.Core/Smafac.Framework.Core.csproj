@@ -125,7 +125,7 @@
     <Compile Include="Repositories\IEntityUpdateRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IPropertyValueSerachRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IPropertyValueSetRepository.cs" />
-    <Compile Include="Repositories\PropertyValue\PropertyValueRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\PropertyValueSetRepository.cs" />
     <Compile Include="Repositories\PropertyValue\PropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\Query\IQueryExpressionCreater.cs" />
     <Compile Include="Repositories\Query\IQueryExpressionCreaterProvider.cs" />

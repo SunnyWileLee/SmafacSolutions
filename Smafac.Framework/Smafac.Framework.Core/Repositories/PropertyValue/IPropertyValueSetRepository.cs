@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Repositories.PropertyValue
 {
-    public interface IPropertyValueRepository<TPropertyValue> where TPropertyValue : PropertyValueEntity
+    public interface IPropertyValueSetRepository<TPropertyValue> where TPropertyValue : PropertyValueEntity
     {
         bool SetPropertyValue(TPropertyValue model);
         bool AddPropertyValues(Guid entityId, IEnumerable<TPropertyValue> values);
