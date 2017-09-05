@@ -18,6 +18,7 @@ namespace Smafac.Framework.Core.Services.Property
         where TPropertyModel : PropertyModel
     {
         public virtual IEnumerable<IPropertyUsedChecker<TPropertyEntity>> PropertyUsedCheckers { get; protected set; }
+        public virtual IEnumerable<IPropertyDeleteTrigger<TPropertyEntity>> PropertyDeleteTriggers { get; set; }
         public virtual IPropertySearchRepository<TPropertyEntity> PropertySearchRepository { get; protected set; }
 
         public virtual IPropertyDeleteRepository<TPropertyEntity> PropertyDeleteRepository
@@ -42,7 +43,15 @@ namespace Smafac.Framework.Core.Services.Property
             {
                 return false;
             }
-            return Delete(propertyId);
+            var result = Delete(propertyId);
+            if (result)
+            {
+                PropertyDeleteTriggers.ToList().ForEach(trigger =>
+                {
+                    result &= trigger.Deleted(property);
+                });
+            }
+            return result;
         }
 
         protected virtual bool Delete(Guid propertyId)

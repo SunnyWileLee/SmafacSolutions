@@ -34,5 +34,19 @@ namespace Smafac.Framework.Core.Repositories.CategoryProperty
         {
             return binds.Where(s => s.CategoryId.Equals(entityId));
         }
+
+        public override bool UnbindAssociation(Guid subscriberId, Guid associationId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var binds = context.Set<TCategoryProperty>().Where(s => s.SubscriberId == subscriberId && s.PropertyId == associationId).ToList();
+                if (!binds.Any())
+                {
+                    return true;
+                }
+                context.Set<TCategoryProperty>().RemoveRange(binds);
+                return context.SaveChanges() > 0;
+            }
+        }
     }
 }

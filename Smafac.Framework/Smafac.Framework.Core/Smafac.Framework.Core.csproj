@@ -71,11 +71,16 @@
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
     <Compile Include="Domain\CustomizedColumn\CustomizedColumnEntity.cs" />
+    <Compile Include="Domain\CustomizedColumn\ICustomizedColumnDeleteTrigger.cs" />
     <Compile Include="Domain\CustomizedColumn\ICustomizedColumnUsedChecker.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryAssociationProvider.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
     <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />
     <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
+    <Compile Include="Domain\Property\IPropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\Property\PropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\PropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Triggers\IEntityTrigger.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
     <Compile Include="Domain\Property\IPropertyUsedChecker.cs" />
@@ -132,8 +137,10 @@
     <Compile Include="Repositories\IEntityRepository.cs" />
     <Compile Include="Repositories\IEntitySearchRepository.cs" />
     <Compile Include="Repositories\IEntityUpdateRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IPropertyValueSerachRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\PropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\PropertyValueSetRepository.cs" />
     <Compile Include="Repositories\PropertyValue\PropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\Query\IQueryExpressionCreater.cs" />

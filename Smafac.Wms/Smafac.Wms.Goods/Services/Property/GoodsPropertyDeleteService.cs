@@ -16,11 +16,13 @@ namespace Smafac.Wms.Goods.Services.Property
     {
         public GoodsPropertyDeleteService(IGoodsPropertyDeleteRepository goodsPropertyDeleteRepository,
                                           IGoodsPropertySearchRepository goodsPropertySearchRepository,
-                                          IGoodsPropertyUsedChecker[] goodsFinancePropertyUsedCheckers)
+                                          IGoodsPropertyUsedChecker[] goodsFinancePropertyUsedCheckers,
+                                          IGoodsPropertyDeleteTrigger[] goodsPropertyDeleteTriggers)
         {
             base.PropertyDeleteRepository = goodsPropertyDeleteRepository;
             base.PropertyUsedCheckers = goodsFinancePropertyUsedCheckers;
             base.PropertySearchRepository = goodsPropertySearchRepository;
+            base.PropertyDeleteTriggers = goodsPropertyDeleteTriggers;
         }
     }
 }

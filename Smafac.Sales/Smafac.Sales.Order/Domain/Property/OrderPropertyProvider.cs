@@ -16,12 +16,12 @@ namespace Smafac.Sales.Order.Domain.Property
         private readonly IOrderSearchRepository _orderSearchRepository;
         private readonly IOrderCategoryPropertyProvider _orderCategoryPropertyProvider;
 
-        public OrderPropertyProvider(IOrderSearchRepository OrderSearchRepository,
-                                    IOrderCategoryPropertyProvider OrderCategoryPropertyProvider
+        public OrderPropertyProvider(IOrderSearchRepository orderSearchRepository,
+                                    IOrderCategoryPropertyProvider orderCategoryPropertyProvider
                                     )
         {
-            _orderSearchRepository = OrderSearchRepository;
-            _orderCategoryPropertyProvider = OrderCategoryPropertyProvider;
+            _orderSearchRepository = orderSearchRepository;
+            _orderCategoryPropertyProvider = orderCategoryPropertyProvider;
         }
 
         public List<OrderPropertyModel> Provide(Guid orderId)

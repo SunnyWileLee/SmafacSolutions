@@ -78,9 +78,12 @@
     <Compile Include="Domain\CustomerFinancePropertyValueEntity.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyUsedByCategoryChecker.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\CustomerFinancePropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\CustomerFinancePropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\ICustomerFinancePropertyProvider.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyProvider.cs" />
     <Compile Include="Domain\Property\ICustomerFinancePropertyUsedChecker.cs" />
+    <Compile Include="Domain\Property\ICustomerFinancePropertyDeleteTrigger.cs" />
     <Compile Include="Migrations\201709020949033_InitialCreate.cs" />
     <Compile Include="Migrations\201709020949033_InitialCreate.Designer.cs">
       <DependentUpon>201709020949033_InitialCreate.cs</DependentUpon>
@@ -96,6 +99,10 @@
     <Compile Include="Migrations\201709050640133_intit.cs" />
     <Compile Include="Migrations\201709050640133_intit.Designer.cs">
       <DependentUpon>201709050640133_intit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709051017455_intit1.cs" />
+    <Compile Include="Migrations\201709051017455_intit1.Designer.cs">
+      <DependentUpon>201709051017455_intit1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,8 +127,10 @@
     <Compile Include="Repositories\CustomerFinanceSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\ICustomerFinancePropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\ICustomerFinancePropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ICustomerFinancePropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertyAddRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\ICustomerFinancePropertySearchRepository.cs" />
@@ -158,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709050640133_intit.resx">
       <DependentUpon>201709050640133_intit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051017455_intit1.resx">
+      <DependentUpon>201709051017455_intit1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -7,9 +7,9 @@ namespace Smafac.Wms.Goods.Domain.Property
     class GoodsPropertyUsedByValueChecker : PropertyUsedByValueChecker<GoodsPropertyEntity, GoodsPropertyValueModel>,
                                                 IGoodsPropertyUsedChecker
     {
-        public GoodsPropertyUsedByValueChecker(IGoodsPropertyValueSearchRepository customerFinancePropertyValueSearchRepository)
+        public GoodsPropertyUsedByValueChecker(IGoodsPropertyValueSearchRepository goodsPropertyValueSearchRepository)
         {
-            base.PropertyValueSearchRepository = customerFinancePropertyValueSearchRepository;
+            base.PropertyValueSearchRepository = goodsPropertyValueSearchRepository;
         }
     }
 }

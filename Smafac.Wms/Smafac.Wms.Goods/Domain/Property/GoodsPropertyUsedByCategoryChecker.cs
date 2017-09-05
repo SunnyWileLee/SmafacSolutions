@@ -6,9 +6,9 @@ namespace Smafac.Wms.Goods.Domain.Property
     class GoodsPropertyUsedByCategoryChecker : PropertyUsedByCategoryChecker<GoodsCategoryEntity, GoodsPropertyEntity>,
                                                 IGoodsPropertyUsedChecker
     {
-        public GoodsPropertyUsedByCategoryChecker(IGoodsCategoryPropertySearchRepository customerFinanceCategoryPropertySearchRepository)
+        public GoodsPropertyUsedByCategoryChecker(IGoodsCategoryPropertySearchRepository goodsategoryPropertySearchRepository)
         {
-            base.CategoryPropertySearchRepository = customerFinanceCategoryPropertySearchRepository;
+            base.CategoryPropertySearchRepository = goodsategoryPropertySearchRepository;
         }
     }
 }

@@ -76,8 +76,11 @@
     <Compile Include="Domain\CategoryProperty\OrderCategoryPropertyProvider.cs" />
     <Compile Include="Domain\Charge\IOrderCategoryChargeProvider.cs" />
     <Compile Include="Domain\Charge\IOrderChargeProvider.cs" />
+    <Compile Include="Domain\Charge\IOrderChargeUsedChecker.cs" />
     <Compile Include="Domain\Charge\OrderCategoryChargeProvider.cs" />
     <Compile Include="Domain\Charge\OrderChargeProvider.cs" />
+    <Compile Include="Domain\Charge\OrderChargeUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Charge\OrderChargeUsedByValueChecker.cs" />
     <Compile Include="Domain\OrderCategoryChargeEntity.cs" />
     <Compile Include="Domain\OrderCategoryEntity.cs" />
     <Compile Include="Domain\OrderCategoryPropertyEntity.cs" />
@@ -88,6 +91,9 @@
     <Compile Include="Domain\OrderPropertyValueEntity.cs" />
     <Compile Include="Domain\OrderStatusChangedEntity.cs" />
     <Compile Include="Domain\OrderStatusEntity.cs" />
+    <Compile Include="Domain\Property\OrderPropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\OrderPropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Property\IOrderPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\OrderPropertyUsedByCategoryChecker.cs" />
     <Compile Include="Domain\Property\OrderPropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\IOrderPropertyUsedChecker.cs" />
@@ -134,6 +140,8 @@
     <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
+    <Compile Include="Repositories\PropertyValue\OrderPropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IOrderPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\OrderPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\OrderPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IOrderPropertyValueSearchRepository.cs" />

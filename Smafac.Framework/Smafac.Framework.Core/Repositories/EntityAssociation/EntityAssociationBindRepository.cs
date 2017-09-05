@@ -16,7 +16,7 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
     {
         public virtual IDbContextProvider<TContext> ContextProvider { get; protected set; }
 
-        public virtual bool BindAssociations(Guid subscriberId, Guid entityId, IEnumerable<Guid> associationIds)
+        public virtual bool BindEntity(Guid subscriberId, Guid entityId, IEnumerable<Guid> associationIds)
         {
             using (var context = ContextProvider.Provide())
             {
@@ -37,7 +37,7 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
 
         protected abstract IEnumerable<TEntityAssociation> CreateBinds(Guid subscriberId, Guid categoryId, IEnumerable<Guid> propertyIds);
 
-        public virtual bool UnbindAssociations(Guid subscriberId, Guid entityId)
+        public virtual bool UnbindEntity(Guid subscriberId, Guid entityId)
         {
             using (var context = ContextProvider.Provide())
             {
@@ -48,5 +48,7 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
         }
 
         protected abstract IEnumerable<TEntityAssociation> GetBinds(IQueryable<TEntityAssociation> binds, Guid entityId);
+
+        public abstract bool UnbindAssociation(Guid subscriberId, Guid associationId);
     }
 }

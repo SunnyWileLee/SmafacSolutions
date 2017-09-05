@@ -16,11 +16,13 @@ namespace Smafac.Sales.Order.Services.Property
     {
         public OrderPropertyDeleteService(IOrderPropertyDeleteRepository orderPropertyDeleteRepository,
                                            IOrderPropertySearchRepository orderPropertySearchRepository,
-                                           IEnumerable<IOrderPropertyUsedChecker> orderPropertyUsedCheckers)
+                                           IEnumerable<IOrderPropertyUsedChecker> orderPropertyUsedCheckers,
+                                            IOrderPropertyDeleteTrigger[] orderPropertyDeleteTriggers)
         {
             base.PropertyDeleteRepository = orderPropertyDeleteRepository;
             base.PropertyUsedCheckers = orderPropertyUsedCheckers;
             base.PropertySearchRepository = orderPropertySearchRepository;
+            base.PropertyDeleteTriggers = orderPropertyDeleteTriggers;
         }
     }
 }

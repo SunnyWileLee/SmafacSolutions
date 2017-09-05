@@ -11,7 +11,8 @@ namespace Smafac.Framework.Core.Repositories.EntityAssociation
         where TCategory : SaasBaseEntity
         where TAssociation : SaasBaseEntity
     {
-        bool BindAssociations(Guid subscriberId, Guid entityId, IEnumerable<Guid> associationIds);
-        bool UnbindAssociations(Guid subscriberId, Guid entityId);
+        bool BindEntity(Guid subscriberId, Guid entityId, IEnumerable<Guid> associationIds);
+        bool UnbindEntity(Guid subscriberId, Guid entityId);
+        bool UnbindAssociation(Guid subscriberId, Guid associationId);
     }
 }

@@ -44,12 +44,12 @@ namespace Smafac.Framework.Core.Services.EntityAssociation
                 {
                     return false;
                 }
-                if (!EntityAssociationBindRepository.UnbindAssociations(subscriberId, entityId))
+                if (!EntityAssociationBindRepository.UnbindEntity(subscriberId, entityId))
                 {
                     return false;
                 }
             }
-            return EntityAssociationBindRepository.BindAssociations(subscriberId, entityId, associationIds);
+            return EntityAssociationBindRepository.BindEntity(subscriberId, entityId, associationIds);
         }
     }
 }

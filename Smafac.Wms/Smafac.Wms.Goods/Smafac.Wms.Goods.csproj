@@ -76,8 +76,11 @@
     <Compile Include="Domain\GoodsPropertyValueEntity.cs" />
     <Compile Include="Domain\IGoodsCategoryPropertyProvider.cs" />
     <Compile Include="Domain\IGoodsPropertyProvider.cs" />
+    <Compile Include="Domain\Property\GoodsPropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\GoodsPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\GoodsPropertyUsedByCategoryChecker.cs" />
     <Compile Include="Domain\Property\GoodsPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\IGoodsPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyUsedChecker.cs" />
     <Compile Include="Migrations\201709040628082_InitialCreate.cs" />
     <Compile Include="Migrations\201709040628082_InitialCreate.Designer.cs">
@@ -112,8 +115,10 @@
     <Compile Include="Repositories\IGoodsContextProvider.cs" />
     <Compile Include="Repositories\IGoodsRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\GoodsPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IGoodsPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IGoodsPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IGoodsPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\Property\GoodsPropertyAddRepository.cs" />

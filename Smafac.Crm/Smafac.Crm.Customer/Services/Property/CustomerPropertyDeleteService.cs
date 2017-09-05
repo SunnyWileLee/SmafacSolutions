@@ -12,11 +12,13 @@ namespace Smafac.Crm.Customer.Services.Property
     {
         public CustomerPropertyDeleteService(ICustomerPropertyDeleteRepository customerPropertyDeleteRepository,
                                             ICustomerPropertySearchRepository customerPropertySearchRepository,
-                                            ICustomerPropertyUsedChecker[] customerPropertyUsedCheckers)
+                                            ICustomerPropertyUsedChecker[] customerPropertyUsedCheckers,
+                                            ICustomerPropertyDeleteTrigger[] customerPropertyDeleteTriggers)
         {
             base.PropertyDeleteRepository = customerPropertyDeleteRepository;
             base.PropertySearchRepository = customerPropertySearchRepository;
             base.PropertyUsedCheckers = customerPropertyUsedCheckers;
+            base.PropertyDeleteTriggers = customerPropertyDeleteTriggers;
         }
     }
 }

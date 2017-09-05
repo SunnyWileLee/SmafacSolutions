@@ -6,9 +6,9 @@ namespace Smafac.Sales.Order.Domain.Property
     class OrderPropertyUsedByCategoryChecker : PropertyUsedByCategoryChecker<OrderCategoryEntity, OrderPropertyEntity>,
                                                 IOrderPropertyUsedChecker
     {
-        public OrderPropertyUsedByCategoryChecker(IOrderCategoryPropertySearchRepository customerFinanceCategoryPropertySearchRepository)
+        public OrderPropertyUsedByCategoryChecker(IOrderCategoryPropertySearchRepository orderCategoryPropertySearchRepository)
         {
-            base.CategoryPropertySearchRepository = customerFinanceCategoryPropertySearchRepository;
+            base.CategoryPropertySearchRepository = orderCategoryPropertySearchRepository;
         }
     }
 }

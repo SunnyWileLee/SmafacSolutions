@@ -16,6 +16,20 @@ namespace Smafac.Sales.Order.Repositories.CategoryCharge
             base.ContextProvider = orderContextProvider;
         }
 
+        public override bool UnbindAssociation(Guid subscriberId, Guid associationId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var charges = context.OrderCategoryCharges.Where(s => s.SubscriberId == subscriberId && s.ChargeId == associationId).ToList();
+                if (!charges.Any())
+                {
+                    return true;
+                }
+                context.OrderCategoryCharges.RemoveRange(charges);
+                return context.SaveChanges() > 0;
+            }
+        }
+
         protected override OrderCategoryChargeEntity CreateBind(Guid associationId)
         {
             var bind = base.CreateBind(associationId);

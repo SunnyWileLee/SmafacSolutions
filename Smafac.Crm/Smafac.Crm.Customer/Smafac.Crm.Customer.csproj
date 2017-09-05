@@ -63,7 +63,9 @@
     <Compile Include="Domain\CustomerEntity.cs" />
     <Compile Include="Domain\CustomerPropertyEntity.cs" />
     <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
+    <Compile Include="Domain\Property\CustomerPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\CustomerPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\ICustomerPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\ICustomerPropertyUsedChecker.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.cs" />
     <Compile Include="Migrations\201708250611458_InitialCreate.Designer.cs">
@@ -98,8 +100,10 @@
     <Compile Include="Repositories\ICustomerContextProvider.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\CustomerPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ICustomerPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\ICustomerPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\PropertyValue\ICustomerPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\Property\CustomerPropertyAddRepository.cs" />
