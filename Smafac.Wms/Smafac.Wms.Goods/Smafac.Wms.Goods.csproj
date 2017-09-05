@@ -82,18 +82,6 @@
     <Compile Include="Domain\Property\GoodsPropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyUsedChecker.cs" />
-    <Compile Include="Migrations\201709040628082_InitialCreate.cs" />
-    <Compile Include="Migrations\201709040628082_InitialCreate.Designer.cs">
-      <DependentUpon>201709040628082_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709050326301_goods.cs" />
-    <Compile Include="Migrations\201709050326301_goods.Designer.cs">
-      <DependentUpon>201709050326301_goods.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709050640256_intit.cs" />
-    <Compile Include="Migrations\201709050640256_intit.Designer.cs">
-      <DependentUpon>201709050640256_intit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertyBindRepository.cs" />
@@ -144,17 +132,6 @@
     <Compile Include="Services\Property\GoodsPropertySearchService.cs" />
     <Compile Include="Services\Property\GoodsPropertyService.cs" />
     <Compile Include="Services\Property\GoodsPropertyUpdateService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709040628082_InitialCreate.resx">
-      <DependentUpon>201709040628082_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709050326301_goods.resx">
-      <DependentUpon>201709050326301_goods.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709050640256_intit.resx">
-      <DependentUpon>201709050640256_intit.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
