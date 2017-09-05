@@ -1,4 +1,5 @@
-﻿using Smafac.Wms.Goods.Applications;
+﻿using Smafac.Presentation.Domain;
+using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
@@ -12,15 +13,20 @@ namespace Smafac.Presentation.Controllers
     public class GoodsPropertyController : SmafacController
     {
         private readonly IGoodsPropertyService _goodsPropertyService;
+        private readonly IPropertyTypeProvider _propertyTypeProvider;
 
-        public GoodsPropertyController(IGoodsPropertyService goodsPropertyService)
+        public GoodsPropertyController(IGoodsPropertyService goodsPropertyService,
+                    IPropertyTypeProvider propertyTypeProvider)
         {
             _goodsPropertyService = goodsPropertyService;
+            _propertyTypeProvider = propertyTypeProvider;
         }
 
         [HttpGet]
         public ActionResult GoodsPropertyView()
         {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
             var properties = _goodsPropertyService.SearchService.GetProperties();
             return View(properties);
         }

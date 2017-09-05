@@ -76,6 +76,15 @@
     <Compile Include="Domain\GoodsPropertyValueEntity.cs" />
     <Compile Include="Domain\IGoodsCategoryPropertyProvider.cs" />
     <Compile Include="Domain\IGoodsPropertyProvider.cs" />
+    <Compile Include="Migrations\201709040628082_InitialCreate.cs" />
+    <Compile Include="Migrations\201709040628082_InitialCreate.Designer.cs">
+      <DependentUpon>201709040628082_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709050326301_goods.cs" />
+    <Compile Include="Migrations\201709050326301_goods.Designer.cs">
+      <DependentUpon>201709050326301_goods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertyBindRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertySearchRepository.cs" />
@@ -89,17 +98,17 @@
     <Compile Include="Repositories\Category\IGoodsCategoryDeleteRepository.cs" />
     <Compile Include="Repositories\Category\IGoodsCategorySearchRepository.cs" />
     <Compile Include="Repositories\Category\IGoodsCategoryUpdateRepository.cs" />
-    <Compile Include="Repositories\GoodsCategoryPropertyRepository.cs" />
     <Compile Include="Repositories\GoodsContext.cs" />
     <Compile Include="Repositories\GoodsContextProvider.cs" />
-    <Compile Include="Repositories\GoodsPropertyValueRepository.cs" />
     <Compile Include="Repositories\GoodsRepository.cs" />
     <Compile Include="Repositories\GoodsSearchRepository.cs" />
-    <Compile Include="Repositories\IGoodsCategoryPropertyRepository.cs" />
     <Compile Include="Repositories\IGoodsContextProvider.cs" />
-    <Compile Include="Repositories\IGoodsPropertyValueRepository.cs" />
     <Compile Include="Repositories\IGoodsRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IGoodsPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IGoodsPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\Property\GoodsPropertyAddRepository.cs" />
     <Compile Include="Repositories\Property\GoodsPropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\GoodsPropertySearchRepository.cs" />
@@ -124,7 +133,14 @@
     <Compile Include="Services\Property\GoodsPropertyService.cs" />
     <Compile Include="Services\Property\GoodsPropertyUpdateService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709040628082_InitialCreate.resx">
+      <DependentUpon>201709040628082_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709050326301_goods.resx">
+      <DependentUpon>201709050326301_goods.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

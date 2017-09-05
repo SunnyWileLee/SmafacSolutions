@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Smafac.Wms.Goods.Domain;
 using Smafac.Framework.Core.Models;
+using Smafac.Wms.Goods.Repositories.PropertyValue;
 
 namespace Smafac.Wms.Goods.Services
 {
     class GoodsService : IGoodsService
     {
         private readonly IGoodsRepository _goodsRepository;
-        private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
+        private readonly IGoodsPropertyValueSetRepository _goodsPropertyValueSetRepository;
 
         public GoodsService(IGoodsRepository goodsRepository,
-                            IGoodsPropertyValueRepository goodsPropertyValueRepository
+                            IGoodsPropertyValueSetRepository goodsPropertyValueSetRepository
                             )
         {
             _goodsRepository = goodsRepository;
-            _goodsPropertyValueRepository = goodsPropertyValueRepository;
+            _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
         }
 
 
@@ -40,7 +41,7 @@ namespace Smafac.Wms.Goods.Services
                     property.SubscriberId = goods.SubscriberId;
                 });
                 var values = Mapper.Map<List<GoodsPropertyValueEntity>>(model.Properties);
-                return _goodsPropertyValueRepository.AddPropertyValues(goods.SubscriberId, goods.Id, values);
+                return _goodsPropertyValueSetRepository.AddPropertyValues(goods.Id, values);
             }
             return addGoods;
         }

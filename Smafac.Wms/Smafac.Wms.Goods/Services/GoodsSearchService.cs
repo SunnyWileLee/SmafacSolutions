@@ -12,22 +12,23 @@ using System.Text;
 using AutoMapper;
 using System.Threading.Tasks;
 using Smafac.Framework.Core.Repositories.Query;
+using Smafac.Wms.Goods.Repositories.PropertyValue;
 
 namespace Smafac.Wms.Goods.Services
 {
     class GoodsSearchService : IGoodsSearchService
     {
         private readonly IGoodsSearchRepository _goodsSearchRepository;
-        private readonly IGoodsPropertyValueRepository _goodsPropertyValueRepository;
+        private readonly IGoodsPropertyValueSearchRepository _goodsPropertyValueSearchRepository;
         private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
 
         public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository,
-                                    IGoodsPropertyValueRepository goodsPropertyValueRepository,
+                                    IGoodsPropertyValueSearchRepository goodsPropertyValueSearchRepository,
                                     IQueryExpressionCreaterProvider queryExpressionCreaterProvider
                                     )
         {
             _goodsSearchRepository = goodsSearchRepository;
-            _goodsPropertyValueRepository = goodsPropertyValueRepository;
+            _goodsPropertyValueSearchRepository = goodsPropertyValueSearchRepository;
             _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
         }
 
@@ -49,7 +50,7 @@ namespace Smafac.Wms.Goods.Services
         {
             var subscriberId = UserContext.Current.SubscriberId;
             var goods = _goodsSearchRepository.GetGoods(subscriberId, goodsId);
-            var properties = _goodsPropertyValueRepository.GetPropertyValues(subscriberId, goodsId);
+            var properties = _goodsPropertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
             goods.Properties = properties;
             return goods;
         }
