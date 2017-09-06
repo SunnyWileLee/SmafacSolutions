@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
 }
 
 <table class="table table-condensed table-striped">
@@ -10,6 +11,12 @@
             <th>名称</th>
             <th>售价</th>
             <th>类别</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
             <th>操作</th>
         </tr>
     </thead>
@@ -20,6 +27,14 @@
                 <td>@goods.Name</td>
                 <td>@goods.Price.ToString()</td>
                 <td>@goods.CategoryName</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = goods.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? string.Empty : property.Value;
+                        <td>@value</td>
+                    }
+                }
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-default" href="/Goods/GoodsDetailView?goodsId=@goods.Id" type="button">详情</a>
@@ -27,6 +42,6 @@
                     </div>
                 </td>
             </tr>
-        }
+            }
     </tbody>
 </table>

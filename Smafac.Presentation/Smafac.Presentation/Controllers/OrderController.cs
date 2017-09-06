@@ -57,6 +57,8 @@ namespace Smafac.Presentation.Controllers
                     wrapper.Wrapper(orders);
                 });
             }
+            ViewData["tableColumns"] = page.TableColumns;
+            ViewData["chargeColumns"] = page.ChargeTableColumns;
             return View(orders);
         }
         [HttpPost]

@@ -13,6 +13,8 @@ using AutoMapper;
 using System.Threading.Tasks;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Wms.Goods.Repositories.PropertyValue;
+using Smafac.Wms.Goods.Repositories.Property;
+using Smafac.Wms.Goods.Domain.Pages;
 
 namespace Smafac.Wms.Goods.Services
 {
@@ -20,16 +22,16 @@ namespace Smafac.Wms.Goods.Services
     {
         private readonly IGoodsSearchRepository _goodsSearchRepository;
         private readonly IGoodsPropertyValueSearchRepository _goodsPropertyValueSearchRepository;
-        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
+        private readonly IGoodsPageQueryer _goodsPageQueryer;
 
         public GoodsSearchService(IGoodsSearchRepository goodsSearchRepository,
                                     IGoodsPropertyValueSearchRepository goodsPropertyValueSearchRepository,
-                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider
+                                    IGoodsPageQueryer goodsPageQueryer
                                     )
         {
             _goodsSearchRepository = goodsSearchRepository;
             _goodsPropertyValueSearchRepository = goodsPropertyValueSearchRepository;
-            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
+            _goodsPageQueryer = goodsPageQueryer;
         }
 
         public List<GoodsModel> GetGoods(string key)
@@ -62,12 +64,9 @@ namespace Smafac.Wms.Goods.Services
         }
 
 
-        public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel model)
+        public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel query)
         {
-            var predicate = _queryExpressionCreaterProvider.Provide<GoodsEntity>().Create(model);
-            var goods = _goodsSearchRepository.GetGoodsPage(UserContext.Current.SubscriberId, predicate, model.Skip, model.PageSize);
-            var count = _goodsSearchRepository.GetGoodsCount(UserContext.Current.SubscriberId, predicate);
-            return new PageModel<GoodsModel> { PageSize = model.PageSize, PageData = goods, PageIndex = model.PageIndex, TotalCount = count };
+            return _goodsPageQueryer.Query(query);
         }
     }
 }

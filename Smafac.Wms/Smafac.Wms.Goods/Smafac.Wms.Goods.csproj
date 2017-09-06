@@ -76,6 +76,8 @@
     <Compile Include="Domain\GoodsPropertyValueEntity.cs" />
     <Compile Include="Domain\IGoodsCategoryPropertyProvider.cs" />
     <Compile Include="Domain\IGoodsPropertyProvider.cs" />
+    <Compile Include="Domain\Pages\GoodsPageQueryer.cs" />
+    <Compile Include="Domain\Pages\IGoodsPageQueryer.cs" />
     <Compile Include="Domain\Property\GoodsPropertyDeleteCategoryTrigger.cs" />
     <Compile Include="Domain\Property\GoodsPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\GoodsPropertyUsedByCategoryChecker.cs" />
@@ -103,6 +105,10 @@
     <Compile Include="Repositories\IGoodsContextProvider.cs" />
     <Compile Include="Repositories\IGoodsRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
+    <Compile Include="Repositories\Joiners\GoodsJoiner.cs" />
+    <Compile Include="Repositories\Joiners\IGoodsJoiner.cs" />
+    <Compile Include="Repositories\Pages\GoodsPageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\IGoodsPageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\GoodsPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\GoodsPropertyValueSetRepository.cs" />

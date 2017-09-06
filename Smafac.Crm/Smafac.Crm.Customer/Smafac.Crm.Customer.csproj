@@ -63,6 +63,8 @@
     <Compile Include="Domain\CustomerEntity.cs" />
     <Compile Include="Domain\CustomerPropertyEntity.cs" />
     <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
+    <Compile Include="Domain\Pages\CustomerPageQueryer.cs" />
+    <Compile Include="Domain\Pages\ICustomerPageQueryer.cs" />
     <Compile Include="Domain\Property\CustomerPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\CustomerPropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\ICustomerPropertyDeleteTrigger.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="Repositories\ICustomerContextProvider.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerSearchRepository.cs" />
+    <Compile Include="Repositories\Pages\ICustomerPageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\CustomerPageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueSetRepository.cs" />
@@ -117,6 +121,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

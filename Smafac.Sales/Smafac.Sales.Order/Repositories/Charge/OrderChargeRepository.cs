@@ -26,14 +26,6 @@ namespace Smafac.Sales.Order.Repositories.Charge
             }
         }
 
-        public bool Any(Guid subscriberId, string name)
-        {
-            using (var context = _orderContextProvider.Provide())
-            {
-                return context.OrderCharges.Any(s => s.SubscriberId == subscriberId && s.Name.Equals(name));
-            }
-        }
-
         public bool DeleteCharge(Guid subscriberId, Guid chargeId)
         {
             using (var context = _orderContextProvider.Provide())
@@ -45,16 +37,6 @@ namespace Smafac.Sales.Order.Repositories.Charge
                 }
                 context.OrderCharges.Remove(charge);
                 return context.SaveChanges() > 0;
-            }
-        }
-
-        public List<OrderChargeEntity> GetCharges(Guid subscriberId)
-        {
-            using (var context = _orderContextProvider.Provide())
-            {
-                var charges = context.OrderCharges.Where(s => s.SubscriberId == subscriberId)
-                                    .ToList();
-                return charges;
             }
         }
 

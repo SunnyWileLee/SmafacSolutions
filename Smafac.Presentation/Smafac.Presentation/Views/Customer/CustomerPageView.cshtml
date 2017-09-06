@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
 }
 
 <table class="table table-condensed table-striped">
@@ -10,16 +11,30 @@
             <th>姓名</th>
             <th>地址</th>
             <th>联系方式</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
             <th>操作</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var customer in Model)
-            {
+        {
             <tr>
                 <td>@customer.Name</td>
                 <td>@customer.Address</td>
                 <td>@customer.MobileNumber</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = customer.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? string.Empty : property.Value;
+                        <td>@value</td>
+                    }
+                }
                 <td>
                     <a class="btn btn-default" href="/Customer/CustomerDetailView?customerId=@customer.Id" type="button">详情</a>
                 </td>

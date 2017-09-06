@@ -6,17 +6,17 @@ namespace Smafac.Sales.Order.Domain.Charge
 {
     class OrderChargeUsedByValueChecker : IOrderChargeUsedChecker
     {
-        private readonly IOrderChargeValueRepository _orderChargeValueRepository;
+        private readonly IOrderChargeValueSearchRepository _orderChargeValueSearchRepository;
 
-        public OrderChargeUsedByValueChecker(IOrderChargeValueRepository orderChargeValueRepository)
+        public OrderChargeUsedByValueChecker(IOrderChargeValueSearchRepository orderChargeValueSearchRepository)
         {
-            _orderChargeValueRepository = orderChargeValueRepository;
+            _orderChargeValueSearchRepository = orderChargeValueSearchRepository;
         }
 
         public bool Check(OrderChargeEntity column)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            return _orderChargeValueRepository.Any(subscriberId, column.Id);
+            return _orderChargeValueSearchRepository.Any(subscriberId, column.Id);
         }
     }
 }

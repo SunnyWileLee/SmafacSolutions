@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Domain;
+using Smafac.Crm.CustomerFinance.Domain.Pages;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repositories;
+using Smafac.Crm.CustomerFinance.Repositories.Pages;
 using Smafac.Crm.CustomerFinance.Repositories.Property;
 using Smafac.Crm.CustomerFinance.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
@@ -18,15 +20,18 @@ namespace Smafac.Crm.CustomerFinance.Services
         private readonly ICustomerFinanceSearchRepository _financeSearchRepository;
         private readonly ICustomerFinancePropertyValueSearchRepository _financePropertyValueSearchRepository;
         private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
+        private readonly ICustomerFinancePageQueryer _customerFinancePageQueryer;
 
         public CustomerFinanceSearchService(ICustomerFinanceSearchRepository financeSearchRepository,
                                     ICustomerFinancePropertyValueSearchRepository financePropertyValueSearchRepository,
-                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider
+                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider,
+                                    ICustomerFinancePageQueryer customerFinancePageQueryer
                                     )
         {
             _financeSearchRepository = financeSearchRepository;
             _financePropertyValueSearchRepository = financePropertyValueSearchRepository;
             _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
+            _customerFinancePageQueryer = customerFinancePageQueryer;
         }
 
         public CustomerFinanceModel GetCustomerFinance(Guid financeId)
@@ -44,17 +49,9 @@ namespace Smafac.Crm.CustomerFinance.Services
             return new CustomerFinanceDetailModel { CustomerFinance = finance };
         }
 
-        public PageModel<CustomerFinanceModel> GetCustomerFinancePage(CustomerFinancePageQueryModel model)
+        public PageModel<CustomerFinanceModel> GetCustomerFinancePage(CustomerFinancePageQueryModel query)
         {
-            var subscriberId = UserContext.Current.SubscriberId;
-            var predicate = _queryExpressionCreaterProvider.Provide<CustomerFinanceEntity>().Create(model);
-            var finances = _financeSearchRepository.GetCustomerFinancePage(subscriberId, predicate, model.Skip, model.PageSize);
-            var count = _financeSearchRepository.GetCustomerFinanceCount(subscriberId, predicate);
-            return new PageModel<CustomerFinanceModel>(model)
-            {
-                PageData = Mapper.Map<List<CustomerFinanceModel>>(finances),
-                TotalCount = count
-            };
+            return _customerFinancePageQueryer.Query(query);
         }
     }
 }

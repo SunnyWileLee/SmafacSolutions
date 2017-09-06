@@ -25,26 +25,6 @@ namespace Smafac.Crm.Customer.Repositories
             }
         }
 
-        public List<CustomerEntity> GetCustomerPage(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate, int skip, int take)
-        {
-            using (var context = _customerContextProvider.Provide())
-            {
-                var customers = context.Customers.Where(s => s.SubscriberId == subscriberId).Where(predicate)
-                                .OrderByDescending(s => s.CreateTime)
-                                .Skip(skip).Take(take).ToList();
-                return customers;
-            }
-        }
-
-        public int GetCustomerCount(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate)
-        {
-            using (var context = _customerContextProvider.Provide())
-            {
-                var count = context.Customers.Where(s => s.SubscriberId == subscriberId).Count(predicate);
-                return count;
-            }
-        }
-
         public List<CustomerEntity> GetCustomers(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate)
         {
             using (var context = _customerContextProvider.Provide())

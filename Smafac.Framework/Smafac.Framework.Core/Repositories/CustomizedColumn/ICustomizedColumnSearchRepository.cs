@@ -1,4 +1,5 @@
 ﻿using Smafac.Framework.Core.Domain.CustomizedColumn;
+using System.Collections.Generic;
 using System;
 
 namespace Smafac.Framework.Core.Repositories.CustomizedColumn
@@ -7,5 +8,6 @@ namespace Smafac.Framework.Core.Repositories.CustomizedColumn
         where TCustomizedColumn : CustomizedColumnEntity
     {
         bool Any(Guid subscriberId, string name);
+        IEnumerable<TCustomizedColumn> SelectTableColumns(Guid subscriberId);
     }
 }

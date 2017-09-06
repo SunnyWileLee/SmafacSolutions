@@ -46,6 +46,7 @@
     <Compile Include="OrderChargeValueModel.cs" />
     <Compile Include="OrderDetailModel.cs" />
     <Compile Include="OrderModel.cs" />
+    <Compile Include="OrderPageModel.cs" />
     <Compile Include="OrderPageQueryModel.cs" />
     <Compile Include="OrderPropertyModel.cs" />
     <Compile Include="OrderPropertyValueModel.cs" />

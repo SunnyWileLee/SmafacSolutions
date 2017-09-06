@@ -14,22 +14,23 @@ using System.Linq.Expressions;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Crm.Customer.Repositories.Property;
 using Smafac.Crm.Customer.Repositories.PropertyValue;
+using Smafac.Crm.Customer.Domain.Pages;
 
 namespace Smafac.Crm.Customer.Services
 {
     class CustomerSearchService : ICustomerSearchService
     {
         private readonly ICustomerSearchRepository _customerSearchRepository;
-        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
         private readonly ICustomerPropertyValueSearchRepository _customerPropertyValueSearchRepository;
+        private readonly ICustomerPageQueryer _customerPageQueryer;
 
         public CustomerSearchService(ICustomerSearchRepository customerSearchRepository,
-                                    ICustomerPropertyValueSearchRepository customerPropertyValueSearchRepository,
-                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider)
+                                     ICustomerPropertyValueSearchRepository customerPropertyValueSearchRepository,
+                                     ICustomerPageQueryer customerPageQueryer)
         {
             _customerSearchRepository = customerSearchRepository;
             _customerPropertyValueSearchRepository = customerPropertyValueSearchRepository;
-            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
+            _customerPageQueryer = customerPageQueryer;
         }
 
         public CustomerModel GetCustomer(Guid customerId)
@@ -49,24 +50,7 @@ namespace Smafac.Crm.Customer.Services
 
         public PageModel<CustomerModel> GetCustomerPage(CustomerPageQueryModel query)
         {
-            var predicate = _queryExpressionCreaterProvider.Provide<CustomerEntity>().Create(query);
-            var subscriberId = UserContext.Current.SubscriberId;
-            var customers = _customerSearchRepository.GetCustomerPage(subscriberId, predicate, query.Skip, query.PageSize);
-            var models = Mapper.Map<List<CustomerModel>>(customers);
-            if (models.Any())
-            {
-                var properties = _customerPropertyValueSearchRepository.GetPropertyValues(UserContext.Current.SubscriberId, customers.Select(s => s.Id));
-                models.ForEach(customer =>
-                {
-                    SetCustomerPropertyValues(customer, properties.FirstOrDefault(s => s.Key == customer.Id));
-                });
-            }
-            var count = _customerSearchRepository.GetCustomerCount(subscriberId, predicate);
-            return new PageModel<CustomerModel>(query)
-            {
-                PageData = models,
-                TotalCount = count
-            };
+            return _customerPageQueryer.Query(query);
         }
 
         public List<CustomerModel> GetCustomers(IEnumerable<Guid> customerIds)

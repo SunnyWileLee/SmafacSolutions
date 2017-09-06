@@ -6,7 +6,7 @@ namespace Smafac.Crm.CustomerFinance.Applications
 {
     public interface ICustomerFinanceSearchService
     {
-        PageModel<CustomerFinanceModel> GetCustomerFinancePage(CustomerFinancePageQueryModel model);
+        PageModel<CustomerFinanceModel> GetCustomerFinancePage(CustomerFinancePageQueryModel query);
         CustomerFinanceModel GetCustomerFinance(Guid orderId);
         CustomerFinanceDetailModel GetCustomerFinanceDetail(Guid orderId);
     }

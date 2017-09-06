@@ -14,26 +14,21 @@ namespace Smafac.Sales.Order.Services.Charge
 {
     class OrderChargeSearchService : IOrderChargeSearchService
     {
-        private readonly IOrderChargeRepository _orderChargeRepository;
+        private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
         private readonly IOrderChargeProvider _orderChargeProvider;
 
-        public OrderChargeSearchService(IOrderChargeRepository orderChargeRepository,
+        public OrderChargeSearchService(IOrderChargeSearchRepository orderChargeSearchRepository,
                                         IOrderChargeProvider orderChargeProvide
                                     )
         {
-            _orderChargeRepository = orderChargeRepository;
+            _orderChargeSearchRepository = orderChargeSearchRepository;
             _orderChargeProvider = orderChargeProvide;
         }
 
         public List<OrderChargeModel> GetCharges()
         {
-            var charges = _orderChargeRepository.GetCharges(UserContext.Current.SubscriberId);
+            var charges = _orderChargeSearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             return Mapper.Map<List<OrderChargeModel>>(charges);
-        }
-
-        public List<OrderChargeModel> GetCharges(Guid orderId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

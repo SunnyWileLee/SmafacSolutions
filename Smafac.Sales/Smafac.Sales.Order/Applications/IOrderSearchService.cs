@@ -10,7 +10,7 @@ namespace Smafac.Sales.Order.Applications
 {
     public interface IOrderSearchService
     {
-        PageModel<OrderModel> GetOrderPage(OrderPageQueryModel model);
+        OrderPageModel GetOrderPage(OrderPageQueryModel model);
         OrderModel GetOrder(Guid orderId);
         OrderDetailModel GetOrderDetail(Guid orderId);
     }

@@ -33,6 +33,7 @@ namespace Smafac.Presentation.Controllers
         public ActionResult CustomerPageView(CustomerPageQueryModel query)
         {
             var page = _customerSearchService.GetCustomerPage(query);
+            ViewData["tableColumns"] = page.TableColumns;
             return View(page.PageData);
         }
         [HttpGet]

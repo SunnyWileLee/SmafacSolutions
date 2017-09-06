@@ -21,19 +21,19 @@ namespace Smafac.Sales.Order.Services
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
         private readonly IOrderPropertyValueSetRepository _orderPropertyValueSetRepository;
-        private readonly IOrderChargeRepository _orderChargeRepository;
+        private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
         private readonly IOrderPropertySearchRepository _orderPropertySearchRepository;
 
         public OrderService(IOrderRepository orderRepository,
                             IOrderChargeValueRepository orderChargeValueRepository,
                             IOrderPropertyValueSetRepository orderPropertyValueSetRepository,
-                            IOrderChargeRepository orderChargeRepository,
+                            IOrderChargeSearchRepository orderChargeSearchRepository,
                             IOrderPropertySearchRepository orderPropertySearchRepository)
         {
             _orderRepository = orderRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
             _orderPropertyValueSetRepository = orderPropertyValueSetRepository;
-            _orderChargeRepository = orderChargeRepository;
+            _orderChargeSearchRepository = orderChargeSearchRepository;
             _orderPropertySearchRepository = orderPropertySearchRepository;
         }
 
@@ -86,7 +86,7 @@ namespace Smafac.Sales.Order.Services
 
         public OrderModel CreateEmptyOrder()
         {
-            var charges = _orderChargeRepository.GetCharges(UserContext.Current.SubscriberId);
+            var charges = _orderChargeSearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             var chargeValues = charges.Select(s => s.CreateEmptyValue()).ToList();
             var properties = _orderPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             var propertyValues = properties.Select(s => s.CreateEmptyValue()).ToList();

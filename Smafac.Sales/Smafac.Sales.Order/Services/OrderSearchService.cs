@@ -14,26 +14,27 @@ using Smafac.Sales.Order.Repositories.Charge;
 using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Sales.Order.Repositories.PropertyValue;
+using Smafac.Sales.Order.Domain.Pages;
 
 namespace Smafac.Sales.Order.Services
 {
     class OrderSearchService : IOrderSearchService
     {
         private readonly IOrderSearchRepository _orderSearchRepository;
-        private readonly IOrderChargeValueRepository _orderChargeValueRepository;
+        private readonly IOrderChargeValueSearchRepository _orderChargeValueSearchRepository;
         private readonly IOrderPropertyValueSearchRepository _orderPropertyValueSearchRepository;
-        private readonly IQueryExpressionCreaterProvider _queryExpressionCreaterProvider;
+        private readonly IOrderPageQueryer _orderPageQueryer;
 
         public OrderSearchService(IOrderSearchRepository orderSearchRepository,
-                                    IOrderChargeValueRepository orderChargeValueRepository,
+                                    IOrderChargeValueSearchRepository orderChargeValueSearchRepository,
                                     IOrderPropertyValueSearchRepository orderPropertyValueSearchRepository,
-                                    IQueryExpressionCreaterProvider queryExpressionCreaterProvider
+                                    IOrderPageQueryer orderPageQueryer
                                     )
         {
             _orderSearchRepository = orderSearchRepository;
-            _orderChargeValueRepository = orderChargeValueRepository;
             _orderPropertyValueSearchRepository = orderPropertyValueSearchRepository;
-            _queryExpressionCreaterProvider = queryExpressionCreaterProvider;
+            _orderChargeValueSearchRepository = orderChargeValueSearchRepository;
+            _orderPageQueryer = orderPageQueryer;
         }
 
         public OrderModel GetOrder(Guid orderId)
@@ -41,7 +42,7 @@ namespace Smafac.Sales.Order.Services
             var subscriberId = UserContext.Current.SubscriberId;
             var order = _orderSearchRepository.GetById(subscriberId, orderId);
             var properties = _orderPropertyValueSearchRepository.GetPropertyValues(subscriberId, orderId);
-            var charges = _orderChargeValueRepository.GetChargeValues(subscriberId, orderId);
+            var charges = _orderChargeValueSearchRepository.GetChargeValues(subscriberId, orderId);
             var model = Mapper.Map<OrderModel>(order);
             model.Properties = properties;
             model.Charges = charges;
@@ -54,17 +55,9 @@ namespace Smafac.Sales.Order.Services
             return new OrderDetailModel { Order = order };
         }
 
-        public PageModel<OrderModel> GetOrderPage(OrderPageQueryModel model)
+        public OrderPageModel GetOrderPage(OrderPageQueryModel query)
         {
-            var subscriberId = UserContext.Current.SubscriberId;
-            var predicate = _queryExpressionCreaterProvider.Provide<OrderEntity>().Create(model);
-            var orders = _orderSearchRepository.GetOrderPage(subscriberId, predicate, model.Skip, model.PageSize);
-            var count = _orderSearchRepository.GetOrderCount(subscriberId, predicate);
-            return new PageModel<OrderModel>(model)
-            {
-                PageData = Mapper.Map<List<OrderModel>>(orders),
-                TotalCount = count
-            };
+            return _orderPageQueryer.QueryPage(query);
         }
     }
 }

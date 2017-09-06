@@ -42,6 +42,8 @@ namespace Smafac.Sales.Order.Models
         public string GoodsName { get; set; }
         [Display(Name = "类别")]
         public Guid CategoryId { get; set; }
+        [Display(Name = "类别")]
+        public string CategoryName { get; set; }
 
         public List<OrderChargeValueModel> Charges { get; set; }
         public List<OrderPropertyValueModel> Properties { get; set; }

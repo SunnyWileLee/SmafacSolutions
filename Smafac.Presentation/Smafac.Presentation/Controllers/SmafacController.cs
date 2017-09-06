@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Smafac.Framework.Core.Models;
 using Smafac.Presentation.Models;
 using System;
 using System.Collections.Generic;
@@ -27,10 +28,11 @@ namespace Smafac.Presentation.Controllers
 
         protected JsonResult BoolResult(bool result, string message = null)
         {
+
             ResponseModel model = new ResponseModel
             {
                 Code = result ? 0 : -1,
-                Message = message
+                Message = string.IsNullOrEmpty(message) ? (string.IsNullOrEmpty(UserContext.Current.ErrorMessage) ? "操作失败" : UserContext.Current.ErrorMessage) : message
             };
             return Json(model);
         }

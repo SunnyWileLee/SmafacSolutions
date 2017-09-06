@@ -2,6 +2,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Smafac.Framework.Core.Repositories.CustomizedColumn
 {
@@ -14,6 +15,16 @@ namespace Smafac.Framework.Core.Repositories.CustomizedColumn
             using (var context = ContextProvider.Provide())
             {
                 return context.Set<TCustomizedColumn>().Any(s => s.SubscriberId == subscriberId && s.Name.Equals(name));
+            }
+        }
+
+        public IEnumerable<TCustomizedColumn> SelectTableColumns(Guid subscriberId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var columns = context.Set<TCustomizedColumn>().Where(s => s.SubscriberId == subscriberId && s.IsTableColumn)
+                                .ToList();
+                return columns;
             }
         }
     }

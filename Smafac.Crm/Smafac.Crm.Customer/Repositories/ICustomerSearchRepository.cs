@@ -13,8 +13,6 @@ namespace Smafac.Crm.Customer.Repositories
     interface ICustomerSearchRepository
     {
         CustomerEntity GetById(Guid SubscriberId, Guid customerId);
-        List<CustomerEntity> GetCustomerPage(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate, int skip, int take);
         List<CustomerEntity> GetCustomers(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate);
-        int GetCustomerCount(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate);
     }
 }

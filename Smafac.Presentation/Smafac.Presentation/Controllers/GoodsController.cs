@@ -35,6 +35,7 @@ namespace Smafac.Presentation.Controllers
         public ActionResult GoodsPageView(GoodsPageQueryModel query)
         {
             var page = _goodsSearchService.GetGoodsPage(query);
+            ViewData["tableColumns"] = page.TableColumns;
             return View(page.PageData);
         }
         [HttpPost]

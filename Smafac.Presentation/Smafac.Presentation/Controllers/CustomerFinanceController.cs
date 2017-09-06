@@ -48,6 +48,7 @@ namespace Smafac.Presentation.Controllers
             {
                 wraper.Wrapper(page.PageData);
             });
+            ViewData["tableColumns"] = page.TableColumns;
             return View(page.PageData);
         }
         [HttpPost]

@@ -18,19 +18,25 @@ namespace Smafac.Sales.Order.Services.Charge
     {
         private readonly IOrderChargeRepository _orderChargeRepository;
         private readonly IOrderChargeValueRepository _orderChargeValueRepository;
+        private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
+        private readonly IOrderChargeValueSearchRepository _orderChargeValueSearchRepository;
 
         public OrderChargeService(IOrderChargeRepository orderChargeRepository,
-                                IOrderChargeValueRepository orderChargeValueRepository
+                                  IOrderChargeValueRepository orderChargeValueRepository,
+                                  IOrderChargeSearchRepository orderChargeSearchRepository,
+                                  IOrderChargeValueSearchRepository orderChargeValueSearchRepository
                                     )
         {
             _orderChargeRepository = orderChargeRepository;
             _orderChargeValueRepository = orderChargeValueRepository;
+            _orderChargeSearchRepository = orderChargeSearchRepository;
+            _orderChargeValueSearchRepository = orderChargeValueSearchRepository;
         }
 
         public bool AddCharge(OrderChargeModel model)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            if (_orderChargeRepository.Any(subscriberId, model.Name))
+            if (_orderChargeSearchRepository.Any(subscriberId, model.Name))
             {
                 return false;
             }
@@ -42,7 +48,7 @@ namespace Smafac.Sales.Order.Services.Charge
         public bool DeleteCharge(Guid chargeId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            if (_orderChargeValueRepository.Any(subscriberId, chargeId))
+            if (_orderChargeValueSearchRepository.Any(subscriberId, chargeId))
             {
                 return false;
             }
@@ -56,7 +62,7 @@ namespace Smafac.Sales.Order.Services.Charge
         public bool UpdateCharge(OrderChargeModel model)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var charges = _orderChargeRepository.GetCharges(subscriberId);
+            var charges = _orderChargeSearchRepository.GetEntities(subscriberId, s => true);
             if (charges.Any(s => s.Name == model.Name && s.Id != model.Id))
             {
                 return false;

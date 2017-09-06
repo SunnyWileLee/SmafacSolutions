@@ -91,6 +91,8 @@
     <Compile Include="Domain\OrderPropertyValueEntity.cs" />
     <Compile Include="Domain\OrderStatusChangedEntity.cs" />
     <Compile Include="Domain\OrderStatusEntity.cs" />
+    <Compile Include="Domain\Pages\OrderPageQueryer.cs" />
+    <Compile Include="Domain\Pages\IOrderPageQueryer.cs" />
     <Compile Include="Domain\Property\OrderPropertyDeleteCategoryTrigger.cs" />
     <Compile Include="Domain\Property\OrderPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\IOrderPropertyDeleteTrigger.cs" />
@@ -118,8 +120,18 @@
     <Compile Include="Repositories\Category\IOrderCategorySearchRepository.cs" />
     <Compile Include="Repositories\Category\IOrderCategoryUpdateRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
+    <Compile Include="Repositories\Charge\IOrderChargeSearchRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeValueRepository.cs" />
+    <Compile Include="Repositories\Charge\IOrderChargeValueSearchRepository.cs" />
+    <Compile Include="Repositories\Charge\OrderChargeSearchRepository.cs" />
+    <Compile Include="Repositories\Charge\OrderChargeValueSearchRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
+    <Compile Include="Repositories\Joiners\IOrderChargeValueJoiner.cs" />
+    <Compile Include="Repositories\Joiners\OrderChargeValueJoiner.cs" />
+    <Compile Include="Repositories\Joiners\OrderJoiner.cs" />
+    <Compile Include="Repositories\Joiners\IOrderJoiner.cs" />
+    <Compile Include="Repositories\Pages\OrderPageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\IOrderPageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\OrderPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IOrderPropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\OrderPropertyValueSearchRepository.cs" />
@@ -181,6 +193,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

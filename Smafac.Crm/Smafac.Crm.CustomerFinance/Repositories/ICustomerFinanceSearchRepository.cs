@@ -9,7 +9,5 @@ namespace Smafac.Crm.CustomerFinance.Repositories
     interface ICustomerFinanceSearchRepository
     {
         CustomerFinanceModel GetById(Guid subscriberId, Guid financeId);
-        List<CustomerFinanceModel> GetCustomerFinancePage(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate, int skip, int take);
-        int GetCustomerFinanceCount(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate);
     }
 }

@@ -76,6 +76,8 @@
     <Compile Include="Domain\CustomerFinanceCategoryEntity.cs" />
     <Compile Include="Domain\CustomerFinanceEntity.cs" />
     <Compile Include="Domain\CustomerFinancePropertyValueEntity.cs" />
+    <Compile Include="Domain\Pages\CustomerFinancePageQueryer.cs" />
+    <Compile Include="Domain\Pages\ICustomerFinancePageQueryer.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyUsedByCategoryChecker.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\CustomerFinancePropertyDeleteCategoryTrigger.cs" />
@@ -105,6 +107,10 @@
     <Compile Include="Repositories\ICustomerFinanceSearchRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceSearchRepository.cs" />
+    <Compile Include="Repositories\Joiners\CustomerFinanceJoiner.cs" />
+    <Compile Include="Repositories\Joiners\ICustomerFinanceJoiner.cs" />
+    <Compile Include="Repositories\Pages\CustomerFinancePageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\ICustomerFinancePageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueSetRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerFinancePropertyValueDeleteRepository.cs" />

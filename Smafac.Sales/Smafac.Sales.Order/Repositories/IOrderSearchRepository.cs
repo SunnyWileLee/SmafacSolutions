@@ -12,7 +12,5 @@ namespace Smafac.Sales.Order.Repositories
     interface IOrderSearchRepository
     {
         OrderEntity GetById(Guid subscriberId, Guid orderId);
-        List<OrderEntity> GetOrderPage(Guid subscriberId, Expression<Func<OrderEntity, bool>> predicate, int skip, int take);
-        int GetOrderCount(Guid subscriberId, Expression<Func<OrderEntity, bool>> predicate);
     }
 }

@@ -12,6 +12,8 @@ namespace Smafac.Framework.Core.Models
     {
         public Guid SubscriberId { get; set; }
         public Guid UserId { get; set; }
+        public string ErrorMessage { get; set; }
+
         public static UserContext Current
         {
             get

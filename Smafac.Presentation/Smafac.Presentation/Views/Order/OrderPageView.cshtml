@@ -2,6 +2,8 @@
 
 @{
     Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+    var chargeColumns = ViewData["chargeColumns"] as IEnumerable<CustomizedColumnModel>;
 }
 
 <table class="table table-condensed table-striped">
@@ -16,6 +18,18 @@
             <th>下单日期</th>
             <th>交货日期</th>
             <th>备注</th>
+            @{
+                foreach (var column in chargeColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
             <th>操作</th>
         </tr>
     </thead>
@@ -32,10 +46,26 @@
                 <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
                 <td>@order.HopeDate.ToString("yyyy-MM-dd")</td>
                 <td>@order.Memo</td>
+                @{
+                    foreach (var column in chargeColumns)
+                    {
+                        var charge = order.Charges.FirstOrDefault(s => s.ChargeId == column.Id);
+                        var value = charge == null ? string.Empty : charge.Charge.ToString();
+                        <td>@value</td>
+                    }
+                }
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = order.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? string.Empty : property.Value;
+                        <td>@value</td>
+                    }
+                }
                 <td>
                     <a class="btn btn-default" href="/Order/OrderDetailView?orderId=@order.Id" type="button">详情</a>
                 </td>
             </tr>
-        }
+                    }
     </tbody>
 </table>

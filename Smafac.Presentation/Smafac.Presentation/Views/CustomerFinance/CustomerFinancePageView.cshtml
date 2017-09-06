@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
 }
 
 <table class="table table-condensed table-striped">
@@ -12,6 +13,12 @@
             <th>时间</th>
             <th>类别</th>
             <th>备注</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
             <th>操作</th>
         </tr>
     </thead>
@@ -24,12 +31,20 @@
                 <td>@finance.FinanceTime.ToShortDateString()</td>
                 <td>@finance.CategoryName</td>
                 <td>@finance.Memo</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = finance.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? string.Empty : property.Value;
+                        <td>@value</td>
+                    }
+                }
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-default" href="/CustomerFinance/CustomerFinanceDetailView?financeId=@finance.Id" type="button">详情</a>
                     </div>
                 </td>
             </tr>
-        }
+                    }
     </tbody>
 </table>
