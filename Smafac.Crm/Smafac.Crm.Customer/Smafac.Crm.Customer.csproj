@@ -65,8 +65,10 @@
     <Compile Include="Domain\CustomerPropertyValueEntity.cs" />
     <Compile Include="Domain\Pages\CustomerPageQueryer.cs" />
     <Compile Include="Domain\Pages\ICustomerPageQueryer.cs" />
+    <Compile Include="Domain\Property\CustomerPropertyAddValueTrigger.cs" />
     <Compile Include="Domain\Property\CustomerPropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\Property\CustomerPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\ICustomerPropertyAddTrigger.cs" />
     <Compile Include="Domain\Property\ICustomerPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\ICustomerPropertyUsedChecker.cs" />
     <Compile Include="Migrations\Configuration.cs" />

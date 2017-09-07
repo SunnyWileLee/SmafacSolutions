@@ -11,5 +11,6 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
     {
         bool SetPropertyValue(TPropertyValue model);
         bool AddPropertyValues(Guid entityId, IEnumerable<TPropertyValue> values);
+        bool AddPropertyValues(IEnumerable<TPropertyValue> values);
     }
 }

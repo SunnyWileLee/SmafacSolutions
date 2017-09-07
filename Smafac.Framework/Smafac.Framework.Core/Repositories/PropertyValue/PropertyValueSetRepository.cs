@@ -64,5 +64,19 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
         {
             source.Value = value.Value;
         }
+
+        public bool AddPropertyValues(IEnumerable<TPropertyValue> values)
+        {
+            if (values.Any(s => s.IsAnonymous()))
+            {
+                return false;
+            }
+            using (var context = base.ContextProvider.Provide())
+            {
+                var valueQuery = context.Set<TPropertyValue>();
+                valueQuery.AddRange(values);
+                return context.SaveChanges() > 0;
+            }
+        }
     }
 }

@@ -31,5 +31,14 @@ namespace Smafac.Framework.Core.Repositories
                 return entites.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == id);
             }
         }
+
+        public IEnumerable<Guid> GetIds(Guid subscriberId, Expression<Func<TEntity, bool>> predicate)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var entites = context.Set<TEntity>();
+                return entites.Where(s => s.SubscriberId == subscriberId).Select(s => s.Id).ToList();
+            }
+        }
     }
 }

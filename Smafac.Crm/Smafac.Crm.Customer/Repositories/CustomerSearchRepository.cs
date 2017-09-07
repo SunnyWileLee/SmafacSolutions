@@ -1,5 +1,6 @@
 ﻿using Smafac.Crm.Customer.Domain;
 using Smafac.Crm.Customer.Models;
+using Smafac.Framework.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +10,12 @@ using System.Threading.Tasks;
 
 namespace Smafac.Crm.Customer.Repositories
 {
-    class CustomerSearchRepository : ICustomerSearchRepository
+    class CustomerSearchRepository : EntitySearchRepository<CustomerContext, CustomerEntity>,
+                                        ICustomerSearchRepository
     {
-        private readonly ICustomerContextProvider _customerContextProvider;
-
-        public CustomerSearchRepository(ICustomerContextProvider customerContextProvider)
+        public CustomerSearchRepository(ICustomerContextProvider contextProvider)
         {
-            _customerContextProvider = customerContextProvider;
-        }
-        public CustomerEntity GetById(Guid SubscriberId, Guid customerId)
-        {
-            using (var context = _customerContextProvider.Provide())
-            {
-                return context.Customers.FirstOrDefault(s => s.SubscriberId == SubscriberId && s.Id == customerId);
-            }
-        }
-
-        public List<CustomerEntity> GetCustomers(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate)
-        {
-            using (var context = _customerContextProvider.Provide())
-            {
-                var customers = context.Customers.Where(s => s.SubscriberId == subscriberId).Where(predicate)
-                                                .ToList();
-                return customers;
-            }
+            base.ContextProvider = contextProvider;
         }
     }
 }

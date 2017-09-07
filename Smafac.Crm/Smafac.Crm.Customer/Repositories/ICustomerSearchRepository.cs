@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using Smafac.Framework.Core.Repositories;
 
 namespace Smafac.Crm.Customer.Repositories
 {
-    interface ICustomerSearchRepository
+    interface ICustomerSearchRepository : IEntitySearchRepository<CustomerEntity>
     {
-        CustomerEntity GetById(Guid SubscriberId, Guid customerId);
-        List<CustomerEntity> GetCustomers(Guid subscriberId, Expression<Func<CustomerEntity, bool>> predicate);
+
     }
 }

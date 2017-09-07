@@ -71,6 +71,7 @@
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
     <Compile Include="Domain\CustomizedColumn\CustomizedColumnEntity.cs" />
+    <Compile Include="Domain\CustomizedColumn\ICustomizedColumnAddTrigger.cs" />
     <Compile Include="Domain\CustomizedColumn\ICustomizedColumnDeleteTrigger.cs" />
     <Compile Include="Domain\CustomizedColumn\ICustomizedColumnUsedChecker.cs" />
     <Compile Include="Domain\EntityAssociationProviders\CategoryAssociationProvider.cs" />
@@ -79,9 +80,12 @@
     <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
     <Compile Include="Domain\Pages\IPageQueryer.cs" />
     <Compile Include="Domain\Pages\PageQueryer.cs" />
+    <Compile Include="Domain\Property\IPropertyAddTrigger.cs" />
     <Compile Include="Domain\Property\IPropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\Property\PropertyAddValueTrigger.cs" />
     <Compile Include="Domain\Property\PropertyDeleteCategoryTrigger.cs" />
     <Compile Include="Domain\Property\PropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Triggers\ICategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\Triggers\IEntityTrigger.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
@@ -189,7 +193,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Domain\CategoryProperty\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

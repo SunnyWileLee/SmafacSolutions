@@ -13,15 +13,15 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Services.Property
 {
-    public abstract class PropertyDeleteService<TPropertyEntity, TPropertyModel> : IPropertyDeleteService<TPropertyModel>
-        where TPropertyEntity : PropertyEntity
+    public abstract class PropertyDeleteService<TProperty, TPropertyModel> : IPropertyDeleteService<TPropertyModel>
+        where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
-        public virtual IEnumerable<IPropertyUsedChecker<TPropertyEntity>> PropertyUsedCheckers { get; protected set; }
-        public virtual IEnumerable<IPropertyDeleteTrigger<TPropertyEntity>> PropertyDeleteTriggers { get; set; }
-        public virtual IPropertySearchRepository<TPropertyEntity> PropertySearchRepository { get; protected set; }
+        public virtual IEnumerable<IPropertyUsedChecker<TProperty>> PropertyUsedCheckers { get; protected set; }
+        public virtual IEnumerable<IPropertyDeleteTrigger<TProperty>> PropertyDeleteTriggers { get; set; }
+        public virtual IPropertySearchRepository<TProperty> PropertySearchRepository { get; protected set; }
 
-        public virtual IPropertyDeleteRepository<TPropertyEntity> PropertyDeleteRepository
+        public virtual IPropertyDeleteRepository<TProperty> PropertyDeleteRepository
         {
             get;
             protected set;
@@ -44,7 +44,7 @@ namespace Smafac.Framework.Core.Services.Property
                 return false;
             }
             var result = Delete(propertyId);
-            if (result)
+            if (result && PropertyDeleteTriggers != null)
             {
                 PropertyDeleteTriggers.ToList().ForEach(trigger =>
                 {

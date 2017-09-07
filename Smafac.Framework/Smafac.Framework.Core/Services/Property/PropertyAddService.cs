@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Smafac.Framework.Core.Domain.Property;
 
 namespace Smafac.Framework.Core.Services.Property
 {
@@ -17,6 +18,8 @@ namespace Smafac.Framework.Core.Services.Property
         where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
+        public virtual IEnumerable<IPropertyAddTrigger<TProperty>> PropertyAddTriggers { get; set; }
+
         public virtual IPropertySearchRepository<TProperty> PropertySearchRepository
         {
 
@@ -56,7 +59,15 @@ namespace Smafac.Framework.Core.Services.Property
         {
             var property = Mapper.Map<TProperty>(model);
             property.SubscriberId = UserContext.Current.SubscriberId;
-            return PropertyAddRepository.AddEntity(property);
+            var add = PropertyAddRepository.AddEntity(property);
+            if (add && PropertyAddTriggers != null)
+            {
+                PropertyAddTriggers.ToList().ForEach(trigger =>
+                {
+                    add &= trigger.Added(property);
+                });
+            }
+            return add;
         }
     }
 }

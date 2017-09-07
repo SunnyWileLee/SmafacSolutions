@@ -35,7 +35,7 @@ namespace Smafac.Crm.Customer.Services
 
         public CustomerModel GetCustomer(Guid customerId)
         {
-            var customer = _customerSearchRepository.GetById(UserContext.Current.SubscriberId, customerId);
+            var customer = _customerSearchRepository.GetEntity(UserContext.Current.SubscriberId, customerId);
             var model = Mapper.Map<CustomerModel>(customer);
             var properties = _customerPropertyValueSearchRepository.GetPropertyValues(UserContext.Current.SubscriberId, customerId);
             SetCustomerPropertyValues(model, properties);
@@ -57,14 +57,14 @@ namespace Smafac.Crm.Customer.Services
         {
             Expression<Func<CustomerEntity, bool>> predicate = s => customerIds.Contains(s.Id);
             var subscriberId = UserContext.Current.SubscriberId;
-            var customers = _customerSearchRepository.GetCustomers(subscriberId, predicate);
+            var customers = _customerSearchRepository.GetEntities(subscriberId, predicate);
             return Mapper.Map<List<CustomerModel>>(customers);
         }
 
         public List<CustomerModel> GetCustomers()
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var customers = _customerSearchRepository.GetCustomers(subscriberId, s => true);
+            var customers = _customerSearchRepository.GetEntities(subscriberId, s => true);
             return Mapper.Map<List<CustomerModel>>(customers);
         }
 
