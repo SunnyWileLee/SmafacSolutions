@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Repositories
 {
-    class GoodsSearchRepository : EntityRepository<GoodsContext, GoodsEntity>, IGoodsSearchRepository
+    class GoodsSearchRepository : EntitySearchRepository<GoodsContext, GoodsEntity>, IGoodsSearchRepository
     {
         private readonly IGoodsJoiner _goodsJoiner;
 

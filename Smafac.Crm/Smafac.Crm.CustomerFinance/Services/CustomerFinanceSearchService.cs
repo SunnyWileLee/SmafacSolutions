@@ -37,7 +37,7 @@ namespace Smafac.Crm.CustomerFinance.Services
         public CustomerFinanceModel GetCustomerFinance(Guid financeId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var finance = _financeSearchRepository.GetById(subscriberId, financeId);
+            var finance = _financeSearchRepository.GetModel(subscriberId, financeId);
             var properties = _financePropertyValueSearchRepository.GetPropertyValues(subscriberId, financeId);
             finance.Properties = properties;
             return finance;

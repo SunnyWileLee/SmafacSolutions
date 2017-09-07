@@ -7,6 +7,7 @@ using Smafac.Sales.Order.Models;
 using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Repositories;
 using Smafac.Sales.Order.Domain.CategoryProperty;
+using Smafac.Sales.Order.Domain.CategoryCharge;
 
 namespace Smafac.Sales.Order.Domain.Charge
 {
@@ -27,7 +28,7 @@ namespace Smafac.Sales.Order.Domain.Charge
         public List<OrderChargeModel> Provide(Guid orderId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var order = _orderSearchRepository.GetById(subscriberId, orderId);
+            var order = _orderSearchRepository.GetEntity(subscriberId, orderId);
             return _orderCategoryChargeProvider.ProvideAssociations(order.CategoryId);
         }
     }

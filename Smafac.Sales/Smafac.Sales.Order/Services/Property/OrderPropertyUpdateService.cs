@@ -16,8 +16,8 @@ namespace Smafac.Sales.Order.Services.Property
         public OrderPropertyUpdateService(IOrderPropertySearchRepository OrderPropertySearchRepository,
                                           IOrderPropertyUpdateRepository OrderPropertyUpdateRepository)
         {
-            base.PropertySearchRepository = OrderPropertySearchRepository;
-            base.PropertyUpdateRepository = OrderPropertyUpdateRepository;
+            base.CustomizedColumnSearchRepository = OrderPropertySearchRepository;
+            base.CustomizedColumnUpdateRepository = OrderPropertyUpdateRepository;
         }
     }
 }

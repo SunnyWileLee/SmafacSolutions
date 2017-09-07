@@ -19,10 +19,10 @@ namespace Smafac.Wms.Goods.Services.Property
                                           IGoodsPropertyUsedChecker[] goodsFinancePropertyUsedCheckers,
                                           IGoodsPropertyDeleteTrigger[] goodsPropertyDeleteTriggers)
         {
-            base.PropertyDeleteRepository = goodsPropertyDeleteRepository;
-            base.PropertyUsedCheckers = goodsFinancePropertyUsedCheckers;
-            base.PropertySearchRepository = goodsPropertySearchRepository;
-            base.PropertyDeleteTriggers = goodsPropertyDeleteTriggers;
+            base.CustomizedColumnDeleteRepository = goodsPropertyDeleteRepository;
+            base.CustomizedColumnUsedCheckers = goodsFinancePropertyUsedCheckers;
+            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = goodsPropertyDeleteTriggers;
         }
     }
 }

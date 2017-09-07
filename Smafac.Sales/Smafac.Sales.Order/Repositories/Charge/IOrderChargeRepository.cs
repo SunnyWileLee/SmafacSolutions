@@ -11,7 +11,6 @@ namespace Smafac.Sales.Order.Repositories.Charge
     interface IOrderChargeRepository
     {
         bool AddCharge(OrderChargeEntity charge);
-        bool DeleteCharge(Guid subscriberId, Guid chargeId);
         bool UpdateCharge(OrderChargeModel model);
     }
 }

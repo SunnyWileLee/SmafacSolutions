@@ -26,20 +26,6 @@ namespace Smafac.Sales.Order.Repositories.Charge
             }
         }
 
-        public bool DeleteCharge(Guid subscriberId, Guid chargeId)
-        {
-            using (var context = _orderContextProvider.Provide())
-            {
-                var charge = context.OrderCharges.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == chargeId);
-                if (charge == null)
-                {
-                    return true;
-                }
-                context.OrderCharges.Remove(charge);
-                return context.SaveChanges() > 0;
-            }
-        }
-
         public bool UpdateCharge(OrderChargeModel model)
         {
             using (var context = _orderContextProvider.Provide())

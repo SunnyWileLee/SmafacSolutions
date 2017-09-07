@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories.Joiners;
 
-namespace Smafac.Sales.Order.Repositories.Charge
+namespace Smafac.Sales.Order.Repositories.ChargeValue
 {
     class OrderChargeValueSearchRepository : EntityRepository<OrderContext, OrderChargeValueEntity>,
                                             IOrderChargeValueSearchRepository

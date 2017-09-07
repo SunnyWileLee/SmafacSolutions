@@ -11,5 +11,6 @@ namespace Smafac.Framework.Core.Repositories
         where TEntity : SaasBaseEntity
     {
         bool AddEntity(TEntity entity);
+        bool AddEntities(IEnumerable<TEntity> entities);
     }
 }

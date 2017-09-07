@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Sales.Order.Repositories.Charge;
 using Smafac.Sales.Order.Repositories.PropertyValue;
+using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Services
 {

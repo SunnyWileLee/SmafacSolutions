@@ -21,14 +21,27 @@ namespace Smafac.Framework.Core.Repositories
             }
         }
 
-        public virtual bool AddEntity(TEntity entity)
+        public bool AddEntities(IEnumerable<TEntity> entities)
         {
+            if (!AllowAnonymous && entities.Any(entity => entity.IsAnonymous()))
+            {
+                return false;
+            }
             using (var context = ContextProvider.Provide())
             {
-                if (!AllowAnonymous && entity.IsAnonymous())
-                {
-                    return false;
-                }
+                context.Set<TEntity>().AddRange(entities);
+                return context.SaveChanges() > 0;
+            }
+        }
+
+        public virtual bool AddEntity(TEntity entity)
+        {
+            if (!AllowAnonymous && entity.IsAnonymous())
+            {
+                return false;
+            }
+            using (var context = ContextProvider.Provide())
+            {
                 context.Set<TEntity>().Add(entity);
                 return context.SaveChanges() > 0;
             }

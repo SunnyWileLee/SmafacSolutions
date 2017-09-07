@@ -1,4 +1,5 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Applications.CustomizedColumn;
+using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.Property
 {
-    public interface IPropertyUpdateService<TPropertyModel> where TPropertyModel : PropertyModel
+    public interface IPropertyUpdateService<TPropertyModel>: ICustomizedColumnUpdateService<TPropertyModel>
+        where TPropertyModel : PropertyModel
     {
-        bool UpdateProperty(TPropertyModel model);
+        
     }
 }

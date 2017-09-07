@@ -10,20 +10,11 @@ using Smafac.Sales.Order.Domain.Pages;
 
 namespace Smafac.Sales.Order.Repositories
 {
-    class OrderSearchRepository : EntityRepository<OrderContext, OrderEntity>, IOrderSearchRepository
+    class OrderSearchRepository : EntitySearchRepository<OrderContext, OrderEntity>, IOrderSearchRepository
     {
         public OrderSearchRepository(IOrderContextProvider contextProvider)
         {
             base.ContextProvider = contextProvider;
-        }
-
-        public OrderEntity GetById(Guid subscriberId, Guid orderId)
-        {
-            using (var context = ContextProvider.Provide())
-            {
-                var order = context.Orders.FirstOrDefault(s => s.SubscriberId == subscriberId && s.Id == orderId);
-                return order;
-            }
         }
     }
 }

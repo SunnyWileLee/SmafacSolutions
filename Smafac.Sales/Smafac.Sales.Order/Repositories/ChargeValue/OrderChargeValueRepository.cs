@@ -7,9 +7,9 @@ using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Models;
 using Smafac.Framework.Core.Repositories;
 
-namespace Smafac.Sales.Order.Repositories.Charge
+namespace Smafac.Sales.Order.Repositories.ChargeValue
 {
-    class OrderChargeValueRepository : EntityRepository<OrderContext, OrderChargeValueEntity>,
+    class OrderChargeValueRepository : EntityAddRepository<OrderContext, OrderChargeValueEntity>,
                                         IOrderChargeValueRepository
     {
         public OrderChargeValueRepository(IOrderContextProvider contextProvider)

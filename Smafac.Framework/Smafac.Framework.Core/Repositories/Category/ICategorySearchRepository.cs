@@ -11,7 +11,6 @@ namespace Smafac.Framework.Core.Repositories.Category
         where TCategory : CategoryEntity
     {
         bool Any(Guid subscriberId, string name);
-        TCategory GetCategory(Guid subscriberId, Guid categoryId);
         List<TCategory> GetCategories(Guid subscriberId, Guid parentId);
     }
 }

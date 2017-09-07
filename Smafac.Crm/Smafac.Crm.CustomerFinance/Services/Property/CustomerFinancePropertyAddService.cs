@@ -8,11 +8,11 @@ namespace Smafac.Crm.CustomerFinance.Services.Property
 {
     class CustomerFinancePropertyAddService : PropertyAddService<CustomerFinancePropertyEntity, CustomerFinancePropertyModel>, ICustomerFinancePropertyAddService
     {
-        public CustomerFinancePropertyAddService(ICustomerFinancePropertyAddRepository goodsPropertyAddRepository,
-                                        ICustomerFinancePropertySearchRepository goodsPropertySearchRepository)
+        public CustomerFinancePropertyAddService(ICustomerFinancePropertyAddRepository financePropertyAddRepository,
+                                        ICustomerFinancePropertySearchRepository financePropertySearchRepository)
         {
-            base.PropertyAddRepository = goodsPropertyAddRepository;
-            base.PropertySearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnAddRepository = financePropertyAddRepository;
+            base.CustomizedColumnSearchRepository = financePropertySearchRepository;
         }
     }
 }

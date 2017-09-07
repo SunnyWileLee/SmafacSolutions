@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.Order.Repositories.Charge
+namespace Smafac.Sales.Order.Repositories.ChargeValue
 {
     interface IOrderChargeValueSearchRepository
     {

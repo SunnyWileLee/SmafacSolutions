@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.Order.Domain.Charge
+namespace Smafac.Sales.Order.Domain.CategoryCharge
 {
     interface IOrderCategoryChargeProvider : IEntityAssociationProvider<OrderChargeModel>
     {

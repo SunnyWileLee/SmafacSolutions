@@ -19,7 +19,7 @@ namespace Smafac.Framework.Core.Repositories
             using (var context = ContextProvider.Provide())
             {
                 var entites = context.Set<TEntity>();
-                return entites.Where(s => s.SubscriberId == subscriberId).ToList();
+                return entites.Where(s => s.SubscriberId == subscriberId).Where(predicate).ToList();
             }
         }
 
@@ -37,7 +37,7 @@ namespace Smafac.Framework.Core.Repositories
             using (var context = ContextProvider.Provide())
             {
                 var entites = context.Set<TEntity>();
-                return entites.Where(s => s.SubscriberId == subscriberId).Select(s => s.Id).ToList();
+                return entites.Where(s => s.SubscriberId == subscriberId).Where(predicate).Select(s => s.Id).ToList();
             }
         }
     }

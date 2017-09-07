@@ -15,10 +15,10 @@ namespace Smafac.Crm.CustomerFinance.Services.Property
                                                     ICustomerFinancePropertyUsedChecker[] customerFinancePropertyUsedCheckers,
                                                     ICustomerFinancePropertyDeleteTrigger[] customerFinancePropertyDeleteTriggers)
         {
-            base.PropertyDeleteRepository = customerFinancePropertyDeleteRepository;
-            base.PropertyUsedCheckers = customerFinancePropertyUsedCheckers;
-            base.PropertySearchRepository = customerFinancePropertySearchRepository;
-            base.PropertyDeleteTriggers = customerFinancePropertyDeleteTriggers;
+            base.CustomizedColumnDeleteRepository = customerFinancePropertyDeleteRepository;
+            base.CustomizedColumnUsedCheckers = customerFinancePropertyUsedCheckers;
+            base.CustomizedColumnSearchRepository = customerFinancePropertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = customerFinancePropertyDeleteTriggers;
         }
 
     }

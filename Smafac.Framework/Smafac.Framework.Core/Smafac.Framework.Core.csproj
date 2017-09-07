@@ -58,18 +58,24 @@
     <Compile Include="Applications\Category\ICategorySearchService.cs" />
     <Compile Include="Applications\Category\ICategoryService.cs" />
     <Compile Include="Applications\Category\ICategoryUpdateService.cs" />
+    <Compile Include="Applications\CustomizedColumn\ICustomizedColumnAddService.cs" />
+    <Compile Include="Applications\CustomizedColumn\ICustomizedColumnDeleteService.cs" />
+    <Compile Include="Applications\CustomizedColumn\ICustomizedColumnSearchService.cs" />
+    <Compile Include="Applications\CustomizedColumn\ICustomizedColumnUpdateService.cs" />
     <Compile Include="Applications\EntityAssociation\IEntityAssociationBindService.cs" />
     <Compile Include="Applications\EntityAssociation\IEntityAssociationSearchService.cs" />
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
     <Compile Include="Applications\Property\IPropertyAddService.cs" />
     <Compile Include="Applications\Property\IPropertyDeleteService.cs" />
     <Compile Include="Applications\Property\IPropertySearchService.cs" />
-    <Compile Include="Applications\Property\IPropertyService.cs" />
     <Compile Include="Applications\Property\IPropertyUpdateService.cs" />
     <Compile Include="Applications\IVersionService.cs" />
     <Compile Include="Domain\CategoryAssociationEntity.cs" />
+    <Compile Include="Domain\CategoryAssociation\CategoryAssociationBindTrigger.cs" />
+    <Compile Include="Domain\CategoryAssociation\ICategoryAssociationBindTrigger.cs" />
     <Compile Include="Domain\CategoryEntity.cs" />
     <Compile Include="Domain\CategoryPropertyEntity.cs" />
+    <Compile Include="Domain\CategoryProperty\CategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\CustomizedColumn\CustomizedColumnEntity.cs" />
     <Compile Include="Domain\CustomizedColumn\ICustomizedColumnAddTrigger.cs" />
     <Compile Include="Domain\CustomizedColumn\ICustomizedColumnDeleteTrigger.cs" />
@@ -85,7 +91,7 @@
     <Compile Include="Domain\Property\PropertyAddValueTrigger.cs" />
     <Compile Include="Domain\Property\PropertyDeleteCategoryTrigger.cs" />
     <Compile Include="Domain\Property\PropertyDeleteValueTrigger.cs" />
-    <Compile Include="Domain\Triggers\ICategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\ICategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\Triggers\IEntityTrigger.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />
@@ -175,6 +181,10 @@
     <Compile Include="Services\Category\CategoryDeleteService.cs" />
     <Compile Include="Services\Category\CategorySearchService.cs" />
     <Compile Include="Services\Category\CategoryUpdateService.cs" />
+    <Compile Include="Services\CustomizedColumn\CustomizedColumnAddService.cs" />
+    <Compile Include="Services\CustomizedColumn\CustomizedColumnDeleteService.cs" />
+    <Compile Include="Services\CustomizedColumn\CustomizedColumnSearchService.cs" />
+    <Compile Include="Services\CustomizedColumn\CustomizedColumnUpdateService.cs" />
     <Compile Include="Services\EntityAssociation\EntityAssociationBindService.cs" />
     <Compile Include="Services\EntityAssociation\EntityAssociationSearchService.cs" />
     <Compile Include="Services\Property\PropertyAddService.cs" />
@@ -193,9 +203,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\CategoryProperty\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

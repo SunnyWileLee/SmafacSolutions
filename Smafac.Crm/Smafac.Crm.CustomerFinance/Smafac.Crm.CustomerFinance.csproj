@@ -69,8 +69,10 @@
     <Compile Include="Applications\Propety\ICustomerFinancePropertySearchService.cs" />
     <Compile Include="Applications\Propety\ICustomerFinancePropertyService.cs" />
     <Compile Include="Applications\Propety\ICustomerFinancePropertyUpdateService.cs" />
+    <Compile Include="Domain\CategoryProperty\CustomerFinanceCategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\CategoryProperty\ICustomerFinanceCategoryPropertyProvider.cs" />
     <Compile Include="Domain\CategoryProperty\CustomerFinanceCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryProperty\ICustomerFinanceCategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\CustomerFinanceCategoryPropertyEntity.cs" />
     <Compile Include="Domain\CustomerFinancePropertyEntity.cs" />
     <Compile Include="Domain\CustomerFinanceCategoryEntity.cs" />

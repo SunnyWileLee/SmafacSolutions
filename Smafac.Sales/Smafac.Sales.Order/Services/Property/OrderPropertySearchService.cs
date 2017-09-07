@@ -19,11 +19,11 @@ namespace Smafac.Sales.Order.Services.Property
         public OrderPropertySearchService(IOrderPropertySearchRepository orderSearchRepository,
                                             IOrderPropertyProvider orderPropertyProvider)
         {
-            base.PropertySearchRepository = orderSearchRepository;
+            base.CustomizedColumnSearchRepository = orderSearchRepository;
             _orderPropertyProvider = orderPropertyProvider;
         }
 
-        public override List<OrderPropertyModel> GetProperties(Guid entityId)
+        public override List<OrderPropertyModel> GetColumns(Guid entityId)
         {
             return _orderPropertyProvider.Provide(entityId);
         }

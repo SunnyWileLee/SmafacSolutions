@@ -30,7 +30,7 @@ namespace Smafac.Framework.Core.Domain.Property
             var subscriberId = UserContext.Current.SubscriberId;
             var ids = EntitySearchRepository.GetIds(subscriberId, s => true).ToList();
             var values = ids.Select(id => CreatePropertyValue(id, property));
-            return PropertyValueSetRepository.AddPropertyValues(values);
+            return PropertyValueSetRepository.AddEntities(values);
         }
 
         protected virtual TPropertyValue CreatePropertyValue(Guid entityId, TProperty property)

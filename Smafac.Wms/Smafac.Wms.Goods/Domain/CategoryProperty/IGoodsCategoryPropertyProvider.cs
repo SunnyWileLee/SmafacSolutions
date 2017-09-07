@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Wms.Goods.Domain
+namespace Smafac.Wms.Goods.Domain.CategoryProperty
 {
     interface IGoodsCategoryPropertyProvider:IEntityAssociationProvider<GoodsPropertyModel>
     {

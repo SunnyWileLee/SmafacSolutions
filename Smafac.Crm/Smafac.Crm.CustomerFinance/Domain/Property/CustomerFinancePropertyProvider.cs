@@ -23,7 +23,7 @@ namespace Smafac.Crm.CustomerFinance.Domain.Property
         public List<CustomerFinancePropertyModel> Provide(Guid customerFinanceId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var customerFinance = _customerFinanceSearchRepository.GetById(subscriberId, customerFinanceId);
+            var customerFinance = _customerFinanceSearchRepository.GetModel(subscriberId, customerFinanceId);
             return _customerFinanceCategoryPropertyProvider.ProvideAssociations(customerFinance.CategoryId);
         }
     }

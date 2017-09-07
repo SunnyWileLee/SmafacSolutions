@@ -24,21 +24,21 @@ namespace Smafac.Presentation.Controllers
         {
             var types = _propertyTypeProvider.Provide();
             ViewData["types"] = types;
-            var properties = _financePropertyService.SearchService.GetProperties();
+            var properties = _financePropertyService.SearchService.GetColumns();
             return View(properties);
         }
 
         [HttpPost]
         public ActionResult AddCustomerFinanceProperty(CustomerFinancePropertyModel model)
         {
-            var result = _financePropertyService.AddService.AddProperty(model);
+            var result = _financePropertyService.AddService.AddColumn(model);
             return BoolResult(result);
         }
 
         [HttpPost]
         public ActionResult DeleteCustomerFinanceProperty(Guid id)
         {
-            var result = _financePropertyService.DeleteService.DeleteProperty(id);
+            var result = _financePropertyService.DeleteService.DeleteColumn(id);
             return BoolResult(result);
         }
     }

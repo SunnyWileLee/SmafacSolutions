@@ -27,21 +27,21 @@ namespace Smafac.Presentation.Controllers
         {
             var types = _propertyTypeProvider.Provide();
             ViewData["types"] = types;
-            var properties = _goodsPropertyService.SearchService.GetProperties();
+            var properties = _goodsPropertyService.SearchService.GetColumns();
             return View(properties);
         }
 
         [HttpPost]
         public ActionResult AddGoodsProperty(GoodsPropertyModel model)
         {
-            var result = _goodsPropertyService.AddService.AddProperty(model);
+            var result = _goodsPropertyService.AddService.AddColumn(model);
             return BoolResult(result);
         }
 
         [HttpPost]
         public ActionResult DeleteGoodsProperty(Guid id)
         {
-            var result = _goodsPropertyService.DeleteService.DeleteProperty(id);
+            var result = _goodsPropertyService.DeleteService.DeleteColumn(id);
             return BoolResult(result);
         }
     }

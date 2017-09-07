@@ -16,11 +16,11 @@ namespace Smafac.Crm.CustomerFinance.Services.Property
         public CustomerFinancePropertySearchService(ICustomerFinancePropertySearchRepository goodsSearchRepository,
             ICustomerFinancePropertyProvider goodsPropertyProvider)
         {
-            base.PropertySearchRepository = goodsSearchRepository;
+            base.CustomizedColumnSearchRepository = goodsSearchRepository;
             _goodsPropertyProvider = goodsPropertyProvider;
         }
 
-        public override List<CustomerFinancePropertyModel> GetProperties(Guid entityId)
+        public override List<CustomerFinancePropertyModel> GetColumns(Guid entityId)
         {
             return _goodsPropertyProvider.Provide(entityId);
         }

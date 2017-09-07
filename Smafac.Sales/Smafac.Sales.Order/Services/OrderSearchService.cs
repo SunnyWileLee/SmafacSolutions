@@ -15,6 +15,7 @@ using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Sales.Order.Repositories.PropertyValue;
 using Smafac.Sales.Order.Domain.Pages;
+using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Services
 {
@@ -40,7 +41,7 @@ namespace Smafac.Sales.Order.Services
         public OrderModel GetOrder(Guid orderId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var order = _orderSearchRepository.GetById(subscriberId, orderId);
+            var order = _orderSearchRepository.GetEntity(subscriberId, orderId);
             var properties = _orderPropertyValueSearchRepository.GetPropertyValues(subscriberId, orderId);
             var charges = _orderChargeValueSearchRepository.GetChargeValues(subscriberId, orderId);
             var model = Mapper.Map<OrderModel>(order);

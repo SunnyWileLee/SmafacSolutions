@@ -19,10 +19,10 @@ namespace Smafac.Sales.Order.Services.Property
                                            IEnumerable<IOrderPropertyUsedChecker> orderPropertyUsedCheckers,
                                             IOrderPropertyDeleteTrigger[] orderPropertyDeleteTriggers)
         {
-            base.PropertyDeleteRepository = orderPropertyDeleteRepository;
-            base.PropertyUsedCheckers = orderPropertyUsedCheckers;
-            base.PropertySearchRepository = orderPropertySearchRepository;
-            base.PropertyDeleteTriggers = orderPropertyDeleteTriggers;
+            base.CustomizedColumnDeleteRepository = orderPropertyDeleteRepository;
+            base.CustomizedColumnUsedCheckers = orderPropertyUsedCheckers;
+            base.CustomizedColumnSearchRepository = orderPropertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = orderPropertyDeleteTriggers;
         }
     }
 }

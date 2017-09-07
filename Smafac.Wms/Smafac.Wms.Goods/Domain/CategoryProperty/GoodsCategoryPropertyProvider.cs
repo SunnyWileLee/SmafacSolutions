@@ -13,7 +13,7 @@ using Smafac.Wms.Goods.Repositories.Category;
 using Smafac.Wms.Goods.Repositories.CategoryProperty;
 using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 
-namespace Smafac.Wms.Goods.Domain
+namespace Smafac.Wms.Goods.Domain.CategoryProperty
 {
     class GoodsCategoryPropertyProvider : CategoryPropertyProvider<GoodsCategoryEntity, GoodsPropertyEntity, GoodsPropertyModel>,
                                             IGoodsCategoryPropertyProvider

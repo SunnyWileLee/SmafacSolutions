@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Applications.Property
 {
-    public interface IGoodsPropertyService : IPropertyService<GoodsPropertyModel>
+    public interface IGoodsPropertyService 
     {
-
+        IGoodsPropertyAddService AddService { get; set; }
+        IGoodsPropertyDeleteService DeleteService { get; set; }
+        IGoodsPropertySearchService SearchService { get; set; }
+        IGoodsPropertyUpdateService UpdateService { get; set; }
     }
 }

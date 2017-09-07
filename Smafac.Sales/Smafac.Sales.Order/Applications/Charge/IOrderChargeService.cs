@@ -10,7 +10,7 @@ namespace Smafac.Sales.Order.Applications.Charge
     public interface IOrderChargeService
     {
         bool AddCharge(OrderChargeModel model);
-        bool DeleteCharge(Guid chargeId);
         bool UpdateCharge(OrderChargeModel model);
+        IOrderChargeDeleteService DeleteService { get; set; }
     }
 }

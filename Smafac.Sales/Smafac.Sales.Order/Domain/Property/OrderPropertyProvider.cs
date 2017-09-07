@@ -27,7 +27,7 @@ namespace Smafac.Sales.Order.Domain.Property
         public List<OrderPropertyModel> Provide(Guid orderId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var order = _orderSearchRepository.GetById(subscriberId, orderId);
+            var order = _orderSearchRepository.GetEntity(subscriberId, orderId);
             return _orderCategoryPropertyProvider.ProvideAssociations(order.CategoryId);
         }
     }

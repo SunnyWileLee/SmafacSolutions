@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Services.CategoryAssociation;
 using Smafac.Sales.Order.Applications.CategoryCharge;
 using Smafac.Sales.Order.Domain;
+using Smafac.Sales.Order.Domain.CategoryCharge;
 using Smafac.Sales.Order.Domain.Charge;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories.CategoryCharge;

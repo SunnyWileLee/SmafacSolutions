@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Applications.Property
 {
-    public interface IOrderPropertyService : IPropertyService<OrderPropertyModel>
+    public interface IOrderPropertyService 
     {
-
+        IOrderPropertyAddService AddService { get; set; }
+        IOrderPropertyDeleteService DeleteService { get; set; }
+        IOrderPropertySearchService SearchService { get; set; }
+        IOrderPropertyUpdateService UpdateService { get; set; }
     }
 }

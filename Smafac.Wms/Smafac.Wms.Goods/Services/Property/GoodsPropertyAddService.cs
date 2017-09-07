@@ -16,8 +16,8 @@ namespace Smafac.Wms.Goods.Services.Property
         public GoodsPropertyAddService(IGoodsPropertyAddRepository goodsPropertyAddRepository,
                                         IGoodsPropertySearchRepository goodsPropertySearchRepository)
         {
-            base.PropertyAddRepository = goodsPropertyAddRepository;
-            base.PropertySearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnAddRepository = goodsPropertyAddRepository;
+            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
         }
     }
 }

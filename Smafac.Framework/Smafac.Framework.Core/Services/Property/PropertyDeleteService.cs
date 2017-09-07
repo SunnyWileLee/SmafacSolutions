@@ -4,6 +4,7 @@ using Smafac.Framework.Core.Domain;
 using Smafac.Framework.Core.Domain.Property;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Property;
+using Smafac.Framework.Core.Services.CustomizedColumn;
 using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
@@ -13,51 +14,11 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Services.Property
 {
-    public abstract class PropertyDeleteService<TProperty, TPropertyModel> : IPropertyDeleteService<TPropertyModel>
+    public abstract class PropertyDeleteService<TProperty, TPropertyModel> : CustomizedColumnDeleteService<TProperty, TPropertyModel>,
+        IPropertyDeleteService<TPropertyModel>
         where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
-        public virtual IEnumerable<IPropertyUsedChecker<TProperty>> PropertyUsedCheckers { get; protected set; }
-        public virtual IEnumerable<IPropertyDeleteTrigger<TProperty>> PropertyDeleteTriggers { get; set; }
-        public virtual IPropertySearchRepository<TProperty> PropertySearchRepository { get; protected set; }
 
-        public virtual IPropertyDeleteRepository<TProperty> PropertyDeleteRepository
-        {
-            get;
-            protected set;
-        }
-
-        protected virtual bool AllowDeleteWhenUsed
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        public virtual bool DeleteProperty(Guid propertyId)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            var property = PropertySearchRepository.GetEntity(subscriberId, propertyId);
-            if (!property.IsDeleteAssociations && PropertyUsedCheckers.Any(checker => checker.Check(property)))
-            {
-                return false;
-            }
-            var result = Delete(propertyId);
-            if (result && PropertyDeleteTriggers != null)
-            {
-                PropertyDeleteTriggers.ToList().ForEach(trigger =>
-                {
-                    result &= trigger.Deleted(property);
-                });
-            }
-            return result;
-        }
-
-        protected virtual bool Delete(Guid propertyId)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            return PropertyDeleteRepository.DeleteEntity(subscriberId, propertyId);
-        }
     }
 }

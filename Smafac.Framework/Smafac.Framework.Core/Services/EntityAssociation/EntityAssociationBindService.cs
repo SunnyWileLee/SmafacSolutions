@@ -38,6 +38,7 @@ namespace Smafac.Framework.Core.Services.EntityAssociation
         public bool BindAssociations(Guid entityId, IEnumerable<Guid> associationIds)
         {
             var subscriberId = UserContext.Current.SubscriberId;
+            var compensates = GetCompensateAssociations(entityId, associationIds).ToList();
             if (EntityAssociationSearchRepository.IsBound(subscriberId, entityId))
             {
                 if (!AllowCover)
@@ -49,7 +50,21 @@ namespace Smafac.Framework.Core.Services.EntityAssociation
                     return false;
                 }
             }
-            return EntityAssociationBindRepository.BindEntity(subscriberId, entityId, associationIds);
+            var bind = EntityAssociationBindRepository.BindEntity(subscriberId, entityId, associationIds);
+            if (bind && compensates.Any())
+            {
+                bind &= Compensate(entityId, compensates);
+            }
+            return bind;
         }
+        protected virtual IEnumerable<Guid> GetCompensateAssociations(Guid entityId, IEnumerable<Guid> associationIds)
+        {
+            var subscriberId = UserContext.Current.SubscriberId;
+            var bounds = EntityAssociationSearchRepository.GetAssociations(subscriberId, entityId);
+            var boundIds = bounds.Select(s => s.Id);
+            return associationIds.Where(s => !boundIds.Contains(s));
+        }
+
+        protected abstract bool Compensate(Guid entityId, IEnumerable<Guid> compensates);
     }
 }

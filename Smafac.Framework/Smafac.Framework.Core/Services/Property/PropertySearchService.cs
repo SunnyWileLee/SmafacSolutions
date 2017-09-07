@@ -9,25 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Smafac.Framework.Core.Services.CustomizedColumn;
 
 namespace Smafac.Framework.Core.Services.Property
 {
-    public abstract class PropertySearchService<TProperty, TPropertyModel> : IPropertySearchService<TPropertyModel>
+    public abstract class PropertySearchService<TProperty, TPropertyModel> : CustomizedColumnSearchService<TProperty, TPropertyModel>,
+        IPropertySearchService<TPropertyModel>
         where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
-        public virtual IPropertySearchRepository<TProperty> PropertySearchRepository
-        {
-            get;
-            protected set;
-        }
 
-        public virtual List<TPropertyModel> GetProperties()
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            var properties = PropertySearchRepository.GetEntities(subscriberId, s => true);
-            return Mapper.Map<List<TPropertyModel>>(properties);
-        }
-        public abstract List<TPropertyModel> GetProperties(Guid entityId);
     }
 }

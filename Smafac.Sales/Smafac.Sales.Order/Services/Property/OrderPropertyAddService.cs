@@ -16,8 +16,8 @@ namespace Smafac.Sales.Order.Services.Property
         public OrderPropertyAddService(IOrderPropertyAddRepository OrderPropertyAddRepository,
                                         IOrderPropertySearchRepository OrderPropertySearchRepository)
         {
-            base.PropertyAddRepository = OrderPropertyAddRepository;
-            base.PropertySearchRepository = OrderPropertySearchRepository;
+            base.CustomizedColumnAddRepository = OrderPropertyAddRepository;
+            base.CustomizedColumnSearchRepository = OrderPropertySearchRepository;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Smafac.Crm.Customer.Services.Property
 {
     class CustomerPropertyUpdateService : PropertyUpdateService<CustomerPropertyEntity, CustomerPropertyModel>, ICustomerPropertyUpdateService
     {
-        public CustomerPropertyUpdateService(ICustomerPropertySearchRepository goodsPropertySearchRepository,
-                                          ICustomerPropertyUpdateRepository goodsPropertyUpdateRepository)
+        public CustomerPropertyUpdateService(ICustomerPropertySearchRepository customerPropertySearchRepository,
+                                          ICustomerPropertyUpdateRepository customerPropertyUpdateRepository)
         {
-            base.PropertySearchRepository = goodsPropertySearchRepository;
-            base.PropertyUpdateRepository = goodsPropertyUpdateRepository;
+            base.CustomizedColumnSearchRepository = customerPropertySearchRepository;
+            base.CustomizedColumnUpdateRepository = customerPropertyUpdateRepository;
         }
     }
 }

@@ -11,28 +11,20 @@ namespace Smafac.Wms.Goods.Services.Property
 {
     class GoodsPropertyService : IGoodsPropertyService
     {
-        private readonly IGoodsPropertyAddService _goodsPropertyAddService;
-        private readonly IGoodsPropertyDeleteService _goodsPropertyDeleteService;
-        private readonly IGoodsPropertySearchService _goodsPropertySearchService;
-        private readonly IGoodsPropertyUpdateService _goodsPropertyUpdateService;
-
         public GoodsPropertyService(IGoodsPropertyAddService goodsPropertyAddService,
             IGoodsPropertyDeleteService goodsPropertyDeleteService,
             IGoodsPropertySearchService goodsPropertySearchService,
             IGoodsPropertyUpdateService goodsPropertyUpdateService)
         {
-            _goodsPropertyAddService = goodsPropertyAddService;
-            _goodsPropertyDeleteService = goodsPropertyDeleteService;
-            _goodsPropertySearchService = goodsPropertySearchService;
-            _goodsPropertyUpdateService = goodsPropertyUpdateService;
+            AddService = goodsPropertyAddService;
+            DeleteService = goodsPropertyDeleteService;
+            SearchService = goodsPropertySearchService;
+            UpdateService = goodsPropertyUpdateService;
         }
 
-        public IPropertyAddService<GoodsPropertyModel> AddService => _goodsPropertyAddService;
-
-        public IPropertyDeleteService<GoodsPropertyModel> DeleteService => _goodsPropertyDeleteService;
-
-        public IPropertyUpdateService<GoodsPropertyModel> UpdateService => _goodsPropertyUpdateService;
-
-        public IPropertySearchService<GoodsPropertyModel> SearchService => _goodsPropertySearchService;
+        public IGoodsPropertyAddService AddService { get; set; }
+        public IGoodsPropertyDeleteService DeleteService { get; set; }
+        public IGoodsPropertySearchService SearchService { get; set; }
+        public IGoodsPropertyUpdateService UpdateService { get; set; }
     }
 }

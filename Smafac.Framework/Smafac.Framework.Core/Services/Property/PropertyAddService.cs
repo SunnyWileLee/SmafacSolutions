@@ -11,63 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Smafac.Framework.Core.Domain.Property;
+using Smafac.Framework.Core.Services.CustomizedColumn;
 
 namespace Smafac.Framework.Core.Services.Property
 {
-    public abstract class PropertyAddService<TProperty, TPropertyModel> : IPropertyAddService<TPropertyModel>
+    public abstract class PropertyAddService<TProperty, TPropertyModel> : CustomizedColumnAddService<TProperty, TPropertyModel>,
+                    IPropertyAddService<TPropertyModel>
         where TProperty : PropertyEntity
         where TPropertyModel : PropertyModel
     {
-        public virtual IEnumerable<IPropertyAddTrigger<TProperty>> PropertyAddTriggers { get; set; }
 
-        public virtual IPropertySearchRepository<TProperty> PropertySearchRepository
-        {
-
-            get;
-            protected set;
-        }
-        public virtual IPropertyAddRepository<TProperty> PropertyAddRepository
-        {
-            get;
-            protected set;
-        }
-
-        protected virtual bool AllowRepeat
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        public virtual bool AddProperty(TPropertyModel model)
-        {
-            if (!AllowRepeat && Exist(model.Name))
-            {
-                return false;
-            }
-            return Add(model);
-        }
-
-        protected virtual bool Exist(string name)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            return PropertySearchRepository.Any(subscriberId, name);
-        }
-
-        protected virtual bool Add(TPropertyModel model)
-        {
-            var property = Mapper.Map<TProperty>(model);
-            property.SubscriberId = UserContext.Current.SubscriberId;
-            var add = PropertyAddRepository.AddEntity(property);
-            if (add && PropertyAddTriggers != null)
-            {
-                PropertyAddTriggers.ToList().ForEach(trigger =>
-                {
-                    add &= trigger.Added(property);
-                });
-            }
-            return add;
-        }
     }
 }

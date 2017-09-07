@@ -10,14 +10,15 @@ namespace Smafac.Crm.Customer.Services.Property
 {
     class CustomerPropertySearchService : PropertySearchService<CustomerPropertyEntity, CustomerPropertyModel>, ICustomerPropertySearchService
     {
+
         public CustomerPropertySearchService(ICustomerPropertySearchRepository goodsSearchRepository)
         {
-            base.PropertySearchRepository = goodsSearchRepository;
+            base.CustomizedColumnSearchRepository = goodsSearchRepository;
         }
 
-        public override List<CustomerPropertyModel> GetProperties(Guid entityId)
+        public override List<CustomerPropertyModel> GetColumns(Guid entityId)
         {
-            return base.GetProperties();
+            return base.GetColumns();
         }
     }
 }

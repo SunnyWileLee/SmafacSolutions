@@ -57,7 +57,7 @@ namespace Smafac.Presentation.Controllers
         {
             var category = _goodsCategoryService.SearchService.GetCategory(categoryId);
             ViewData["category"] = category;
-            var properties = _goodsPropertyService.SearchService.GetProperties();
+            var properties = _goodsPropertyService.SearchService.GetColumns();
             var bounds = _goodsCategoryPropertySearchService.GetAssociations(categoryId).Select(s => s.Id).ToList();
             ViewData["boundIds"] = bounds;
             return View(properties);

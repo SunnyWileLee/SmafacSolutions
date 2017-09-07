@@ -1,4 +1,5 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Applications.CustomizedColumn;
+using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications.Property
 {
-    public interface IPropertyAddService<TPropertyModel> where TPropertyModel : PropertyModel
+    public interface IPropertyAddService<TPropertyModel>: ICustomizedColumnAddService<TPropertyModel>
+        where TPropertyModel : PropertyModel
     {
-        bool AddProperty(TPropertyModel model);
+        
     }
 }

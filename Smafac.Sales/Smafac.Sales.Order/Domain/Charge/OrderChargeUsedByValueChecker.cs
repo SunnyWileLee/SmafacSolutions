@@ -1,6 +1,5 @@
 ﻿using Smafac.Framework.Core.Models;
-using Smafac.Sales.Order.Repositories.Charge;
-using System;
+using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Domain.Charge
 {

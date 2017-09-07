@@ -11,27 +11,26 @@ using Smafac.Sales.Order.Domain;
 using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Applications.Charge;
 using Smafac.Sales.Order.Repositories.Charge;
+using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Services.Charge
 {
     class OrderChargeService : IOrderChargeService
     {
         private readonly IOrderChargeRepository _orderChargeRepository;
-        private readonly IOrderChargeValueRepository _orderChargeValueRepository;
         private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
-        private readonly IOrderChargeValueSearchRepository _orderChargeValueSearchRepository;
 
         public OrderChargeService(IOrderChargeRepository orderChargeRepository,
-                                  IOrderChargeValueRepository orderChargeValueRepository,
                                   IOrderChargeSearchRepository orderChargeSearchRepository,
-                                  IOrderChargeValueSearchRepository orderChargeValueSearchRepository
+                                  IOrderChargeDeleteService orderChargeDeleteService
                                     )
         {
             _orderChargeRepository = orderChargeRepository;
-            _orderChargeValueRepository = orderChargeValueRepository;
             _orderChargeSearchRepository = orderChargeSearchRepository;
-            _orderChargeValueSearchRepository = orderChargeValueSearchRepository;
+            DeleteService = orderChargeDeleteService;
         }
+
+        public IOrderChargeDeleteService DeleteService { get; set; }
 
         public bool AddCharge(OrderChargeModel model)
         {
@@ -43,20 +42,6 @@ namespace Smafac.Sales.Order.Services.Charge
             var charge = Mapper.Map<OrderChargeEntity>(model);
             charge.SubscriberId = subscriberId;
             return _orderChargeRepository.AddCharge(charge);
-        }
-
-        public bool DeleteCharge(Guid chargeId)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            if (_orderChargeValueSearchRepository.Any(subscriberId, chargeId))
-            {
-                return false;
-            }
-            if (_orderChargeRepository.DeleteCharge(subscriberId, chargeId))
-            {
-                return _orderChargeValueRepository.Delete(subscriberId, chargeId);
-            }
-            return true;
         }
 
         public bool UpdateCharge(OrderChargeModel model)

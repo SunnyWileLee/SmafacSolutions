@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Repositories.PropertyValue
 {
-    public abstract class PropertyValueSetRepository<TContext, TPropertyValue> : EntityRepository<TContext, TPropertyValue>
+    public abstract class PropertyValueSetRepository<TContext, TPropertyValue> : EntityAddRepository<TContext, TPropertyValue>
                                                             , IPropertyValueSetRepository<TPropertyValue>
         where TContext : DbContext
         where TPropertyValue : PropertyValueEntity

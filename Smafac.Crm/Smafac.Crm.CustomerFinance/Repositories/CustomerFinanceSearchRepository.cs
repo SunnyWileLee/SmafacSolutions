@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace Smafac.Crm.CustomerFinance.Repositories
 {
-    class CustomerFinanceSearchRepository : EntityRepository<CustomerFinanceContext, CustomerFinanceEntity>,
+    class CustomerFinanceSearchRepository : EntitySearchRepository<CustomerFinanceContext, CustomerFinanceEntity>,
                                             ICustomerFinanceSearchRepository
     {
         private readonly ICustomerFinanceJoiner _customerFinanceJoiner;
@@ -21,7 +21,7 @@ namespace Smafac.Crm.CustomerFinance.Repositories
             _customerFinanceJoiner = customerFinanceJoiner;
         }
 
-        public CustomerFinanceModel GetById(Guid subscriberId, Guid financeId)
+        public CustomerFinanceModel GetModel(Guid subscriberId, Guid financeId)
         {
             using (var context = ContextProvider.Provide())
             {

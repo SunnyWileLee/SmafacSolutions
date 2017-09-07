@@ -7,8 +7,9 @@ using Smafac.Framework.Models;
 using Smafac.Wms.Goods.Repositories;
 using Smafac.Framework.Core.Models;
 using Smafac.Wms.Goods.Models;
+using Smafac.Wms.Goods.Domain.CategoryProperty;
 
-namespace Smafac.Wms.Goods.Domain
+namespace Smafac.Wms.Goods.Domain.Property
 {
     class GoodsPropertyProvider : IGoodsPropertyProvider
     {

@@ -39,14 +39,14 @@ namespace Smafac.Framework.Core.Services.Category
         public TCategoryModel GetCategory(Guid id)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var category = CategorySearchRepository.GetCategory(subscriberId, id);
+            var category = CategorySearchRepository.GetEntity(subscriberId, id);
             return Mapper.Map<TCategoryModel>(category);
         }
 
         public CategoryModelSet<TCategoryModel> GetCategoryWithChildren(Guid id)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var category = CategorySearchRepository.GetCategory(subscriberId, id);
+            var category = CategorySearchRepository.GetEntity(subscriberId, id);
             if (category == null)
             {
                 return null;

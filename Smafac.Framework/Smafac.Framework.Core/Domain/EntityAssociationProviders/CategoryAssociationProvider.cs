@@ -36,7 +36,7 @@ namespace Smafac.Framework.Core.Domain.EntityAssociationProviders
 
         protected virtual CategoryEntity GetCategory(Guid categoryId)
         {
-            return CategorySearchRepository.GetCategory(UserContext.Current.SubscriberId, categoryId);
+            return CategorySearchRepository.GetEntity(UserContext.Current.SubscriberId, categoryId);
         }
 
         protected virtual IEnumerable<TAssociation> GetAssociations(Guid entityId)

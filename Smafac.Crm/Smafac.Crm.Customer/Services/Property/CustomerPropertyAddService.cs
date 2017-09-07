@@ -9,13 +9,13 @@ namespace Smafac.Crm.Customer.Services.Property
 {
     class CustomerPropertyAddService : PropertyAddService<CustomerPropertyEntity, CustomerPropertyModel>, ICustomerPropertyAddService
     {
-        public CustomerPropertyAddService(ICustomerPropertyAddRepository goodsPropertyAddRepository,
-                                            ICustomerPropertySearchRepository goodsPropertySearchRepository,
+        public CustomerPropertyAddService(ICustomerPropertyAddRepository customerPropertyAddRepository,
+                                            ICustomerPropertySearchRepository customerPropertySearchRepository,
                                             ICustomerPropertyAddTrigger[] customerPropertyAddTrigger)
         {
-            base.PropertyAddRepository = goodsPropertyAddRepository;
-            base.PropertySearchRepository = goodsPropertySearchRepository;
-            base.PropertyAddTriggers = customerPropertyAddTrigger;
+            base.CustomizedColumnAddRepository  = customerPropertyAddRepository;
+            base.CustomizedColumnSearchRepository  = customerPropertySearchRepository;
+            base.CustomizedColumnAddTriggers = customerPropertyAddTrigger;
         }
     }
 }

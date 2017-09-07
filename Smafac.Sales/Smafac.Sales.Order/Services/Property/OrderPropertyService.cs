@@ -11,28 +11,20 @@ namespace Smafac.Sales.Order.Services.Property
 {
     class OrderPropertyService : IOrderPropertyService
     {
-        private readonly IOrderPropertyAddService _orderPropertyAddService;
-        private readonly IOrderPropertyDeleteService _orderPropertyDeleteService;
-        private readonly IOrderPropertySearchService _orderPropertySearchService;
-        private readonly IOrderPropertyUpdateService _orderPropertyUpdateService;
-
         public OrderPropertyService(IOrderPropertyAddService orderPropertyAddService,
             IOrderPropertyDeleteService orderPropertyDeleteService,
             IOrderPropertySearchService orderPropertySearchService,
             IOrderPropertyUpdateService orderPropertyUpdateService)
         {
-            _orderPropertyAddService = orderPropertyAddService;
-            _orderPropertyDeleteService = orderPropertyDeleteService;
-            _orderPropertySearchService = orderPropertySearchService;
-            _orderPropertyUpdateService = orderPropertyUpdateService;
+            AddService = orderPropertyAddService;
+            DeleteService = orderPropertyDeleteService;
+            SearchService = orderPropertySearchService;
+            UpdateService = orderPropertyUpdateService;
         }
 
-        public IPropertyAddService<OrderPropertyModel> AddService => _orderPropertyAddService;
-
-        public IPropertyDeleteService<OrderPropertyModel> DeleteService => _orderPropertyDeleteService;
-
-        public IPropertyUpdateService<OrderPropertyModel> UpdateService => _orderPropertyUpdateService;
-
-        public IPropertySearchService<OrderPropertyModel> SearchService => _orderPropertySearchService;
+        public IOrderPropertyAddService AddService { get; set; }
+        public IOrderPropertyDeleteService DeleteService { get; set; }
+        public IOrderPropertySearchService SearchService { get; set; }
+        public IOrderPropertyUpdateService UpdateService { get; set; }
     }
 }

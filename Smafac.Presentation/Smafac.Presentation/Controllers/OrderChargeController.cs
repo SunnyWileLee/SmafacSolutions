@@ -38,7 +38,7 @@ namespace Smafac.Presentation.Controllers
         [HttpPost]
         public ActionResult DeleteOrderCharge(Guid id)
         {
-            var result = _orderChargeService.DeleteCharge(id);
+            var result = _orderChargeService.DeleteService.DeleteColumn(id);
             return BoolResult(result);
         }
     }

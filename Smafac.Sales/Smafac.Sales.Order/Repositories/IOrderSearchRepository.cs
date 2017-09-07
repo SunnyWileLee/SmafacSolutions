@@ -1,4 +1,5 @@
-﻿using Smafac.Sales.Order.Domain;
+﻿using Smafac.Framework.Core.Repositories;
+using Smafac.Sales.Order.Domain;
 using Smafac.Sales.Order.Models;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Repositories
 {
-    interface IOrderSearchRepository
+    interface IOrderSearchRepository : IEntitySearchRepository<OrderEntity>
     {
-        OrderEntity GetById(Guid subscriberId, Guid orderId);
+
     }
 }

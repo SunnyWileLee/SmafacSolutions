@@ -1,6 +1,7 @@
 ﻿using Smafac.Framework.Core.Services.Category;
 using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Domain;
+using Smafac.Wms.Goods.Domain.Property;
 using Smafac.Wms.Goods.Models;
 using Smafac.Wms.Goods.Repositories.Category;
 using System;
