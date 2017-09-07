@@ -16,6 +16,7 @@ namespace Smafac.Framework.Core.Repositories.Property
         protected override void SetValue(TProperty entity, TProperty source)
         {
             base.SetValue(entity, source);
+            entity.Type = source.Type;
         }
     }
 }

@@ -242,6 +242,7 @@
     <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryPropertyValueView.cshtml" />
     <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategorySliceView.cshtml" />
     <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryView.cshtml" />
+    <Content Include="Views\CustomerProperty\CustomerPropertyAddView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

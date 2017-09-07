@@ -9,6 +9,7 @@ namespace Smafac.Framework.Models
 {
     public class PropertyModel : CustomizedColumnModel
     {
+        [Display(Name="类型")]
         public PropertyType Type { get; set; }
     }
 }

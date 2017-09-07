@@ -20,11 +20,11 @@ namespace Smafac.Framework.Models
         }
         [MaxLength(20)]
         [Required]
+        [Display(Name= "属性名称")]
         public string Name { get; set; }
         public bool IsTableColumn { get; set; }
         public bool IsDeleteAssociations { get; set; }
-
-
+        [Display(Name = "显示在列表")]
         public string IsTableColumnOn
         {
             get
@@ -37,7 +37,7 @@ namespace Smafac.Framework.Models
                 IsTableColumn = CheckboxOn.Equals(value);
             }
         }
-
+        [Display(Name = "关联删除")] 
         public string IsDeleteAssociationsOn
         {
             get

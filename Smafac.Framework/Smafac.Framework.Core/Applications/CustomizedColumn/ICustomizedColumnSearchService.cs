@@ -11,5 +11,6 @@ namespace Smafac.Framework.Core.Applications.CustomizedColumn
     {
         List<TCustomizedColumnModel> GetColumns();
         List<TCustomizedColumnModel> GetColumns(Guid entityId);
+        TCustomizedColumnModel GetColumn(Guid id);
     }
 }

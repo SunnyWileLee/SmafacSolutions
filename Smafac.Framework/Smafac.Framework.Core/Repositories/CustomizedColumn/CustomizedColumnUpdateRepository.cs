@@ -10,6 +10,8 @@ namespace Smafac.Framework.Core.Repositories.CustomizedColumn
         protected override void SetValue(TCustomizedColumn entity, TCustomizedColumn source)
         {
             entity.Name = source.Name;
+            entity.IsDeleteAssociations = source.IsDeleteAssociations;
+            entity.IsTableColumn = source.IsTableColumn;
         }
     }
 }

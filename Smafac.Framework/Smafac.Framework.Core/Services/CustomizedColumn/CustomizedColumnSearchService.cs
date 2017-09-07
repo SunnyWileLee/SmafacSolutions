@@ -23,6 +23,13 @@ namespace Smafac.Framework.Core.Services.CustomizedColumn
             protected set;
         }
 
+        public virtual TCustomizedColumnModel GetColumn(Guid id)
+        {
+            var subscriberId = UserContext.Current.SubscriberId;
+            var property = CustomizedColumnSearchRepository.GetEntity(subscriberId, id);
+            return Mapper.Map<TCustomizedColumnModel>(property);
+        }
+
         public virtual List<TCustomizedColumnModel> GetColumns()
         {
             var subscriberId = UserContext.Current.SubscriberId;

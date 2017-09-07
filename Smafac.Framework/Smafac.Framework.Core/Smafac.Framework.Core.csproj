@@ -65,6 +65,7 @@
     <Compile Include="Applications\EntityAssociation\IEntityAssociationBindService.cs" />
     <Compile Include="Applications\EntityAssociation\IEntityAssociationSearchService.cs" />
     <Compile Include="Applications\IAutofacScanFrameworkCore.cs" />
+    <Compile Include="Applications\IInitDatas.cs" />
     <Compile Include="Applications\Property\IPropertyAddService.cs" />
     <Compile Include="Applications\Property\IPropertyDeleteService.cs" />
     <Compile Include="Applications\Property\IPropertySearchService.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
     <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />
     <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
+    <Compile Include="Domain\InitDatas\InitCategory.cs" />
     <Compile Include="Domain\Pages\IPageQueryer.cs" />
     <Compile Include="Domain\Pages\PageQueryer.cs" />
     <Compile Include="Domain\Property\IPropertyAddTrigger.cs" />

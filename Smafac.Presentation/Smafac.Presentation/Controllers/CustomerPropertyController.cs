@@ -31,13 +31,35 @@ namespace Smafac.Presentation.Controllers
             return View(properties);
         }
 
+        [HttpGet]
+        public ActionResult CustomerPropertyAddView(Guid? propertyId)
+        {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
+            if (propertyId == null)
+            {
+                return View();
+            }
+            else
+            {
+                var property = _customerPropertyService.SearchService.GetColumn(propertyId.Value);
+                return View(property);
+            }
+        }
+
         [HttpPost]
         public ActionResult AddCustomerProperty(CustomerPropertyModel model)
         {
             var result = _customerPropertyService.AddService.AddColumn(model);
             return BoolResult(result);
         }
-
+        [HttpPost]
+        public ActionResult EditCustomerProperty(CustomerPropertyModel model)
+        {
+            var result = _customerPropertyService.UpdateService.UpdateColumn(model);
+            return BoolResult(result);
+        }
+        
         [HttpPost]
         public ActionResult DeleteCustomerProperty(Guid id)
         {
