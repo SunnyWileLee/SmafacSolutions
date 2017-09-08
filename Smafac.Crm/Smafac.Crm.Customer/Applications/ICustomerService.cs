@@ -9,8 +9,8 @@ namespace Smafac.Crm.Customer.Applications
 {
     public interface ICustomerService
     {
+        ICustomerUpdateService UpdateService { get; set; }
         bool AddCustomer(CustomerModel model);
-        bool UpdateCustomer(CustomerModel model);
         bool DeleteCustomer(Guid customerId);
         CustomerModel CreateEmptyCustomer();
     }

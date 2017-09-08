@@ -20,13 +20,17 @@ namespace Smafac.Crm.Customer.Services
         private readonly ICustomerPropertyValueSetRepository _customerPropertyValueSetRepository;
         private readonly ICustomerPropertySearchRepository _customerPropertySearchRepository;
 
+        public ICustomerUpdateService UpdateService { get; set; }
+
         public CustomerService(ICustomerRepository customerRepository,
+                                ICustomerUpdateService customerUpdateService,
                                 ICustomerPropertySearchRepository customerPropertySearchRepository,
                                 ICustomerPropertyValueSetRepository customerPropertyValueSetRepository)
         {
             _customerRepository = customerRepository;
             _customerPropertySearchRepository = customerPropertySearchRepository;
             _customerPropertyValueSetRepository = customerPropertyValueSetRepository;
+            UpdateService = customerUpdateService;
         }
 
         public bool AddCustomer(CustomerModel model)

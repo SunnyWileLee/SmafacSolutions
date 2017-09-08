@@ -10,19 +10,19 @@
             <div class="form-group">
                 @Html.LabelFor(s => s.Customer.Name, new { @class = "col-lg-2 control-label" })
                 <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Customer.Name, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Customer.Name, new { @class = "form-control", id = "Name" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Customer.Address, new { @class = "col-lg-2 control-label" })
                 <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Customer.Address, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Customer.Address, new { @class = "form-control", id = "Address" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Customer.MobileNumber, new { @class = "col-lg-2 control-label" })
                 <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Customer.MobileNumber, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Customer.MobileNumber, new { @class = "form-control", id = "MobileNumber" })
                 </div>
             </div>
             @foreach (var property in Model.Customer.Properties)
@@ -30,12 +30,13 @@
                 <div class="form-group">
                     @Html.Label(property.PropertyName, new { @class = "col-lg-2 control-label" })
                     <div class="col-lg-10">
-                        @Html.TextBox(property.PropertyId.ToString(), property.Value, new { @class = "form-control" })
+                        @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control  input-propertyValue" })
                     </div>
                 </div>
             }
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
+                    <input type="button" class="btn btn-primary" onclick="editCustomer('@Model.Customer.Id')" value="保存" />
                     <a class="btn btn-default" href="/Customer/CustomerView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
@@ -48,3 +49,41 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+    function editCustomer(id) {
+        var name = $('#Name').val();
+        var address = $('#Address').val();
+        var mobileNumber = $('#MobileNumber').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+
+        var data = {
+            id: id,
+            name: name,
+            address: address,
+            mobileNumber: mobileNumber,
+            properties: properties
+        };
+
+        var url = '/Customer/EditCustomer';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>

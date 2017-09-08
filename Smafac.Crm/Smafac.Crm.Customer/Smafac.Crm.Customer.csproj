@@ -55,6 +55,7 @@
     <Compile Include="Applications\IAutofacScanCustomer.cs" />
     <Compile Include="Applications\ICustomerSearchService.cs" />
     <Compile Include="Applications\ICustomerService.cs" />
+    <Compile Include="Applications\ICustomerUpdateService.cs" />
     <Compile Include="Applications\Property\ICustomerPropertyAddService.cs" />
     <Compile Include="Applications\Property\ICustomerPropertyDeleteService.cs" />
     <Compile Include="Applications\Property\ICustomerPropertySearchService.cs" />
@@ -77,9 +78,11 @@
     <Compile Include="Repositories\CustomerContextProvider.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\CustomerSearchRepository.cs" />
+    <Compile Include="Repositories\CustomerUpdateRepository.cs" />
     <Compile Include="Repositories\ICustomerContextProvider.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerUpdateRepository.cs" />
     <Compile Include="Repositories\Pages\ICustomerPageQueryRepository.cs" />
     <Compile Include="Repositories\Pages\CustomerPageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\CustomerPropertyValueDeleteRepository.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Services\CustomerAutoMapper.cs" />
     <Compile Include="Services\CustomerSearchService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\CustomerUpdateService.cs" />
     <Compile Include="Services\Property\CustomerPropertyAddService.cs" />
     <Compile Include="Services\Property\CustomerPropertyDeleteService.cs" />
     <Compile Include="Services\Property\CustomerPropertySearchService.cs" />

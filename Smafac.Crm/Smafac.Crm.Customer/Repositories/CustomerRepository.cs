@@ -25,19 +25,6 @@ namespace Smafac.Crm.Customer.Repositories
             }
         }
 
-        public bool UpdateCustomer(CustomerEntity customer)
-        {
-            using (var context = _customerContextProvider.Provide())
-            {
-                var entity = context.Customers.FirstOrDefault(s => s.Id == customer.Id && s.SubscriberId == customer.SubscriberId);
-                entity.Address = customer.Address;
-                entity.KnownDate = customer.KnownDate;
-                entity.MobileNumber = customer.MobileNumber;
-                entity.Name = customer.Name;
-                return context.SaveChanges() > 0;
-            }
-        }
-
         public bool DeleteCustomer(Guid SubscriberId, Guid customerId)
         {
             using (var context = _customerContextProvider.Provide())

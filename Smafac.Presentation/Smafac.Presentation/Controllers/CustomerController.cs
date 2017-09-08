@@ -61,5 +61,12 @@ namespace Smafac.Presentation.Controllers
             var result = _customerService.AddCustomer(model);
             return Success(result);
         }
+
+        [HttpPost]
+        public ActionResult EditCustomer(CustomerModel model)
+        {
+            var result = _customerService.UpdateService.UpdateCustomer(model);
+            return BoolResult(result);
+        }
     }
 }

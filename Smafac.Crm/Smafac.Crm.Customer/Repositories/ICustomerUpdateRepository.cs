@@ -1,4 +1,5 @@
 ﻿using Smafac.Crm.Customer.Domain;
+using Smafac.Framework.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Crm.Customer.Repositories
 {
-    interface ICustomerRepository
+    interface ICustomerUpdateRepository : IEntityUpdateRepository<CustomerEntity>
     {
-        bool AddCustomer(CustomerEntity customer);
-        bool DeleteCustomer(Guid SubscriberId, Guid customerId);
     }
 }
