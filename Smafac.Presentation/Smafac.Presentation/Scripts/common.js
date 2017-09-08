@@ -68,7 +68,6 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 ajaxSuccess(data, function () {
-                    alert('保存成功');
                     window.location.reload();
                 });
             },
@@ -79,6 +78,7 @@ $(document).ready(function () {
 
 function ajaxSuccess(data, callback) {
     if (data.Code == 0) {
+        alert('操作成功')
         callback(data.Data);
     }
     else {

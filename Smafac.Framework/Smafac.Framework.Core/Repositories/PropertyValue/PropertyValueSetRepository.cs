@@ -56,7 +56,7 @@ namespace Smafac.Framework.Core.Repositories.PropertyValue
                     return false;
                 }
                 ModifyValue(value, model);
-                return context.SaveChanges() > 0;
+                return context.SaveChanges() >= 0;
             }
         }
 

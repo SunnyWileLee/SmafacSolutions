@@ -62,6 +62,7 @@
     <Compile Include="Applications\IAutofacScanGoods.cs" />
     <Compile Include="Applications\IGoodsSearchService.cs" />
     <Compile Include="Applications\IGoodsService.cs" />
+    <Compile Include="Applications\IGoodsUpdateService.cs" />
     <Compile Include="Applications\Property\IGoodsPropertyAddService.cs" />
     <Compile Include="Applications\Property\IGoodsPropertyDeleteService.cs" />
     <Compile Include="Applications\Property\IGoodsPropertySearchService.cs" />
@@ -102,11 +103,13 @@
     <Compile Include="Repositories\Category\IGoodsCategoryUpdateRepository.cs" />
     <Compile Include="Repositories\GoodsContext.cs" />
     <Compile Include="Repositories\GoodsContextProvider.cs" />
-    <Compile Include="Repositories\GoodsRepository.cs" />
+    <Compile Include="Repositories\GoodsAddRepository.cs" />
     <Compile Include="Repositories\GoodsSearchRepository.cs" />
+    <Compile Include="Repositories\GoodsUpdateRepository.cs" />
     <Compile Include="Repositories\IGoodsContextProvider.cs" />
-    <Compile Include="Repositories\IGoodsRepository.cs" />
+    <Compile Include="Repositories\IGoodsAddRepository.cs" />
     <Compile Include="Repositories\IGoodsSearchRepository.cs" />
+    <Compile Include="Repositories\IGoodsUpdateRepository.cs" />
     <Compile Include="Repositories\Joiners\GoodsJoiner.cs" />
     <Compile Include="Repositories\Joiners\IGoodsJoiner.cs" />
     <Compile Include="Repositories\Pages\GoodsPageQueryRepository.cs" />
@@ -135,6 +138,7 @@
     <Compile Include="Services\GoodsAutoMapper.cs" />
     <Compile Include="Services\GoodsSearchService.cs" />
     <Compile Include="Services\GoodsService.cs" />
+    <Compile Include="Services\GoodsUpdateService.cs" />
     <Compile Include="Services\Property\GoodsPropertyAddService.cs" />
     <Compile Include="Services\Property\GoodsPropertyDeleteService.cs" />
     <Compile Include="Services\Property\GoodsPropertySearchService.cs" />

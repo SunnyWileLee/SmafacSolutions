@@ -15,25 +15,28 @@ namespace Smafac.Wms.Goods.Services
 {
     class GoodsService : IGoodsService
     {
-        private readonly IGoodsRepository _goodsRepository;
+        private readonly IGoodsAddRepository _goodsRepository;
         private readonly IGoodsPropertyValueSetRepository _goodsPropertyValueSetRepository;
 
-        public GoodsService(IGoodsRepository goodsRepository,
+        public GoodsService(IGoodsAddRepository goodsRepository,
+                            IGoodsUpdateService updateService,
                             IGoodsPropertyValueSetRepository goodsPropertyValueSetRepository
                             )
         {
             _goodsRepository = goodsRepository;
             _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
+            UpdateService = updateService;
         }
 
+        public IGoodsUpdateService UpdateService { get; set; }
 
         public bool AddGoods(GoodsModel model)
         {
             var goods = Mapper.Map<GoodsEntity>(model);
             goods.SubscriberId = UserContext.Current.SubscriberId;
-            var addGoods = _goodsRepository.AddGoods(goods);
+            var add = _goodsRepository.AddEntity(goods);
 
-            if (addGoods && model.HasProperties)
+            if (add && model.HasProperties)
             {
                 model.Properties.ForEach(property =>
                 {
@@ -43,7 +46,7 @@ namespace Smafac.Wms.Goods.Services
                 var values = Mapper.Map<List<GoodsPropertyValueEntity>>(model.Properties);
                 return _goodsPropertyValueSetRepository.AddPropertyValues(goods.Id, values);
             }
-            return addGoods;
+            return add;
         }
 
         public GoodsModel CreateEmptyGoods()

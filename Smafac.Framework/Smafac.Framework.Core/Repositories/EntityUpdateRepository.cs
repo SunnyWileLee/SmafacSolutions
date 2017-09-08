@@ -24,7 +24,7 @@ namespace Smafac.Framework.Core.Repositories
                     return false;
                 }
                 SetValue(instance, entity);
-                return context.SaveChanges() > 0;
+                return context.SaveChanges() >= 0;
             }
         }
 

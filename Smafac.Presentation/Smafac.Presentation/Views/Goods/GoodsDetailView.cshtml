@@ -8,25 +8,38 @@
     <div class="col-lg-6">
         <form class="form-horizontal">
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control", @readonly = "readonly" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control", id = "Name" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control", id = "Price" })
                 </div>
             </div>
+            @if (Model.Goods.HasProperties)
+            {
+                foreach (var property in Model.Goods.Properties)
+                {
+                    <div class="form-group">
+                        @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                        <div class="col-lg-9">
+                            @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                        </div>
+                    </div>
+                }
+            }
             <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <input type="button" class="btn btn-primary" onclick="editGoods('@Model.Goods.Id')" value="保存" />
                     <a class="btn btn-default" href="/Goods/GoodsView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
@@ -36,19 +49,42 @@
         </form>
     </div>
     <div class="col-lg-6">
-        <form class="form-horizontal">
-            @if (Model.Goods.HasProperties)
-            {
-                foreach (var property in Model.Goods.Properties)
-                {
-                    <div class="form-group">
-                        @Html.Label(property.PropertyName, new { @class = "col-lg-2 control-label" })
-                        <div class="col-lg-10">
-                            @Html.TextBox(property.PropertyId.ToString(), property.Value, new { @class = "form-control" })
-                        </div>
-                    </div>
-                }
-            }
-        </form>
+
     </div>
 </div>
+
+<script type="text/javascript">
+    function editGoods(id) {
+        var name = $('#Name').val();
+        var price = $('#Price').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+
+        var data = {
+            id: id,
+            name: name,
+            price: price,
+            properties: properties
+        }
+
+        var url = '/Goods/EditGoods';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>

@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Applications
 {
-    public interface IGoodsService
+    public interface IGoodsUpdateService
     {
-        IGoodsUpdateService UpdateService { get; set; }
-        bool AddGoods(GoodsModel model);
-        GoodsModel CreateEmptyGoods();
+        bool UpdateGoods(GoodsModel model);
     }
 }

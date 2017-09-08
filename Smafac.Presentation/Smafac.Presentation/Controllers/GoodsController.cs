@@ -60,6 +60,12 @@ namespace Smafac.Presentation.Controllers
             var result = _goodsService.AddGoods(model);
             return BoolResult(result);
         }
+        [HttpPost]
+        public ActionResult EditGoods(GoodsModel model)
+        {
+            var result = _goodsService.UpdateService.UpdateGoods(model);
+            return BoolResult(result);
+        }
 
         [HttpGet]
         public ActionResult GoodsDetailView(Guid goodsId)
