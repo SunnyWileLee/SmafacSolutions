@@ -37,7 +37,7 @@
                     </div>
                     <div>
                         @*<a href="/Account/ForgetPasswordView">忘记密码</a>
-                        <a href="/Account/RegisterView" style="margin-left:50px">注册</a>*@
+                            <a href="/Account/RegisterView" style="margin-left:50px">注册</a>*@
                     </div>
                 </form>
             </div>
@@ -64,7 +64,8 @@
             success: function (data) {
                 ajaxSuccess(data, function (data) {
                     window.location.href = "/Subscriber/MainView";
-                })
+                }, true
+                )
             }
         });
     }

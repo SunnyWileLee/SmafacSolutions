@@ -76,9 +76,11 @@ $(document).ready(function () {
     });
 });
 
-function ajaxSuccess(data, callback) {
+function ajaxSuccess(data, callback, ignore) {
     if (data.Code == 0) {
-        alert('操作成功')
+        if (ignore != true) {
+            alert('操作成功')
+        }
         callback(data.Data);
     }
     else {
