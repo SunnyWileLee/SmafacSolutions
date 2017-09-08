@@ -64,6 +64,7 @@
     <Compile Include="Applications\IAutofacScanCustomerFinance.cs" />
     <Compile Include="Applications\ICustomerFinanceSearchService.cs" />
     <Compile Include="Applications\ICustomerFinanceService.cs" />
+    <Compile Include="Applications\ICustomerFinanceUpdateService.cs" />
     <Compile Include="Applications\Propety\ICustomerFinancePropertyAddService.cs" />
     <Compile Include="Applications\Propety\ICustomerFinancePropertyDeleteService.cs" />
     <Compile Include="Applications\Propety\ICustomerFinancePropertySearchService.cs" />
@@ -104,11 +105,13 @@
     <Compile Include="Repositories\Category\CustomerFinanceCategoryUpdateRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceContext.cs" />
     <Compile Include="Repositories\CustomerFinanceContextProvider.cs" />
+    <Compile Include="Repositories\CustomerFinanceUpdateRepository.cs" />
     <Compile Include="Repositories\ICustomerFinanceContextProvider.cs" />
     <Compile Include="Repositories\ICustomerFinanceRepository.cs" />
     <Compile Include="Repositories\ICustomerFinanceSearchRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceRepository.cs" />
     <Compile Include="Repositories\CustomerFinanceSearchRepository.cs" />
+    <Compile Include="Repositories\ICustomerFinanceUpdateRepository.cs" />
     <Compile Include="Repositories\Joiners\CustomerFinanceJoiner.cs" />
     <Compile Include="Repositories\Joiners\ICustomerFinanceJoiner.cs" />
     <Compile Include="Repositories\Pages\CustomerFinancePageQueryRepository.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Services\CustomerFinanceAutoMapper.cs" />
     <Compile Include="Services\CustomerFinanceSearchService.cs" />
     <Compile Include="Services\CustomerFinanceService.cs" />
+    <Compile Include="Services\CustomerFinanceUpdateService.cs" />
     <Compile Include="Services\Property\CustomerFinancePropertyAddService.cs" />
     <Compile Include="Services\Property\CustomerFinancePropertyDeleteService.cs" />
     <Compile Include="Services\Property\CustomerFinancePropertySearchService.cs" />

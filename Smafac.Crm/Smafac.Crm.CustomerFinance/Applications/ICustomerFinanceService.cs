@@ -5,8 +5,8 @@ namespace Smafac.Crm.CustomerFinance.Applications
 {
     public interface ICustomerFinanceService
     {
+        ICustomerFinanceUpdateService UpdateService { get; set; }
         bool AddCustomerFinance(CustomerFinanceModel model);
-        bool UpdateCustomerFinance(CustomerFinanceModel model);
         bool DeleteCustomerFinance(Guid orderId);
         CustomerFinanceModel CreateEmptyCustomerFinance();
     }

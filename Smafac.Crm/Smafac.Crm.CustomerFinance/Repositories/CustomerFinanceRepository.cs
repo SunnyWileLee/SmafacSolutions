@@ -36,20 +36,5 @@ namespace Smafac.Crm.CustomerFinance.Repositories
                 return context.SaveChanges() > 0;
             }
         }
-
-        public bool UpdateCustomerFinance(CustomerFinanceModel model)
-        {
-            using (var context = _orderContextProvider.Provide())
-            {
-                var order = context.CustomerFinances.FirstOrDefault(s => s.SubscriberId == model.SubscriberId && s.Id == model.Id);
-                if (order == null)
-                {
-                    return false;
-                }
-                order.CustomerId = model.CustomerId;
-                order.Memo = model.Memo;
-                return context.SaveChanges() > 0;
-            }
-        }
     }
 }

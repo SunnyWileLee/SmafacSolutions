@@ -19,13 +19,17 @@ namespace Smafac.Crm.CustomerFinance.Services
         private readonly ICustomerFinancePropertyValueSetRepository _financePropertyValueSetRepository;
         private readonly ICustomerFinancePropertySearchRepository _financePropertySearchRepository;
 
+        public ICustomerFinanceUpdateService UpdateService { get; set; }
+
         public CustomerFinanceService(ICustomerFinanceRepository financeRepository,
+                                    ICustomerFinanceUpdateService financeUpdateService,
                             ICustomerFinancePropertyValueSetRepository financePropertyValueSetRepository,
                             ICustomerFinancePropertySearchRepository financePropertySearchRepository)
         {
             _financeRepository = financeRepository;
             _financePropertyValueSetRepository = financePropertyValueSetRepository;
             _financePropertySearchRepository = financePropertySearchRepository;
+            UpdateService = financeUpdateService;
         }
 
         public bool AddCustomerFinance(CustomerFinanceModel model)
@@ -71,11 +75,6 @@ namespace Smafac.Crm.CustomerFinance.Services
         public bool DeleteCustomerFinance(Guid financeId)
         {
             return _financeRepository.DeleteCustomerFinance(UserContext.Current.SubscriberId, financeId);
-        }
-
-        public bool UpdateCustomerFinance(CustomerFinanceModel model)
-        {
-            return _financeRepository.UpdateCustomerFinance(model);
         }
     }
 }

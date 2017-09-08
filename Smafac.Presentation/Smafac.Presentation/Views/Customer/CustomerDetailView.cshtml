@@ -8,34 +8,34 @@
     <div class="col-lg-6">
         <form class=" form-horizontal">
             <div class="form-group">
-                @Html.LabelFor(s => s.Customer.Name, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Customer.Name, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Customer.Name, new { @class = "form-control", id = "Name" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Customer.Address, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Customer.Address, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Customer.Address, new { @class = "form-control", id = "Address" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Customer.MobileNumber, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
+                @Html.LabelFor(s => s.Customer.MobileNumber, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Customer.MobileNumber, new { @class = "form-control", id = "MobileNumber" })
                 </div>
             </div>
             @foreach (var property in Model.Customer.Properties)
             {
                 <div class="form-group">
-                    @Html.Label(property.PropertyName, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
+                    @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control  input-propertyValue" })
                     </div>
                 </div>
             }
             <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-2 col-lg-9">
                     <input type="button" class="btn btn-primary" onclick="editCustomer('@Model.Customer.Id')" value="保存" />
                     <a class="btn btn-default" href="/Customer/CustomerView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>

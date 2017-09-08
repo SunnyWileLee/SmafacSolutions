@@ -86,5 +86,12 @@ namespace Smafac.Presentation.Controllers
             });
             return View(finance);
         }
+
+        [HttpPost]
+        public ActionResult EditCustomerFinance(CustomerFinanceModel model)
+        {
+            var result = _financeService.UpdateService.UpdateCustomerFinance(model);
+            return BoolResult(result);
+        }
     }
 }
