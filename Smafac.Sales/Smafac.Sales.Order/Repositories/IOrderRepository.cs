@@ -11,7 +11,6 @@ namespace Smafac.Sales.Order.Repositories
     interface IOrderRepository
     {
         bool AddOrder(OrderEntity order);
-        bool UpdateOrder(OrderModel model);
         bool DeleteOrder(Guid subscriberId, Guid orderId);
     }
 }

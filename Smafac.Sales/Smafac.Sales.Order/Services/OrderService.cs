@@ -25,7 +25,10 @@ namespace Smafac.Sales.Order.Services
         private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
         private readonly IOrderPropertySearchRepository _orderPropertySearchRepository;
 
+        public IOrderUpdateService UpdateService { get; set; }
+
         public OrderService(IOrderRepository orderRepository,
+                            IOrderUpdateService updateService,
                             IOrderChargeValueRepository orderChargeValueRepository,
                             IOrderPropertyValueSetRepository orderPropertyValueSetRepository,
                             IOrderChargeSearchRepository orderChargeSearchRepository,
@@ -36,6 +39,7 @@ namespace Smafac.Sales.Order.Services
             _orderPropertyValueSetRepository = orderPropertyValueSetRepository;
             _orderChargeSearchRepository = orderChargeSearchRepository;
             _orderPropertySearchRepository = orderPropertySearchRepository;
+            UpdateService = updateService;
         }
 
         public bool AddOrder(OrderModel model)
@@ -102,11 +106,6 @@ namespace Smafac.Sales.Order.Services
         public bool DeleteOrder(Guid orderId)
         {
             return _orderRepository.DeleteOrder(UserContext.Current.SubscriberId, orderId);
-        }
-
-        public bool UpdateOrder(OrderModel model)
-        {
-            return _orderRepository.UpdateOrder(model);
         }
     }
 }

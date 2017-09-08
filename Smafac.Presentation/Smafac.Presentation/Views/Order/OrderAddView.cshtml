@@ -132,7 +132,7 @@
         var memo = $('#Memo').val();
 
         if (totalCharge == '') {
-            alert('请出入总价，或计算总价');
+            alert('请输入总价，或计算总价');
             return false;
         }
         var reg = /^\d+(\.\d+)?$/;
@@ -162,13 +162,23 @@
         })
 
         var charges = [];
+        var errorCharge = 0;
         $('.input-chargeValue').each(function (index) {
             var input = $(this);
             var chargeId = input.attr('name');
             var charge = input.val();
-            var chargeEntity = { chargeId: chargeId, charge: charge };
-            charges.push(chargeEntity);
+            if (!reg.test(charge)) {
+                input.val("请输入正确的数字");
+                errorCharge++;
+            }
+            else {
+                var chargeEntity = { chargeId: chargeId, charge: charge };
+                charges.push(chargeEntity);
+            }
         })
+        if (errorCharge > 0) {
+            return false;
+        }
 
         var data = {
             goodsId: goodsId,

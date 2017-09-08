@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Applications
 {
-    public interface IOrderService
+    public interface IOrderUpdateService
     {
-        IOrderUpdateService UpdateService { get; set; }
-        bool AddOrder(OrderModel model);
-        bool DeleteOrder(Guid orderId);
-        OrderModel CreateEmptyOrder();
+        bool UpdateOrder(OrderModel model);
     }
 }

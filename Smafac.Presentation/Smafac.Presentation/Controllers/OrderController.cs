@@ -87,6 +87,13 @@ namespace Smafac.Presentation.Controllers
             var result = _orderService.AddOrder(order);
             return Success(result);
         }
+
+        [HttpPost]
+        public ActionResult EditOrder(OrderModel model)
+        {
+            var result = _orderService.UpdateService.UpdateOrder(model);
+            return BoolResult(result);
+        }
         [HttpGet]
         public ActionResult OrderDetailView(Guid orderId)
         {

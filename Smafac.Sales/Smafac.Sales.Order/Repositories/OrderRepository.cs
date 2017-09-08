@@ -39,25 +39,5 @@ namespace Smafac.Sales.Order.Repositories
                 return context.SaveChanges() > 0;
             }
         }
-
-        public bool UpdateOrder(OrderModel model)
-        {
-            using (var context = _orderContextProvider.Provide())
-            {
-                var order = context.Orders.FirstOrDefault(s => s.SubscriberId == model.SubscriberId && s.Id == model.Id);
-                if (order == null)
-                {
-                    return false;
-                }
-                order.GoodsId = model.GoodsId;
-                order.Quantity = model.Quantity;
-                order.Charge = model.Charge;
-                order.CustomerId = model.CustomerId;
-                order.HopeDate = model.HopeDate;
-                order.OrderDate = model.OrderDate;
-                order.Memo = model.Memo;
-                return context.SaveChanges() > 0;
-            }
-        }
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Applications\IAutofacScanOrder.cs" />
     <Compile Include="Applications\IOrderSearchService.cs" />
     <Compile Include="Applications\IOrderService.cs" />
+    <Compile Include="Applications\IOrderUpdateService.cs" />
     <Compile Include="Applications\Property\IOrderPropertyAddService.cs" />
     <Compile Include="Applications\Property\IOrderPropertyDeleteService.cs" />
     <Compile Include="Applications\Property\IOrderPropertySearchService.cs" />
@@ -128,6 +129,8 @@
     <Compile Include="Repositories\Category\IOrderCategoryDeleteRepository.cs" />
     <Compile Include="Repositories\Category\IOrderCategorySearchRepository.cs" />
     <Compile Include="Repositories\Category\IOrderCategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\ChargeValue\IOrderChargeValueUpdateRepository.cs" />
+    <Compile Include="Repositories\ChargeValue\OrderChargeValueUpdateRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeAddRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeDeleteRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
@@ -141,10 +144,12 @@
     <Compile Include="Repositories\ChargeValue\OrderChargeValueSearchRepository.cs" />
     <Compile Include="Repositories\Charge\OrderChargeUpdateRepository.cs" />
     <Compile Include="Repositories\IOrderContextProvider.cs" />
+    <Compile Include="Repositories\IOrderUpdateRepository.cs" />
     <Compile Include="Repositories\Joiners\IOrderChargeValueJoiner.cs" />
     <Compile Include="Repositories\Joiners\OrderChargeValueJoiner.cs" />
     <Compile Include="Repositories\Joiners\OrderJoiner.cs" />
     <Compile Include="Repositories\Joiners\IOrderJoiner.cs" />
+    <Compile Include="Repositories\OrderUpdateRepository.cs" />
     <Compile Include="Repositories\Pages\OrderPageQueryRepository.cs" />
     <Compile Include="Repositories\Pages\IOrderPageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\OrderPropertyValueDeleteRepository.cs" />
@@ -186,6 +191,7 @@
     <Compile Include="Services\Charge\OrderChargeService.cs" />
     <Compile Include="Services\OrderSearchService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\OrderUpdateService.cs" />
     <Compile Include="Services\Property\OrderPropertyAddService.cs" />
     <Compile Include="Services\Property\OrderPropertyDeleteService.cs" />
     <Compile Include="Services\Property\OrderPropertySearchService.cs" />

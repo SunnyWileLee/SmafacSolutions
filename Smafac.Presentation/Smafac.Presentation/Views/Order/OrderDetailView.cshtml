@@ -10,65 +10,66 @@
             <div class="form-group">
                 @Html.LabelFor(s => s.Order.CustomerName, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.CustomerName, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Order.CustomerName, new { @class = "form-control", @readonly = "readonly" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Order.GoodsName, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.GoodsName, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Order.GoodsName, new { @class = "form-control", @readonly = "readonly" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Order.Price, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.Price, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Order.Quantity, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.Quantity, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Order.Charge, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.Charge, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Order.TotalCharge, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.TotalCharge, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Order.CreateTime, new { @class = "col-lg-3 control-label" })
+                @Html.LabelFor(s => s.Order.CreateTime, new { @class = "col-lg-3 control-label", @readonly = "readonly" })
                 <div class="col-lg-9">
                     @Html.TextBoxFor(s => s.Order.CreateTime, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
+                @Html.LabelFor(s => s.Order.Price, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Order.Price, new { @class = "form-control",id= "Price" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Order.Quantity, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Order.Quantity, new { @class = "form-control", id = "Quantity" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Order.Charge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Order.Charge, new { @class = "form-control", id = "Charge" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Order.TotalCharge, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Order.TotalCharge, new { @class = "form-control", id = "TotalCharge" })
+                </div>
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(s => s.Order.OrderDate, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.OrderDate, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Order.OrderDate, new { @class = "form-control", id = "OrderDate" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Order.HopeDate, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.HopeDate, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Order.HopeDate, new { @class = "form-control", id = "HopeDate" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(s => s.Order.Memo, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Order.Memo, new { @class = "form-control" })
+                    @Html.TextBoxFor(s => s.Order.Memo, new { @class = "form-control", id = "Memo" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-3 col-lg-9">
+                    <input type="button" class="btn btn-primary" onclick="editOrder('@Model.Order.Id')" value="保存" />
                     <a class="btn btn-default" href="/Order/OrderView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
@@ -84,7 +85,7 @@
                 <div class="form-group">
                     @Html.Label(charge.ChargeName, charge.ChargeName, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
-                        @Html.TextBox(charge.Id.ToString(), charge.Charge, new { @class = "form-control", @readonly = "readonly" })
+                        @Html.TextBox(charge.Id.ToString(), charge.Charge, new { @class = "form-control  input-chargeValue" })
                     </div>
                 </div>
             }
@@ -97,10 +98,99 @@
                 <div class="form-group">
                     @Html.Label(property.PropertyName, property.PropertyName, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
-                        @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control", @readonly = "readonly" })
+                        @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control  input-propertyValue" })
                     </div>
                 </div>
             }
         </form>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    function editOrder(id) {
+        var quantity = $('#Quantity').val();
+        var price = $('#Price').val();
+        var charge = $('#Charge').val();
+        var totalCharge = $('#TotalCharge').val();
+        var orderDate = $('#OrderDate').val();
+        var hopeDate = $('#HopeDate').val();
+        var memo = $('#Memo').val();
+        if (totalCharge == '') {
+            $('#TotalCharge').val('请输入总价，或计算总价');
+            return false;
+        }
+        var reg = /^\d+(\.\d+)?$/;
+        if (!reg.test(quantity)) {
+            $('#Quantity').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(price)) {
+            $('#Price').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(charge)) {
+            $('#Charge').val("请出入正确的数字");
+            return false;
+        }
+        if (!reg.test(totalCharge)) {
+            $('#TotalCharge').val("请出入正确的数字");
+            return false;
+        }
+
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+
+        var charges = [];
+        var errorCharge = 0;
+        $('.input-chargeValue').each(function (index) {
+            var input = $(this);
+            var charge = input.val();
+            if (!reg.test(charge)) {
+                input.val("请出入正确的数字");
+                errorCharge++;
+            }
+            else {
+                var id = input.attr('name');
+                var chargeEntity = { id: id, charge: charge };
+                charges.push(chargeEntity);
+            }
+        })
+        if (errorCharge > 0) {
+            return false;
+        }
+
+        var data = {
+            id: id,
+            quantity: quantity,
+            price: price,
+            charge: charge,
+            totalCharge: totalCharge,
+            orderDate: orderDate,
+            hopeDate: hopeDate,
+            memo: memo,
+            properties: properties,
+            charges: charges
+        }
+
+        var url = '/Order/EditOrder';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>
