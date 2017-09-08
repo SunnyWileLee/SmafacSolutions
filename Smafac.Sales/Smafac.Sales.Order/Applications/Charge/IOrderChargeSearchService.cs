@@ -10,5 +10,6 @@ namespace Smafac.Sales.Order.Applications.Charge
     public interface IOrderChargeSearchService
     {
         List<OrderChargeModel> GetCharges();
+        OrderChargeModel GetCharge(Guid id);
     }
 }

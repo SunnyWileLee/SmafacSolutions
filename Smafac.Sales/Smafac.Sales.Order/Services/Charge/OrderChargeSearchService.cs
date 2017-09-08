@@ -25,6 +25,12 @@ namespace Smafac.Sales.Order.Services.Charge
             _orderChargeProvider = orderChargeProvide;
         }
 
+        public OrderChargeModel GetCharge(Guid id)
+        {
+            var charge = _orderChargeSearchRepository.GetEntity(UserContext.Current.SubscriberId, id);
+            return Mapper.Map<OrderChargeModel>(charge);
+        }
+
         public List<OrderChargeModel> GetCharges()
         {
             var charges = _orderChargeSearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);

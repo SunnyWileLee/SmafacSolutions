@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.Property
 {
     class OrderPropertyUpdateRepository : PropertyUpdateRepository<OrderContext, OrderPropertyEntity>, IOrderPropertyUpdateRepository
     {
-        public OrderPropertyUpdateRepository(IOrderContextProvider orderContextProvider)
+        public OrderPropertyUpdateRepository(IOrderContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

@@ -243,6 +243,10 @@
     <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategorySliceView.cshtml" />
     <Content Include="Views\CustomerFinanceCategory\CustomerFinanceCategoryView.cshtml" />
     <Content Include="Views\CustomerProperty\CustomerPropertyAddView.cshtml" />
+    <Content Include="Views\GoodsProperty\GoodsPropertyAddView.cshtml" />
+    <Content Include="Views\CustomerFinanceProperty\CustomerFinancePropertyAddView.cshtml" />
+    <Content Include="Views\OrderProperty\OrderPropertyAddView.cshtml" />
+    <Content Include="Views\OrderCharge\OrderChargeAddView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

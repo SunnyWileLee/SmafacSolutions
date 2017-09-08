@@ -16,8 +16,8 @@ namespace Smafac.Framework.Core.Domain.CustomizedColumn
         }
 
         [MaxLength(20)]
-        public string Name { get; set; }
-        public bool IsTableColumn { get; set; }
-        public bool IsDeleteAssociations { get; set; }
+        public virtual string Name { get; set; }
+        public virtual bool IsTableColumn { get; set; }
+        public virtual bool IsDeleteAssociations { get; set; }
     }
 }

@@ -31,10 +31,32 @@ namespace Smafac.Presentation.Controllers
             return View(properties);
         }
 
+        [HttpGet]
+        public ActionResult OrderPropertyAddView(Guid? propertyId)
+        {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
+            if (propertyId == null)
+            {
+                return View();
+            }
+            else
+            {
+                var property = _orderPropertyService.SearchService.GetColumn(propertyId.Value);
+                return View(property);
+            }
+        }
+
         [HttpPost]
         public ActionResult AddOrderProperty(OrderPropertyModel model)
         {
             var result = _orderPropertyService.AddService.AddColumn(model);
+            return BoolResult(result);
+        }
+        [HttpPost]
+        public ActionResult EditOrderProperty(OrderPropertyModel model)
+        {
+            var result = _orderPropertyService.UpdateService.UpdateColumn(model);
             return BoolResult(result);
         }
 

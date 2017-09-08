@@ -13,7 +13,6 @@ namespace Smafac.Sales.Order.Domain
     [Table("OrderCharge")]
     class OrderChargeEntity : CustomizedColumnEntity
     {
-
         public OrderChargeValueEntity CreateEmptyValue()
         {
             return this.CreateValue(Guid.Empty, 0);

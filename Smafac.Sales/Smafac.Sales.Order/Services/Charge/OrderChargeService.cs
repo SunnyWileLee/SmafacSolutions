@@ -17,42 +17,18 @@ namespace Smafac.Sales.Order.Services.Charge
 {
     class OrderChargeService : IOrderChargeService
     {
-        private readonly IOrderChargeRepository _orderChargeRepository;
-        private readonly IOrderChargeSearchRepository _orderChargeSearchRepository;
-
-        public OrderChargeService(IOrderChargeRepository orderChargeRepository,
-                                  IOrderChargeSearchRepository orderChargeSearchRepository,
-                                  IOrderChargeDeleteService orderChargeDeleteService
-                                    )
+        public OrderChargeService(IOrderChargeDeleteService orderChargeDeleteService,
+                                IOrderChargeAddService orderChargeAddService,
+                                IOrderChargeUpdateService orderChargeUpdateService
+                                 )
         {
-            _orderChargeRepository = orderChargeRepository;
-            _orderChargeSearchRepository = orderChargeSearchRepository;
             DeleteService = orderChargeDeleteService;
+            AddService = orderChargeAddService;
+            UpdateService = orderChargeUpdateService;
         }
 
         public IOrderChargeDeleteService DeleteService { get; set; }
-
-        public bool AddCharge(OrderChargeModel model)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            if (_orderChargeSearchRepository.Any(subscriberId, model.Name))
-            {
-                return false;
-            }
-            var charge = Mapper.Map<OrderChargeEntity>(model);
-            charge.SubscriberId = subscriberId;
-            return _orderChargeRepository.AddCharge(charge);
-        }
-
-        public bool UpdateCharge(OrderChargeModel model)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            var charges = _orderChargeSearchRepository.GetEntities(subscriberId, s => true);
-            if (charges.Any(s => s.Name == model.Name && s.Id != model.Id))
-            {
-                return false;
-            }
-            return _orderChargeRepository.UpdateCharge(model);
-        }
+        public IOrderChargeAddService AddService { get; set; }
+        public IOrderChargeUpdateService UpdateService { get; set; }
     }
 }

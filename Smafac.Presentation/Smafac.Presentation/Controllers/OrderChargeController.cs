@@ -31,7 +31,28 @@ namespace Smafac.Presentation.Controllers
         [HttpPost]
         public ActionResult AddOrderCharge(OrderChargeModel model)
         {
-            var result = _orderChargeService.AddCharge(model);
+            var result = _orderChargeService.AddService.AddColumn(model);
+            return BoolResult(result);
+        }
+
+        [HttpGet]
+        public ActionResult OrderChargeAddView(Guid? propertyId)
+        {
+            if (propertyId == null)
+            {
+                return View();
+            }
+            else
+            {
+                var property = _orderChargeSearchService.GetCharge(propertyId.Value);
+                return View(property);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditOrderCharge(OrderChargeModel model)
+        {
+            var result = _orderChargeService.UpdateService.UpdateColumn(model);
             return BoolResult(result);
         }
 

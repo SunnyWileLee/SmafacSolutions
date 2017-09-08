@@ -28,6 +28,22 @@ namespace Smafac.Presentation.Controllers
             return View(properties);
         }
 
+        [HttpGet]
+        public ActionResult CustomerFinancePropertyAddView(Guid? propertyId)
+        {
+            var types = _propertyTypeProvider.Provide();
+            ViewData["types"] = types;
+            if (propertyId == null)
+            {
+                return View();
+            }
+            else
+            {
+                var property = _financePropertyService.SearchService.GetColumn(propertyId.Value);
+                return View(property);
+            }
+        }
+
         [HttpPost]
         public ActionResult AddCustomerFinanceProperty(CustomerFinancePropertyModel model)
         {
@@ -35,6 +51,12 @@ namespace Smafac.Presentation.Controllers
             return BoolResult(result);
         }
 
+        [HttpPost]
+        public ActionResult EditCustomerFinanceProperty(CustomerFinancePropertyModel model)
+        {
+            var result = _financePropertyService.UpdateService.UpdateColumn(model);
+            return BoolResult(result);
+        }
         [HttpPost]
         public ActionResult DeleteCustomerFinanceProperty(Guid id)
         {

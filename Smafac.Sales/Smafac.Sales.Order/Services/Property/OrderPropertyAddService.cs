@@ -13,11 +13,11 @@ namespace Smafac.Sales.Order.Services.Property
 {
     class OrderPropertyAddService : PropertyAddService<OrderPropertyEntity, OrderPropertyModel>, IOrderPropertyAddService
     {
-        public OrderPropertyAddService(IOrderPropertyAddRepository OrderPropertyAddRepository,
-                                        IOrderPropertySearchRepository OrderPropertySearchRepository)
+        public OrderPropertyAddService(IOrderPropertyAddRepository orderPropertyAddRepository,
+                                        IOrderPropertySearchRepository orderPropertySearchRepository)
         {
-            base.CustomizedColumnAddRepository = OrderPropertyAddRepository;
-            base.CustomizedColumnSearchRepository = OrderPropertySearchRepository;
+            base.CustomizedColumnAddRepository = orderPropertyAddRepository;
+            base.CustomizedColumnSearchRepository = orderPropertySearchRepository;
         }
     }
 }

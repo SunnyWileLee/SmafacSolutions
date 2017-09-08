@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.Order.Services.Property
 {
-    class OrderPropertyUpdateService : PropertyUpdateService<OrderPropertyEntity, OrderPropertyModel>, IOrderPropertyUpdateService
+    class OrderPropertyUpdateService : PropertyUpdateService<OrderPropertyEntity, OrderPropertyModel>,
+                                        IOrderPropertyUpdateService
     {
         public OrderPropertyUpdateService(IOrderPropertySearchRepository OrderPropertySearchRepository,
                                           IOrderPropertyUpdateRepository OrderPropertyUpdateRepository)
