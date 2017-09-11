@@ -10,5 +10,10 @@ namespace Smafac.Framework.Models
     public abstract class QueryBaseModel
     {
         public Guid SubscriberId { get; set; }
+
+        public virtual Expression CreateExpressionBody(Expression param)
+        {
+            return null;
+        }
     }
 }

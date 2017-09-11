@@ -21,7 +21,7 @@ namespace Smafac.Framework.Core.Repositories.Query
         public Expression<Func<TEntity, bool>> Create(QueryBaseModel model)
         {
             var param = this.CreateParameter();
-            Expression body = null;
+            Expression body = model.CreateExpressionBody(param);
             var properties = _queryPropertyProvider.Provide(model);
             foreach (var property in properties)
             {
