@@ -35,7 +35,7 @@
                     foreach (var column in tableColumns)
                     {
                         var property = finance.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
-                        var value = property == null ? string.Empty : property.Value;
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
                         <td>@value</td>
                     }
                 }

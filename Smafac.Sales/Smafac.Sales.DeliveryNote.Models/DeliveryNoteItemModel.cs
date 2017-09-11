@@ -1,15 +1,12 @@
-﻿using Smafac.Framework.Core.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.DeliveryNote.Domain
+namespace Smafac.Sales.DeliveryNote.Models
 {
-    [Table("DeliveryNoteItem")]
-    class DeliveryNoteItemEntity : SaasBaseEntity
+    public class DeliveryNoteItemModel
     {
         public Guid DeliveryNoteId { get; set; }
         public Guid GoodsId { get; set; }

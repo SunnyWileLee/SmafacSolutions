@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.DeliveryNote.Domain
 {
-    [Table("DeliveryNoteItem")]
-    class DeliveryNoteItemEntity : SaasBaseEntity
+    [Table("DeliveryNotePropertyValue")]
+    class DeliveryNotePropertyValueEntity : PropertyValueEntity
     {
         public Guid DeliveryNoteId { get; set; }
-        public Guid GoodsId { get; set; }
-        public decimal Quantity { get; set; }
-        public decimal Amount { get; set; }
     }
 }

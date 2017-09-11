@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.DeliveryNote.Models
+namespace Smafac.Sales.DeliveryNote.Applications
 {
-    public class Class1
+    public interface IAutofacScanDeliveryNote
     {
     }
 }

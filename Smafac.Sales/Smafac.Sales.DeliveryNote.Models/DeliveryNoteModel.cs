@@ -1,24 +1,17 @@
-﻿using Smafac.Framework.Core.Domain;
+﻿using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Sales.DeliveryNote.Domain
+namespace Smafac.Sales.DeliveryNote.Models
 {
-    [Table("DeliveryNote")]
-    class DeliveryNoteEntity : SaasBaseEntity
+    public class DeliveryNoteModel : SaasBaseModel
     {
-        public DeliveryNoteEntity()
-        {
-            DeliveryTime = DateTime.Now;
-        }
-
         public Guid CustomerId { get; set; }
-        public DateTime DeliveryTime { get; set; }
+        public Guid DeliveryTime { get; set; }
         public decimal Amount { get; set; }
         public Guid CategoryId { get; set; }
         [MaxLength(500)]
