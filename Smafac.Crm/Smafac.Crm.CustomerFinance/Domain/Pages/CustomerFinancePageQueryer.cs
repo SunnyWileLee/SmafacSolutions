@@ -6,6 +6,8 @@ using Smafac.Framework.Core.Domain.Pages;
 using Smafac.Framework.Core.Repositories.Query;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Linq.Expressions;
 
 namespace Smafac.Crm.CustomerFinance.Domain.Pages
 {
@@ -27,6 +29,11 @@ namespace Smafac.Crm.CustomerFinance.Domain.Pages
         protected override void SetPropertyValues(CustomerFinanceModel model, IEnumerable<CustomerFinancePropertyValueModel> properties)
         {
             model.Properties = base.WrapperPropertyValues(properties);
+        }
+
+        protected override Expression<Func<CustomerFinanceEntity, bool>> CreatePredicate(CustomerFinancePageQueryModel query)
+        {
+            return base.CreatePredicate(query);
         }
     }
 }

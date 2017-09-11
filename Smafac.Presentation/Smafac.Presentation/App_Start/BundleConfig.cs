@@ -24,13 +24,11 @@ namespace Smafac.Presentation.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js",
-                        "~/Scripts/respond.js",
+                        "~/Scripts/moment.js",
+                        "~/Scripts/moment-with-locales.js",
                         "~/Scripts/bootstrap-datetimepicker.js",
-                        "~/Scripts/bootstrap-datetimepicker.zh-CN.js",
                         "~/Scripts/common.js",
-                        "~/Scripts/tablepage.js",
-                        "~/Scripts/reason.js",
-                        "~/Scripts/order.js"
+                        "~/Scripts/tablepage.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

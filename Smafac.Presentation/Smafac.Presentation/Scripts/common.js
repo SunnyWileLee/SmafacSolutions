@@ -118,19 +118,15 @@ $(document).ready(function () {
     });
 });
 
-$(function () {
-    $('.form_date').datetimepicker({
-        language: 'zh-CN',
-        weekStart: 1,
-        todayBtn: 1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
-    });
-})
 
+$(document).ready(function () {
+    $(function () {
+        $('.date-select').datetimepicker({
+            format: 'YYYY/MM/DD',
+            locale: 'zh-cn'
+        });
+    });
+});
 
 function getPageHtml(page) {
     if (page > 0) {

@@ -9,6 +9,7 @@ namespace Smafac.Framework.Models
     public abstract class PageQueryBaseModel : QueryBaseModel
     {
         public const int DefaultPageSize = 20;
+
         public PageQueryBaseModel()
         {
             PageSize = DefaultPageSize;
