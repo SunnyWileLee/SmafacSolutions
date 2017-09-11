@@ -19,7 +19,7 @@
             {
         <li class="list-group-item">
             @category.Name
-            <div class="btn-group pull-right " role="group">
+            <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     操作
                     <span class="caret"></span>
@@ -29,7 +29,7 @@
                         <a class="btn btn-default" href="/OrderCategory/OrderCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
                         <a class="btn btn-default" href="/OrderCategory/OrderCategoryChargeBindView?categoryId=@category.Id">设置费用</a>
                     </li>
-                    @if (slice < 6)
+                    @if (slice < 4)
                     {
                         <li>
                             <a class="btn btn-default btn-category-slice" data-slice="@slice" data-id="@category.Id">子类别</a>
@@ -37,7 +37,6 @@
                     }
                 </ul>
             </div>
-
         </li>
     }
 </ul>
