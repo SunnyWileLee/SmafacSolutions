@@ -5,9 +5,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.Category
 {
     class CustomerFinanceCategoryDeleteRepository : CategoryDeleteRepository<CustomerFinanceContext, CustomerFinanceCategoryEntity>, ICustomerFinanceCategoryDeleteRepository
     {
-        public CustomerFinanceCategoryDeleteRepository(ICustomerFinanceContextProvider financeContextProvider)
+        public CustomerFinanceCategoryDeleteRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider = financeContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

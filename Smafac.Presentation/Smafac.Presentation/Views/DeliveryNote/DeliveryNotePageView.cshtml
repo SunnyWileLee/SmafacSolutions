@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DeliveryNoteModel>
+
+@{
+    Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+}
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>售价</th>
+            <th>类别</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goods in Model)
+            {
+            <tr>
+                <td>@goods.Amount</td>
+                <td>@goods.Price.ToString()</td>
+                <td>@goods.CategoryName</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = goods.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                        <td>@value</td>
+                    }
+                }
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteDetailView?goodsId=@goods.Id" type="button">详情</a>
+                        <a class="btn btn-default" href="/Order/OrderAddView?goodsId=@goods.Id" type="button">下单</a>
+                    </div>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

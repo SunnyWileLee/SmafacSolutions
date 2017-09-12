@@ -32,7 +32,7 @@ namespace Smafac.Framework.Core.Repositories
             }
         }
 
-        public IEnumerable<Guid> GetIds(Guid subscriberId, Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<Guid> GetIds(Guid subscriberId, Expression<Func<TEntity, bool>> predicate)
         {
             using (var context = ContextProvider.Provide())
             {

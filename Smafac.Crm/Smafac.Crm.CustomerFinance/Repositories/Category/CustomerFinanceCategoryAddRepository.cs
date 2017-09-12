@@ -5,9 +5,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.Category
 {
     class CustomerFinanceCategoryAddRepository : CategoryAddRepository<CustomerFinanceContext, CustomerFinanceCategoryEntity>, ICustomerFinanceCategoryAddRepository
     {
-        public CustomerFinanceCategoryAddRepository(ICustomerFinanceContextProvider financeContextProvider)
+        public CustomerFinanceCategoryAddRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider = financeContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

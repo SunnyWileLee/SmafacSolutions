@@ -11,9 +11,9 @@ namespace Smafac.Wms.Goods.Repositories.CategoryProperty
     class GoodsCategoryPropertySearchRepository : CategoryPropertySearchRepository<GoodsContext, GoodsCategoryEntity, GoodsPropertyEntity, GoodsCategoryPropertyEntity>,
                                                   IGoodsCategoryPropertySearchRepository
     {
-        public GoodsCategoryPropertySearchRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategoryPropertySearchRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

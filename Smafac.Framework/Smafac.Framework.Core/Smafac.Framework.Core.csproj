@@ -94,6 +94,7 @@
     <Compile Include="Domain\Property\PropertyDeleteCategoryTrigger.cs" />
     <Compile Include="Domain\Property\PropertyDeleteValueTrigger.cs" />
     <Compile Include="Domain\CategoryProperty\ICategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\Triggers\IEntityDeleteTrigger.cs" />
     <Compile Include="Domain\Triggers\IEntityTrigger.cs" />
     <Compile Include="Domain\PropertyEntity.cs" />
     <Compile Include="Domain\PropertyValueEntity.cs" />

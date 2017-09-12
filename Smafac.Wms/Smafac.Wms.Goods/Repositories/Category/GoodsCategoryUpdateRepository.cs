@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Category
 {
     class GoodsCategoryUpdateRepository : CategoryUpdateRepository<GoodsContext, GoodsCategoryEntity>, IGoodsCategoryUpdateRepository
     {
-        public GoodsCategoryUpdateRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategoryUpdateRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

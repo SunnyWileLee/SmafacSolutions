@@ -11,9 +11,9 @@ namespace Smafac.Sales.DeliveryNote.Repositories.Property
 {
     class DeliveryNotePropertySearchRepository : PropertySearchRepository<DeliveryNoteContext, DeliveryNotePropertyEntity>, IDeliveryNotePropertySearchRepository
     {
-        public DeliveryNotePropertySearchRepository(IDeliveryNoteContextProvider orderContextProvider)
+        public DeliveryNotePropertySearchRepository(IDeliveryNoteContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

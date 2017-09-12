@@ -11,9 +11,9 @@ namespace Smafac.Sales.DeliveryNote.Repositories.Category
 {
     class DeliveryNoteCategoryDeleteRepository : CategoryDeleteRepository<DeliveryNoteContext, DeliveryNoteCategoryEntity>, IDeliveryNoteCategoryDeleteRepository
     {
-        public DeliveryNoteCategoryDeleteRepository(IDeliveryNoteContextProvider orderContextProvider)
+        public DeliveryNoteCategoryDeleteRepository(IDeliveryNoteContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

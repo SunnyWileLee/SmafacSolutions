@@ -21,7 +21,15 @@ namespace Smafac.Framework.Core.Repositories.Category
             }
         }
 
-        public List<TCategory> GetCategories(Guid subscriberId, Guid parentId)
+        public virtual bool Any(Guid subscriberId)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                return context.Set<TCategory>().Any(s => s.SubscriberId == subscriberId);
+            }
+        }
+
+        public virtual List<TCategory> GetCategories(Guid subscriberId, Guid parentId)
         {
             using (var context = ContextProvider.Provide())
             {
@@ -29,7 +37,7 @@ namespace Smafac.Framework.Core.Repositories.Category
             }
         }
 
-        public TCategory GetCategory(Guid subscriberId, Guid categoryId)
+        public virtual TCategory GetCategory(Guid subscriberId, Guid categoryId)
         {
             using (var context = ContextProvider.Provide())
             {

@@ -12,9 +12,9 @@ namespace Smafac.Sales.Order.Repositories.CategoryCharge
     class OrderCategoryChargeSearchRepository : CategoryAssociationSearchRepository<OrderContext, OrderCategoryEntity, OrderChargeEntity, OrderCategoryChargeEntity>,
                                                   IOrderCategoryChargeSearchRepository
     {
-        public OrderCategoryChargeSearchRepository(IOrderContextProvider orderContextProvider)
+        public OrderCategoryChargeSearchRepository(IOrderContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
 
         public override bool Any(Guid subscriberId, Guid associationId)

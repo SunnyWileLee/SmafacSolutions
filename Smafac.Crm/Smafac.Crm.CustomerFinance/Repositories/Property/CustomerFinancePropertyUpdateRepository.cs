@@ -5,9 +5,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.Property
 {
     class CustomerFinancePropertyUpdateRepository : PropertyUpdateRepository<CustomerFinanceContext, CustomerFinancePropertyEntity>, ICustomerFinancePropertyUpdateRepository
     {
-        public CustomerFinancePropertyUpdateRepository(ICustomerFinanceContextProvider customerFinanceContextProvider)
+        public CustomerFinancePropertyUpdateRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider = customerFinanceContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

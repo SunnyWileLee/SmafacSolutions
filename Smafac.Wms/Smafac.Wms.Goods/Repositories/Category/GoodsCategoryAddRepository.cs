@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Category
 {
     class GoodsCategoryAddRepository : CategoryAddRepository<GoodsContext, GoodsCategoryEntity>, IGoodsCategoryAddRepository
     {
-        public GoodsCategoryAddRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategoryAddRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider  = goodsContextProvider;
+            base.ContextProvider  = contextProvider;
         }
     }
 }

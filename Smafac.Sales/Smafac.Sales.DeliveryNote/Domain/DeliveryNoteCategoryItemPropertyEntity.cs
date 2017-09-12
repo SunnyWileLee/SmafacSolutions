@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.DeliveryNote.Domain
 {
-    [Table("DeliveryNoteItemCategoryProperty")]
-    class DeliveryNoteItemCategoryPropertyEntity : CategoryPropertyEntity
+    [Table("DeliveryNoteCategoryItemProperty")]
+    class DeliveryNoteCategoryItemPropertyEntity : CategoryPropertyEntity
     {
     }
 }

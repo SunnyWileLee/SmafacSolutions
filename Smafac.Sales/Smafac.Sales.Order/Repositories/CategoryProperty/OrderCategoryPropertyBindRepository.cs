@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.CategoryProperty
     class OrderCategoryPropertyBindRepository : CategoryPropertyBindRepository<OrderContext, OrderCategoryEntity, OrderPropertyEntity, OrderCategoryPropertyEntity>,
                                                 IOrderCategoryPropertyBindRepository
     {
-        public OrderCategoryPropertyBindRepository(IOrderContextProvider orderContextProvider)
+        public OrderCategoryPropertyBindRepository(IOrderContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

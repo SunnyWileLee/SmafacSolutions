@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.Category
 {
     class OrderCategoryDeleteRepository : CategoryDeleteRepository<OrderContext, OrderCategoryEntity>, IOrderCategoryDeleteRepository
     {
-        public OrderCategoryDeleteRepository(IOrderContextProvider orderContextProvider)
+        public OrderCategoryDeleteRepository(IOrderContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

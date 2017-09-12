@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Category
 {
     class GoodsCategoryDeleteRepository : CategoryDeleteRepository<GoodsContext, GoodsCategoryEntity>, IGoodsCategoryDeleteRepository
     {
-        public GoodsCategoryDeleteRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategoryDeleteRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

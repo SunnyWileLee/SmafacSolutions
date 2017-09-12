@@ -186,6 +186,7 @@
     <Compile Include="Controllers\CustomerFinancePropertyController.cs" />
     <Compile Include="Controllers\CustomerPropertyController.cs" />
     <Compile Include="Controllers\CustomerFinanceCategoryController.cs" />
+    <Compile Include="Controllers\DeliveryNoteController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
@@ -257,6 +258,10 @@
     <Content Include="Views\CustomerFinanceProperty\CustomerFinancePropertyAddView.cshtml" />
     <Content Include="Views\OrderProperty\OrderPropertyAddView.cshtml" />
     <Content Include="Views\OrderCharge\OrderChargeAddView.cshtml" />
+    <Content Include="Views\DeliveryNote\DeliveryNoteAddView.cshtml" />
+    <Content Include="Views\DeliveryNote\DeliveryNoteDetailView.cshtml" />
+    <Content Include="Views\DeliveryNote\DeliveryNotePageView.cshtml" />
+    <Content Include="Views\DeliveryNote\DeliveryNoteView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,6 +309,14 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
       <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
       <Name>Smafac.Framework.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.DeliveryNote.Models\Smafac.Sales.DeliveryNote.Models.csproj">
+      <Project>{7142f25d-b888-435b-831d-95139990cf2f}</Project>
+      <Name>Smafac.Sales.DeliveryNote.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.DeliveryNote\Smafac.Sales.DeliveryNote.csproj">
+      <Project>{01c0d93c-7e44-4b2c-bb83-b7f9c4155548}</Project>
+      <Name>Smafac.Sales.DeliveryNote</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.Order.Models\Smafac.Sales.Order.Models.csproj">
       <Project>{0b64ba49-8a65-4c2e-9d50-376b330db6e7}</Project>

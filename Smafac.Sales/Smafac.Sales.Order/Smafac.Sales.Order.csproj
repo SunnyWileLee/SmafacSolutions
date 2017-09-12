@@ -133,7 +133,6 @@
     <Compile Include="Repositories\ChargeValue\OrderChargeValueUpdateRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeAddRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeDeleteRepository.cs" />
-    <Compile Include="Repositories\Charge\IOrderChargeRepository.cs" />
     <Compile Include="Repositories\Charge\IOrderChargeSearchRepository.cs" />
     <Compile Include="Repositories\ChargeValue\IOrderChargeValueRepository.cs" />
     <Compile Include="Repositories\ChargeValue\IOrderChargeValueSearchRepository.cs" />
@@ -160,7 +159,6 @@
     <Compile Include="Repositories\PropertyValue\IOrderPropertyValueSetRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IOrderSearchRepository.cs" />
-    <Compile Include="Repositories\Charge\OrderChargeRepository.cs" />
     <Compile Include="Repositories\ChargeValue\OrderChargeValueRepository.cs" />
     <Compile Include="Repositories\OrderContext.cs" />
     <Compile Include="Repositories\OrderContextProvider.cs" />

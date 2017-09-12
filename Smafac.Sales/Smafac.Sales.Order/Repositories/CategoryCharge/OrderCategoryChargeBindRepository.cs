@@ -11,9 +11,9 @@ namespace Smafac.Sales.Order.Repositories.CategoryCharge
     class OrderCategoryChargeBindRepository : CategoryAssociationBindRepository<OrderContext, OrderCategoryEntity, OrderChargeEntity, OrderCategoryChargeEntity>,
                                                 IOrderCategoryChargeBindRepository
     {
-        public OrderCategoryChargeBindRepository(IOrderContextProvider orderContextProvider)
+        public OrderCategoryChargeBindRepository(IOrderContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
 
         public override bool UnbindAssociation(Guid subscriberId, Guid associationId)

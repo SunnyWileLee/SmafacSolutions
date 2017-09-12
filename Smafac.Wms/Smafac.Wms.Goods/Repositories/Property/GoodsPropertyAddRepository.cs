@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Property
 {
     class GoodsPropertyAddRepository : PropertyAddRepository<GoodsContext, GoodsPropertyEntity>, IGoodsPropertyAddRepository
     {
-        public GoodsPropertyAddRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsPropertyAddRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider  = goodsContextProvider;
+            base.ContextProvider  = contextProvider;
         }
     }
 }

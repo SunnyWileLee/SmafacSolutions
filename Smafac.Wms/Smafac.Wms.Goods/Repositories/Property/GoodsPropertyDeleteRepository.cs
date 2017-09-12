@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Property
 {
     class GoodsPropertyDeleteRepository : PropertyDeleteRepository<GoodsContext, GoodsPropertyEntity>, IGoodsPropertyDeleteRepository
     {
-        public GoodsPropertyDeleteRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsPropertyDeleteRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

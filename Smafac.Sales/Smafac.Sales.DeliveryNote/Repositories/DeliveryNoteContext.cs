@@ -14,7 +14,7 @@ namespace Smafac.Sales.DeliveryNote.Repositories
         public DbSet<DeliveryNoteCategoryEntity> DeliveryNoteCategories { get; set; }
         public DbSet<DeliveryNoteCategoryPropertyEntity> DeliveryNoteCategoryProperties { get; set; }
         public DbSet<DeliveryNoteEntity> DeliveryNotes { get; set; }
-        public DbSet<DeliveryNoteItemCategoryPropertyEntity> DeliveryNoteItemCategoryProperties { get; set; }
+        public DbSet<DeliveryNoteCategoryItemPropertyEntity> DeliveryNoteItemCategoryProperties { get; set; }
         public DbSet<DeliveryNoteItemEntity> DeliveryNoteItems { get; set; }
         public DbSet<DeliveryNoteItemPropertyEntity> DeliveryNoteItemProperties { get; set; }
         public DbSet<DeliveryNoteItemPropertyValueEntity> DeliveryNoteItemPropertyValues { get; set; }

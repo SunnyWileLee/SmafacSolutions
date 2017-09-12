@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeliveryNoteCategoryModel.cs" />
+    <Compile Include="DeliveryNoteDetailModel.cs" />
     <Compile Include="DeliveryNoteItemModel.cs" />
     <Compile Include="DeliveryNoteItemPropertyModel.cs" />
     <Compile Include="DeliveryNoteItemPropertyValueModel.cs" />
     <Compile Include="DeliveryNoteModel.cs" />
+    <Compile Include="DeliveryNotePageQueryModel.cs" />
     <Compile Include="DeliveryNotePropertyModel.cs" />
     <Compile Include="DeliveryNotePropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,9 +11,9 @@ namespace Smafac.Sales.DeliveryNote.Repositories.Category
 {
     class DeliveryNoteCategoryAddRepository : CategoryAddRepository<DeliveryNoteContext, DeliveryNoteCategoryEntity>, IDeliveryNoteCategoryAddRepository
     {
-        public DeliveryNoteCategoryAddRepository(IDeliveryNoteContextProvider orderContextProvider)
+        public DeliveryNoteCategoryAddRepository(IDeliveryNoteContextProvider contextProvider)
         {
-            base.ContextProvider  = orderContextProvider;
+            base.ContextProvider  = contextProvider;
         }
     }
 }

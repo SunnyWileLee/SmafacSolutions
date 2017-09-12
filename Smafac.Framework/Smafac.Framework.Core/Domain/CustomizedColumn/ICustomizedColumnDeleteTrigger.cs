@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.CustomizedColumn
 {
-    public interface ICustomizedColumnDeleteTrigger<TCustomizedColumnEntity> : IEntityTrigger<TCustomizedColumnEntity>
+    public interface ICustomizedColumnDeleteTrigger<TCustomizedColumnEntity> : IEntityDeleteTrigger<TCustomizedColumnEntity>
         where TCustomizedColumnEntity : CustomizedColumnEntity
     {
-        bool Deleted(TCustomizedColumnEntity entity);
+        
     }
 }

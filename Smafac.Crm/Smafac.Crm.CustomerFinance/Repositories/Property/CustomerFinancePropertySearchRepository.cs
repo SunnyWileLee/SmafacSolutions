@@ -5,9 +5,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.Property
 {
     class CustomerFinancePropertySearchRepository : PropertySearchRepository<CustomerFinanceContext, CustomerFinancePropertyEntity>, ICustomerFinancePropertySearchRepository
     {
-        public CustomerFinancePropertySearchRepository(ICustomerFinanceContextProvider customerFinanceContextProvider)
+        public CustomerFinancePropertySearchRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider = customerFinanceContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

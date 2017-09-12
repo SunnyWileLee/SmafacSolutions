@@ -11,6 +11,6 @@ namespace Smafac.Sales.DeliveryNote.Domain
     [Table("DeliveryNoteItemProperty")]
     class DeliveryNoteItemPropertyEntity : PropertyEntity
     {
-
+        
     }
 }

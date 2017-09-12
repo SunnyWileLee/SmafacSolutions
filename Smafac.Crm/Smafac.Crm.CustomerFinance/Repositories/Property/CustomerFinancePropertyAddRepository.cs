@@ -10,9 +10,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.Property
 {
     class CustomerFinancePropertyAddRepository : PropertyAddRepository<CustomerFinanceContext, CustomerFinancePropertyEntity>, ICustomerFinancePropertyAddRepository
     {
-        public CustomerFinancePropertyAddRepository(ICustomerFinanceContextProvider customerFinanceContextProvider)
+        public CustomerFinancePropertyAddRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider  = customerFinanceContextProvider;
+            base.ContextProvider  = contextProvider;
         }
     }
 }

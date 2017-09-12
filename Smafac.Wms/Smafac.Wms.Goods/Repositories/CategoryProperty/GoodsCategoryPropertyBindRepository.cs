@@ -11,9 +11,9 @@ namespace Smafac.Wms.Goods.Repositories.CategoryProperty
     class GoodsCategoryPropertyBindRepository : CategoryPropertyBindRepository<GoodsContext, GoodsCategoryEntity, GoodsPropertyEntity, GoodsCategoryPropertyEntity>,
                                                 IGoodsCategoryPropertyBindRepository
     {
-        public GoodsCategoryPropertyBindRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategoryPropertyBindRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

@@ -5,9 +5,9 @@ namespace Smafac.Crm.Customer.Repositories.Property
 {
     class CustomerPropertyDeleteRepository : PropertyDeleteRepository<CustomerContext, CustomerPropertyEntity>, ICustomerPropertyDeleteRepository
     {
-        public CustomerPropertyDeleteRepository(ICustomerContextProvider customerFinanceContextProvider)
+        public CustomerPropertyDeleteRepository(ICustomerContextProvider contextProvider)
         {
-            base.ContextProvider = customerFinanceContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

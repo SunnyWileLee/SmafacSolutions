@@ -10,9 +10,9 @@ namespace Smafac.Wms.Goods.Repositories.Category
 {
     class GoodsCategorySearchRepository : CategorySearchRepository<GoodsContext, GoodsCategoryEntity>, IGoodsCategorySearchRepository
     {
-        public GoodsCategorySearchRepository(IGoodsContextProvider goodsContextProvider)
+        public GoodsCategorySearchRepository(IGoodsContextProvider contextProvider)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

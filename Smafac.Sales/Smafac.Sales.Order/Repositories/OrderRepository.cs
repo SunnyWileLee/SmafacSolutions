@@ -12,9 +12,9 @@ namespace Smafac.Sales.Order.Repositories
     {
         private readonly IOrderContextProvider _orderContextProvider;
 
-        public OrderRepository(IOrderContextProvider orderContextProvider)
+        public OrderRepository(IOrderContextProvider contextProvider)
         {
-            _orderContextProvider = orderContextProvider;
+            _orderContextProvider = contextProvider;
         }
 
         public bool AddOrder(OrderEntity order)

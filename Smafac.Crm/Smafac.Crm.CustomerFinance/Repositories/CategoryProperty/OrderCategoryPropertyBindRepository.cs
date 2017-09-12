@@ -6,9 +6,9 @@ namespace Smafac.Crm.CustomerFinance.Repositories.CategoryProperty
     class CustomerFinanceCategoryPropertyBindRepository : CategoryPropertyBindRepository<CustomerFinanceContext, CustomerFinanceCategoryEntity, CustomerFinancePropertyEntity, CustomerFinanceCategoryPropertyEntity>,
                                                 ICustomerFinanceCategoryPropertyBindRepository
     {
-        public CustomerFinanceCategoryPropertyBindRepository(ICustomerFinanceContextProvider financeContextProvider)
+        public CustomerFinanceCategoryPropertyBindRepository(ICustomerFinanceContextProvider contextProvider)
         {
-            base.ContextProvider = financeContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

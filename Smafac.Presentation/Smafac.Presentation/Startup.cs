@@ -11,6 +11,7 @@ using Smafac.Framework.Core.Applications;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Infrustructure;
 using Smafac.Presentation;
+using Smafac.Sales.DeliveryNote.Applications;
 using Smafac.Sales.Order.Applications;
 using Smafac.Wms.Goods.Applications;
 using System.Web.Mvc;
@@ -36,6 +37,7 @@ namespace Smafac.Presentation
             .AsImplementedInterfaces();
 
             Register<IAutofacScanFrameworkCore>(builder);
+            Register<IAutofacScanDeliveryNote>(builder);
             Register<IAutofacScanOrder>(builder);
             Register<IAutofacScanGoods>(builder);
             Register<IAutofacScanCustomer>(builder);

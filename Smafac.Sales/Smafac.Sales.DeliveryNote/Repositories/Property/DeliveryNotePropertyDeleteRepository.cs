@@ -11,9 +11,9 @@ namespace Smafac.Sales.DeliveryNote.Repositories.Property
 {
     class DeliveryNotePropertyDeleteRepository : PropertyDeleteRepository<DeliveryNoteContext, DeliveryNotePropertyEntity>, IDeliveryNotePropertyDeleteRepository
     {
-        public DeliveryNotePropertyDeleteRepository(IDeliveryNoteContextProvider orderContextProvider)
+        public DeliveryNotePropertyDeleteRepository(IDeliveryNoteContextProvider contextProvider)
         {
-            base.ContextProvider = orderContextProvider;
+            base.ContextProvider = contextProvider;
         }
     }
 }

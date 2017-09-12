@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,9 +53,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\Category\IDeliveryNoteCategoryAddService.cs" />
+    <Compile Include="Applications\Category\IDeliveryNoteCategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\IDeliveryNoteCategorySearchService.cs" />
+    <Compile Include="Applications\Category\IDeliveryNoteCategoryService.cs" />
+    <Compile Include="Applications\Category\IDeliveryNoteCategoryUpdateService.cs" />
     <Compile Include="Applications\IAutofacScanDeliveryNote.cs" />
+    <Compile Include="Applications\IDeliveryNoteSearchService.cs" />
+    <Compile Include="Applications\IDeliveryNoteService.cs" />
+    <Compile Include="Applications\IDeliveryNoteUpdateService.cs" />
+    <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryProperty\DeliveryNoteCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\DeliveryNoteCategoryPropertyProvider.cs" />
     <Compile Include="Domain\DeliveryNoteCategoryEntity.cs" />
-    <Compile Include="Domain\DeliveryNoteItemCategoryPropertyEntity.cs" />
+    <Compile Include="Domain\DeliveryNoteCategoryItemPropertyEntity.cs" />
     <Compile Include="Domain\DeliveryNoteCategoryPropertyEntity.cs" />
     <Compile Include="Domain\DeliveryNoteEntity.cs" />
     <Compile Include="Domain\DeliveryNoteItemEntity.cs" />
@@ -60,7 +75,21 @@
     <Compile Include="Domain\DeliveryNoteItemPropertyValueEntity.cs" />
     <Compile Include="Domain\DeliveryNotePropertyEntity.cs" />
     <Compile Include="Domain\DeliveryNotePropertyValueEntity.cs" />
+    <Compile Include="Domain\Pages\IDeliveryNotePageQueryer.cs" />
+    <Compile Include="Domain\Pages\DeliveryNotePageQueryer.cs" />
+    <Compile Include="Domain\Property\IDeliveryNotePropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\Property\IDeliveryNotePropertyProvider.cs" />
+    <Compile Include="Domain\Property\IDeliveryNotePropertyUsedChecker.cs" />
+    <Compile Include="Domain\Property\DeliveryNotePropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\DeliveryNotePropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Property\DeliveryNotePropertyProvider.cs" />
+    <Compile Include="Domain\Property\DeliveryNotePropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\DeliveryNotePropertyUsedByValueChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryItemProperty\DeliveryNoteCategoryItemPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryItemProperty\DeliveryNoteCategoryItemPropertySearchRepository.cs" />
+    <Compile Include="Repositories\CategoryItemProperty\IDeliveryNoteCategoryItemPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryItemProperty\IDeliveryNoteCategoryItemPropertySearchRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\IDeliveryNoteCategoryPropertyBindRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\IDeliveryNoteCategoryPropertySearchRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\DeliveryNoteCategoryPropertyBindRepository.cs" />
@@ -76,6 +105,36 @@
     <Compile Include="Repositories\DeliveryNoteContext.cs" />
     <Compile Include="Repositories\DeliveryNoteContextProvider.cs" />
     <Compile Include="Repositories\IDeliveryNoteContextProvider.cs" />
+    <Compile Include="Repositories\IDeliveryNoteRepository.cs" />
+    <Compile Include="Repositories\IDeliveryNoteSearchRepository.cs" />
+    <Compile Include="Repositories\IDeliveryNoteUpdateRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\DeliveryNoteItemPropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\DeliveryNoteItemPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\DeliveryNoteItemPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\IDeliveryNoteItemPropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\IDeliveryNoteItemPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\ItemPropertyValue\IDeliveryNoteItemPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\DeliveryNoteItemPropertyAddRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\DeliveryNoteItemPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\DeliveryNoteItemPropertySearchRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\DeliveryNoteItemPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\IDeliveryNoteItemPropertyAddRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\IDeliveryNoteItemPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\IDeliveryNoteItemPropertySearchRepository.cs" />
+    <Compile Include="Repositories\ItemProperty\IDeliveryNoteItemPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Item\IDeliveryNoteItemRepository.cs" />
+    <Compile Include="Repositories\Item\IDeliveryNoteItemSearchRepository.cs" />
+    <Compile Include="Repositories\Item\IDeliveryNoteItemUpdateRepository.cs" />
+    <Compile Include="Repositories\Item\DeliveryNoteItemRepository.cs" />
+    <Compile Include="Repositories\Item\DeliveryNoteItemSearchRepository.cs" />
+    <Compile Include="Repositories\Item\DeliveryNoteItemUpdateRepository.cs" />
+    <Compile Include="Repositories\DeliveryNoteRepository.cs" />
+    <Compile Include="Repositories\DeliveryNoteSearchRepository.cs" />
+    <Compile Include="Repositories\DeliveryNoteUpdateRepository.cs" />
+    <Compile Include="Repositories\Joiners\IDeliveryNoteJoiner.cs" />
+    <Compile Include="Repositories\Joiners\DeliveryNoteJoiner.cs" />
+    <Compile Include="Repositories\Pages\IDeliveryNotePageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\DeliveryNotePageQueryRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IDeliveryNotePropertyValueDeleteRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IDeliveryNotePropertyValueSearchRepository.cs" />
     <Compile Include="Repositories\PropertyValue\IDeliveryNotePropertyValueSetRepository.cs" />
@@ -90,7 +149,16 @@
     <Compile Include="Repositories\Property\DeliveryNotePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertyUpdateRepository.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategoryAddService.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategorySearchService.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategoryService.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategoryUpdateService.cs" />
     <Compile Include="Services\DeliveryNoteAutoMapper.cs" />
+    <Compile Include="Services\InitDeliveryNoteCategory.cs" />
+    <Compile Include="Services\DeliveryNoteSearchService.cs" />
+    <Compile Include="Services\DeliveryNoteService.cs" />
+    <Compile Include="Services\DeliveryNoteUpdateService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

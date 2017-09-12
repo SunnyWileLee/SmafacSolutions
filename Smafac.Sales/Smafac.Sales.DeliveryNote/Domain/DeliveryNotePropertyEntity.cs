@@ -11,5 +11,13 @@ namespace Smafac.Sales.DeliveryNote.Domain
     [Table("DeliveryNoteProperty")]
     class DeliveryNotePropertyEntity : PropertyEntity
     {
+        public DeliveryNotePropertyValueEntity CreateEmptyValue()
+        {
+            return new DeliveryNotePropertyValueEntity
+            {
+                PropertyId = this.Id,
+                SubscriberId = this.SubscriberId
+            };
+        }
     }
 }

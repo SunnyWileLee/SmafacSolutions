@@ -12,5 +12,6 @@ namespace Smafac.Framework.Core.Repositories.Category
     {
         bool Any(Guid subscriberId, string name);
         List<TCategory> GetCategories(Guid subscriberId, Guid parentId);
+        bool Any(Guid subscriberId);
     }
 }
