@@ -29,7 +29,7 @@ namespace Smafac.Sales.DeliveryNote.Services
         public DeliveryNoteModel GetDeliveryNote(Guid noteId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var note = _noteSearchRepository.GetEntity(subscriberId, noteId);
+            var note = _noteSearchRepository.GetDeliveryNote(subscriberId, noteId);
             var properties = _notePropertyValueSearchRepository.GetPropertyValues(subscriberId, noteId);
             var model = Mapper.Map<DeliveryNoteModel>(note);
             model.Properties = properties;

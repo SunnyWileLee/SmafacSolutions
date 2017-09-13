@@ -92,6 +92,10 @@ namespace Smafac.Presentation.Controllers
         public ActionResult DeliveryNoteDetailView(Guid noteId)
         {
             var note = _noteSearchService.GetDeliveryNoteDetail(noteId);
+            _noteWrappers.ToList().ForEach(wrapper =>
+            {
+                wrapper.Wrapper(new List<DeliveryNoteModel> { note.DeliveryNote });
+            });
             return View(note);
         }
     }

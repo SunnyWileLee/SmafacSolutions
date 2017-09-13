@@ -1,33 +1,50 @@
-﻿@model GoodsDetailModel
+﻿@model DeliveryNoteDetailModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <form class="form-horizontal">
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-3 control-label" })
+                @Html.LabelFor(s => s.DeliveryNote.CategoryName, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.TextBoxFor(s => s.DeliveryNote.CategoryName, new { @class = "form-control", @readonly = "readonly" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-3 control-label" })
+                @Html.LabelFor(s => s.DeliveryNote.CustomerName, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control", id = "Name" })
+                    @Html.TextBoxFor(s => s.DeliveryNote.CustomerName, new { @class = "form-control", @readonly = "readonly" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-3 control-label" })
+                @Html.LabelFor(s => s.DeliveryNote.DeliveryTime, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control", id = "Price" })
+                    <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="DeliveryTime" data-link-format="yyyy-mm-dd">
+                        <input type='text' class="form-control input-search" id="DeliveryTime" name="DeliveryTime" value="@Model.DeliveryNote.DeliveryTime.ToString("yyyy-MM-dd")" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
-            @if (Model.Goods.HasProperties)
+            <div class="form-group">
+                @Html.LabelFor(s => s.DeliveryNote.Amount, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.DeliveryNote.Amount, new { @class = "form-control", id = "Amount" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.DeliveryNote.Memo, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.DeliveryNote.Memo, new { @class = "form-control", id = "Memo" })
+                </div>
+            </div>
+            @if (Model.DeliveryNote.HasProperties)
             {
-                foreach (var property in Model.Goods.Properties)
+                foreach (var property in Model.DeliveryNote.Properties)
                 {
                     <div class="form-group">
                         @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
@@ -39,8 +56,8 @@
             }
             <div class="form-group">
                 <div class="col-lg-offset-3 col-lg-9">
-                    <input type="button" class="btn btn-primary" onclick="editGoods('@Model.Goods.Id')" value="保存" />
-                    <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                    <input type="button" class="btn btn-primary" onclick="editDeliveryNote('@Model.DeliveryNote.Id')" value="保存" />
+                    <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
                     </a>
@@ -48,15 +65,16 @@
             </div>
         </form>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
 
     </div>
 </div>
 
 <script type="text/javascript">
-    function editGoods(id) {
-        var name = $('#Name').val();
-        var price = $('#Price').val();
+    function editDeliveryNote(id) {
+        var amount = $('#Amount').val();
+        var deliveryTime = $('#DeliveryTime').val();
+        var memo = $('#Memo').val(); 
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
@@ -68,12 +86,13 @@
 
         var data = {
             id: id,
-            name: name,
-            price: price,
+            amount: amount,
+            deliveryTime: deliveryTime,
+            memo: memo,
             properties: properties
         }
 
-        var url = '/Goods/EditGoods';
+        var url = '/DeliveryNote/EditDeliveryNote';
         $.ajax({
             type: "post",
             url: url,
