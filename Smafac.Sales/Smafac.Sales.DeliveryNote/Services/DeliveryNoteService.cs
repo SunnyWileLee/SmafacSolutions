@@ -15,32 +15,32 @@ namespace Smafac.Sales.DeliveryNote.Services
 {
     class DeliveryNoteService : IDeliveryNoteService
     {
-        private readonly IDeliveryNoteRepository _orderRepository;
-        private readonly IDeliveryNotePropertyValueSetRepository _orderPropertyValueSetRepository;
-        private readonly IDeliveryNotePropertySearchRepository _orderPropertySearchRepository;
+        private readonly IDeliveryNoteRepository _noteRepository;
+        private readonly IDeliveryNotePropertyValueSetRepository _notePropertyValueSetRepository;
+        private readonly IDeliveryNotePropertySearchRepository _notePropertySearchRepository;
 
         public IDeliveryNoteUpdateService UpdateService { get; set; }
 
-        public DeliveryNoteService(IDeliveryNoteRepository orderRepository,
+        public DeliveryNoteService(IDeliveryNoteRepository noteRepository,
                             IDeliveryNoteUpdateService updateService,
-                            IDeliveryNotePropertyValueSetRepository orderPropertyValueSetRepository,
-                            IDeliveryNotePropertySearchRepository orderPropertySearchRepository)
+                            IDeliveryNotePropertyValueSetRepository notePropertyValueSetRepository,
+                            IDeliveryNotePropertySearchRepository notePropertySearchRepository)
         {
-            _orderRepository = orderRepository;
-            _orderPropertyValueSetRepository = orderPropertyValueSetRepository;
-            _orderPropertySearchRepository = orderPropertySearchRepository;
+            _noteRepository = noteRepository;
+            _notePropertyValueSetRepository = notePropertyValueSetRepository;
+            _notePropertySearchRepository = notePropertySearchRepository;
             UpdateService = updateService;
         }
 
         public bool AddDeliveryNote(DeliveryNoteModel model)
         {
-            var order = Mapper.Map<DeliveryNoteEntity>(model);
-            order.SubscriberId = UserContext.Current.SubscriberId;
-            if (_orderRepository.AddDeliveryNote(order))
+            var note = Mapper.Map<DeliveryNoteEntity>(model);
+            note.SubscriberId = UserContext.Current.SubscriberId;
+            if (_noteRepository.AddDeliveryNote(note))
             {
                 if (model.HasProperties)
                 {
-                    if (!AddPropertyValues(order, model.Properties))
+                    if (!AddPropertyValues(note, model.Properties))
                     {
                         var properties = JsonConvert.SerializeObject(model.Properties);
                     }
@@ -51,31 +51,26 @@ namespace Smafac.Sales.DeliveryNote.Services
         }
 
 
-        private bool AddPropertyValues(DeliveryNoteEntity order, IEnumerable<DeliveryNotePropertyValueModel> values)
+        private bool AddPropertyValues(DeliveryNoteEntity note, IEnumerable<DeliveryNotePropertyValueModel> values)
         {
             var properties = Mapper.Map<List<DeliveryNotePropertyValueEntity>>(values);
             properties.ForEach(property =>
             {
-                property.DeliveryNoteId = order.Id;
-                property.SubscriberId = order.SubscriberId;
+                property.DeliveryNoteId = note.Id;
+                property.SubscriberId = note.SubscriberId;
             });
-            return _orderPropertyValueSetRepository.AddPropertyValues(order.Id, properties);
+            return _notePropertyValueSetRepository.AddPropertyValues(note.Id, properties);
         }
 
         public DeliveryNoteModel CreateEmptyDeliveryNote()
         {
-            var properties = _orderPropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
+            var properties = _notePropertySearchRepository.GetEntities(UserContext.Current.SubscriberId, s => true);
             var propertyValues = properties.Select(s => s.CreateEmptyValue()).ToList();
-            var order = new DeliveryNoteModel
+            var note = new DeliveryNoteModel
             {
                 Properties = Mapper.Map<List<DeliveryNotePropertyValueModel>>(propertyValues)
             };
-            return order;
-        }
-
-        public bool DeleteDeliveryNote(Guid orderId)
-        {
-            return _orderRepository.DeleteDeliveryNote(UserContext.Current.SubscriberId, orderId);
+            return note;
         }
     }
 }

@@ -18,18 +18,21 @@ namespace Smafac.Presentation.Controllers
         private readonly IDeliveryNoteCategoryService _noteCategoryService;
         private readonly ICustomerSearchService _customerSearchService;
         private readonly IDeliveryNoteWrapper[] _noteWrappers;
+        private readonly IDeliveryNoteItemWrapper[] _itemWrappers;
 
         public DeliveryNoteController(IDeliveryNoteService noteService,
                                 IDeliveryNoteSearchService noteSearchService,
                                 ICustomerSearchService customerSearchService,
                                 IDeliveryNoteCategoryService noteCategoryService,
-                                IDeliveryNoteWrapper[] noteWrappers)
+                                IDeliveryNoteWrapper[] noteWrappers,
+                                IDeliveryNoteItemWrapper[] itemWrappers)
         {
             _noteService = noteService;
             _noteSearchService = noteSearchService;
             _noteCategoryService = noteCategoryService;
             _customerSearchService = customerSearchService;
             _noteWrappers = noteWrappers;
+            _itemWrappers = itemWrappers;
         }
 
         [HttpGet]
@@ -96,6 +99,13 @@ namespace Smafac.Presentation.Controllers
             {
                 wrapper.Wrapper(new List<DeliveryNoteModel> { note.DeliveryNote });
             });
+            if (note.Items.Any())
+            {
+                _itemWrappers.ToList().ForEach(wrapper =>
+                {
+                    wrapper.Wrapper(note.Items);
+                });
+            }
             return View(note);
         }
     }

@@ -7,7 +7,6 @@ namespace Smafac.Sales.DeliveryNote.Applications
     {
         IDeliveryNoteUpdateService UpdateService { get; set; }
         bool AddDeliveryNote(DeliveryNoteModel model);
-        bool DeleteDeliveryNote(Guid orderId);
         DeliveryNoteModel CreateEmptyDeliveryNote();
     }
 }

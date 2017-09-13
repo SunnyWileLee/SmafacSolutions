@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smafac.Framework.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace Smafac.Sales.DeliveryNote.Models
 {
-    public class DeliveryNoteItemModel
+    public class DeliveryNoteItemModel : SaasBaseModel
     {
+        public DeliveryNoteItemModel()
+        {
+        }
+
         public Guid DeliveryNoteId { get; set; }
+        [Display(Name = "商品")]
         public Guid GoodsId { get; set; }
         [Display(Name = "商品")]
         public string GoodsName { get; set; }

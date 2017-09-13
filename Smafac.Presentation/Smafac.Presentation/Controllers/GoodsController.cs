@@ -73,5 +73,11 @@ namespace Smafac.Presentation.Controllers
             var goods = _goodsSearchService.GetGoodsDetail(goodsId);
             return View(goods);
         }
+        [HttpPost]
+        public ActionResult SearchGoods(string key)
+        {
+            var goods = _goodsSearchService.GetGoods(key);
+            return Success(goods);
+        }
     }
 }

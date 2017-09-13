@@ -4,12 +4,16 @@
     Layout = null;
 }
 
-@foreach (var property in Model)
-{
-    <div class="form-group">
-        <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.Name</label>
-        <div class="col-lg-9">
-            <input class="form-control input-propertyValue" name="@property.Id.ToString()" />
-        </div>
-    </div>
-}
+<div>
+    <form class="form-horizontal">
+        @foreach (var property in Model)
+        {
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.Name</label>
+                <div class="col-lg-9">
+                    <input class="form-control input-propertyValue" name="@property.Id.ToString()" />
+                </div>
+            </div>
+        }
+    </form>
+</div>

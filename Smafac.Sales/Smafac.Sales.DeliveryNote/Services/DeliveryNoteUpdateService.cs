@@ -10,30 +10,30 @@ namespace Smafac.Sales.DeliveryNote.Services
 {
     class DeliveryNoteUpdateService : IDeliveryNoteUpdateService
     {
-        private readonly IDeliveryNoteUpdateRepository _orderUpdateRepository;
-        private readonly IDeliveryNotePropertyValueSetRepository _orderPropertyValueSetRepository;
+        private readonly IDeliveryNoteUpdateRepository _noteUpdateRepository;
+        private readonly IDeliveryNotePropertyValueSetRepository _notePropertyValueSetRepository;
 
-        public DeliveryNoteUpdateService(IDeliveryNoteUpdateRepository orderUpdateRepository,
-                                    IDeliveryNotePropertyValueSetRepository orderPropertyValueSetRepository)
+        public DeliveryNoteUpdateService(IDeliveryNoteUpdateRepository noteUpdateRepository,
+                                    IDeliveryNotePropertyValueSetRepository notePropertyValueSetRepository)
         {
-            _orderUpdateRepository = orderUpdateRepository;
-            _orderPropertyValueSetRepository = orderPropertyValueSetRepository;
+            _noteUpdateRepository = noteUpdateRepository;
+            _notePropertyValueSetRepository = notePropertyValueSetRepository;
         }
 
         public bool UpdateDeliveryNote(DeliveryNoteModel model)
         {
-            var order = Mapper.Map<DeliveryNoteEntity>(model);
-            order.SubscriberId = UserContext.Current.SubscriberId;
-            var update = _orderUpdateRepository.UpdateEntity(order);
+            var note = Mapper.Map<DeliveryNoteEntity>(model);
+            note.SubscriberId = UserContext.Current.SubscriberId;
+            var update = _noteUpdateRepository.UpdateEntity(note);
 
             if (update && model.HasProperties)
             {
                 model.Properties.ForEach(property =>
                 {
-                    property.DeliveryNoteId = order.Id;
-                    property.SubscriberId = order.SubscriberId;
+                    property.DeliveryNoteId = note.Id;
+                    property.SubscriberId = note.SubscriberId;
                     var value = Mapper.Map<DeliveryNotePropertyValueEntity>(property);
-                    update &= _orderPropertyValueSetRepository.SetPropertyValue(value);
+                    update &= _notePropertyValueSetRepository.SetPropertyValue(value);
                 });
             }
             return update;

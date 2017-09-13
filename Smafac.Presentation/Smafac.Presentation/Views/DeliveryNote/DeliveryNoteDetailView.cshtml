@@ -7,6 +7,7 @@
 <div class="row">
     <div class="col-lg-4">
         <form class="form-horizontal">
+            @Html.HiddenFor(s => s.DeliveryNote.Id, new { id = "DeliveryNoteId" })
             <div class="form-group">
                 @Html.LabelFor(s => s.DeliveryNote.CategoryName, new { @class = "col-lg-3 control-label" })
                 <div class="col-lg-9">
@@ -64,17 +65,176 @@
                 </div>
             </div>
         </form>
+        <div id="add-container">
+            <form class="form-horizontal">
+                @Html.Hidden("NoteItemId", new { id = "NoteItemId" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.ItemModel.GoodsId, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(s => s.ItemModel.GoodsId, new List<SelectListItem>(), new { @class = "form-control", id = "GoodsId" })
+                        @Html.TextBoxFor(s => s.ItemModel.GoodsName, new { @class = "form-control", id = "GoodsName" })
+                        <input type="button" class="btn btn-primary" onclick="searchGoods()" value="搜索" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.ItemModel.Quantity, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.ItemModel.Quantity, new { @class = "form-control", id = "Quantity" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.ItemModel.Amount, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.ItemModel.Amount, new { @class = "form-control", id = "Amount" })
+                    </div>
+                </div>
+                @foreach (var property in Model.ItemProperties)
+            {
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.Name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control input-itemPropertyValue" name="@property.Id.ToString()" />
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <input type="button" class="btn btn-primary" onclick="saveNoteItem()" value="保存条目" />
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="col-lg-8">
-
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(s => s.ItemModel.GoodsName)</th>
+                    <th>@Html.DisplayNameFor(s => s.ItemModel.Quantity)</th>
+                    <th>@Html.DisplayNameFor(s => s.ItemModel.Amount)</th>
+                    @{
+                        foreach (var column in Model.ItemTableColumns)
+                        {
+                            <th>@column.Name</th>
+                        }
+                    }
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.GoodsName</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Amount</td>
+                        @{
+                            foreach (var column in Model.ItemTableColumns)
+                            {
+                                var property = item.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                                var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                                <td>@value</td>
+                            }
+                        }
+                        <td>
+                            <div class="btn-group">
+                                <input class="btn btn-default" type="button" onclick="editShow('@item.Id')" value="详情">
+                            </div>
+                        </td>
+                    </tr>
+                            }
+            </tbody>
+        </table>
     </div>
 </div>
 
 <script type="text/javascript">
+    function editShow(id) {
+        var url = "/DeliveryNoteItem/DeliveryNoteEditView?itemId=" + id;
+
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "html",
+            success: function (data) {
+                $('#add-container').html(data);
+            },
+            error: function (data) { }
+        });
+    }
+
+    function saveNoteItem() {
+        var deliveryNoteId = $('#DeliveryNoteId').val();
+        var noteItemId = $('#NoteItemId').val();
+        var amount = $('#Amount').val();
+        var quantity = $('#Quantity').val();
+        var goodsId = $('#GoodsId').val();
+        if (goodsId == '' || goodsId == undefined) {
+            alert('请选在商品');
+            return false;
+        }
+
+        var properties = [];
+        $('.input-itemPropertyValue').each(function (index) {
+            var input = $(this);
+            var propertyId = input.attr('name');
+            var value = input.val();
+            var property = { propertyId: propertyId, value: value };
+            properties.push(property);
+        })
+        var data = {
+            deliveryNoteId: deliveryNoteId,
+            noteItemId: noteItemId,
+            amount: amount,
+            quantity: quantity,
+            goodsId: goodsId,
+            properties: properties
+        };
+
+        var url = "/DeliveryNoteItem/AddNoteItem";
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+
+    function searchGoods() {
+        var goodsName = $('#GoodsName').val();
+        if (goodsName == null || goodsName == undefined) {
+            alert('请输入商品关键字');
+            return false;
+        }
+        var url = "/Goods/SearchGoods";
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                key: goodsName
+            },
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    for (var index in data) {
+                        $("#GoodsId").append("<option value='" + data[index].Id + "'>" + data[index].Name + "</option>");
+                    }
+                }, true)
+            },
+            error: function (data) { }
+        });
+    }
+
     function editDeliveryNote(id) {
         var amount = $('#Amount').val();
         var deliveryTime = $('#DeliveryTime').val();
-        var memo = $('#Memo').val(); 
+        var memo = $('#Memo').val();
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);

@@ -188,6 +188,8 @@
     <Compile Include="Controllers\CustomerFinanceCategoryController.cs" />
     <Compile Include="Controllers\DeliveryNoteCategoryController.cs" />
     <Compile Include="Controllers\DeliveryNoteController.cs" />
+    <Compile Include="Controllers\DeliveryNoteItemController.cs" />
+    <Compile Include="Controllers\DeliveryNoteItemPropertyController.cs" />
     <Compile Include="Controllers\DeliveryNotePropertyController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
@@ -201,6 +203,8 @@
     <Compile Include="Domain\ConstResources.cs" />
     <Compile Include="Domain\CustomerFinance\CustomerFinanceCustomerWrapper.cs" />
     <Compile Include="Domain\CustomerFinance\ICustomerFinanceWrapper.cs" />
+    <Compile Include="Domain\DeliveryNote\DeliveryNoteItemGoodsWrapper.cs" />
+    <Compile Include="Domain\DeliveryNote\IDeliveryNoteItemWrapper.cs" />
     <Compile Include="Domain\DeliveryNote\IDeliveryNoteWrapper.cs" />
     <Compile Include="Domain\DeliveryNote\DeliveryNoteCustomerWrapper.cs" />
     <Compile Include="Domain\Order\IOrderWrapper.cs" />
@@ -272,6 +276,10 @@
     <Content Include="Views\DeliveryNoteCategory\DeliveryNoteCategoryPropertyValueView.cshtml" />
     <Content Include="Views\DeliveryNoteCategory\DeliveryNoteCategorySliceView.cshtml" />
     <Content Include="Views\DeliveryNoteCategory\DeliveryNoteCategoryView.cshtml" />
+    <Content Include="Views\DeliveryNoteItemProperty\DeliveryNoteItemPropertyAddView.cshtml" />
+    <Content Include="Views\DeliveryNoteItemProperty\DeliveryNoteItemPropertyView.cshtml" />
+    <Content Include="Views\DeliveryNoteCategory\DeliveryNoteCategoryItemPropertyBindView.cshtml" />
+    <Content Include="Views\DeliveryNoteItem\DeliveryNoteEditView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

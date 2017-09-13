@@ -1,0 +1,77 @@
+﻿@model DeliveryNoteItemModel
+
+@{
+    Layout = null;
+}
+
+<form class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(s => s.GoodsName, new { @class = "col-lg-3 control-label" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(s => s.GoodsName, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-3 control-label" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control", id = "item-quantity" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(s => s.Amount, new { @class = "col-lg-3 control-label" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(s => s.Amount, new { @class = "form-control", id = "item-amount" })
+        </div>
+    </div>
+    @foreach (var property in Model.Properties)
+            {
+        <div class="form-group">
+            <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.PropertyName</label>
+            <div class="col-lg-9">
+                <input class="form-control input-itemPropertyValue" name="@property.Id.ToString()" value="@property.Value" />
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <input type="button" class="btn btn-primary" onclick="editNoteItem('@Model.Id')" value="保存条目" />
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function editNoteItem(id) {
+        var amount = $('#item-amount').val();
+        var quantity = $('#item-quantity').val();
+
+        var properties = [];
+        $('.input-itemPropertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+        var data = {
+            id: id,
+            amount: amount,
+            quantity: quantity,
+            properties: properties
+        };
+
+        var url = "/DeliveryNoteItem/EditNoteItem";
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+
+</script>

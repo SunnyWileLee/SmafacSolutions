@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Smafac.Sales.DeliveryNote.Repositories.ItemPropertyValue
 {
-    class DeliveryNoteItemPropertyValueSearchRepository : PropertyValueSearchRepository<DeliveryNoteContext, DeliveryNoteItemPropertyValueEntity, DeliveryNotePropertyEntity, DeliveryNoteItemPropertyValueModel>
+    class DeliveryNoteItemPropertyValueSearchRepository : PropertyValueSearchRepository<DeliveryNoteContext, DeliveryNoteItemPropertyValueEntity, DeliveryNoteItemPropertyEntity, DeliveryNoteItemPropertyValueModel>
                                                 , IDeliveryNoteItemPropertyValueSearchRepository
     {
         public DeliveryNoteItemPropertyValueSearchRepository(IDeliveryNoteContextProvider contextProvider)
@@ -31,7 +31,7 @@ namespace Smafac.Sales.DeliveryNote.Repositories.ItemPropertyValue
             return values.GroupBy(s => s.DeliveryNoteItemId);
         }
 
-        protected override IQueryable<DeliveryNoteItemPropertyValueModel> JoinProperty(IQueryable<DeliveryNoteItemPropertyValueEntity> values, IQueryable<DeliveryNotePropertyEntity> properties)
+        protected override IQueryable<DeliveryNoteItemPropertyValueModel> JoinProperty(IQueryable<DeliveryNoteItemPropertyValueEntity> values, IQueryable<DeliveryNoteItemPropertyEntity> properties)
         {
             var query = from value in values
                         join property in properties on value.PropertyId equals property.Id

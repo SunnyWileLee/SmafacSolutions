@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smafac.Framework.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,19 @@ namespace Smafac.Sales.DeliveryNote.Models
 {
     public class DeliveryNoteDetailModel
     {
+        public DeliveryNoteItemModel ItemModel { get; set; }
 
         public DeliveryNoteModel DeliveryNote { get; set; }
-        public List<DeliveryNoteItemModel> DeliveryNoteItems { get; set; }
+        public List<DeliveryNoteItemModel> Items { get; set; }
 
         public DeliveryNoteDetailModel()
         {
-            DeliveryNoteItems = new List<DeliveryNoteItemModel>();
+            Items = new List<DeliveryNoteItemModel>();
+            ItemTableColumns = new List<CustomizedColumnModel>();
+            ItemProperties = new List<DeliveryNoteItemPropertyModel>();
         }
+
+        public List<CustomizedColumnModel> ItemTableColumns { get; set; }
+        public List<DeliveryNoteItemPropertyModel> ItemProperties { get; set; }
     }
 }

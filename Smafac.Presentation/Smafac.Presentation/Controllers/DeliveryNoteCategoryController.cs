@@ -1,6 +1,8 @@
 ﻿using Smafac.Framework.Models;
 using Smafac.Sales.DeliveryNote.Applications.Category;
+using Smafac.Sales.DeliveryNote.Applications.CategoryItemProperty;
 using Smafac.Sales.DeliveryNote.Applications.CategoryProperty;
+using Smafac.Sales.DeliveryNote.Applications.ItemProperty;
 using Smafac.Sales.DeliveryNote.Applications.Property;
 using Smafac.Sales.DeliveryNote.Models;
 using System;
@@ -16,18 +18,27 @@ namespace Smafac.Presentation.Controllers
         private readonly IDeliveryNoteCategoryService _noteCategoryService;
         private readonly IDeliveryNoteCategoryPropertyBindService _noteCategoryPropertyBindService;
         private readonly IDeliveryNoteCategoryPropertySearchService _noteCategoryPropertySearchService;
+        private readonly IDeliveryNoteCategoryItemPropertyBindService _itemCategoryPropertyBindService;
+        private readonly IDeliveryNoteCategoryItemPropertySearchService _itemCategoryPropertySearchService;
         private readonly IDeliveryNotePropertyService _notePropertyService;
+        private readonly IDeliveryNoteItemPropertyService _itemPropertyService;
 
         public DeliveryNoteCategoryController(IDeliveryNoteCategoryService noteCategoryService,
-                                       IDeliveryNoteCategoryPropertyBindService noteCategoryPropertyBindService,
-                                       IDeliveryNoteCategoryPropertySearchService noteCategoryPropertySearchService,
-                                       IDeliveryNotePropertyService notePropertyService
+                                        IDeliveryNoteCategoryPropertyBindService noteCategoryPropertyBindService,
+                                        IDeliveryNoteCategoryPropertySearchService noteCategoryPropertySearchService,
+                                        IDeliveryNotePropertyService notePropertyService,
+                                        IDeliveryNoteItemPropertyService itemPropertyService,
+                                        IDeliveryNoteCategoryItemPropertyBindService itemCategoryPropertyBindService,
+                                        IDeliveryNoteCategoryItemPropertySearchService itemCategoryPropertySearchService
                                         )
         {
             _noteCategoryService = noteCategoryService;
             _noteCategoryPropertyBindService = noteCategoryPropertyBindService;
             _noteCategoryPropertySearchService = noteCategoryPropertySearchService;
             _notePropertyService = notePropertyService;
+            _itemPropertyService = itemPropertyService;
+            _itemCategoryPropertyBindService = itemCategoryPropertyBindService;
+            _itemCategoryPropertySearchService = itemCategoryPropertySearchService;
         }
         [HttpGet]
         public ActionResult DeliveryNoteCategoryView()
@@ -62,11 +73,31 @@ namespace Smafac.Presentation.Controllers
             return View(properties);
         }
 
+        [HttpGet]
+        public ActionResult DeliveryNoteCategoryItemPropertyBindView(Guid categoryId)
+        {
+            var category = _noteCategoryService.SearchService.GetCategory(categoryId);
+            ViewData["category"] = category;
+            var properties = _itemPropertyService.SearchService.GetColumns();
+            var bounds = _itemCategoryPropertySearchService.GetAssociations(categoryId).Select(s => s.Id).ToList();
+            ViewData["boundIds"] = bounds;
+            return View(properties);
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult BindProperties(CategoryBindIdsModel model)
         {
             var result = _noteCategoryPropertyBindService.BindAssociations(model.CategoryId, model.BindIds);
+            return BoolResult(result);
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult BindItemProperties(CategoryBindIdsModel model)
+        {
+            var result = _itemCategoryPropertyBindService.BindAssociations(model.CategoryId, model.BindIds);
             return BoolResult(result);
         }
 

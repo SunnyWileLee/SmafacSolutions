@@ -26,7 +26,10 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="btn btn-default" href="/DeliveryNoteCategory/DeliveryNoteCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
+                        <a class="btn btn-default" href="/DeliveryNoteCategory/DeliveryNoteCategoryPropertyBindView?categoryId=@category.Id">设置送货单属性</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-default" href="/DeliveryNoteCategory/DeliveryNoteCategoryItemPropertyBindView?categoryId=@category.Id">设置条目属性</a>
                     </li>
                     @if (slice < 4)
                     {

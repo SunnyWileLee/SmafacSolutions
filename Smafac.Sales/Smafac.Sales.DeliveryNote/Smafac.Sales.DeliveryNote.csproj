@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryItemProperty\IDeliveryNoteCategoryItemPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryItemProperty\IDeliveryNoteCategoryItemPropertySearchService.cs" />
     <Compile Include="Applications\CategoryProperty\IDeliveryNoteCategoryPropertyBindService.cs" />
     <Compile Include="Applications\CategoryProperty\IDeliveryNoteCategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\IDeliveryNoteCategoryAddService.cs" />
@@ -64,11 +66,23 @@
     <Compile Include="Applications\IDeliveryNoteSearchService.cs" />
     <Compile Include="Applications\IDeliveryNoteService.cs" />
     <Compile Include="Applications\IDeliveryNoteUpdateService.cs" />
+    <Compile Include="Applications\ItemProperty\IDeliveryNoteItemPropertyAddService.cs" />
+    <Compile Include="Applications\ItemProperty\IDeliveryNoteItemPropertyDeleteService.cs" />
+    <Compile Include="Applications\ItemProperty\IDeliveryNoteItemPropertySearchService.cs" />
+    <Compile Include="Applications\ItemProperty\IDeliveryNoteItemPropertyService.cs" />
+    <Compile Include="Applications\ItemProperty\IDeliveryNoteItemPropertyUpdateService.cs" />
+    <Compile Include="Applications\Item\IDeliveryNoteItemSearchService.cs" />
+    <Compile Include="Applications\Item\IDeliveryNoteItemService.cs" />
+    <Compile Include="Applications\Item\IDeliveryNoteItemUpdateService.cs" />
     <Compile Include="Applications\Property\IDeliveryNotePropertyAddService.cs" />
     <Compile Include="Applications\Property\IDeliveryNotePropertyDeleteService.cs" />
     <Compile Include="Applications\Property\IDeliveryNotePropertySearchService.cs" />
     <Compile Include="Applications\Property\IDeliveryNotePropertyService.cs" />
     <Compile Include="Applications\Property\IDeliveryNotePropertyUpdateService.cs" />
+    <Compile Include="Domain\CategoryItemProperty\DeliveryNoteCategoryItemPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryItemProperty\DeliveryNoteCategoryItemPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryItemProperty\IDeliveryNoteCategoryItemPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryItemProperty\IDeliveryNoteCategoryItemPropertyProvider.cs" />
     <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyProvider.cs" />
     <Compile Include="Domain\CategoryProperty\DeliveryNoteCategoryPropertyBindTrigger.cs" />
@@ -82,6 +96,14 @@
     <Compile Include="Domain\DeliveryNoteItemPropertyValueEntity.cs" />
     <Compile Include="Domain\DeliveryNotePropertyEntity.cs" />
     <Compile Include="Domain\DeliveryNotePropertyValueEntity.cs" />
+    <Compile Include="Domain\ItemProperty\DeliveryNoteItemPropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\ItemProperty\DeliveryNoteItemPropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\ItemProperty\DeliveryNoteItemPropertyProvider.cs" />
+    <Compile Include="Domain\ItemProperty\DeliveryNoteItemPropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\ItemProperty\DeliveryNotePropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\ItemProperty\IDeliveryNoteItemPropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\ItemProperty\IDeliveryNoteItemPropertyProvider.cs" />
+    <Compile Include="Domain\ItemProperty\IDeliveryNoteItemPropertyUsedChecker.cs" />
     <Compile Include="Domain\Pages\IDeliveryNotePageQueryer.cs" />
     <Compile Include="Domain\Pages\DeliveryNotePageQueryer.cs" />
     <Compile Include="Domain\Property\IDeliveryNotePropertyDeleteTrigger.cs" />
@@ -156,6 +178,8 @@
     <Compile Include="Repositories\Property\DeliveryNotePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertyUpdateRepository.cs" />
+    <Compile Include="Services\CategoryItemProperty\DeliveryNoteCategoryItemPropertyBindService.cs" />
+    <Compile Include="Services\CategoryItemProperty\DeliveryNoteCategoryItemPropertySearchService.cs" />
     <Compile Include="Services\CategoryProperty\DeliveryNoteCategoryPropertyBindService.cs" />
     <Compile Include="Services\CategoryProperty\DeliveryNoteCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\DeliveryNoteCategoryAddService.cs" />
@@ -168,11 +192,19 @@
     <Compile Include="Services\DeliveryNoteSearchService.cs" />
     <Compile Include="Services\DeliveryNoteService.cs" />
     <Compile Include="Services\DeliveryNoteUpdateService.cs" />
-    <Compile Include="Services\Property\OrderPropertyAddService.cs" />
-    <Compile Include="Services\Property\OrderPropertyDeleteService.cs" />
-    <Compile Include="Services\Property\OrderPropertySearchService.cs" />
-    <Compile Include="Services\Property\OrderPropertyService.cs" />
-    <Compile Include="Services\Property\OrderPropertyUpdateService.cs" />
+    <Compile Include="Services\ItemProperty\DeliveryNoteItemPropertyAddService.cs" />
+    <Compile Include="Services\ItemProperty\DeliveryNoteItemPropertyDeleteService.cs" />
+    <Compile Include="Services\ItemProperty\DeliveryNoteItemPropertySearchService.cs" />
+    <Compile Include="Services\ItemProperty\DeliveryNoteItemPropertyService.cs" />
+    <Compile Include="Services\ItemProperty\DeliveryNoteItemPropertyUpdateService.cs" />
+    <Compile Include="Services\Item\DeliveryNoteItemSearchService.cs" />
+    <Compile Include="Services\Item\DeliveryNoteItemService.cs" />
+    <Compile Include="Services\Item\DeliveryNoteUpdateService.cs" />
+    <Compile Include="Services\Property\DeliveryNotePropertyAddService.cs" />
+    <Compile Include="Services\Property\DeliveryNotePropertyDeleteService.cs" />
+    <Compile Include="Services\Property\DeliveryNotePropertySearchService.cs" />
+    <Compile Include="Services\Property\DeliveryNotePropertyService.cs" />
+    <Compile Include="Services\Property\DeliveryNotePropertyUpdateService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
