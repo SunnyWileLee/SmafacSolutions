@@ -1,35 +1,53 @@
-﻿@model GoodsModel
+﻿@model DeliveryNoteModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
+    var customers= ViewData["customers"] as IEnumerable<SelectListItem>;
 }
 
 <div class="row">
     <div class="col-lg-6">
         <form class="form-horizontal">
             <div class="form-group">
-                @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.DropDownListFor(s => s.CategoryId, categories, string.Empty, new { @class = "form-control" })
+                @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.DropDownListFor(s => s.CategoryId, categories, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Name, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
+                @Html.LabelFor(s => s.CustomerId, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.DropDownListFor(s => s.CustomerId, customers, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.Price, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-10">
-                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control" })
+                @Html.LabelFor(s => s.Amount, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Amount, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <button type="button" class="btn btn-default" onclick="addGoods()">提交</button>
-                    <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                @Html.LabelFor(s => s.DeliveryTime, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="DeliveryTime" data-link-format="yyyy-mm-dd">
+                        <input type='text' class="form-control input-search" id="DeliveryTime" name="DeliveryTime" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Memo, new { @class = "col-lg-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(s => s.Memo, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-9">
+                    <button type="button" class="btn btn-default" onclick="addDeliveryNote()">提交</button>
+                    <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteView" type="button">
                         <i class="m-icon-swapleft m-icon-white"></i>
                         返回列表
                     </a>
@@ -43,10 +61,12 @@
 </div>
 
 <script type="text/javascript">
-    function addGoods() {
-        var name = $('#Name').val();
-        var price = $('#Price').val();
+    function addDeliveryNote() {
+        var amount = $('#Amount').val();
+        var customerId = $('#CustomerId').val();
         var categoryId = $('#CategoryId').val();
+        var deliveryTime = $('#DeliveryTime').val();
+        var memo = $('#Memo').val(); 
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
@@ -57,13 +77,15 @@
         })
 
         var data = {
-            name: name,
-            price: price,
+            amount: amount,
+            customerId: customerId,
             categoryId: categoryId,
+            memo: memo,
+            deliveryTime:deliveryTime,
             properties: properties
         }
 
-        var url = '/Goods/AddGoods';
+        var url = '/DeliveryNote/AddDeliveryNote';
         $.ajax({
             type: "post",
             url: url,
@@ -78,25 +100,32 @@
         });
     }
 
+    $(function () {
+        categoryChange($('#CategoryId'));
+    })
+
+    function categoryChange(category) {
+        var categoryId = category.children('option:selected').val();
+        if (categoryId == '' || categoryId == null) {
+            return false;
+        }
+        var url = "/DeliveryNoteCategory/DeliveryNoteCategoryPropertyValueView?categoryId=" + categoryId;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "html",
+            success: function (data) {
+                $('#property-container').html(data);
+            },
+            error: function (data) {
+                $('#property-container').html('<p>页面错误</p>');
+            }
+        });
+    }
 
     $(document).ready(function () {
         $('#CategoryId').change(function () {
-            var categoryId = $(this).children('option:selected').val();
-            if (categoryId == '' || categoryId == null) {
-                return false;
-            }
-            var url = "/GoodsCategory/GoodsCategoryPropertyValueView?categoryId=" + categoryId;
-            $.ajax({
-                type: "get",
-                url: url,
-                dataType: "html",
-                success: function (data) {
-                    $('#property-container').html(data);
-                },
-                error: function (data) {
-                    $('#property-container').html('<p>页面错误</p>');
-                }
-            });
+            categoryChange($(this));
         })
     })
 </script>

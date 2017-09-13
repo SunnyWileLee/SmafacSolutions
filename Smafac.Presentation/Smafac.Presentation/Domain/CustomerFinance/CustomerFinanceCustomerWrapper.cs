@@ -5,7 +5,7 @@ using System.Web;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.Customer.Applications;
 
-namespace Smafac.Presentation.Domain
+namespace Smafac.Presentation.Domain.CustomerFinance
 {
     public class CustomerFinanceCustomerWrapper : ICustomerFinanceWrapper
     {

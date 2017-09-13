@@ -1,5 +1,6 @@
 ﻿using Smafac.Crm.Customer.Applications;
 using Smafac.Presentation.Domain;
+using Smafac.Presentation.Domain.Order;
 using Smafac.Sales.Order.Applications;
 using Smafac.Sales.Order.Applications.Category;
 using Smafac.Sales.Order.Models;

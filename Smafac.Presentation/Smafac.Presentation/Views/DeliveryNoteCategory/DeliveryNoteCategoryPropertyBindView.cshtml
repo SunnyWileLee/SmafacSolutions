@@ -1,8 +1,8 @@
-﻿@model IEnumerable<GoodsPropertyModel>
+﻿@model IEnumerable<DeliveryNotePropertyModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var category = ViewData["category"] as GoodsCategoryModel;
+    var category = ViewData["category"] as DeliveryNoteCategoryModel;
     var boundIds = ViewData["boundIds"] as IEnumerable<Guid>;
 }
 
@@ -11,8 +11,8 @@
     <div class="col-lg-6">
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="col-lg-2 control-label">类别</label>
-                <div class="col-lg-10">
+                <label class="col-lg-3 control-label">类别</label>
+                <div class="col-lg-9">
                     <input class="form-control" readonly="readonly" name="@category.Id.ToString()" value="@category.Name" id="id-categoryId" />
                 </div>
             </div>
@@ -44,7 +44,7 @@
         </ul>
         <div class="btn-group">
             <input type="button" class="btn btn-success" onclick="bindProperties()" value="确定" />
-            <a class="btn btn-default" href="/GoodsCategory/GoodsCategoryView" type="button">
+            <a class="btn btn-default" href="/DeliveryNoteCategory/DeliveryNoteCategoryView" type="button">
                 <i class="m-icon-swapleft m-icon-white"></i>
                 返回列表
             </a>
@@ -70,7 +70,7 @@
             bindIds: bindIds
         };
 
-        var url = '/GoodsCategory/BindProperties';
+        var url = '/DeliveryNoteCategory/BindProperties';
         $.ajax({
             type: "post",
             url: url,

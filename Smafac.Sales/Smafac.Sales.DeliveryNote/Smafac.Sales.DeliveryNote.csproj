@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\CategoryProperty\IDeliveryNoteCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\IDeliveryNoteCategoryPropertySearchService.cs" />
     <Compile Include="Applications\Category\IDeliveryNoteCategoryAddService.cs" />
     <Compile Include="Applications\Category\IDeliveryNoteCategoryDeleteService.cs" />
     <Compile Include="Applications\Category\IDeliveryNoteCategorySearchService.cs" />
@@ -62,6 +64,11 @@
     <Compile Include="Applications\IDeliveryNoteSearchService.cs" />
     <Compile Include="Applications\IDeliveryNoteService.cs" />
     <Compile Include="Applications\IDeliveryNoteUpdateService.cs" />
+    <Compile Include="Applications\Property\IDeliveryNotePropertyAddService.cs" />
+    <Compile Include="Applications\Property\IDeliveryNotePropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\IDeliveryNotePropertySearchService.cs" />
+    <Compile Include="Applications\Property\IDeliveryNotePropertyService.cs" />
+    <Compile Include="Applications\Property\IDeliveryNotePropertyUpdateService.cs" />
     <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyBindTrigger.cs" />
     <Compile Include="Domain\CategoryProperty\IDeliveryNoteCategoryPropertyProvider.cs" />
     <Compile Include="Domain\CategoryProperty\DeliveryNoteCategoryPropertyBindTrigger.cs" />
@@ -149,6 +156,8 @@
     <Compile Include="Repositories\Property\DeliveryNotePropertyDeleteRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertySearchRepository.cs" />
     <Compile Include="Repositories\Property\DeliveryNotePropertyUpdateRepository.cs" />
+    <Compile Include="Services\CategoryProperty\DeliveryNoteCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\DeliveryNoteCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\DeliveryNoteCategoryAddService.cs" />
     <Compile Include="Services\Category\DeliveryNoteCategoryDeleteService.cs" />
     <Compile Include="Services\Category\DeliveryNoteCategorySearchService.cs" />
@@ -159,6 +168,11 @@
     <Compile Include="Services\DeliveryNoteSearchService.cs" />
     <Compile Include="Services\DeliveryNoteService.cs" />
     <Compile Include="Services\DeliveryNoteUpdateService.cs" />
+    <Compile Include="Services\Property\OrderPropertyAddService.cs" />
+    <Compile Include="Services\Property\OrderPropertyDeleteService.cs" />
+    <Compile Include="Services\Property\OrderPropertySearchService.cs" />
+    <Compile Include="Services\Property\OrderPropertyService.cs" />
+    <Compile Include="Services\Property\OrderPropertyUpdateService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

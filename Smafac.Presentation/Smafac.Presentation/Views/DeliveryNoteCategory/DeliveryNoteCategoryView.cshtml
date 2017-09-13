@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3">
+        <div id="category-slice-0">
+
+        </div>
+        <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteView" type="button">
+            <i class="m-icon-swapleft m-icon-white"></i>
+            返回列表
+        </a>
+    </div>
+    <div class="col-lg-3" id="category-slice-1">
+    </div>
+    <div class="col-lg-3" id="category-slice-2">
+    </div>
+    <div class="col-lg-3" id="category-slice-3">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on('click', '.btn-category-slice', function () {
+            var btn = $(this);
+            var slice = btn.attr('data-slice');
+            var id = btn.attr('data-id');
+            GetCategorySlice(slice, id);
+        });
+    });
+
+    $(document).ready(function () {
+        $(document).on('click', '.btn-addcategory', function () {
+            var btn = $(this);
+            var slice = btn.attr('data-slice');
+            var id = btn.attr('data-id');
+            var name = $('#input-category-' + slice).val();
+            if (name == null || name == '') {
+                alert('类别不能为空');
+                return false;
+            }
+            AddCategory(id, name, slice);
+        });
+    });
+
+    function AddCategory(parentId, name, slice) {
+        var url = "/DeliveryNoteCategory/AddDeliveryNoteCategory";
+        var paras = { parentId: parentId, name: name };
+        $.ajax({
+            type: "post",
+            url: url,
+            data: paras,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    GetCategorySlice(slice - 1, parentId)
+                })
+            },
+            error: function (data) { }
+        });
+    }
+
+    function GetCategorySlice(slice, categoryId) {
+        var url = "/DeliveryNoteCategory/DeliveryNoteCategorySliceView?categoryId=" + categoryId + "&slice=" + slice;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "html",
+            success: function (data) {
+                var container = 'category-slice-' + slice;
+                $('#' + container).html(data);
+            },
+            error: function (data) {
+                $('#' + container).html('页面错误');
+            }
+        });
+    }
+
+    $(function () {
+        GetCategorySlice(0, '');
+    })
+</script>
+

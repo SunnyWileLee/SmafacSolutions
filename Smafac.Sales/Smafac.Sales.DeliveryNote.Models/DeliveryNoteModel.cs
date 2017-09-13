@@ -14,10 +14,10 @@ namespace Smafac.Sales.DeliveryNote.Models
         {
             Properties = new List<DeliveryNotePropertyValueModel>();
         }
-
+        [Display(Name = "客户")]
         public Guid CustomerId { get; set; }
         [Display(Name = "客户")]
-        public Guid CustomerName { get; set; }
+        public string CustomerName { get; set; }
         [Display(Name = "送货时间")]
         public DateTime DeliveryTime { get; set; }
         [Display(Name = "金额")]

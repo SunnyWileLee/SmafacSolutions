@@ -1,4 +1,6 @@
-﻿using Smafac.Sales.DeliveryNote.Applications;
+﻿using Smafac.Crm.Customer.Applications;
+using Smafac.Presentation.Domain.DeliveryNote;
+using Smafac.Sales.DeliveryNote.Applications;
 using Smafac.Sales.DeliveryNote.Applications.Category;
 using Smafac.Sales.DeliveryNote.Models;
 using System;
@@ -14,14 +16,20 @@ namespace Smafac.Presentation.Controllers
         private readonly IDeliveryNoteService _noteService;
         private readonly IDeliveryNoteSearchService _noteSearchService;
         private readonly IDeliveryNoteCategoryService _noteCategoryService;
+        private readonly ICustomerSearchService _customerSearchService;
+        private readonly IDeliveryNoteWrapper[] _noteWrappers;
 
         public DeliveryNoteController(IDeliveryNoteService noteService,
                                 IDeliveryNoteSearchService noteSearchService,
-                                IDeliveryNoteCategoryService noteCategoryService)
+                                ICustomerSearchService customerSearchService,
+                                IDeliveryNoteCategoryService noteCategoryService,
+                                IDeliveryNoteWrapper[] noteWrappers)
         {
             _noteService = noteService;
             _noteSearchService = noteSearchService;
             _noteCategoryService = noteCategoryService;
+            _customerSearchService = customerSearchService;
+            _noteWrappers = noteWrappers;
         }
 
         [HttpGet]
@@ -29,14 +37,24 @@ namespace Smafac.Presentation.Controllers
         {
             var categories = _noteCategoryService.SearchService.GetCategories();
             ViewData["categories"] = categories.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+            var customers = _customerSearchService.GetCustomers().Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+            ViewData["customers"] = customers;
             return View();
         }
         [HttpGet]
         public ActionResult DeliveryNotePageView(DeliveryNotePageQueryModel query)
         {
             var page = _noteSearchService.GetDeliveryNotePage(query);
+            var notes = page.PageData;
+            if (notes.Any())
+            {
+                _noteWrappers.ToList().ForEach(wrapper =>
+                {
+                    wrapper.Wrapper(notes);
+                });
+            }
             ViewData["tableColumns"] = page.TableColumns;
-            return View(page.PageData);
+            return View(notes);
         }
         [HttpPost]
         public ActionResult DeliveryNotePage(DeliveryNotePageQueryModel query)
@@ -50,6 +68,9 @@ namespace Smafac.Presentation.Controllers
             var categories = _noteCategoryService.SearchService.GetLeafCategories()
                             .Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
             ViewData["categories"] = categories;
+
+            var customers = _customerSearchService.GetCustomers().Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+            ViewData["customers"] = customers;
             var note = _noteService.CreateEmptyDeliveryNote();
             return View(note);
         }

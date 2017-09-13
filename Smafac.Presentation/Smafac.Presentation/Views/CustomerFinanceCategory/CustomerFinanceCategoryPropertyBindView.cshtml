@@ -11,7 +11,7 @@
     <div class="col-lg-6">
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="col-lg-2 control-lable">类别</label>
+                <label class="col-lg-2 control-label">类别</label>
                 <div class="col-lg-10">
                     <input class="form-control" readonly="readonly" name="@category.Id.ToString()" value="@category.Name" id="id-categoryId" />
                 </div>
@@ -79,7 +79,7 @@
             success: function (data) {
                 ajaxSuccess(data, function (data) {
                     alert('绑定成功');
-                })
+                }, true)
             },
             error: function (data) { }
         });

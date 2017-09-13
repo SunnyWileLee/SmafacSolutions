@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Presentation.Domain
+namespace Smafac.Presentation.Domain.Order
 {
     public interface IOrderWrapper
     {

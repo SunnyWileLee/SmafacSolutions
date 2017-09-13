@@ -8,9 +8,11 @@
 <table class="table table-condensed table-striped">
     <thead>
         <tr>
-            <th>名称</th>
-            <th>售价</th>
-            <th>类别</th>
+            <th>@Html.DisplayNameFor(s => s.CustomerName)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            <th>@Html.DisplayNameFor(s => s.Amount)</th>
+            <th>@Html.DisplayNameFor(s => s.DeliveryTime)</th>
+            <th>@Html.DisplayNameFor(s => s.Memo)</th>
             @{
                 foreach (var column in tableColumns)
                 {
@@ -21,27 +23,29 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var goods in Model)
+        @foreach (var note in Model)
             {
             <tr>
-                <td>@goods.Amount</td>
-                <td>@goods.Price.ToString()</td>
-                <td>@goods.CategoryName</td>
+                <td>@note.CustomerName</td>
+                <td>@note.CategoryName</td>
+                <td>@note.Amount</td>
+                <td>@note.DeliveryTime.ToShortDateString()</td>
+                <td>@note.Memo</td>
                 @{
                     foreach (var column in tableColumns)
                     {
-                        var property = goods.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var property = note.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
                         var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
                         <td>@value</td>
                     }
                 }
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteDetailView?goodsId=@goods.Id" type="button">详情</a>
-                        <a class="btn btn-default" href="/Order/OrderAddView?goodsId=@goods.Id" type="button">下单</a>
+                        <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteDetailView?noteId=@note.Id" type="button">详情</a>
+                        <a class="btn btn-default" href="/Order/OrderAddView?noteId=@note.Id" type="button">下单</a>
                     </div>
                 </td>
             </tr>
-            }
+                    }
     </tbody>
 </table>

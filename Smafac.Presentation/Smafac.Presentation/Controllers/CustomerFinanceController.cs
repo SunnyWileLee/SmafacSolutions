@@ -3,6 +3,7 @@ using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Applications.Category;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Presentation.Domain;
+using Smafac.Presentation.Domain.CustomerFinance;
 using System;
 using System.Collections.Generic;
 using System.Linq;

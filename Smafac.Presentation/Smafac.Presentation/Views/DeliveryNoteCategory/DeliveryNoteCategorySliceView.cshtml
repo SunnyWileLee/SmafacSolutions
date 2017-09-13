@@ -1,0 +1,44 @@
+﻿@model CategoryModelSet<DeliveryNoteCategoryModel>
+
+@{
+    Layout = null;
+    var slice = Convert.ToInt32(ViewData["slice"]) + 1;
+}
+
+<h3>
+    @Model.Category.Name
+</h3>
+<form class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" id="input-category-@slice" />
+        <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Category.Id" />
+    </div>
+</form>
+<ul class="list-group">
+    @foreach (var category in Model.Children)
+            {
+        <li class="list-group-item">
+            @category.Name
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    操作
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="btn btn-default" href="/DeliveryNoteCategory/DeliveryNoteCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
+                    </li>
+                    @if (slice < 4)
+                    {
+                        <li>
+                            <a class="btn btn-default btn-category-slice" data-slice="@slice" data-id="@category.Id">子类别</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </li>
+    }
+</ul>
+
+

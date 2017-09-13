@@ -23,6 +23,10 @@ namespace Smafac.Framework.Core.Repositories
 
         public bool AddEntities(IEnumerable<TEntity> entities)
         {
+            if (!entities.Any())
+            {
+                return true;
+            }
             if (!AllowAnonymous && entities.Any(entity => entity.IsAnonymous()))
             {
                 return false;
@@ -36,6 +40,10 @@ namespace Smafac.Framework.Core.Repositories
 
         public virtual bool AddEntity(TEntity entity)
         {
+            if (entity == null)
+            {
+                return false;
+            }
             if (!AllowAnonymous && entity.IsAnonymous())
             {
                 return false;

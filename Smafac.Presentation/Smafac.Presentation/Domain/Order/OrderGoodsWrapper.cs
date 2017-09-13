@@ -5,7 +5,7 @@ using System.Web;
 using Smafac.Sales.Order.Models;
 using Smafac.Wms.Goods.Applications;
 
-namespace Smafac.Presentation.Domain
+namespace Smafac.Presentation.Domain.Order
 {
     public class OrderGoodsWrapper : IOrderWrapper
     {
