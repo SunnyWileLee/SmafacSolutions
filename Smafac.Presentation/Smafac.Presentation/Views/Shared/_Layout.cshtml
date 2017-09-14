@@ -12,42 +12,67 @@
     <title></title>
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg fixed-nav">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2">
-                <ul class="nav" id="side-menu" style="margin-top:42px;">
-                    <li>
-                        <a href="/Customer/CustomerView">
-                            <span>客户管理</span>
-                        </a>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">智慧企业信息系统</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">功能菜单 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Customer/CustomerView">
+                                    <span>客户管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/CustomerFinance/CustomerFinanceView">
+                                    <span>客户财务管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/DeliveryNote/DeliveryNoteView">
+                                    <span>送货单管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Order/OrderView">
+                                    <span>订单管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Goods/GoodsView">
+                                    <span>商品管理</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="/CustomerFinance/CustomerFinanceView">
-                            <span>客户财务管理</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/DeliveryNote/DeliveryNoteView">
-                            <span>送货单管理</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Order/OrderView">
-                            <span>订单管理</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/Goods/GoodsView">
-                            <span>商品管理</span>
-                        </a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">设置 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">我的信息</a></li>
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">安全退出</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-10">
-                @RenderBody()
-                @RenderSection("scripts", required: false)
-            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+            @RenderSection("scripts", required: false)
         </div>
     </div>
 </body>
