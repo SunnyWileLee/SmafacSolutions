@@ -4,52 +4,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-lg-6">
-        <form class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control", @readonly = "readonly" })
+<div class="row panel panel-default">
+    <div class="panel-heading">商品详情</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Goods.CategoryName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Goods.CategoryName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control", id = "Name" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Goods.Name, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Goods.Name, new { @class = "form-control", id = "Name" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control", id = "Price" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Goods.Price, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Goods.Price, new { @class = "form-control", id = "Price" })
+                    </div>
                 </div>
-            </div>
-            @if (Model.Goods.HasProperties)
+                @if (Model.Goods.HasProperties)
             {
                 foreach (var property in Model.Goods.Properties)
                 {
-                    <div class="form-group">
-                        @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
-                        <div class="col-lg-9">
-                            @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                        <div class="form-group">
+                            @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                            <div class="col-lg-9">
+                                @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                            </div>
                         </div>
-                    </div>
+                    }
                 }
-            }
-            <div class="form-group">
-                <div class="col-lg-offset-3 col-lg-9">
-                    <input type="button" class="btn btn-primary" onclick="editGoods('@Model.Goods.Id')" value="保存" />
-                    <a class="btn btn-default" href="/Goods/GoodsView" type="button">
-                        <i class="m-icon-swapleft m-icon-white"></i>
-                        返回列表
-                    </a>
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <input type="button" class="btn btn-primary" onclick="editGoods('@Model.Goods.Id')" value="保存" />
+                        <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div class="col-lg-6">
+            </form>
+        </div>
+        <div class="col-lg-6">
 
+        </div>
     </div>
 </div>
 

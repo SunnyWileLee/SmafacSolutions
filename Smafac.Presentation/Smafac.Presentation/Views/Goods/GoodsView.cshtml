@@ -5,41 +5,55 @@
     var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
-<div>
-    <form class="form-inline  inline-block" id="form-search" data-page="GoodsPageView">
-        <div class="form-group">
+<div class="panel panel-default">
+    <div class="panel-heading">商品管理</div>
+    <div class="panel-body">
+        <form class="form-inline" id="form-search" data-page="GoodsPageView">
             <div class="form-group">
-                @Html.LabelFor(s => s.Name)
-                @Html.TextBoxFor(s => s.Name, new { @class = "form-control input-search" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Name)
+                    @Html.TextBoxFor(s => s.Name, new { @class = "form-control input-search" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.CategoryId)
+                    @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })
+                </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(s => s.CategoryId)
-                @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="btn-group">
                 <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
                     <i class="icon-search"></i>
                     查询
                 </button>
+            </div>
+            <div class="form-group">
                 <a class="btn btn-success" href="GoodsAddView">
                     <i class="icon-plus"></i>
                     新增商品
                 </a>
-                <a class="btn btn-success" href="/GoodsCategory/GoodsCategoryView">
-                    <i class="icon-plus"></i>
-                    商品分类设置
-                </a>
-                <a class="btn btn-success" href="/GoodsProperty/GoodsPropertyView">
-                    <i class="icon-plus"></i>
-                    商品属性设置
-                </a>
             </div>
-        </div>
-    </form>
-    <div id="table-container"  class="table-responsive"></div>
-    <div>
+            <div class="form-group btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    设置 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="btn" href="/GoodsCategory/GoodsCategoryView">
+                            <i class="icon-plus"></i>
+                            商品分类设置
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" href="/GoodsProperty/GoodsPropertyView">
+                            <i class="icon-plus"></i>
+                            商品属性设置
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div id="table-container" class="table-responsive"></div>
+    <div class="panel-footer">
         <ul class="pagination" id="pagination-container"></ul>
     </div>
 </div>

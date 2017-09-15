@@ -9,7 +9,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">订单管理</div>
     <div class="panel-body">
-        <form class="form-inline  inline-block" id="form-search" data-page="OrderPageView">
+        <form class="form-inline" id="form-search" data-page="OrderPageView">
             <div class="form-group">
                 @Html.LabelFor(s => s.CategoryId)
                 @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })

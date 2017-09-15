@@ -4,148 +4,151 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-lg-4">
-        <form class="form-horizontal">
-            @Html.HiddenFor(s => s.DeliveryNote.Id, new { id = "DeliveryNoteId" })
-            <div class="form-group">
-                @Html.LabelFor(s => s.DeliveryNote.CategoryName, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.DeliveryNote.CategoryName, new { @class = "form-control", @readonly = "readonly" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.DeliveryNote.CustomerName, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.DeliveryNote.CustomerName, new { @class = "form-control", @readonly = "readonly" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.DeliveryNote.DeliveryTime, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="DeliveryTime" data-link-format="yyyy-mm-dd">
-                        <input type='text' class="form-control input-search" id="DeliveryTime" name="DeliveryTime" value="@Model.DeliveryNote.DeliveryTime.ToString("yyyy-MM-dd")" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+<div class="row panel panel-default">
+    <div class="panel-heading">送货单详情</div>
+    <div class="panel-body">
+        <div class="col-lg-4">
+            <form class="form-horizontal">
+                @Html.HiddenFor(s => s.DeliveryNote.Id, new { id = "DeliveryNoteId" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.DeliveryNote.CategoryName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.DeliveryNote.CategoryName, new { @class = "form-control", @readonly = "readonly" })
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.DeliveryNote.Amount, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.DeliveryNote.Amount, new { @class = "form-control", id = "Amount" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.DeliveryNote.CustomerName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.DeliveryNote.CustomerName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.DeliveryNote.Memo, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.DeliveryNote.Memo, new { @class = "form-control", id = "Memo" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.DeliveryNote.DeliveryTime, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="DeliveryTime" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control input-search" id="DeliveryTime" name="DeliveryTime" value="@Model.DeliveryNote.DeliveryTime.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            @if (Model.DeliveryNote.HasProperties)
+                <div class="form-group">
+                    @Html.LabelFor(s => s.DeliveryNote.Amount, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.DeliveryNote.Amount, new { @class = "form-control", id = "Amount" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.DeliveryNote.Memo, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.DeliveryNote.Memo, new { @class = "form-control", id = "Memo" })
+                    </div>
+                </div>
+                @if (Model.DeliveryNote.HasProperties)
             {
                 foreach (var property in Model.DeliveryNote.Properties)
                 {
-                    <div class="form-group">
-                        @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
-                        <div class="col-lg-9">
-                            @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                        <div class="form-group">
+                            @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                            <div class="col-lg-9">
+                                @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                            </div>
                         </div>
-                    </div>
-                }
-            }
-            <div class="form-group">
-                <div class="col-lg-offset-3 col-lg-9">
-                    <input type="button" class="btn btn-primary" onclick="editDeliveryNote('@Model.DeliveryNote.Id')" value="保存" />
-                    <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteView" type="button">
-                        <i class="m-icon-swapleft m-icon-white"></i>
-                        返回列表
-                    </a>
-                </div>
-            </div>
-        </form>
-        <div id="add-container">
-            <form class="form-horizontal">
-                @Html.Hidden("NoteItemId", new { id = "NoteItemId" })
-                <div class="form-group">
-                    @Html.LabelFor(s => s.ItemModel.GoodsId, new { @class = "col-lg-3 control-label" })
-                    <div class="col-lg-9">
-                        @Html.DropDownListFor(s => s.ItemModel.GoodsId, new List<SelectListItem>(), new { @class = "form-control", id = "GoodsId" })
-                        @Html.TextBoxFor(s => s.ItemModel.GoodsName, new { @class = "form-control", id = "GoodsName" })
-                        <input type="button" class="btn btn-primary" onclick="searchGoods()" value="搜索" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(s => s.ItemModel.Quantity, new { @class = "col-lg-3 control-label" })
-                    <div class="col-lg-9">
-                        @Html.TextBoxFor(s => s.ItemModel.Quantity, new { @class = "form-control", id = "Quantity" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(s => s.ItemModel.Amount, new { @class = "col-lg-3 control-label" })
-                    <div class="col-lg-9">
-                        @Html.TextBoxFor(s => s.ItemModel.Amount, new { @class = "form-control", id = "Amount" })
-                    </div>
-                </div>
-                @foreach (var property in Model.ItemProperties)
-            {
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.Name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control input-itemPropertyValue" name="@property.Id.ToString()" />
-                        </div>
-                    </div>
+                    }
                 }
                 <div class="form-group">
                     <div class="col-lg-offset-3 col-lg-9">
-                        <input type="button" class="btn btn-primary" onclick="saveNoteItem()" value="保存条目" />
+                        <input type="button" class="btn btn-primary" onclick="editDeliveryNote('@Model.DeliveryNote.Id')" value="保存" />
+                        <a class="btn btn-default" href="/DeliveryNote/DeliveryNoteView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-    <div class="col-lg-8">
-        <table class="table table-condensed table-striped">
-            <thead>
-                <tr>
-                    <th>@Html.DisplayNameFor(s => s.ItemModel.GoodsName)</th>
-                    <th>@Html.DisplayNameFor(s => s.ItemModel.Quantity)</th>
-                    <th>@Html.DisplayNameFor(s => s.ItemModel.Amount)</th>
-                    @{
-                        foreach (var column in Model.ItemTableColumns)
-                        {
-                            <th>@column.Name</th>
-                        }
+            <div id="add-container">
+                <form class="form-horizontal">
+                    @Html.Hidden("NoteItemId", new { id = "NoteItemId" })
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.ItemModel.GoodsId, new { @class = "col-lg-3 control-label" })
+                        <div class="col-lg-9">
+                            @Html.DropDownListFor(s => s.ItemModel.GoodsId, new List<SelectListItem>(), new { @class = "form-control", id = "GoodsId" })
+                            @Html.TextBoxFor(s => s.ItemModel.GoodsName, new { @class = "form-control", id = "GoodsName" })
+                            <input type="button" class="btn btn-primary" onclick="searchGoods()" value="搜索" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.ItemModel.Quantity, new { @class = "col-lg-3 control-label" })
+                        <div class="col-lg-9">
+                            @Html.TextBoxFor(s => s.ItemModel.Quantity, new { @class = "form-control", id = "Quantity" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.ItemModel.Amount, new { @class = "col-lg-3 control-label" })
+                        <div class="col-lg-9">
+                            @Html.TextBoxFor(s => s.ItemModel.Amount, new { @class = "form-control", id = "Amount" })
+                        </div>
+                    </div>
+                    @foreach (var property in Model.ItemProperties)
+            {
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="@property.Id.ToString()">@property.Name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control input-itemPropertyValue" name="@property.Id.ToString()" />
+                            </div>
+                        </div>
                     }
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Items)
-                {
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-9">
+                            <input type="button" class="btn btn-primary" onclick="saveNoteItem()" value="保存条目" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <table class="table table-condensed table-striped">
+                <thead>
                     <tr>
-                        <td>@item.GoodsName</td>
-                        <td>@item.Quantity</td>
-                        <td>@item.Amount</td>
+                        <th>@Html.DisplayNameFor(s => s.ItemModel.GoodsName)</th>
+                        <th>@Html.DisplayNameFor(s => s.ItemModel.Quantity)</th>
+                        <th>@Html.DisplayNameFor(s => s.ItemModel.Amount)</th>
                         @{
                             foreach (var column in Model.ItemTableColumns)
                             {
-                                var property = item.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
-                                var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
-                                <td>@value</td>
+                                <th>@column.Name</th>
                             }
                         }
-                        <td>
-                            <div class="btn-group">
-                                <input class="btn btn-default" type="button" onclick="editShow('@item.Id')" value="详情">
-                            </div>
-                        </td>
+                        <th>操作</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>@item.GoodsName</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Amount</td>
+                            @{
+                                foreach (var column in Model.ItemTableColumns)
+                                {
+                                    var property = item.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                                    var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                                    <td>@value</td>
+                                }
                             }
-            </tbody>
-        </table>
-    </div>
+                            <td>
+                                <div class="btn-group">
+                                    <input class="btn btn-default" type="button" onclick="editShow('@item.Id')" value="详情">
+                                </div>
+                            </td>
+                        </tr>
+                                }
+                </tbody>
+            </table>
+        </div>
+    </div>  
 </div>
 
 <script type="text/javascript">

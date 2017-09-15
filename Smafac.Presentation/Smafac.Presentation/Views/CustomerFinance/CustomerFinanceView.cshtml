@@ -6,58 +6,61 @@
     var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
-<div class="panel">
-    <div class="panel-heading"></div>
-    <form class="form-inline  inline-block" id="form-search" data-page="CustomerFinancePageView">
-        <div class="form-group">
-            @Html.LabelFor(s => s.CustomerId)
-            @Html.DropDownListFor(s => s.CustomerId, customers, "全部", new { @class = "form-control input-search" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(s => s.CategoryId)
-            @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(s => s.BeginDate)
-            <div class="input-group date date-select" data-date-format="yyyy-mm-dd" data-link-field="BeginDate" data-link-format="yyyy-mm-dd">
-                <input type="text" class="form-control input-search" name="BeginDate" value="@DateTime.Now.AddDays(-7).Date.ToString("yyyy-MM-dd")">
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+<div class="panel  panel-default">
+    <div class="panel-heading">客户财务记录</div>
+    <div class="panel-body">
+        <form class="form-inline" id="form-search" data-page="CustomerFinancePageView">
+            <div class="form-group">
+                @Html.LabelFor(s => s.CustomerId)
+                @Html.DropDownListFor(s => s.CustomerId, customers, "全部", new { @class = "form-control input-search" })
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(s => s.EndDate)
-            <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="EndDate" data-link-format="yyyy-mm-dd">
-                <input type='text' class="form-control input-search" name="EndDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+            <div class="form-group">
+                @Html.LabelFor(s => s.CategoryId)
+                @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })
             </div>
-        </div>
-        <div class="form-group">
-            <div class="btn-group">
+            <div class="form-group">
+                @Html.LabelFor(s => s.BeginDate)
+                <div class="input-group date date-select" data-date-format="yyyy-mm-dd" data-link-field="BeginDate" data-link-format="yyyy-mm-dd">
+                    <input type="text" class="form-control input-search" name="BeginDate" value="@DateTime.Now.AddDays(-7).Date.ToString("yyyy-MM-dd")">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.EndDate)
+                <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="EndDate" data-link-format="yyyy-mm-dd">
+                    <input type='text' class="form-control input-search" name="EndDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
                 <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
-                    <i class="icon-search"></i>
                     查询
                 </button>
-                <a class="btn btn-success" href="CustomerFinanceAddView">
-                    <i class="icon-plus"></i>
-                    新增财务记录
-                </a>
-                <a class="btn btn-success" href="/CustomerFinanceCategory/CustomerFinanceCategoryView">
-                    <i class="icon-plus"></i>
-                    财务记录分类设置
-                </a>
-                <a class="btn btn-success" href="/CustomerFinanceProperty/CustomerFinancePropertyView">
-                    <i class="icon-plus"></i>
-                    财务记录属性设置
-                </a>
             </div>
-        </div>
-    </form>
-    <div id="table-container"  class="table-responsive"></div>
-    <div>
+            <div class="form-group">
+                <a class="btn btn-success" href="CustomerFinanceAddView">新增财务记录</a>
+            </div>
+            <div class="form-group btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    设置 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="btn" href="/CustomerFinanceCategory/CustomerFinanceCategoryView"> 财务记录分类设置</a>
+                    </li>
+                    <li>
+                        <a class="btn" href="/CustomerFinanceProperty/CustomerFinancePropertyView"> 财务记录属性设置</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div id="table-container" class="table-responsive"></div>
+    <div class="panel-footer">
         <ul class="pagination" id="pagination-container"></ul>
     </div>
 </div>

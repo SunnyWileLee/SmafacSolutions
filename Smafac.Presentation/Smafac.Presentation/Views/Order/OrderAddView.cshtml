@@ -6,86 +6,89 @@
     var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
-<div class="row">
-    <div class="col-lg-4">
-        <form class="form-horizontal">
-            @Html.HiddenFor(s => s.GoodsId, new { @class = "input-orderValue" })
-            <div class="form-group">
-                @Html.LabelFor(s => s.GoodsName, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.GoodsName, new { @class = "form-control " })
+<div class="row panel panel-default">
+    <div class="panel-heading">新增订单</div>
+    <div class="panel-body">
+        <div class="col-lg-4">
+            <form class="form-horizontal">
+                @Html.HiddenFor(s => s.GoodsId, new { @class = "input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.GoodsName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.GoodsName, new { @class = "form-control " })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.DropDownListFor(s => s.CategoryId, categories,  new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(s => s.CategoryId, categories, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.CustomerId, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.DropDownListFor(s => s.CustomerId, customers, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.CustomerId, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(s => s.CustomerId, customers, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Price, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Price, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Price, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Charge, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Charge, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Charge, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Charge, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.TotalCharge, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.TotalCharge, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.TotalCharge, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.TotalCharge, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.OrderDate, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.OrderDate, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.OrderDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.OrderDate, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.HopeDate, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.HopeDate, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.HopeDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.HopeDate, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(s => s.Memo, new { @class = "col-lg-3 control-label" })
-                <div class="col-lg-9">
-                    @Html.TextBoxFor(s => s.Memo, new { @class = "form-control input-orderValue" })
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Memo, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Memo, new { @class = "form-control input-orderValue" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-9">
-                    <button type="button" class="btn btn-default" onclick="addOrder()">提交</button>
-                    <a class="btn btn-default" href="/Order/OrderView" type="button">
-                        <i class="m-icon-swapleft m-icon-white"></i>
-                        返回列表
-                    </a>
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <button type="button" class="btn btn-default" onclick="addOrder()">提交</button>
+                        <a class="btn btn-default" href="/Order/OrderView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div class="col-lg-4" id="charge-container">
+            </form>
+        </div>
+        <div class="col-lg-4" id="charge-container">
 
-    </div>
-    <div class="col-lg-4" id="property-container">
+        </div>
+        <div class="col-lg-4" id="property-container">
 
+        </div>
     </div>
 </div>
 <script>
