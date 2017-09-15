@@ -3,35 +3,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <form class="form-inline  inline-block" id="form-search" data-page="CustomerPageView">
-        <div class="form-group">
-            @Html.LabelFor(s => s.Name)
-            @Html.TextBoxFor(s => s.Name, new { @class = "form-control input-search" })
-        </div>
-        <div  class="form-group">
-            @Html.LabelFor(s => s.MobileNumber)
-            @Html.TextBoxFor(s => s.MobileNumber, new { @class = "form-control input-search" })
-        </div>
-        <div class="form-group">
-            <div class="btn-group">
+<div class="panel panel-default">
+    <div class="panel-heading">客户管理</div>
+    <div class="panel-body">
+        <form class="form-inline" id="form-search" data-page="CustomerPageView">
+            <div class="form-group">
+                @Html.LabelFor(s => s.Name)
+                @Html.TextBoxFor(s => s.Name, new { @class = "form-control input-search" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.MobileNumber)
+                @Html.TextBoxFor(s => s.MobileNumber, new { @class = "form-control input-search" })
+            </div>
+            <div class="form-group">
                 <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
                     <i class="icon-search"></i>
                     查询
                 </button>
+            </div>
+            <div class="form-group">
                 <a class="btn btn-success" href="CustomerAddView">
                     <i class="icon-plus"></i>
                     新增客户
                 </a>
-                <a class="btn btn-success" href="/CustomerProperty/CustomerPropertyView">
-                    <i class="icon-plus"></i>
-                    客户属性设置
-                </a>
             </div>
-        </div>
-    </form>
-    <div id="table-container"  class="table-responsive"></div>
-    <div>
+            <div class="form-group btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    设置 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/CustomerProperty/CustomerPropertyView">客户属性设置</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+
+    </div>
+    <div id="table-container" class="table-responsive"></div>
+    <div class=" panel-footer">
         <ul class="pagination" id="pagination-container"></ul>
     </div>
 </div>

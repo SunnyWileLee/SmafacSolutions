@@ -6,7 +6,8 @@
     var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
 }
 
-<div>
+<div class="panel">
+    <div class="panel-heading"></div>
     <form class="form-inline  inline-block" id="form-search" data-page="CustomerFinancePageView">
         <div class="form-group">
             @Html.LabelFor(s => s.CustomerId)
