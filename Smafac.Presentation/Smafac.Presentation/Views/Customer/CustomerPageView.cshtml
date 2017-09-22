@@ -8,9 +8,9 @@
 <table class="table table-condensed table-striped text-nowrap">
     <thead>
         <tr>
-            <th>姓名</th>
-            <th>地址</th>
-            <th>联系方式</th>
+            <th>@Html.DisplayNameFor(s => s.Name)</th>
+            <th>@Html.DisplayNameFor(s => s.Address)</th>
+            <th>@Html.DisplayNameFor(s => s.MobileNumber)</th>
             @{
                 foreach (var column in tableColumns)
                 {
@@ -39,6 +39,6 @@
                     <a class="btn btn-default" href="/Customer/CustomerDetailView?customerId=@customer.Id" type="button">详情</a>
                 </td>
             </tr>
-        }
+                    }
     </tbody>
 </table>

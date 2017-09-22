@@ -12,13 +12,16 @@ namespace Smafac.Wms.Goods.Models
     {
         [Display(Name = "名称")]
         [Required]
+        [ExportColumn]
         public string Name { get; set; }
         [Display(Name = "售价")]
         [Required]
+        [ExportColumn]
         public decimal Price { get; set; }
         [Display(Name = "类别")]
         public Guid CategoryId { get; set; }
         [Display(Name = "类别")]
+        [ExportColumn]
         public string CategoryName { get; set; }
         public List<GoodsPropertyValueModel> Properties { get; set; }
 
@@ -28,6 +31,15 @@ namespace Smafac.Wms.Goods.Models
             {
                 return Properties != null && Properties.Any();
             }
+        }
+
+        protected override Dictionary<string, string> GetCustomizedColumns()
+        {
+            if (!HasProperties)
+            {
+                return new Dictionary<string, string>();
+            }
+            return Properties.ToDictionary(key => key.PropertyId.ToString(), value => value.PropertyName);
         }
     }
 }

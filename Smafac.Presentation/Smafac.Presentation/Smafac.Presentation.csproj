@@ -289,7 +289,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Smafac\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Smafac.Account\Smafac.Account.Subscriber.Models\Smafac.Account.Subscriber.Models.csproj">

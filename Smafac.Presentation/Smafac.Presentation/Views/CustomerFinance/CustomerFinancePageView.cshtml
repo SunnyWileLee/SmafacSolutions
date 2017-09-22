@@ -8,11 +8,11 @@
 <table class="table table-condensed table-striped text-nowrap">
     <thead>
         <tr>
-            <th>客户</th>
-            <th>金额</th>
-            <th>时间</th>
-            <th>类别</th>
-            <th>备注</th>
+            <th>@Html.DisplayNameFor(s => s.CustomerName)</th>
+            <th>@Html.DisplayNameFor(s => s.Amount)</th>
+            <th>@Html.DisplayNameFor(s => s.FinanceTime)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            <th>@Html.DisplayNameFor(s => s.Memo)</th>
             @{
                 foreach (var column in tableColumns)
                 {

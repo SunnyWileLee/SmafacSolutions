@@ -18,7 +18,9 @@ namespace Smafac.Framework.Models
         [Required]
         [Display(Name= "属性名称")]
         public virtual string Name { get; set; }
+        [Display(Name = "显示在列表")]
         public virtual bool IsTableColumn { get; set; }
+        [Display(Name = "关联删除")]
         public virtual bool IsDeleteAssociations { get; set; }
     }
 }

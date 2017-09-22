@@ -9,15 +9,15 @@
 <table class="table table-condensed table-striped text-nowrap">
     <thead>
         <tr>
-            <th>客户</th>
-            <th>商品</th>
-            <th>单价</th>
-            <th>数量</th>
-            <th>金额</th>
-            <th>总计</th>
-            <th>下单日期</th>
-            <th>交货日期</th>
-            <th>备注</th>
+            <th>@Html.DisplayNameFor(s => s.CustomerName)</th>
+            <th>@Html.DisplayNameFor(s => s.GoodsName)</th>
+            <th>@Html.DisplayNameFor(s => s.Price)</th>
+            <th>@Html.DisplayNameFor(s => s.Quantity)</th>
+            <th>@Html.DisplayNameFor(s => s.Charge)</th>
+            <th>@Html.DisplayNameFor(s => s.TotalCharge)</th>
+            <th>@Html.DisplayNameFor(s => s.OrderDate)</th>
+            <th>@Html.DisplayNameFor(s => s.HopeDate)</th>
+            <th>@Html.DisplayNameFor(s => s.Memo)</th>
             @{
                 foreach (var column in chargeColumns)
                 {

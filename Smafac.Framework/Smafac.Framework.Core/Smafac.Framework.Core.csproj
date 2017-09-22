@@ -85,6 +85,7 @@
     <Compile Include="Domain\EntityAssociationProviders\CategoryPropertyProvider.cs" />
     <Compile Include="Domain\EntityComparers\EntityIdComparer.cs" />
     <Compile Include="Domain\EntityAssociationProviders\IEntityAssociationProvider.cs" />
+    <Compile Include="Domain\Exports\IExportDatas.cs" />
     <Compile Include="Domain\InitDatas\InitCategory.cs" />
     <Compile Include="Domain\Pages\IPageQueryer.cs" />
     <Compile Include="Domain\Pages\PageQueryer.cs" />

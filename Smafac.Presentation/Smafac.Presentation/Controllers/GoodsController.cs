@@ -3,6 +3,7 @@ using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -78,6 +79,13 @@ namespace Smafac.Presentation.Controllers
         {
             var goods = _goodsSearchService.GetGoods(key);
             return Success(goods);
+        }
+        [HttpPost]
+        public ActionResult Export(GoodsPageQueryModel query)
+        {
+            Excel excel = new Excel();
+            Stream dataStream = excel.Export(titles.ToArray(), data);
+            return new FileStreamResult(dataStream, "application/ms-excel") { FileDownloadName = "exportInfo.xlsx" };
         }
     }
 }

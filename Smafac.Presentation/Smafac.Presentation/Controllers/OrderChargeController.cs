@@ -36,16 +36,16 @@ namespace Smafac.Presentation.Controllers
         }
 
         [HttpGet]
-        public ActionResult OrderChargeAddView(Guid? propertyId)
+        public ActionResult OrderChargeAddView(Guid? chargeId)
         {
-            if (propertyId == null)
+            if (chargeId == null)
             {
                 return View();
             }
             else
             {
-                var property = _orderChargeSearchService.GetCharge(propertyId.Value);
-                return View(property);
+                var charge = _orderChargeSearchService.GetCharge(chargeId.Value);
+                return View(charge);
             }
         }
 

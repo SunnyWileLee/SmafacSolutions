@@ -17,6 +17,7 @@ namespace Smafac.Sales.Order.Models
         }
         [Display(Name = "客户")]
         public Guid CustomerId { get; set; }
+        [Display(Name = "商品")]
         public Guid GoodsId { get; set; }
         [Display(Name = "单价")]
         [Required]
