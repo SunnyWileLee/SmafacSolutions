@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Framework.Models
+namespace Smafac.Framework.Core.Domain.Exports
 {
-    public interface IExportable
+    public interface IExportColumnDescriptor
     {
-        
+
     }
 }

@@ -50,7 +50,7 @@ namespace Smafac.Crm.Customer.Services
 
         public PageModel<CustomerModel> GetCustomerPage(CustomerPageQueryModel query)
         {
-            return _customerPageQueryer.Query(query);
+            return _customerPageQueryer.QueryPage(query);
         }
 
         public List<CustomerModel> GetCustomers(IEnumerable<Guid> customerIds)

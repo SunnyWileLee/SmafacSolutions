@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Models
 {
-    public class ExportDataModel<TData, TColumn>
-        where TData : SaasBaseModel
-        where TColumn : CustomizedColumnModel
+    public class ExportDataModel<TData> : IExportable
+         where TData : SaasBaseModel
     {
         public List<TData> Datas { get; set; }
-        public List<TColumn> Columns { get; set; }
     }
 }

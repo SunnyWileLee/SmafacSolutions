@@ -14,6 +14,7 @@ namespace Smafac.Wms.Goods.Applications
         GoodsDetailModel GetGoodsDetail(Guid goodsId);
         List<GoodsModel> GetGoods(string key);
         PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel query);
+        List<GoodsModel> GetGoods(GoodsPageQueryModel query);
         List<GoodsModel> GetGoods(IEnumerable<Guid> goodsIds);
     }
 }

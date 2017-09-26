@@ -1,6 +1,7 @@
 ﻿using Smafac.Crm.Customer.Applications;
 using Smafac.Crm.Customer.Applications.Propety;
 using Smafac.Crm.Customer.Models;
+using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,19 @@ namespace Smafac.Presentation.Controllers
         {
             var result = _customerService.UpdateService.UpdateCustomer(model);
             return BoolResult(result);
+        }
+
+        [HttpGet]
+        public ActionResult Export(CustomerPageQueryModel query)
+        {
+            var goods = _customerSearchService.GetCustomers(query);
+            var model = new ExportDataHaveColumnModel<GoodsModel, GoodsPropertyModel>
+            {
+                Datas = goods,
+                Columns = properties
+            };
+            var datas = _dataExporter.Export<GoodsModel, GoodsPropertyModel>(model);
+            return File(datas, "application/ms-excel", "exportInfo.xlsx");
         }
     }
 }

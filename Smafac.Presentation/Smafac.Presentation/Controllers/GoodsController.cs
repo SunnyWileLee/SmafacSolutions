@@ -1,5 +1,8 @@
-﻿using Smafac.Wms.Goods.Applications;
+﻿using Smafac.Framework.Core.Domain.Exports;
+using Smafac.Framework.Models;
+using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Applications.Category;
+using Smafac.Wms.Goods.Applications.Property;
 using Smafac.Wms.Goods.Models;
 using System;
 using System.Collections.Generic;
@@ -15,14 +18,20 @@ namespace Smafac.Presentation.Controllers
         private readonly IGoodsService _goodsService;
         private readonly IGoodsSearchService _goodsSearchService;
         private readonly IGoodsCategoryService _goodsCategoryService;
+        private readonly IGoodsPropertyService _goodsPropertyService;
+        private readonly IExcelDataHaveColumnExporter _dataExporter;
 
         public GoodsController(IGoodsService goodsService,
                                 IGoodsSearchService goodsSearchService,
-                                IGoodsCategoryService goodsCategoryService)
+                                IGoodsCategoryService goodsCategoryService,
+                                IGoodsPropertyService goodsPropertyService,
+                                IExcelDataHaveColumnExporter dataExporter)
         {
             _goodsService = goodsService;
             _goodsSearchService = goodsSearchService;
             _goodsCategoryService = goodsCategoryService;
+            _dataExporter = dataExporter;
+            _goodsPropertyService = goodsPropertyService;
         }
 
         [HttpGet]
@@ -80,12 +89,18 @@ namespace Smafac.Presentation.Controllers
             var goods = _goodsSearchService.GetGoods(key);
             return Success(goods);
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult Export(GoodsPageQueryModel query)
         {
-            Excel excel = new Excel();
-            Stream dataStream = excel.Export(titles.ToArray(), data);
-            return new FileStreamResult(dataStream, "application/ms-excel") { FileDownloadName = "exportInfo.xlsx" };
+            var goods = _goodsSearchService.GetGoods(query);
+            var properties = _goodsPropertyService.SearchService.GetColumns();
+            var model = new ExportDataHaveColumnModel<GoodsModel, GoodsPropertyModel>
+            {
+                Datas = goods,
+                Columns = properties
+            };
+            var datas = _dataExporter.Export<GoodsModel, GoodsPropertyModel>(model);
+            return File(datas, "application/ms-excel", "exportInfo.xlsx");
         }
     }
 }

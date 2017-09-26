@@ -57,6 +57,11 @@ namespace Smafac.Wms.Goods.Services
             return goods;
         }
 
+        public List<GoodsModel> GetGoods(GoodsPageQueryModel query)
+        {
+            return _goodsPageQueryer.Query(query);
+        }
+
         public GoodsDetailModel GetGoodsDetail(Guid goodsId)
         {
             var goods = this.GetGoods(goodsId);
@@ -66,7 +71,7 @@ namespace Smafac.Wms.Goods.Services
 
         public PageModel<GoodsModel> GetGoodsPage(GoodsPageQueryModel query)
         {
-            return _goodsPageQueryer.Query(query);
+            return _goodsPageQueryer.QueryPage(query);
         }
     }
 }

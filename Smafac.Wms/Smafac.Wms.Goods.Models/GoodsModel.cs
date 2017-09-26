@@ -33,13 +33,14 @@ namespace Smafac.Wms.Goods.Models
             }
         }
 
-        protected override Dictionary<string, string> GetCustomizedColumns()
+        public override string GetValue(string column)
         {
             if (!HasProperties)
             {
-                return new Dictionary<string, string>();
+                return string.Empty;
             }
-            return Properties.ToDictionary(key => key.PropertyId.ToString(), value => value.PropertyName);
+            var property = Properties.FirstOrDefault(s => s.PropertyId.Equals(Guid.Parse(column)));
+            return property == null ? string.Empty : property.Value;
         }
     }
 }

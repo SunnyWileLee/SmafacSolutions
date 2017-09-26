@@ -58,7 +58,7 @@ namespace Smafac.Sales.Order.Services
 
         public OrderPageModel GetOrderPage(OrderPageQueryModel query)
         {
-            return _orderPageQueryer.QueryPage(query);
+            return _orderPageQueryer.QueryOrderPage(query);
         }
     }
 }

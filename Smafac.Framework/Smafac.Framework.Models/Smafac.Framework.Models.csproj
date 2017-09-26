@@ -46,6 +46,7 @@
     <Compile Include="CustomizedColumnModel.cs" />
     <Compile Include="DateSpanPageQueryModel.cs" />
     <Compile Include="ExportColumnAttribute.cs" />
+    <Compile Include="ExportDataHaveColumnModel.cs" />
     <Compile Include="ExportDataModel.cs" />
     <Compile Include="IExportable.cs" />
     <Compile Include="PageModel.cs" />

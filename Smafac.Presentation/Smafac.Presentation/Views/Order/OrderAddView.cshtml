@@ -57,13 +57,23 @@
                 <div class="form-group">
                     @Html.LabelFor(s => s.OrderDate, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
-                        @Html.TextBoxFor(s => s.OrderDate, new { @class = "form-control input-orderValue" })
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="OrderDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control input-orderValue" name="OrderDate" id="OrderDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(s => s.HopeDate, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
-                        @Html.TextBoxFor(s => s.HopeDate, new { @class = "form-control input-orderValue" })
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="HopeDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control input-orderValue" name="HopeDate" id="HopeDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -217,8 +227,7 @@
         categoryChange($('#CategoryId'));
     })
 
-    function categoryChange(category)
-    {
+    function categoryChange(category) {
         var categoryId = category.children('option:selected').val();
         if (categoryId == '' || categoryId == null) {
             return false;

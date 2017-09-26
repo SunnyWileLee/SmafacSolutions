@@ -57,10 +57,8 @@ $(document).ready(function () {
         if (formid == "undefined" || formid == null) {
             formid = "form-submit";
         }
-        console.log(formid);
         var form = $('#' + formid);
         var data = form.serializeArray();
-        console.log(data);
         $.ajax({
             type: "post",
             url: url,
@@ -118,7 +116,6 @@ $(document).ready(function () {
     });
 });
 
-
 $(document).ready(function () {
     $(function () {
         $('.date-select').datetimepicker({
@@ -160,12 +157,23 @@ function getTotalPage() {
     var url = action.replace('View', '');
 
     var data = { pageindex: 0 };
+    var exportButton = $('#action-export');
+    var exportParas = '?pageindex=0';
     $('.input-search').each(function (index) {
         var input = $(this);
         var name = input.attr('name');
         var value = input.val();
         data[name] = value;
+        if (exportButton != undefined) {
+            var paras = '&' + name + '=' + value;
+            exportParas += paras;
+        }
     })
+    if (exportButton != undefined) {
+        var dataAction = exportButton.attr('data-action');
+        var href = dataAction + exportParas;
+        exportButton.attr('href', href);
+    }
 
     $.ajax({
         type: "post",

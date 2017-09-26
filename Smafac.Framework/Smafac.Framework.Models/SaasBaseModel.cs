@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace Smafac.Framework.Models
 {
-    public abstract class SaasBaseModel : IExportable
+    public abstract class SaasBaseModel
     {
         public SaasBaseModel()
         {
@@ -20,29 +20,5 @@ namespace Smafac.Framework.Models
         [Display(Name = "创建时间")]
         [ExportColumn]
         public virtual DateTime CreateTime { get; set; }
-
-        public virtual Dictionary<string, string> GetColumns()
-        {
-            var columns = GetCustomizedColumns();
-
-            this.GetType().GetProperties().ToList().ForEach(property =>
-            {
-                var exportColumn = property.GetCustomAttribute<ExportColumnAttribute>();
-                if (exportColumn == null)
-                {
-                    return;
-                }
-                var display = property.GetCustomAttribute<DisplayAttribute>();
-                var displayName = display == null ? property.Name : display.Name;
-                columns.Add(property.Name, displayName);
-            });
-
-            return columns;
-        }
-
-        protected virtual Dictionary<string, string> GetCustomizedColumns()
-        {
-            return new Dictionary<string, string>();
-        }
     }
 }

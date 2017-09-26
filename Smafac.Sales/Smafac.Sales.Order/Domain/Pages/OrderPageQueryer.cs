@@ -41,22 +41,22 @@ namespace Smafac.Sales.Order.Domain.Pages
             model.Properties = base.WrapperPropertyValues(properties);
         }
 
-        protected override void LoadOthers(List<OrderModel> models)
+        protected override void LoadOthers(IEnumerable<OrderModel> models)
         {
             var ids = models.Select(s => s.Id);
             var charges = _orderChargeValueSearchRepository.GetChargeValues(UserContext.Current.SubscriberId, ids);
-            models.ForEach(model =>
+            models.ToList().ForEach(model =>
             {
                 var cs = charges.FirstOrDefault(s => s.Key == model.Id);
                 model.Charges = cs == null ? new List<OrderChargeValueModel>() : cs.ToList();
             });
         }
 
-        public OrderPageModel QueryPage(OrderPageQueryModel query)
+        public OrderPageModel QueryOrderPage(OrderPageQueryModel query)
         {
             var chargeColumns = _orderChargeSearchRepository.SelectTableColumns(UserContext.Current.SubscriberId)
                                     .Select(s => new CustomizedColumnModel { Name = s.Name, Id = s.Id }).ToList();
-            var page = new OrderPageModel(base.Query(query))
+            var page = new OrderPageModel(base.QueryPage(query))
             {
                 ChargeTableColumns = chargeColumns
             };

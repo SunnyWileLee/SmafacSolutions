@@ -95,7 +95,7 @@ namespace Smafac.Sales.DeliveryNote.Services
 
         public PageModel<DeliveryNoteModel> GetDeliveryNotePage(DeliveryNotePageQueryModel query)
         {
-            return _notePageQueryer.Query(query);
+            return _notePageQueryer.QueryPage(query);
         }
     }
 }

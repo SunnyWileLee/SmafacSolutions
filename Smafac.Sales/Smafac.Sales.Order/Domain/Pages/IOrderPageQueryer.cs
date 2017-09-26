@@ -5,6 +5,6 @@ namespace Smafac.Sales.Order.Domain.Pages
 {
     interface IOrderPageQueryer : IPageQueryer<OrderModel, OrderPageQueryModel>
     {
-        OrderPageModel QueryPage(OrderPageQueryModel query);
+        OrderPageModel QueryOrderPage(OrderPageQueryModel query);
     }
 }
