@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    class ExportColumnProvider : IExportColumnProvider
+    class ExportPropertyColumnProvider : IExportProperyColumnProvider
     {
         public List<ExportPropertyColumnDescriptor> Provide<TModel>()
         {
@@ -22,6 +22,7 @@ namespace Smafac.Framework.Core.Domain.Exports
                     return;
                 }
                 var column = new ExportPropertyColumnDescriptor(property);
+                column.Order = exportColumn.Order;
                 var display = property.GetCustomAttribute<DisplayAttribute>();
                 if (display != null)
                 {
@@ -29,7 +30,17 @@ namespace Smafac.Framework.Core.Domain.Exports
                 }
                 columns.Add(column);
             });
-            return columns;
+            var sorteds = columns.OrderBy(s => s.Order).ToList();
+            SortProperties(sorteds);
+            return sorteds;
+        }
+
+        protected void SortProperties(List<ExportPropertyColumnDescriptor> properties)
+        {
+            for (int index = 0; index < properties.Count; index++)
+            {
+                properties[index].Order = index;
+            }
         }
     }
 }

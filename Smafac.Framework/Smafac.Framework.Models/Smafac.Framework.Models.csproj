@@ -48,6 +48,7 @@
     <Compile Include="ExportColumnAttribute.cs" />
     <Compile Include="ExportDataHaveColumnModel.cs" />
     <Compile Include="ExportDataModel.cs" />
+    <Compile Include="HavePropertyModel.cs" />
     <Compile Include="IExportable.cs" />
     <Compile Include="PageModel.cs" />
     <Compile Include="PageQueryBaseModel.cs" />

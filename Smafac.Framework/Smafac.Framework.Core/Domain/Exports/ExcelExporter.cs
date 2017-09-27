@@ -22,7 +22,6 @@ namespace Smafac.Framework.Core.Domain.Exports
             }
         }
 
-
         protected virtual IWorkbook CreateWorkbook()
         {
             return new XSSFWorkbook();
@@ -49,8 +48,6 @@ namespace Smafac.Framework.Core.Domain.Exports
             ICell cell = head.CreateCell(columnIndex);
             cell.SetCellValue(columnName);
         }
-
-        protected abstract void SetRow(ISheet sheet);
 
         protected virtual void SetRow(IRow row, int columnIndex, string value)
         {

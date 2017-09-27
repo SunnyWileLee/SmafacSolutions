@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Crm.Customer.Models
 {
-    public class CustomerModel : SaasBaseModel
+    public class CustomerModel : HavePropertyModel
     {
 
         public CustomerModel()
@@ -29,11 +29,15 @@ namespace Smafac.Crm.Customer.Models
         public string LevelName { get; set; }
         public List<CustomerPropertyValueModel> Properties { get; set; }
 
-        public bool HasProperties
+        public override IEnumerable<PropertyValueModel> PropertyValues
         {
             get
             {
-                return Properties != null && Properties.Any();
+                if (Properties == null)
+                {
+                    return new List<PropertyValueModel> { };
+                }
+                return Properties.Cast<PropertyValueModel>();
             }
         }
     }

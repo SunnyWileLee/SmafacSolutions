@@ -8,5 +8,6 @@ namespace Smafac.Framework.Models
 {
     public class ExportColumnAttribute : Attribute
     {
+        public int Order { get; set; }
     }
 }

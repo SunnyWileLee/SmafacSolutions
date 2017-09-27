@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    public interface IExportColumnProvider
+    public interface IExportProperyColumnProvider
     {
         List<ExportPropertyColumnDescriptor> Provide<TModel>();
     }

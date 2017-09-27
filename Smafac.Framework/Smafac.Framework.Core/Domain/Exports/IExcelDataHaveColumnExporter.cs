@@ -11,7 +11,7 @@ namespace Smafac.Framework.Core.Domain.Exports
     public interface IExcelDataHaveColumnExporter
     {
         byte[] Export<TData, TColumn>(ExportDataHaveColumnModel<TData, TColumn> model)
-            where TData : SaasBaseModel
+            where TData : HavePropertyModel
             where TColumn : CustomizedColumnModel;
     }
 }

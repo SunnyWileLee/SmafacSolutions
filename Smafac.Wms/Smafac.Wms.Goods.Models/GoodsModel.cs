@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Wms.Goods.Models
 {
-    public class GoodsModel : SaasBaseModel
+    public class GoodsModel : HavePropertyModel
     {
         [Display(Name = "名称")]
         [Required]
@@ -25,22 +25,17 @@ namespace Smafac.Wms.Goods.Models
         public string CategoryName { get; set; }
         public List<GoodsPropertyValueModel> Properties { get; set; }
 
-        public bool HasProperties
+
+        public override IEnumerable<PropertyValueModel> PropertyValues
         {
             get
             {
-                return Properties != null && Properties.Any();
+                if (Properties == null)
+                {
+                    return new List<PropertyValueModel> { };
+                }
+                return Properties.Cast<PropertyValueModel>();
             }
-        }
-
-        public override string GetValue(string column)
-        {
-            if (!HasProperties)
-            {
-                return string.Empty;
-            }
-            var property = Properties.FirstOrDefault(s => s.PropertyId.Equals(Guid.Parse(column)));
-            return property == null ? string.Empty : property.Value;
         }
     }
 }

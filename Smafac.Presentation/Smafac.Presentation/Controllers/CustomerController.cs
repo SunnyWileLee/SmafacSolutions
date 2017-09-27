@@ -1,6 +1,7 @@
 ﻿using Smafac.Crm.Customer.Applications;
 using Smafac.Crm.Customer.Applications.Propety;
 using Smafac.Crm.Customer.Models;
+using Smafac.Framework.Core.Domain.Exports;
 using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,17 @@ namespace Smafac.Presentation.Controllers
         private readonly ICustomerSearchService _customerSearchService;
         private readonly ICustomerService _customerService;
         private readonly ICustomerPropertyService _customerPropertyService;
+        private readonly IExcelDataHaveColumnExporter _dataExporter;
 
         public CustomerController(ICustomerSearchService customerSearchService,
                                     ICustomerPropertyService customerPropertyService,
-                                    ICustomerService customerService)
+                                    ICustomerService customerService,
+                                    IExcelDataHaveColumnExporter dataExporter)
         {
             _customerSearchService = customerSearchService;
             _customerService = customerService;
             _customerPropertyService = customerPropertyService;
+            _dataExporter = dataExporter;
         }
 
         [HttpGet]
@@ -73,14 +77,16 @@ namespace Smafac.Presentation.Controllers
         [HttpGet]
         public ActionResult Export(CustomerPageQueryModel query)
         {
-            var goods = _customerSearchService.GetCustomers(query);
-            var model = new ExportDataHaveColumnModel<GoodsModel, GoodsPropertyModel>
+            var customers = _customerSearchService.GetCustomers(query);
+            var properties = _customerPropertyService.SearchService.GetColumns();
+            var model = new ExportDataHaveColumnModel<CustomerModel, CustomerPropertyModel>
             {
-                Datas = goods,
+                Datas = customers,
                 Columns = properties
             };
-            var datas = _dataExporter.Export<GoodsModel, GoodsPropertyModel>(model);
-            return File(datas, "application/ms-excel", "exportInfo.xlsx");
+            var datas = _dataExporter.Export<CustomerModel, CustomerPropertyModel>(model);
+            var fileName = string.Format("客户数据{0}.xlsx", DateTime.Now.ToString("yyyymmddHHmmss"));
+            return File(datas, "application/ms-excel", fileName);
         }
     }
 }

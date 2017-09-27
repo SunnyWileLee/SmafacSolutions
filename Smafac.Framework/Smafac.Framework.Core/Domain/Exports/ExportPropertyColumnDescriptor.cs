@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    public class ExportPropertyColumnDescriptor
+    public class ExportPropertyColumnDescriptor: ExportColumnDescriptor
     {
         public ExportPropertyColumnDescriptor(PropertyInfo property)
         {
@@ -16,6 +16,5 @@ namespace Smafac.Framework.Core.Domain.Exports
         }
 
         public PropertyInfo Property { get; private set; }
-        public string DisplayName { get; set; }
     }
 }

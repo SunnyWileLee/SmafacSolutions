@@ -108,11 +108,11 @@
     <Compile Include="Domain\Exports\ExcelExporter.cs" />
     <Compile Include="Domain\Exports\ExportPropertyColumnDescriptor.cs" />
     <Compile Include="Domain\Exports\ExportColumnDescriptor.cs" />
-    <Compile Include="Domain\Exports\ExportColumnProvider.cs" />
+    <Compile Include="Domain\Exports\ExportPropertyColumnProvider.cs" />
     <Compile Include="Domain\Exports\ExcelDataHaveColumnExporter.cs" />
     <Compile Include="Domain\Exports\IExcelDataExporter.cs" />
     <Compile Include="Domain\Exports\IExportColumnDescriptor.cs" />
-    <Compile Include="Domain\Exports\IExportColumnProvider.cs" />
+    <Compile Include="Domain\Exports\IExportProperyColumnProvider.cs" />
     <Compile Include="Domain\Exports\IExcelDataHaveColumnExporter.cs" />
     <Compile Include="Domain\InitDatas\InitCategory.cs" />
     <Compile Include="Domain\Pages\IPageQueryer.cs" />

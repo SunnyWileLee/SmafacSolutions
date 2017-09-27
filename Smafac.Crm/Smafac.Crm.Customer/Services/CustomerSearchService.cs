@@ -68,6 +68,11 @@ namespace Smafac.Crm.Customer.Services
             return Mapper.Map<List<CustomerModel>>(customers);
         }
 
+        public List<CustomerModel> GetCustomers(CustomerPageQueryModel query)
+        {
+            return _customerPageQueryer.Query(query);
+        }
+
         private void SetCustomerPropertyValues(CustomerModel customer, IEnumerable<CustomerPropertyValueModel> properties)
         {
             if (properties == null)

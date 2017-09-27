@@ -10,17 +10,17 @@ using NPOI.XSSF.UserModel;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    class ExcelDataHaveColumnExporter : IExcelDataHaveColumnExporter
+    class ExcelDataHaveColumnExporter : ExcelExporter, IExcelDataHaveColumnExporter
     {
-        private readonly IExportColumnProvider _exportColumnProvider;
+        private readonly IExportProperyColumnProvider _exportColumnProvider;
 
-        public ExcelDataHaveColumnExporter(IExportColumnProvider exportColumnProvider)
+        public ExcelDataHaveColumnExporter(IExportProperyColumnProvider exportColumnProvider)
         {
             _exportColumnProvider = exportColumnProvider;
         }
 
         public byte[] Export<TData, TColumn>(ExportDataHaveColumnModel<TData, TColumn> model)
-            where TData : SaasBaseModel
+            where TData : HavePropertyModel
             where TColumn : CustomizedColumnModel
         {
             IWorkbook workbook = new XSSFWorkbook();
@@ -58,7 +58,7 @@ namespace Smafac.Framework.Core.Domain.Exports
                 foreach (var column in customizedColumns)
                 {
                     ICell cell = rowBody.CreateCell(columnValueIndex);
-                    cell.SetCellValue(data.GetValue(column.Id.ToString()));
+                    cell.SetCellValue(data.GetPropertyValue(column.Id));
                     columnValueIndex++;
                 }
                 rowIndex++;
