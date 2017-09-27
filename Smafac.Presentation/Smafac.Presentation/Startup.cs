@@ -14,6 +14,7 @@ using Smafac.Presentation;
 using Smafac.Sales.DeliveryNote.Applications;
 using Smafac.Sales.Order.Applications;
 using Smafac.Wms.Goods.Applications;
+using System;
 using System.Web.Mvc;
 
 [assembly: OwinStartupAttribute(typeof(Startup))]
@@ -52,7 +53,8 @@ namespace Smafac.Presentation
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Subscriber/SignInView")
+                LoginPath = new PathString("/Subscriber/SignInView"),
+                ExpireTimeSpan = TimeSpan.FromMinutes(30)
             });
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
