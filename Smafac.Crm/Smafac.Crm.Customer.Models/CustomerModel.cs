@@ -17,10 +17,13 @@ namespace Smafac.Crm.Customer.Models
         }
 
         [Display(Name = "名称")]
+        [ExportColumn]
         public string Name { get; set; }
         [Display(Name = "地址")]
+        [ExportColumn]
         public string Address { get; set; }
         [Display(Name = "认识时间")]
+        [ExportColumn]
         public DateTime KnownDate { get; set; }
         [Display(Name = "联系方式")]
         public string MobileNumber { get; set; }

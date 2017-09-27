@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    public interface IExcelDataHaveColumnExporter
+    public interface IExcelDataHaveColumnExporter: IDataExporter
     {
         byte[] Export<TData, TColumn>(ExportDataHaveColumnModel<TData, TColumn> model)
             where TData : HavePropertyModel

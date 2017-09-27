@@ -30,5 +30,15 @@ namespace Smafac.Crm.CustomerFinance.Repositories
                 return finance;
             }
         }
+
+        public List<CustomerFinanceModel> GetModels(Guid subscriberId, Expression<Func<CustomerFinanceEntity, bool>> predicate)
+        {
+            using (var context = ContextProvider.Provide())
+            {
+                var finances = context.CustomerFinances.Where(s => s.SubscriberId == subscriberId).Where(predicate);
+                var models = _customerFinanceJoiner.Join(finances, context.CustomerFinanceCategories).ToList();
+                return models;
+            }
+        }
     }
 }

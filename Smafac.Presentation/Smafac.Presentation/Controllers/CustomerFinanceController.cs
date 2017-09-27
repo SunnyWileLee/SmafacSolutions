@@ -1,7 +1,10 @@
 ﻿using Smafac.Crm.Customer.Applications;
 using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Applications.Category;
+using Smafac.Crm.CustomerFinance.Applications.Propety;
 using Smafac.Crm.CustomerFinance.Models;
+using Smafac.Framework.Core.Domain.Exports;
+using Smafac.Framework.Models;
 using Smafac.Presentation.Domain;
 using Smafac.Presentation.Domain.CustomerFinance;
 using System;
@@ -18,18 +21,24 @@ namespace Smafac.Presentation.Controllers
         private readonly ICustomerFinanceCategoryService _financeCategoryService;
         private readonly ICustomerSearchService _customerSearchService;
         private readonly ICustomerFinanceWrapper[] _financeWrappers;
+        private readonly ICustomerFinancePropertySearchService _propertySearchService;
+        private readonly IExcelDataHaveColumnExporter _dataExporter;
 
         public CustomerFinanceController(ICustomerFinanceService financeService,
                                 ICustomerFinanceSearchService financeSearchService,
                                 ICustomerFinanceCategoryService financeCategoryService,
                                 ICustomerSearchService customerSearchService,
-                                ICustomerFinanceWrapper[] financeWrappers)
+                                ICustomerFinanceWrapper[] financeWrappers,
+                                ICustomerFinancePropertySearchService propertySearchService,
+                                IExcelDataHaveColumnExporter dataExporter)
         {
             _financeService = financeService;
             _financeSearchService = financeSearchService;
             _financeCategoryService = financeCategoryService;
             _customerSearchService = customerSearchService;
             _financeWrappers = financeWrappers;
+            _propertySearchService = propertySearchService;
+            _dataExporter = dataExporter;
         }
 
         [HttpGet]
@@ -93,6 +102,25 @@ namespace Smafac.Presentation.Controllers
         {
             var result = _financeService.UpdateService.UpdateCustomerFinance(model);
             return BoolResult(result);
+        }
+
+        [HttpGet]
+        public ActionResult Export(CustomerFinancePageQueryModel query)
+        {
+            var customerFinances = _financeSearchService.GetCustomerFinances(query);
+            _financeWrappers.ToList().ForEach(wraper =>
+            {
+                wraper.Wrapper(customerFinances);
+            });
+            var properties = _propertySearchService.GetColumns();
+            var model = new ExportDataHaveColumnModel<CustomerFinanceModel, CustomerFinancePropertyModel>
+            {
+                Datas = customerFinances,
+                Columns = properties
+            };
+            var fileName = _dataExporter.CreateFileName("客户财务");
+            var datas = _dataExporter.Export<CustomerFinanceModel, CustomerFinancePropertyModel>(model);
+            return File(datas, "application/ms-excel", fileName);
         }
     }
 }

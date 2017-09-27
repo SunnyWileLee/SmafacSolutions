@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Linq.Expressions;
+using Smafac.Crm.CustomerFinance.Repositories;
+using Smafac.Framework.Core.Models;
 
 namespace Smafac.Crm.CustomerFinance.Domain.Pages
 {
@@ -17,23 +19,28 @@ namespace Smafac.Crm.CustomerFinance.Domain.Pages
         public CustomerFinancePageQueryer(IQueryExpressionCreaterProvider queryExpressionCreaterProvider,
                                     ICustomerFinancePageQueryRepository pageQueryRepository,
                                     ICustomerFinancePropertyValueSearchRepository propertyValueSearchRepository,
-                                    ICustomerFinancePropertySearchRepository propertySearchRepository
+                                    ICustomerFinancePropertySearchRepository propertySearchRepository,
+                                    ICustomerFinanceSearchRepository entitySearchRepository
                                     )
         {
             base.QueryExpressionCreaterProvider = queryExpressionCreaterProvider;
             base.PageQueryRepository = pageQueryRepository;
             base.PropertyValueSearchRepository = propertyValueSearchRepository;
             base.PropertySearchRepository = propertySearchRepository;
+            base.EntitySearchRepository = entitySearchRepository;
+        }
+
+        protected override List<CustomerFinanceModel> QueryModels(Expression<Func<CustomerFinanceEntity, bool>> predicate)
+        {
+            var subscriberId = UserContext.Current.SubscriberId;
+            var repository = base.EntitySearchRepository as ICustomerFinanceSearchRepository;
+            var models = repository.GetModels(subscriberId, predicate);
+            return models;
         }
 
         protected override void SetPropertyValues(CustomerFinanceModel model, IEnumerable<CustomerFinancePropertyValueModel> properties)
         {
             model.Properties = base.WrapperPropertyValues(properties);
-        }
-
-        protected override Expression<Func<CustomerFinanceEntity, bool>> CreatePredicate(CustomerFinancePageQueryModel query)
-        {
-            return base.CreatePredicate(query);
         }
     }
 }

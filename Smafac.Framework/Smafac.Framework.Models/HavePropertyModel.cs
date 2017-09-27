@@ -10,7 +10,7 @@ namespace Smafac.Framework.Models
     {
         public virtual IEnumerable<PropertyValueModel> PropertyValues { get; }
 
-        public bool HasProperties
+        public virtual bool HasProperties
         {
             get
             {

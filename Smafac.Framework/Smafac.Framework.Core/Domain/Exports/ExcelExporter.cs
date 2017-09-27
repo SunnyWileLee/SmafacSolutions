@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {
-    public abstract class ExcelExporter
+    public abstract class ExcelExporter: DataExporter
     {
-        public virtual byte[] ExportBase(IWorkbook workbook)
+        protected virtual byte[] ExportBase(IWorkbook workbook)
         {
             using (MemoryStream stream = new MemoryStream())
             {

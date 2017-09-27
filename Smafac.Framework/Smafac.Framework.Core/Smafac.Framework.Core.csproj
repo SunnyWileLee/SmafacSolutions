@@ -104,12 +104,14 @@
     <Compile Include="Domain\Entity\EntityQueryer.cs" />
     <Compile Include="Domain\Entity\IEntityHavePropertyQueryer.cs" />
     <Compile Include="Domain\Entity\IEntityQueryer.cs" />
+    <Compile Include="Domain\Exports\DataExporter.cs" />
     <Compile Include="Domain\Exports\ExcelDataExporter.cs" />
     <Compile Include="Domain\Exports\ExcelExporter.cs" />
     <Compile Include="Domain\Exports\ExportPropertyColumnDescriptor.cs" />
     <Compile Include="Domain\Exports\ExportColumnDescriptor.cs" />
     <Compile Include="Domain\Exports\ExportPropertyColumnProvider.cs" />
     <Compile Include="Domain\Exports\ExcelDataHaveColumnExporter.cs" />
+    <Compile Include="Domain\Exports\IDataExporter.cs" />
     <Compile Include="Domain\Exports\IExcelDataExporter.cs" />
     <Compile Include="Domain\Exports\IExportColumnDescriptor.cs" />
     <Compile Include="Domain\Exports\IExportProperyColumnProvider.cs" />

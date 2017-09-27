@@ -85,7 +85,7 @@ namespace Smafac.Presentation.Controllers
                 Columns = properties
             };
             var datas = _dataExporter.Export<CustomerModel, CustomerPropertyModel>(model);
-            var fileName = string.Format("客户数据{0}.xlsx", DateTime.Now.ToString("yyyymmddHHmmss"));
+            var fileName = _dataExporter.CreateFileName("客户");
             return File(datas, "application/ms-excel", fileName);
         }
     }

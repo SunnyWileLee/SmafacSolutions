@@ -99,8 +99,9 @@ namespace Smafac.Presentation.Controllers
                 Datas = goods,
                 Columns = properties
             };
+            var fileName = _dataExporter.CreateFileName("商品");
             var datas = _dataExporter.Export<GoodsModel, GoodsPropertyModel>(model);
-            return File(datas, "application/ms-excel", "exportInfo.xlsx");
+            return File(datas, "application/ms-excel", fileName);
         }
     }
 }

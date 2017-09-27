@@ -53,5 +53,10 @@ namespace Smafac.Crm.CustomerFinance.Services
         {
             return _customerFinancePageQueryer.QueryPage(query);
         }
+
+        public List<CustomerFinanceModel> GetCustomerFinances(CustomerFinancePageQueryModel query)
+        {
+            return _customerFinancePageQueryer.Query(query);
+        }
     }
 }
