@@ -18,5 +18,24 @@ namespace Smafac.Wms.Goods.Services.Category
             base.CategoryAddRepository = goodsCategoryAddRepository;
             base.CategorySearchRepository = goodsCategorySearchRepository;
         }
+
+        public override void Init(Guid subscriberId)
+        {
+            if (CategorySearchRepository.Any(subscriberId))
+            {
+                return;
+            }
+            IEnumerable<GoodsCategoryEntity> categories = new List<GoodsCategoryEntity> {
+                new GoodsCategoryEntity{
+                    Name="产品",
+                    SubscriberId=subscriberId
+                },
+                new GoodsCategoryEntity{
+                    Name="原料",
+                    SubscriberId=subscriberId
+                }
+            };
+            CategoryAddRepository.AddEntities(categories);
+        }
     }
 }

@@ -35,6 +35,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Sales.DeliveryNote",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Sales.DeliveryNote.Models", "..\Smafac.Sales\Smafac.Sales.DeliveryNote.Models\Smafac.Sales.DeliveryNote.Models.csproj", "{7142F25D-B888-435B-831D-95139990CF2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Pms.Purchase", "..\Smafac.Pms\Smafac.Pms.Purchase\Smafac.Pms.Purchase.csproj", "{910F7A46-147D-457A-971C-2967EC51B446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Account.FundCenter", "..\Smafac.Account\Smafac.Account.FundCenter\Smafac.Account.FundCenter.csproj", "{497FACC8-D38C-4882-BC1E-32868A6F40D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Account.FundCenter.Models", "..\Smafac.Account\Smafac.Account.FundCenter.Models\Smafac.Account.FundCenter.Models.csproj", "{FD358AC6-55D2-4939-BB90-94D5F2CE86F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +111,18 @@ Global
 		{7142F25D-B888-435B-831D-95139990CF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7142F25D-B888-435B-831D-95139990CF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7142F25D-B888-435B-831D-95139990CF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910F7A46-147D-457A-971C-2967EC51B446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910F7A46-147D-457A-971C-2967EC51B446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910F7A46-147D-457A-971C-2967EC51B446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910F7A46-147D-457A-971C-2967EC51B446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{497FACC8-D38C-4882-BC1E-32868A6F40D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497FACC8-D38C-4882-BC1E-32868A6F40D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497FACC8-D38C-4882-BC1E-32868A6F40D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497FACC8-D38C-4882-BC1E-32868A6F40D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD358AC6-55D2-4939-BB90-94D5F2CE86F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD358AC6-55D2-4939-BB90-94D5F2CE86F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD358AC6-55D2-4939-BB90-94D5F2CE86F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD358AC6-55D2-4939-BB90-94D5F2CE86F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
