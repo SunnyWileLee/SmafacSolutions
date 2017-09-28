@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Sdk", "Smafac.Framework.Sdk\Smafac.Framework.Sdk.csproj", "{108C2470-C212-4D85-9AB6-F15B76685C23}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.WebApi", "Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj", "{9DFB1558-0810-42BA-A9E2-C5850FA162B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Infrustructure", "Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj", "{34ABE787-77A4-458E-981A-090C4C8CC038}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Driver", "Smafac.Framework.Driver\Smafac.Framework.Driver.csproj", "{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
