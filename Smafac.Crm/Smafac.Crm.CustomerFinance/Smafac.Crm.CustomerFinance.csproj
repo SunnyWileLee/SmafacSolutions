@@ -134,6 +134,7 @@
     <Compile Include="Services\CategoryProperty\CustomerFinanceCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategoryAddService.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\CustomerFinanceCategoryInitialization.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategorySearchService.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategoryService.cs" />
     <Compile Include="Services\Category\CustomerFinanceCategoryUpdateService.cs" />

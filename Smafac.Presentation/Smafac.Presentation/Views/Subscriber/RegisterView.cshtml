@@ -1,0 +1,72 @@
+﻿@model PassportModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-6 col-lg-4" style="padding-top:100px">
+                <div class="panel panel-default">
+                    <div class="panel-heading">智慧信息管理系统</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group" style="padding-left:50px;padding-right:50px">
+                                <input type="text" class="form-control" id="username" placeholder="用户名">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group" style="padding-left:50px;padding-right:50px">
+                                <input type="password" class="form-control" id="password" placeholder="密码">
+                                <i class="fa fa-lock"></i>
+                                <a href="#" class="fa fa-question-circle"></a>
+                            </div>
+                            <div class="form-group" style="padding-left:50px">
+                                <input type="button" value="注册" class="btn btn-info" onclick="register()">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function register() {
+        var url = '/Subscriber/Register';
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var paras = {
+            username: username,
+            password: password
+        }
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data: paras,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.href = "/Subscriber/MainView";
+                }, true
+                )
+            }
+        });
+    }
+</script>

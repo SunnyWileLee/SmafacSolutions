@@ -178,6 +178,7 @@
     <Compile Include="Services\CategoryProperty\OrderCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\OrderCategoryAddService.cs" />
     <Compile Include="Services\Category\OrderCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\OrderCategoryInitialization.cs" />
     <Compile Include="Services\Category\OrderCategorySearchService.cs" />
     <Compile Include="Services\Category\OrderCategoryService.cs" />
     <Compile Include="Services\Category\OrderCategoryUpdateService.cs" />

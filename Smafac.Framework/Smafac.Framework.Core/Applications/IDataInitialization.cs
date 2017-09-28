@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Applications
 {
-    public interface IInitDatas
+    public interface IDataInitialization
     {
-        void Init();
+        void Init(Guid subscriberId);
     }
 }

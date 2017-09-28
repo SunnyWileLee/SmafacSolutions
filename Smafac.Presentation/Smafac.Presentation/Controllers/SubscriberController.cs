@@ -15,11 +15,14 @@ namespace Smafac.Presentation.Controllers
     public class SubscriberController : SmafacController
     {
         private readonly IPassportService _passportService;
+        private readonly ISubscriberService _subscriberService;
         public UserManager<SmafacUser> UserManager { get; private set; }
 
-        public SubscriberController(IPassportService passportService)
+        public SubscriberController(IPassportService passportService,
+                                    ISubscriberService subscriberService)
         {
             _passportService = passportService;
+            _subscriberService = subscriberService;
             UserManager = new UserManager<SmafacUser>(new UserStore());
         }
 
@@ -63,6 +66,25 @@ namespace Smafac.Presentation.Controllers
         public ActionResult MainView()
         {
             return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult RegisterView()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> Register(PassportModel model)
+        {
+            if (_subscriberService.Register(model))
+            {
+                return await this.SignIn(model);
+            }
+            return Fail(-1, "注册失败");
         }
     }
 }

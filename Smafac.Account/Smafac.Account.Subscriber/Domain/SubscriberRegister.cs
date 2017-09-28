@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Smafac.Account.Subscriber.Models;
 using Smafac.Account.Subscriber.Repositories;
 using Smafac.Framework.Infrustructure;
+using Smafac.Framework.Core.Applications;
 
 namespace Smafac.Account.Subscriber.Domain
 {
@@ -16,6 +17,7 @@ namespace Smafac.Account.Subscriber.Domain
         private readonly IPassportRepository _passportRepository;
         private readonly IEncrypt _encrypt;
 
+
         public SubscriberRegister(ISubscriberRepository subscriberRepository,
                                 IPassportSearchRepository passportSearchRepository,
                                 IPassportRepository passportRepository,
@@ -25,6 +27,7 @@ namespace Smafac.Account.Subscriber.Domain
             _passportSearchRepository = passportSearchRepository;
             _passportRepository = passportRepository;
             _encrypt = encrypt;
+
         }
 
         public Guid Register(PassportModel model)
@@ -52,7 +55,7 @@ namespace Smafac.Account.Subscriber.Domain
                 SubscriberId = subscriber.Id
             };
 
-            return _passportRepository.AddPassport(passport) ? passport.Id : Guid.Empty;
+            return _passportRepository.AddPassport(passport) ? subscriber.Id : Guid.Empty;
         }
     }
 }

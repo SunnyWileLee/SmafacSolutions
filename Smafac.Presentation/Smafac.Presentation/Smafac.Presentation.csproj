@@ -280,6 +280,7 @@
     <Content Include="Views\DeliveryNoteItemProperty\DeliveryNoteItemPropertyView.cshtml" />
     <Content Include="Views\DeliveryNoteCategory\DeliveryNoteCategoryItemPropertyBindView.cshtml" />
     <Content Include="Views\DeliveryNoteItem\DeliveryNoteEditView.cshtml" />
+    <Content Include="Views\Subscriber\RegisterView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

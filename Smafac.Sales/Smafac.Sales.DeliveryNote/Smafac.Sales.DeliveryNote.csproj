@@ -188,7 +188,7 @@
     <Compile Include="Services\Category\DeliveryNoteCategoryService.cs" />
     <Compile Include="Services\Category\DeliveryNoteCategoryUpdateService.cs" />
     <Compile Include="Services\DeliveryNoteAutoMapper.cs" />
-    <Compile Include="Services\InitDeliveryNoteCategory.cs" />
+    <Compile Include="Services\Category\DeliveryNoteCategoryInitialization.cs" />
     <Compile Include="Services\DeliveryNoteSearchService.cs" />
     <Compile Include="Services\DeliveryNoteService.cs" />
     <Compile Include="Services\DeliveryNoteUpdateService.cs" />

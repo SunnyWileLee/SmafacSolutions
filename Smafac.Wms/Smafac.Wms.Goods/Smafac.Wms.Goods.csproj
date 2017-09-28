@@ -132,6 +132,7 @@
     <Compile Include="Services\CategoryProperty\GoodsCategoryPropertySearchService.cs" />
     <Compile Include="Services\Category\GoodsCategoryAddService.cs" />
     <Compile Include="Services\Category\GoodsCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\GoodsCategoryInitialization.cs" />
     <Compile Include="Services\Category\GoodsCategorySearchService.cs" />
     <Compile Include="Services\Category\GoodsCategoryService.cs" />
     <Compile Include="Services\Category\GoodsCategoryUpdateService.cs" />
