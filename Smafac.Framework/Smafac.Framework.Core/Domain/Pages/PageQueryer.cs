@@ -5,7 +5,7 @@ using Smafac.Framework.Core.Repositories.Pages;
 using Smafac.Framework.Core.Repositories.Property;
 using Smafac.Framework.Core.Repositories.PropertyValue;
 using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

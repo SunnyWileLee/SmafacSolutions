@@ -292,21 +292,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Smafac.Account\Smafac.Account.Subscriber.Models\Smafac.Account.Subscriber.Models.csproj">
-      <Project>{ca960a9d-a635-44b6-a136-43601c76e77c}</Project>
-      <Name>Smafac.Account.Subscriber.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Account\Smafac.Account.Subscriber\Smafac.Account.Subscriber.csproj">
       <Project>{caf255e7-1974-414b-9578-9c07f2f965b3}</Project>
       <Name>Smafac.Account.Subscriber</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj">
-      <Project>{f42dbd6b-fab7-49a6-a06c-ca0c7407f172}</Project>
-      <Name>Smafac.Crm.Customer.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.CustomerFinance.Models\Smafac.Crm.CustomerFinance.Models.csproj">
-      <Project>{9bba760c-6c88-400e-8287-f4d33002ec13}</Project>
-      <Name>Smafac.Crm.CustomerFinance.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Crm\Smafac.Crm.CustomerFinance\Smafac.Crm.CustomerFinance.csproj">
       <Project>{8f2d04cb-ebbd-4a3a-aa2a-bdf32713e4ad}</Project>
@@ -324,29 +312,13 @@
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
-      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
-      <Name>Smafac.Framework.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.DeliveryNote.Models\Smafac.Sales.DeliveryNote.Models.csproj">
-      <Project>{7142f25d-b888-435b-831d-95139990cf2f}</Project>
-      <Name>Smafac.Sales.DeliveryNote.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.DeliveryNote\Smafac.Sales.DeliveryNote.csproj">
       <Project>{01c0d93c-7e44-4b2c-bb83-b7f9c4155548}</Project>
       <Name>Smafac.Sales.DeliveryNote</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.Order.Models\Smafac.Sales.Order.Models.csproj">
-      <Project>{0b64ba49-8a65-4c2e-9d50-376b330db6e7}</Project>
-      <Name>Smafac.Sales.Order.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.Order\Smafac.Sales.Order.csproj">
       <Project>{c9ee6ef4-53e6-4331-8dd4-598b3166b7a7}</Project>
       <Name>Smafac.Sales.Order</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
-      <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>
-      <Name>Smafac.Wms.Goods.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods\Smafac.Wms.Goods.csproj">
       <Project>{ee797919-0d92-4997-b52f-46ae6d8876fd}</Project>

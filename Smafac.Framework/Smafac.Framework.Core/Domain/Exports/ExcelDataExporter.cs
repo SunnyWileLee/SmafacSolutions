@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NPOI.SS.UserModel;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 
 namespace Smafac.Framework.Core.Domain.Exports
 {

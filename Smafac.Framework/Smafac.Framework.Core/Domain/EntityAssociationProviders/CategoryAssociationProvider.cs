@@ -3,7 +3,7 @@ using Smafac.Framework.Core.Domain.EntityComparers;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Category;
 using Smafac.Framework.Core.Repositories.CategoryAssociation;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

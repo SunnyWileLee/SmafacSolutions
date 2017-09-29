@@ -138,9 +138,29 @@
     <Compile Include="Domain\StatusChangedEntity.cs" />
     <Compile Include="Domain\StatusEntity.cs" />
     <Compile Include="Models\AutoMapperProxy.cs" />
+    <Compile Include="Models\CategoryBindIdsModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CategoryModelSet.cs" />
+    <Compile Include="Models\CustomizedColumnModel.cs" />
+    <Compile Include="Models\DateSpanPageQueryModel.cs" />
+    <Compile Include="Models\ExportColumnAttribute.cs" />
+    <Compile Include="Models\ExportDataHaveColumnModel.cs" />
+    <Compile Include="Models\ExportDataModel.cs" />
+    <Compile Include="Models\HavePropertyModel.cs" />
     <Compile Include="Models\IAutoMapper.cs" />
     <Compile Include="Models\IAutoMapperProxy.cs" />
+    <Compile Include="Models\IExportable.cs" />
+    <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\PageQueryBaseModel.cs" />
+    <Compile Include="Models\PropertyModel.cs" />
+    <Compile Include="Models\PropertyType.cs" />
+    <Compile Include="Models\PropertyValueModel.cs" />
+    <Compile Include="Models\QueryBaseModel.cs" />
+    <Compile Include="Models\QueryPropertyAttribute.cs" />
+    <Compile Include="Models\SaasBaseModel.cs" />
     <Compile Include="Models\SmafacAutoMapper.cs" />
+    <Compile Include="Models\StatusModel.cs" />
+    <Compile Include="Models\TreeNodeModel.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryAssociation\CategoryAssociationBindRepository.cs" />
@@ -227,12 +247,6 @@
     <Compile Include="Services\Property\PropertySearchService.cs" />
     <Compile Include="Services\Property\PropertyUpdateService.cs" />
     <Compile Include="Services\VersionService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
-      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
-      <Name>Smafac.Framework.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

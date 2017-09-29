@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 

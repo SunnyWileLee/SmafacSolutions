@@ -4,7 +4,7 @@ using Smafac.Crm.CustomerFinance.Applications.Category;
 using Smafac.Crm.CustomerFinance.Applications.Propety;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Framework.Core.Domain.Exports;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using Smafac.Presentation.Domain;
 using Smafac.Presentation.Domain.CustomerFinance;
 using System;

@@ -1,4 +1,4 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Applications.CategoryProperty;

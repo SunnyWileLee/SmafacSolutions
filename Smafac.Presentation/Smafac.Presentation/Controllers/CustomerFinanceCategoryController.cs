@@ -2,7 +2,7 @@
 using Smafac.Crm.CustomerFinance.Applications.CategoryProperty;
 using Smafac.Crm.CustomerFinance.Applications.Propety;
 using Smafac.Crm.CustomerFinance.Models;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Linq;
 using System.Web.Mvc;

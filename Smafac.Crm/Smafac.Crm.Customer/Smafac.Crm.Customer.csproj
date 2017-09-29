@@ -73,6 +73,11 @@
     <Compile Include="Domain\Property\ICustomerPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\ICustomerPropertyUsedChecker.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CustomerDetailModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\CustomerPageQueryModel.cs" />
+    <Compile Include="Models\CustomerPropertyModel.cs" />
+    <Compile Include="Models\CustomerPropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerContext.cs" />
     <Compile Include="Repositories\CustomerContextProvider.cs" />
@@ -113,14 +118,6 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
-      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
-      <Name>Smafac.Framework.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Smafac.Crm.Customer.Models\Smafac.Crm.Customer.Models.csproj">
-      <Project>{f42dbd6b-fab7-49a6-a06c-ca0c7407f172}</Project>
-      <Name>Smafac.Crm.Customer.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

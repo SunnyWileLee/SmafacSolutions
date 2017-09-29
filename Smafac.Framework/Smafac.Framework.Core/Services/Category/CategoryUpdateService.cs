@@ -3,7 +3,6 @@ using Smafac.Framework.Core.Applications.Category;
 using Smafac.Framework.Core.Domain;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Category;
-using Smafac.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

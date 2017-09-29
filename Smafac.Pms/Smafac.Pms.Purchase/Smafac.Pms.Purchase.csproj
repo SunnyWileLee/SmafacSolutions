@@ -57,10 +57,6 @@
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
-      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
-      <Name>Smafac.Framework.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

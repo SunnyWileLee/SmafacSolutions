@@ -88,6 +88,13 @@
     <Compile Include="Domain\Property\IGoodsPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyUsedChecker.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\GoodsCategoryModel.cs" />
+    <Compile Include="Models\GoodsCategoryPropertyModel.cs" />
+    <Compile Include="Models\GoodsDetailModel.cs" />
+    <Compile Include="Models\GoodsModel.cs" />
+    <Compile Include="Models\GoodsPageQueryModel.cs" />
+    <Compile Include="Models\GoodsPropertyModel.cs" />
+    <Compile Include="Models\GoodsPropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertyBindRepository.cs" />
     <Compile Include="Repositories\CategoryProperty\GoodsCategoryPropertySearchRepository.cs" />
@@ -154,14 +161,6 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Models\Smafac.Framework.Models.csproj">
-      <Project>{f12faccf-3091-413d-8cd0-a99945eac978}</Project>
-      <Name>Smafac.Framework.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
-      <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>
-      <Name>Smafac.Wms.Goods.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

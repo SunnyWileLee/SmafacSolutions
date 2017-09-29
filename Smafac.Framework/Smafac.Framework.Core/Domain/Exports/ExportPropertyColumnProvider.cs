@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace Smafac.Framework.Core.Domain.Exports

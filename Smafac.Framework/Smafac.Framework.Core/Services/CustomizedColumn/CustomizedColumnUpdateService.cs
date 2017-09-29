@@ -3,7 +3,7 @@ using Smafac.Framework.Core.Applications.CustomizedColumn;
 using Smafac.Framework.Core.Domain;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.CustomizedColumn;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

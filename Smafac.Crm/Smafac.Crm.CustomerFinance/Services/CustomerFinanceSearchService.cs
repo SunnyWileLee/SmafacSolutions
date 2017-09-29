@@ -9,7 +9,7 @@ using Smafac.Crm.CustomerFinance.Repositories.Property;
 using Smafac.Crm.CustomerFinance.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 

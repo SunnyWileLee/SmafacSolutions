@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories;
 using Smafac.Framework.Core.Models;

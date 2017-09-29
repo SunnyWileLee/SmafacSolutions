@@ -1,5 +1,5 @@
 ﻿using Smafac.Framework.Core.Models;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Domain;
 using Smafac.Wms.Goods.Models;

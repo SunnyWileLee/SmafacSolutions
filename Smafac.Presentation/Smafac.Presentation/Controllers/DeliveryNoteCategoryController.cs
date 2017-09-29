@@ -1,4 +1,4 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Sales.DeliveryNote.Applications.Category;
 using Smafac.Sales.DeliveryNote.Applications.CategoryItemProperty;
 using Smafac.Sales.DeliveryNote.Applications.CategoryProperty;

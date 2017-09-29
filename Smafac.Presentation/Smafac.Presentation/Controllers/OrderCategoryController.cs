@@ -1,4 +1,4 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Applications.Category;
 using Smafac.Sales.Order.Applications.CategoryCharge;
 using Smafac.Sales.Order.Applications.CategoryProperty;

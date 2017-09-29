@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Smafac.Framework.Core.Models;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Domain.Pages

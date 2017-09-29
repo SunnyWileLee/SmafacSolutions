@@ -6,7 +6,7 @@ using Smafac.Sales.DeliveryNote.Models;
 using Smafac.Sales.DeliveryNote.Repositories;
 using Smafac.Sales.DeliveryNote.Repositories.PropertyValue;
 using System;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using Smafac.Sales.DeliveryNote.Repositories.ItemProperty;
 using System.Linq;
 using System.Collections.Generic;

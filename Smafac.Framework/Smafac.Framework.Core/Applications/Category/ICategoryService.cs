@@ -1,4 +1,4 @@
-﻿using Smafac.Framework.Models;
+﻿using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

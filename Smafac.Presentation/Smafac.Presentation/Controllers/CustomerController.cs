@@ -2,7 +2,7 @@
 using Smafac.Crm.Customer.Applications.Propety;
 using Smafac.Crm.Customer.Models;
 using Smafac.Framework.Core.Domain.Exports;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

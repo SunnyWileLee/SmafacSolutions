@@ -5,7 +5,7 @@ using Smafac.Framework.Core.Domain.Property;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Property;
 using Smafac.Framework.Core.Services.CustomizedColumn;
-using Smafac.Framework.Models;
+using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
