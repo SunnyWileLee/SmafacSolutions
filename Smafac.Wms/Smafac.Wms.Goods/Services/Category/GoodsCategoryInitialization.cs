@@ -28,11 +28,15 @@ namespace Smafac.Wms.Goods.Services.Category
             IEnumerable<GoodsCategoryEntity> categories = new List<GoodsCategoryEntity> {
                 new GoodsCategoryEntity{
                     Name="产品",
-                    SubscriberId=subscriberId
+                    SubscriberId=subscriberId,
+                    Saleable=true,
+                    Purchaseable=false
                 },
                 new GoodsCategoryEntity{
                     Name="原料",
-                    SubscriberId=subscriberId
+                    SubscriberId=subscriberId,
+                    Saleable=false,
+                    Purchaseable=true
                 }
             };
             CategoryAddRepository.AddEntities(categories);

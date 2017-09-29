@@ -12,6 +12,7 @@ namespace Smafac.Wms.Goods.Domain
     [Table("GoodsCategory")]
     class GoodsCategoryEntity : CategoryEntity
     {
-
+        public bool Saleable { get; set; }
+        public bool Purchaseable { get; set; }
     }
 }

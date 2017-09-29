@@ -10,6 +10,9 @@ namespace Smafac.Wms.Goods.Models
 {
     public class GoodsCategoryModel : CategoryModel
     {
-
+        [Display(Name = "可以销售")]
+        public bool Saleable { get; set; }
+        [Display(Name = "需要采购")]
+        public bool Purchaseable { get; set; }
     }
 }

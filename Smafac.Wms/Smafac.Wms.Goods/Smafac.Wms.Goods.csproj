@@ -87,6 +87,10 @@
     <Compile Include="Domain\Property\GoodsPropertyUsedByValueChecker.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\IGoodsPropertyUsedChecker.cs" />
+    <Compile Include="Migrations\201709290253598_1.cs" />
+    <Compile Include="Migrations\201709290253598_1.Designer.cs">
+      <DependentUpon>201709290253598_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GoodsCategoryModel.cs" />
     <Compile Include="Models\GoodsCategoryPropertyModel.cs" />
@@ -162,6 +166,11 @@
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709290253598_1.resx">
+      <DependentUpon>201709290253598_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -18,7 +18,9 @@ namespace Smafac.Wms.Goods.Repositories.Joiners
                             CreateTime = goods.CreateTime,
                             Id = goods.Id,
                             Name = goods.Name,
-                            Price = goods.Price
+                            Price = goods.Price,
+                            Saleable = category.Saleable,
+                            Purchaseable = category.Purchaseable
                         };
             return query;
         }

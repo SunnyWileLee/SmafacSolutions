@@ -11,25 +11,25 @@
         <div class="col-lg-6">
             <form class="form-horizontal">
                 <div class="form-group">
-                    @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
+                    @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.DropDownListFor(s => s.CategoryId, categories, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(s => s.Name, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
+                    @Html.LabelFor(s => s.Name, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(s => s.Price, new { @class = "col-lg-2 control-label" })
-                    <div class="col-lg-10">
+                    @Html.LabelFor(s => s.Price, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
                         @Html.TextBoxFor(s => s.Price, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
+                    <div class="col-lg-offset-3 col-lg-9">
                         <button type="button" class="btn btn-default" onclick="addGoods()">提交</button>
                         <a class="btn btn-default" href="/Goods/GoodsView" type="button">
                             <i class="m-icon-swapleft m-icon-white"></i>

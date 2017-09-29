@@ -5,40 +5,122 @@
     var slice = Convert.ToInt32(ViewData["slice"]) + 1;
 }
 
-<h3>
-    @Model.Category.Name
-</h3>
-<form class="form-inline">
+@if (slice > 1)
+{
+    <form class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(s => s.Category.Name, new { @class = "col-lg-3 control-label" })
+            <div class="col-lg-9">
+                @Html.TextBoxFor(s => s.Category.Name, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-lg-9">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(s => s.Category.Saleable, new { disabled = "true" })
+                        @Html.DisplayNameFor(s => s.Category.Saleable)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-lg-9">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(s => s.Category.Purchaseable, new { disabled = "true" })
+                        @Html.DisplayNameFor(s => s.Category.Purchaseable)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(s => s.Category.Name)</th>
+            <th>@Html.DisplayNameFor(s => s.Category.Saleable)</th>
+            <th>@Html.DisplayNameFor(s => s.Category.Purchaseable)</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Children)
+            {
+            <tr>
+                <td>@category.Name</td>
+                <td>
+                    @{var saleable = category.Saleable ? "是" : "否";}
+                    @saleable
+                </td>
+                <td>
+                    @{var purchaseable = category.Purchaseable ? "是" : "否";}
+                    @purchaseable
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/GoodsCategory/GoodsCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
+                            </li>
+                            @if (slice < 3)
+                            {
+                                <li>
+                                    <a href="#" class="btn-category-slice" data-slice="@slice" data-id="@category.Id">子类别</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
+
+<form class="form-horizontal">
     <div class="form-group">
-        <input type="text" class="form-control" id="input-category-@slice" />
-        <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Category.Id" />
+        @Html.LabelFor(s => s.NewCategory.Name, new { @class = "col-lg-3 control-label" })
+        <div class="col-lg-9">
+            @Html.TextBoxFor(s => s.NewCategory.Name, new { @class = "form-control", id = "input-category-" + @slice })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(s => s.NewCategory.Saleable, new { id = "input-saleable-" + @slice })
+                    @Html.DisplayNameFor(s => s.NewCategory.Saleable)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(s => s.NewCategory.Purchaseable, new { id = "input-purchaseable-" + @slice })
+                    @Html.DisplayNameFor(s => s.NewCategory.Purchaseable)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-9">
+            <input type="button" value="新增" class="btn btn-success btn-addcategory" data-slice="@slice" data-id="@Model.Category.Id" />
+            @if (slice == 1)
+            {
+                <a class="btn btn-default" href="/Goods/GoodsView" type="button">
+                    <i class="m-icon-swapleft m-icon-white"></i>
+                    返回商品列表
+                </a>
+            }
+        </div>
     </div>
 </form>
-<ul class="list-group">
-    @foreach (var category in Model.Children)
-            {
-        <li class="list-group-item">
-            @category.Name
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    操作
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/GoodsCategory/GoodsCategoryPropertyBindView?categoryId=@category.Id">设置属性</a>
-                    </li>
-                    @if (slice < 4)
-                    {
-                        <li>
-                            <a href="#" class="btn-category-slice" data-slice="@slice" data-id="@category.Id">子类别</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-
-        </li>
-    }
-</ul>
-
-

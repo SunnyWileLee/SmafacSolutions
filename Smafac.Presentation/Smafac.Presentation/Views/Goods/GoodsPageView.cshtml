@@ -37,9 +37,12 @@
                 }
                 <td>
                     <a class="btn btn-default" href="/Goods/GoodsDetailView?goodsId=@goods.Id" type="button">详情</a>
-                    <a class="btn btn-default" href="/Order/OrderAddView?goodsId=@goods.Id" type="button">下单</a>
+                    @if (goods.Saleable)
+                    {
+                        <a class="btn btn-default" href="/Order/OrderAddView?goodsId=@goods.Id" type="button">下单</a>
+                    }
                 </td>
             </tr>
-            }
+                    }
     </tbody>
 </table>

@@ -12,6 +12,7 @@ namespace Smafac.Framework.Core.Models
         {
             Category = default(TCategoryModel);
             Children = new List<TCategoryModel>();
+            NewCategory = Activator.CreateInstance<TCategoryModel>();
         }
 
         public CategoryModelSet(TCategoryModel category, List<TCategoryModel> children)
@@ -22,5 +23,6 @@ namespace Smafac.Framework.Core.Models
 
         public TCategoryModel Category { get; set; }
         public List<TCategoryModel> Children { get; set; }
+        public TCategoryModel NewCategory { get; set; }
     }
 }

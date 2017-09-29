@@ -24,6 +24,10 @@ namespace Smafac.Wms.Goods.Models
         [ExportColumn]
         public string CategoryName { get; set; }
         public List<GoodsPropertyValueModel> Properties { get; set; }
+        [Display(Name = "可以销售")]
+        public bool Saleable { get; set; }
+        [Display(Name = "需要采购")]
+        public bool Purchaseable { get; set; }
 
 
         public override IEnumerable<PropertyValueModel> PropertyValues
