@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,14 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\IAutofacScanFundCenter.cs" />
+    <Compile Include="Applications\IConsumeService.cs" />
+    <Compile Include="Applications\IConsumeThingService.cs" />
+    <Compile Include="Domain\ConsumeEntity.cs" />
+    <Compile Include="Domain\ConsumeThingEntity.cs" />
+    <Compile Include="Domain\Consume\BalanceChecker.cs" />
+    <Compile Include="Domain\Consume\ConsumeHandler.cs" />
+    <Compile Include="Domain\Consume\IBalanceChecker.cs" />
+    <Compile Include="Domain\Consume\IConsumeHandler.cs" />
+    <Compile Include="Domain\SubscriberFundEntity.cs" />
+    <Compile Include="Domain\RechargeEntity.cs" />
+    <Compile Include="Infrustructure\ConsumeAttribute.cs" />
+    <Compile Include="Models\ConsumeModel.cs" />
+    <Compile Include="Models\ConsumeThingType.cs" />
+    <Compile Include="Models\RechargeModel.cs" />
+    <Compile Include="Models\SubscriberRechargeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConsumeAddRepository.cs" />
+    <Compile Include="Repositories\ConsumeThingSearchRepository.cs" />
+    <Compile Include="Repositories\FundAddRepository.cs" />
+    <Compile Include="Repositories\FundCenterContext.cs" />
+    <Compile Include="Repositories\FundCenterContextProvider.cs" />
+    <Compile Include="Repositories\FundSearchRepository.cs" />
+    <Compile Include="Repositories\FundUpdateRepository.cs" />
+    <Compile Include="Repositories\IConsumeAddRepository.cs" />
+    <Compile Include="Repositories\IConsumeThingSearchRepository.cs" />
+    <Compile Include="Repositories\IFundAddRepository.cs" />
+    <Compile Include="Repositories\IFundCenterContextProvider.cs" />
+    <Compile Include="Repositories\IFundSearchRepository.cs" />
+    <Compile Include="Repositories\IFundUpdateRepository.cs" />
+    <Compile Include="Services\ConsumeService.cs" />
+    <Compile Include="Services\SubscriberFundInitialization.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\" />
-    <Folder Include="Domain\" />
-    <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Services\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
+      <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
+      <Name>Smafac.Framework.Infrustructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
