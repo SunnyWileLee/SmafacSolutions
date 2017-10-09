@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Driver
 {
-    public interface IPipeResponse
+    public interface IPipeServiceMethodProvider
     {
     }
 }

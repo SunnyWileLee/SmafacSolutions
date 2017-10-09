@@ -42,11 +42,26 @@
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
     <Compile Include="CommandPipe.cs" />
+    <Compile Include="CommandPipeProvider.cs" />
+    <Compile Include="DefaultCommandPipe.cs" />
+    <Compile Include="IAutofacScanFrameworkDriver.cs" />
+    <Compile Include="IPipeServiceMethodProvider.cs" />
+    <Compile Include="IPipeServiceProvider.cs" />
+    <Compile Include="PipeServiceDescriptor.cs" />
+    <Compile Include="PipeHandlerAttribute.cs" />
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="ICommandPipe.cs" />
+    <Compile Include="ICommandPipeProvider.cs" />
     <Compile Include="IPipeContext.cs" />
     <Compile Include="IPipeRequest.cs" />
     <Compile Include="IPipeResponse.cs" />
+    <Compile Include="IPipeService.cs" />
+    <Compile Include="PipeContext.cs" />
+    <Compile Include="PipeEndHandler.cs" />
+    <Compile Include="PipeRequest.cs" />
+    <Compile Include="PipeResponse.cs" />
+    <Compile Include="PipeServiceMethodDescriptor.cs" />
+    <Compile Include="PipeStartHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

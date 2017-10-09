@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Driver
 {
-    public interface IPipeResponse
+    public abstract class PipeContext : IPipeContext
     {
+        public virtual PipeRequest Request { get; set; }
+        public virtual PipeResponse Response { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Smafac.Framework.Core.Models;
+using Smafac.Framework.Driver;
 using Smafac.Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -57,6 +59,22 @@ namespace Smafac.Presentation.Controllers
             var jsonString = sr.ReadToEnd();
             var json = JsonConvert.DeserializeObject<TJson>(jsonString);
             return json;
+        }
+
+        protected ICommandPipeProvider CommandPipeProvider
+        {
+            get;
+            set;
+        }
+
+        public TResult PipeExecute<TParameter, TResult>(Expression<Func<TParameter, TResult>> expression, TParameter paras)
+        {
+            return CommandPipeProvider.Provide().Execute(expression, paras);
+        }
+
+        public TResult PipeExecute<TResult>(Expression<Func<TResult>> expression)
+        {
+            return CommandPipeProvider.Provide().Execute(expression);
         }
     }
 }

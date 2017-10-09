@@ -308,6 +308,10 @@
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Driver\Smafac.Framework.Driver.csproj">
+      <Project>{0f706bb7-42c4-4bf5-a6f7-f66e86aa41b3}</Project>
+      <Name>Smafac.Framework.Driver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Framework.Driver
+namespace Smafac.Account.FundCenter.Applications
 {
-    public interface IPipeResponse
+    public interface IBalanceService
     {
+        decimal GetBalance();
     }
 }

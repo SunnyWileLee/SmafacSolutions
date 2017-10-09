@@ -9,6 +9,7 @@ using Smafac.Crm.Customer.Applications;
 using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Framework.Core.Applications;
 using Smafac.Framework.Core.Models;
+using Smafac.Framework.Driver;
 using Smafac.Framework.Infrustructure;
 using Smafac.Presentation;
 using Smafac.Sales.DeliveryNote.Applications;
@@ -45,6 +46,7 @@ namespace Smafac.Presentation
             Register<IAutofacScanSubscriber>(builder);
             Register<IAutofacScanInfrustructure>(builder);
             Register<IAutofacScanCustomerFinance>(builder);
+            Register<IAutofacScanFrameworkDriver>(builder);
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

@@ -1,5 +1,6 @@
 ﻿using Smafac.Framework.Core.Domain.Exports;
 using Smafac.Framework.Core.Models;
+using Smafac.Framework.Driver;
 using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Applications.Category;
 using Smafac.Wms.Goods.Applications.Property;
@@ -25,13 +26,15 @@ namespace Smafac.Presentation.Controllers
                                 IGoodsSearchService goodsSearchService,
                                 IGoodsCategoryService goodsCategoryService,
                                 IGoodsPropertyService goodsPropertyService,
-                                IExcelDataHaveColumnExporter dataExporter)
+                                IExcelDataHaveColumnExporter dataExporter,
+                                ICommandPipeProvider commandPipeProvider)
         {
             _goodsService = goodsService;
             _goodsSearchService = goodsSearchService;
             _goodsCategoryService = goodsCategoryService;
             _dataExporter = dataExporter;
             _goodsPropertyService = goodsPropertyService;
+            base.CommandPipeProvider = commandPipeProvider;
         }
 
         [HttpGet]

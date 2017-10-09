@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Driver
 {
-    class CommandHandler
+    public abstract class CommandHandler: ICommandHandler
     {
+
     }
 }

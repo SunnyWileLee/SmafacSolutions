@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Smafac.Framework.Driver
 {
-    public interface IPipeResponse
+    public class PipeStartHandler : CommandHandler
     {
+        public int Test(int index)
+        {
+            return index;
+        }
     }
 }

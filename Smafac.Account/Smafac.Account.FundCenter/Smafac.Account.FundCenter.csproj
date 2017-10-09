@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applications\IAutofacScanFundCenter.cs" />
+    <Compile Include="Applications\IBalanceService.cs" />
     <Compile Include="Applications\IConsumeService.cs" />
     <Compile Include="Applications\IConsumeThingService.cs" />
     <Compile Include="Domain\ConsumeEntity.cs" />
