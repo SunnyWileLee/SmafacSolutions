@@ -1,21 +1,12 @@
-﻿using Smafac.Sales.Order.Applications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Smafac.Framework.Core.Models;
+using Smafac.Sales.Order.Applications;
+using Smafac.Sales.Order.Domain.Pages;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories;
-using Smafac.Framework.Core.Models;
-using AutoMapper;
-using Smafac.Sales.Order.Domain;
-using Smafac.Sales.Order.Repositories.Charge;
-using Smafac.Sales.Order.Repositories.Property;
-using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Sales.Order.Repositories.PropertyValue;
-using Smafac.Sales.Order.Domain.Pages;
 using Smafac.Sales.Order.Repositories.ChargeValue;
+using Smafac.Sales.Order.Repositories.PropertyValue;
+using System;
 
 namespace Smafac.Sales.Order.Services
 {

@@ -6,21 +6,20 @@ namespace Smafac.Pms.Purchase.Repositories.Joiners
 {
     class PurchaseJoiner : IPurchaseJoiner
     {
-        public IQueryable<PurchaseModel> Join(IQueryable<PurchaseEntity> goodses, IQueryable<PurchaseCategoryEntity> categories)
+        public IQueryable<PurchaseModel> Join(IQueryable<PurchaseEntity> purchases, IQueryable<PurchaseCategoryEntity> categories)
         {
-            var query = from goods in goodses
-                        join category in categories on goods.CategoryId equals category.Id
+            var query = from purchase in purchases
+                        join category in categories on purchase.CategoryId equals category.Id
                         select new PurchaseModel
                         {
-                            CategoryId = goods.CategoryId,
-                            SubscriberId = goods.SubscriberId,
+                            CategoryId = purchase.CategoryId,
+                            SubscriberId = purchase.SubscriberId,
                             CategoryName = category.Name,
-                            CreateTime = goods.CreateTime,
-                            Id = goods.Id,
-                            Name = goods.Name,
-                            Price = goods.Price,
-                            Saleable = category.Saleable,
-                            Purchaseable = category.Purchaseable
+                            CreateTime = purchase.CreateTime,
+                            Id = purchase.Id,
+                            Amount = purchase.Amount,
+                            GoodsId = purchase.GoodsId,
+                            Quantity = purchase.Quantity
                         };
             return query;
         }

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Models;
-using Smafac.Wms.Goods.Repositories;
-using Smafac.Framework.Core.Models;
-using AutoMapper;
+﻿using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 using Smafac.Wms.Goods.Models;
-using Smafac.Framework.Core.Domain;
 using Smafac.Wms.Goods.Repositories.Category;
 using Smafac.Wms.Goods.Repositories.CategoryProperty;
-using Smafac.Framework.Core.Domain.EntityAssociationProviders;
 
 namespace Smafac.Wms.Goods.Domain.CategoryProperty
 {

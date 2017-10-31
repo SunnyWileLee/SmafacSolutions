@@ -1,15 +1,10 @@
-﻿using AutoMapper;
-using Smafac.Crm.CustomerFinance.Applications;
-using Smafac.Crm.CustomerFinance.Domain;
+﻿using Smafac.Crm.CustomerFinance.Applications;
 using Smafac.Crm.CustomerFinance.Domain.Pages;
 using Smafac.Crm.CustomerFinance.Models;
 using Smafac.Crm.CustomerFinance.Repositories;
-using Smafac.Crm.CustomerFinance.Repositories.Pages;
-using Smafac.Crm.CustomerFinance.Repositories.Property;
 using Smafac.Crm.CustomerFinance.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 

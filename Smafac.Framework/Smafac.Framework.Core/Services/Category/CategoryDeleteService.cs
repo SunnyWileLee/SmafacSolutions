@@ -1,14 +1,8 @@
-﻿using Smafac.Framework.Core.Applications;
-using Smafac.Framework.Core.Applications.Category;
+﻿using Smafac.Framework.Core.Applications.Category;
 using Smafac.Framework.Core.Domain;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Category;
-using Smafac.Framework.Core.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Services.Category
 {

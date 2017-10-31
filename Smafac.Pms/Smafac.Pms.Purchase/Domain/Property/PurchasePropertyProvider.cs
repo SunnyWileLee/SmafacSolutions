@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Models;
-using Smafac.Pms.Purchase.Repositories;
-using Smafac.Framework.Core.Models;
-using Smafac.Pms.Purchase.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Pms.Purchase.Domain.CategoryProperty;
+using Smafac.Pms.Purchase.Models;
+using Smafac.Pms.Purchase.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace Smafac.Pms.Purchase.Domain.Property
 {

@@ -12,7 +12,6 @@ namespace Smafac.Pms.Purchase.Domain
     [Table("PurchaseCategory")]
     class PurchaseCategoryEntity : CategoryEntity
     {
-        public bool Saleable { get; set; }
-        public bool Purchaseable { get; set; }
+
     }
 }

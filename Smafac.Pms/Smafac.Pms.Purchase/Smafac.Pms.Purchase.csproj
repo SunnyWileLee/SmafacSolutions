@@ -85,6 +85,15 @@
     <Compile Include="Domain\PurchaseEntity.cs" />
     <Compile Include="Domain\PurchasePropertyEntity.cs" />
     <Compile Include="Domain\PurchasePropertyValueEntity.cs" />
+    <Compile Include="Migrations\201710310622199_InitialCreate.cs" />
+    <Compile Include="Migrations\201710310622199_InitialCreate.Designer.cs">
+      <DependentUpon>201710310622199_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710310641075_InitialCreate1.cs" />
+    <Compile Include="Migrations\201710310641075_InitialCreate1.Designer.cs">
+      <DependentUpon>201710310641075_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PurchaseCategoryModel.cs" />
     <Compile Include="Models\PurchaseCategoryPropertyModel.cs" />
     <Compile Include="Models\PurchaseDetailModel.cs" />
@@ -163,6 +172,14 @@
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710310622199_InitialCreate.resx">
+      <DependentUpon>201710310622199_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710310641075_InitialCreate1.resx">
+      <DependentUpon>201710310641075_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

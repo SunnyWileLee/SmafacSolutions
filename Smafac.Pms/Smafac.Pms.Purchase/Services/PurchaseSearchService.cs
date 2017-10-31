@@ -1,20 +1,14 @@
 ﻿using Smafac.Framework.Core.Models;
-using Smafac.Framework.Core.Models;
 using Smafac.Pms.Purchase.Applications;
 using Smafac.Pms.Purchase.Domain;
+using Smafac.Pms.Purchase.Domain.Pages;
 using Smafac.Pms.Purchase.Models;
 using Smafac.Pms.Purchase.Repositories;
+using Smafac.Pms.Purchase.Repositories.PropertyValue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using AutoMapper;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Pms.Purchase.Repositories.PropertyValue;
-using Smafac.Pms.Purchase.Repositories.Property;
-using Smafac.Pms.Purchase.Domain.Pages;
 
 namespace Smafac.Pms.Purchase.Services
 {
@@ -32,13 +26,6 @@ namespace Smafac.Pms.Purchase.Services
             _goodsSearchRepository = goodsSearchRepository;
             _goodsPropertyValueSearchRepository = goodsPropertyValueSearchRepository;
             _goodsPageQueryer = goodsPageQueryer;
-        }
-
-        public List<PurchaseModel> GetPurchase(string key)
-        {
-            var subscriberId = UserContext.Current.SubscriberId;
-            Expression<Func<PurchaseEntity, bool>> predicate = s => s.Name.Contains(key);
-            return _goodsSearchRepository.GetPurchase(subscriberId, predicate);
         }
 
         public List<PurchaseModel> GetPurchase(IEnumerable<Guid> goodsIds)

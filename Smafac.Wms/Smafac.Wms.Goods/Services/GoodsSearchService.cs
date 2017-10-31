@@ -1,20 +1,14 @@
 ﻿using Smafac.Framework.Core.Models;
-using Smafac.Framework.Core.Models;
 using Smafac.Wms.Goods.Applications;
 using Smafac.Wms.Goods.Domain;
+using Smafac.Wms.Goods.Domain.Pages;
 using Smafac.Wms.Goods.Models;
 using Smafac.Wms.Goods.Repositories;
+using Smafac.Wms.Goods.Repositories.PropertyValue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using AutoMapper;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Wms.Goods.Repositories.PropertyValue;
-using Smafac.Wms.Goods.Repositories.Property;
-using Smafac.Wms.Goods.Domain.Pages;
 
 namespace Smafac.Wms.Goods.Services
 {

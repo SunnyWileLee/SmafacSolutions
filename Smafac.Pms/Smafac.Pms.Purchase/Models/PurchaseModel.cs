@@ -10,25 +10,27 @@ namespace Smafac.Pms.Purchase.Models
 {
     public class PurchaseModel : HavePropertyModel
     {
-        [Display(Name = "名称")]
+        [Display(Name = "商品")]
+        [Required]
+        public Guid GoodsId { get; set; }
+        [Display(Name = "商品")]
         [Required]
         [ExportColumn]
-        public string Name { get; set; }
-        [Display(Name = "售价")]
+        public string GoodsName { get; set; }
+        [Display(Name = "数量")]
         [Required]
         [ExportColumn]
-        public decimal Price { get; set; }
+        public decimal Quantity { get; set; }
+        [Display(Name = "金额")]
+        [Required]
+        [ExportColumn]
+        public decimal Amount { get; set; }
         [Display(Name = "类别")]
         public Guid CategoryId { get; set; }
         [Display(Name = "类别")]
         [ExportColumn]
         public string CategoryName { get; set; }
         public List<PurchasePropertyValueModel> Properties { get; set; }
-        [Display(Name = "可以销售")]
-        public bool Saleable { get; set; }
-        [Display(Name = "需要采购")]
-        public bool Purchaseable { get; set; }
-
 
         public override IEnumerable<PropertyValueModel> PropertyValues
         {

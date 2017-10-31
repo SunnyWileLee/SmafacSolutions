@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Models;
-using Smafac.Framework.Core.Models;
-using Smafac.Sales.Order.Repositories;
-using Smafac.Sales.Order.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Sales.Order.Domain.CategoryProperty;
+using Smafac.Sales.Order.Models;
+using Smafac.Sales.Order.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace Smafac.Sales.Order.Domain.Property
 {

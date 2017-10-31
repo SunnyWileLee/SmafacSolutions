@@ -1,13 +1,10 @@
 ﻿using Smafac.Framework.Core.Domain.Pages;
-using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Framework.Core.Models;
 using Smafac.Sales.DeliveryNote.Models;
 using Smafac.Sales.DeliveryNote.Repositories.Pages;
 using Smafac.Sales.DeliveryNote.Repositories.Property;
 using Smafac.Sales.DeliveryNote.Repositories.PropertyValue;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Smafac.Sales.DeliveryNote.Domain.Pages
 {

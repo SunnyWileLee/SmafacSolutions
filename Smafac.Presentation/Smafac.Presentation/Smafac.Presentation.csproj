@@ -192,8 +192,11 @@
     <Compile Include="Controllers\DeliveryNoteItemController.cs" />
     <Compile Include="Controllers\DeliveryNoteItemPropertyController.cs" />
     <Compile Include="Controllers\DeliveryNotePropertyController.cs" />
+    <Compile Include="Controllers\PurchaseCategoryController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\PurchasePropertyController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
     <Compile Include="Controllers\OrderCategoryController.cs" />
     <Compile Include="Controllers\OrderChargeController.cs" />
@@ -213,6 +216,8 @@
     <Compile Include="Domain\Order\OrderCustomerWrapper.cs" />
     <Compile Include="Domain\Order\OrderGoodsWrapper.cs" />
     <Compile Include="Domain\PropertyTypeProvider.cs" />
+    <Compile Include="Domain\Purchase\IPurchaseWrapper.cs" />
+    <Compile Include="Domain\Purchase\PurchaseGoodsWrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -284,6 +289,16 @@
     <Content Include="Views\Subscriber\RegisterView.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Views\Purchase\PurchaseAddView.cshtml" />
+    <Content Include="Views\Purchase\PurchaseDetailView.cshtml" />
+    <Content Include="Views\Purchase\PurchasePageView.cshtml" />
+    <Content Include="Views\Purchase\PurchaseView.cshtml" />
+    <Content Include="Views\PurchaseCategory\PurchaseCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\PurchaseCategory\PurchaseCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\PurchaseCategory\PurchaseCategorySliceView.cshtml" />
+    <Content Include="Views\PurchaseCategory\PurchaseCategoryView.cshtml" />
+    <Content Include="Views\PurchaseProperty\PurchasePropertyAddView.cshtml" />
+    <Content Include="Views\PurchaseProperty\PurchasePropertyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -318,6 +333,10 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Pms\Smafac.Pms.Purchase\Smafac.Pms.Purchase.csproj">
+      <Project>{910f7a46-147d-457a-971c-2967ec51b446}</Project>
+      <Name>Smafac.Pms.Purchase</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Sales\Smafac.Sales.DeliveryNote\Smafac.Sales.DeliveryNote.csproj">
       <Project>{01c0d93c-7e44-4b2c-bb83-b7f9c4155548}</Project>

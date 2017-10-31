@@ -1,13 +1,4 @@
-﻿using AutoMapper;
-using Smafac.Framework.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Repositories.Category;
-using Smafac.Framework.Core.Models;
-using Smafac.Framework.Core.Repositories.CategoryProperty;
+﻿using Smafac.Framework.Core.Models;
 
 namespace Smafac.Framework.Core.Domain.EntityAssociationProviders
 {

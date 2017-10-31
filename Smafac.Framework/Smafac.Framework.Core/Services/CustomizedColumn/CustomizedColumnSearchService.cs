@@ -1,15 +1,10 @@
-﻿using Smafac.Framework.Core.Applications.CustomizedColumn;
-using Smafac.Framework.Core.Domain;
+﻿using AutoMapper;
+using Smafac.Framework.Core.Applications.CustomizedColumn;
+using Smafac.Framework.Core.Domain.CustomizedColumn;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.CustomizedColumn;
-using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Smafac.Framework.Core.Domain.CustomizedColumn;
 
 namespace Smafac.Framework.Core.Services.CustomizedColumn
 {

@@ -1,0 +1,56 @@
+﻿@model PurchasePageQueryModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">采购单管理</div>
+    <div class="panel-body">
+        <form class="form-inline" id="form-search" data-page="PurchasePageView">
+            <div class="form-group">
+                <div class="form-group">
+                    @Html.LabelFor(s => s.CategoryId)
+                    @Html.DropDownListFor(s => s.CategoryId, categories, "全部", new { @class = "form-control input-search" })
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" data-fromid="form-search" class="btn btn-primary btn-page">
+                    <i class="icon-search"></i>
+                    查询
+                </button>
+            </div>
+            <div class="form-group">
+                <a href="/Purchase/Export" id="action-export" type="button" class="btn btn-warning" data-action="/Purchase/Export">
+                    <i class="icon-search"></i>
+                    导出
+                </a>
+            </div>
+            <div class="form-group btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    设置 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="btn" href="/PurchaseCategory/PurchaseCategoryView">
+                            <i class="icon-plus"></i>
+                            采购单分类设置
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" href="/PurchaseProperty/PurchasePropertyView">
+                            <i class="icon-plus"></i>
+                            采购单属性设置
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div id="table-container" class="table-responsive"></div>
+    <div class="panel-footer">
+        <ul class="pagination" id="pagination-container"></ul>
+    </div>
+</div>
+

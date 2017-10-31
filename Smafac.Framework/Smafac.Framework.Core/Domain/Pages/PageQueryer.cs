@@ -1,17 +1,7 @@
-﻿using AutoMapper;
-using Smafac.Framework.Core.Domain.Entity;
+﻿using Smafac.Framework.Core.Domain.Entity;
 using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Pages;
-using Smafac.Framework.Core.Repositories.Property;
-using Smafac.Framework.Core.Repositories.PropertyValue;
-using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Framework.Core.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Smafac.Framework.Core.Domain.Pages
 {

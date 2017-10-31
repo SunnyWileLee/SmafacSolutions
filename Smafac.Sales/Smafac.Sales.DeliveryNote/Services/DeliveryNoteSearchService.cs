@@ -1,18 +1,17 @@
 ﻿using AutoMapper;
 using Smafac.Framework.Core.Models;
 using Smafac.Sales.DeliveryNote.Applications;
+using Smafac.Sales.DeliveryNote.Domain.CategoryItemProperty;
 using Smafac.Sales.DeliveryNote.Domain.Pages;
 using Smafac.Sales.DeliveryNote.Models;
 using Smafac.Sales.DeliveryNote.Repositories;
+using Smafac.Sales.DeliveryNote.Repositories.Item;
+using Smafac.Sales.DeliveryNote.Repositories.ItemProperty;
+using Smafac.Sales.DeliveryNote.Repositories.ItemPropertyValue;
 using Smafac.Sales.DeliveryNote.Repositories.PropertyValue;
 using System;
-using Smafac.Framework.Core.Models;
-using Smafac.Sales.DeliveryNote.Repositories.ItemProperty;
-using System.Linq;
 using System.Collections.Generic;
-using Smafac.Sales.DeliveryNote.Repositories.Item;
-using Smafac.Sales.DeliveryNote.Repositories.ItemPropertyValue;
-using Smafac.Sales.DeliveryNote.Domain.CategoryItemProperty;
+using System.Linq;
 
 namespace Smafac.Sales.DeliveryNote.Services
 {

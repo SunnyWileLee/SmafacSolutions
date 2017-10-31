@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Framework.Core.Models;
-using Smafac.Wms.Goods.Repositories;
-using Smafac.Framework.Core.Models;
-using Smafac.Wms.Goods.Models;
+﻿using Smafac.Framework.Core.Models;
 using Smafac.Wms.Goods.Domain.CategoryProperty;
+using Smafac.Wms.Goods.Models;
+using Smafac.Wms.Goods.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace Smafac.Wms.Goods.Domain.Property
 {

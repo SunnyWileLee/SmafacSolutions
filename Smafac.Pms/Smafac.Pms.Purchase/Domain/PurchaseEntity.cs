@@ -12,9 +12,9 @@ namespace Smafac.Pms.Purchase.Domain
     [Table("Purchase")]
     class PurchaseEntity : SaasBaseEntity
     {
-        [MaxLength(100)]
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        public Guid GoodsId { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Amount { get; set; }
         public Guid CategoryId { get; set; }
     }
 }

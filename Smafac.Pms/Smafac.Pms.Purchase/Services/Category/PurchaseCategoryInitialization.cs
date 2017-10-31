@@ -27,16 +27,8 @@ namespace Smafac.Pms.Purchase.Services.Category
             }
             IEnumerable<PurchaseCategoryEntity> categories = new List<PurchaseCategoryEntity> {
                 new PurchaseCategoryEntity{
-                    Name="产品",
-                    SubscriberId=subscriberId,
-                    Saleable=true,
-                    Purchaseable=false
-                },
-                new PurchaseCategoryEntity{
-                    Name="原料",
-                    SubscriberId=subscriberId,
-                    Saleable=false,
-                    Purchaseable=true
+                    Name="默认",
+                    SubscriberId=subscriberId
                 }
             };
             CategoryAddRepository.AddEntities(categories);

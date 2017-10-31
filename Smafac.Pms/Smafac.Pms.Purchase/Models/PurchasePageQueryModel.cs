@@ -10,9 +10,6 @@ namespace Smafac.Pms.Purchase.Models
 {
     public class PurchasePageQueryModel : PageQueryBaseModel
     {
-        [Display(Name = "名称")]
-        [QueryProperty(Compare = CompareType.Like)]
-        public string Name { get; set; }
         [Display(Name = "分类")]
         [QueryProperty(Compare = CompareType.Equal)]
         public Guid CategoryId { get; set; }

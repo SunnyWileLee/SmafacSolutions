@@ -1,16 +1,14 @@
 ﻿using Smafac.Framework.Core.Domain.Pages;
+using Smafac.Framework.Core.Models;
 using Smafac.Framework.Core.Repositories.Query;
 using Smafac.Sales.Order.Models;
 using Smafac.Sales.Order.Repositories.Charge;
+using Smafac.Sales.Order.Repositories.ChargeValue;
 using Smafac.Sales.Order.Repositories.Pages;
 using Smafac.Sales.Order.Repositories.Property;
 using Smafac.Sales.Order.Repositories.PropertyValue;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using Smafac.Framework.Core.Models;
-using Smafac.Framework.Core.Models;
-using Smafac.Sales.Order.Repositories.ChargeValue;
 
 namespace Smafac.Sales.Order.Domain.Pages
 {

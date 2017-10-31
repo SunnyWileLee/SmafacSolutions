@@ -19,8 +19,8 @@ namespace Smafac.Pms.Purchase.Repositories
 
         protected override void SetValue(PurchaseEntity entity, PurchaseEntity source)
         {
-            entity.Name = source.Name;
-            entity.Price = source.Price;
+            entity.Amount = source.Amount;
+            entity.Quantity = source.Quantity;
         }
     }
 }

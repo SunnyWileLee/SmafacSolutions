@@ -1,20 +1,15 @@
-﻿using Smafac.Crm.Customer.Applications;
+﻿using AutoMapper;
+using Smafac.Crm.Customer.Applications;
+using Smafac.Crm.Customer.Domain;
+using Smafac.Crm.Customer.Domain.Pages;
 using Smafac.Crm.Customer.Models;
 using Smafac.Crm.Customer.Repositories;
-using Smafac.Framework.Core.Models;
+using Smafac.Crm.Customer.Repositories.PropertyValue;
 using Smafac.Framework.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Smafac.Crm.Customer.Domain;
 using System.Linq.Expressions;
-using Smafac.Framework.Core.Repositories.Query;
-using Smafac.Crm.Customer.Repositories.Property;
-using Smafac.Crm.Customer.Repositories.PropertyValue;
-using Smafac.Crm.Customer.Domain.Pages;
 
 namespace Smafac.Crm.Customer.Services
 {

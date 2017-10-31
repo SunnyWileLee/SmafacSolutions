@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PurchaseModel>
+
+@{
+    Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+}
+
+<table class="table table-condensed table-striped text-nowrap">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(s => s.GoodsName)</th>
+            <th>@Html.DisplayNameFor(s => s.Quantity)</th>
+            <th>@Html.DisplayNameFor(s => s.Amount)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var purchase in Model)
+            {
+            <tr>
+                <td>@purchase.GoodsName</td>
+                <td>@purchase.Quantity.ToString()</td>
+                <td>@purchase.Amount.ToString()</td>
+                <td>@purchase.CategoryName</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = purchase.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                        <td>@value</td>
+                    }
+                }
+                <td>
+                    <a class="btn btn-default" href="/Purchase/PurchaseDetailView?purchaseId=@purchase.Id" type="button">详情</a>
+                </td>
+            </tr>
+                    }
+    </tbody>
+</table>

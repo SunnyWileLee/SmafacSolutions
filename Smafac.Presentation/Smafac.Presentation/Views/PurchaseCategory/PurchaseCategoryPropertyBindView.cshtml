@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PurchasePropertyModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = ViewData["category"] as PurchaseCategoryModel;
+    var boundIds = ViewData["boundIds"] as IEnumerable<Guid>;
+}
+
+
+<div class="row panel panel-default">
+    <div class="panel-heading">商品绑定属性</div>
+    <div class=" panel-body">
+        <div class="col-lg-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">类别</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" readonly="readonly" name="@category.Id.ToString()" value="@category.Name" id="id-categoryId" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">属性</label>
+                </div>
+                @foreach (var property in Model)
+                {
+                    var bound = boundIds.Contains(property.Id);
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-9">
+                            <div class="checkbox">
+                                <label>
+                                    @if (bound)
+                                    {
+                                        <input type="checkbox" class="checkbox-property" checked="checked" id="@property.Id"> @property.Name
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" class="checkbox-property" id="@property.Id"> @property.Name
+                                    }
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <input type="button" class="btn btn-success" onclick="bindProperties()" value="确定" />
+                        <a class="btn btn-default" href="/PurchaseCategory/PurchaseCategoryView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function bindProperties() {
+        var categoryId = $('#id-categoryId').attr('name');
+        var bindIds = [];
+        $('.checkbox-property').each(function (index) {
+            var checkbox = $(this);
+            var checked = checkbox.is(':checked');
+            if (checked) {
+                var propertyId = checkbox.attr('id');
+                bindIds.push(propertyId);
+            }
+        });
+
+        var data = {
+            categoryId: categoryId,
+            bindIds: bindIds
+        };
+
+        var url = '/PurchaseCategory/BindProperties';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    alert('绑定成功');
+                }, true)
+            },
+            error: function (data) { }
+        });
+    }
+</script>
