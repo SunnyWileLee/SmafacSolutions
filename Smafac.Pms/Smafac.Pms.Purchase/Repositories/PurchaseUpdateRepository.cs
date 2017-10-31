@@ -21,6 +21,7 @@ namespace Smafac.Pms.Purchase.Repositories
         {
             entity.Amount = source.Amount;
             entity.Quantity = source.Quantity;
+            entity.PurchaseDate = source.PurchaseDate;
         }
     }
 }

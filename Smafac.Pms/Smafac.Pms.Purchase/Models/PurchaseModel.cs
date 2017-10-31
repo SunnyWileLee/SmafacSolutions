@@ -10,6 +10,11 @@ namespace Smafac.Pms.Purchase.Models
 {
     public class PurchaseModel : HavePropertyModel
     {
+        public PurchaseModel()
+        {
+            PurchaseDate = DateTime.Now;
+        }
+
         [Display(Name = "商品")]
         [Required]
         public Guid GoodsId { get; set; }
@@ -30,6 +35,10 @@ namespace Smafac.Pms.Purchase.Models
         [Display(Name = "类别")]
         [ExportColumn]
         public string CategoryName { get; set; }
+        [Display(Name = "采购时间")]
+        [Required]
+        [ExportColumn]
+        public DateTime PurchaseDate { get; set; }
         public List<PurchasePropertyValueModel> Properties { get; set; }
 
         public override IEnumerable<PropertyValueModel> PropertyValues

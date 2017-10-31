@@ -11,6 +11,7 @@
             <th>@Html.DisplayNameFor(s => s.GoodsName)</th>
             <th>@Html.DisplayNameFor(s => s.Quantity)</th>
             <th>@Html.DisplayNameFor(s => s.Amount)</th>
+            <th>@Html.DisplayNameFor(s => s.PurchaseDate)</th>
             <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
             @{
                 foreach (var column in tableColumns)
@@ -28,6 +29,7 @@
                 <td>@purchase.GoodsName</td>
                 <td>@purchase.Quantity.ToString()</td>
                 <td>@purchase.Amount.ToString()</td>
+                <td>@purchase.PurchaseDate.ToString("yyyy-MM-dd")</td>
                 <td>@purchase.CategoryName</td>
                 @{
                     foreach (var column in tableColumns)

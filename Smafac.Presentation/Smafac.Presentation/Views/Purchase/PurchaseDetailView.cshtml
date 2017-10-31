@@ -33,6 +33,17 @@
                         @Html.TextBoxFor(s => s.Purchase.Amount, new { @class = "form-control", id = "Amount" })
                     </div>
                 </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Purchase.PurchaseDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="PurchaseDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control" name="PurchaseDate" id="PurchaseDate" value="@Model.Purchase.PurchaseDate.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 @if (Model.Purchase.HasProperties)
             {
                 foreach (var property in Model.Purchase.Properties)
@@ -66,6 +77,7 @@
     function editPurchase(id) {
         var quantity = $('#Quantity').val();
         var amount = $('#Amount').val();
+        var purchaseDate = $('#PurchaseDate').val();
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
@@ -79,6 +91,7 @@
             id: id,
             quantity: quantity,
             amount: amount,
+            purchaseDate: purchaseDate,
             properties: properties
         }
 

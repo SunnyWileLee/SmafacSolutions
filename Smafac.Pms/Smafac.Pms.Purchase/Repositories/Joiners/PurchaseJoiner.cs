@@ -19,7 +19,8 @@ namespace Smafac.Pms.Purchase.Repositories.Joiners
                             Id = purchase.Id,
                             Amount = purchase.Amount,
                             GoodsId = purchase.GoodsId,
-                            Quantity = purchase.Quantity
+                            Quantity = purchase.Quantity,
+                            PurchaseDate = purchase.PurchaseDate
                         };
             return query;
         }

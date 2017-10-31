@@ -24,6 +24,17 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    @Html.LabelFor(s => s.PurchaseDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="PurchaseDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control" name="PurchaseDate" id="PurchaseDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     @Html.LabelFor(s => s.Quantity, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
                         @Html.TextBoxFor(s => s.Quantity, new { @class = "form-control" })
@@ -58,6 +69,7 @@
         var quantity = $('#Quantity').val();
         var amount = $('#Amount').val();
         var categoryId = $('#CategoryId').val();
+        var purchaseDate = $('#PurchaseDate').val();
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
@@ -71,6 +83,7 @@
             goodsId: goodsId,
             quantity: quantity,
             amount: amount,
+            purchaseDate: purchaseDate,
             categoryId: categoryId,
             properties: properties
         }
