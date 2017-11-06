@@ -1,0 +1,46 @@
+﻿@model IEnumerable<StockModel>
+
+@{
+    Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+}
+
+<table class="table table-condensed table-striped text-nowrap">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(s => s.GoodsName)</th>
+            <th>@Html.DisplayNameFor(s => s.Quantity)</th>
+            <th>@Html.DisplayNameFor(s => s.StockDate)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stock in Model)
+            {
+            <tr>
+                <td>@stock.GoodsName</td>
+                <td>@stock.Quantity.ToString()</td>
+                <td>@stock.StockDate.ToString("yyyy-MM-dd")</td>
+                <td>@stock.CategoryName</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = stock.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                        <td>@value</td>
+                    }
+                }
+                <td>
+                    <a class="btn btn-default" href="/Stock/StockDetailView?stockId=@stock.Id" type="button">详情</a>
+                </td>
+            </tr>
+                    }
+    </tbody>
+</table>

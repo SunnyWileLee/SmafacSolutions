@@ -16,6 +16,7 @@ using Smafac.Presentation;
 using Smafac.Sales.DeliveryNote.Applications;
 using Smafac.Sales.Order.Applications;
 using Smafac.Wms.Goods.Applications;
+using Smafac.Wms.Stock.Applications;
 using System;
 using System.Web.Mvc;
 
@@ -48,8 +49,9 @@ namespace Smafac.Presentation
             Register<IAutofacScanInfrustructure>(builder);
             Register<IAutofacScanCustomerFinance>(builder);
             Register<IAutofacScanFrameworkDriver>(builder);
-            Register<IAutofacScanPurchase>(builder); 
-
+            Register<IAutofacScanPurchase>(builder);
+            Register<IAutofacScanStock>(builder);
+            
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 

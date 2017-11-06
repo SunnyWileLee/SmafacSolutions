@@ -192,10 +192,13 @@
     <Compile Include="Controllers\DeliveryNoteItemController.cs" />
     <Compile Include="Controllers\DeliveryNoteItemPropertyController.cs" />
     <Compile Include="Controllers\DeliveryNotePropertyController.cs" />
+    <Compile Include="Controllers\StockCategoryController.cs" />
     <Compile Include="Controllers\PurchaseCategoryController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\StockPropertyController.cs" />
     <Compile Include="Controllers\PurchasePropertyController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
     <Compile Include="Controllers\OrderCategoryController.cs" />
@@ -218,6 +221,8 @@
     <Compile Include="Domain\PropertyTypeProvider.cs" />
     <Compile Include="Domain\Purchase\IPurchaseWrapper.cs" />
     <Compile Include="Domain\Purchase\PurchaseGoodsWrapper.cs" />
+    <Compile Include="Domain\Stock\IStockWrapper.cs" />
+    <Compile Include="Domain\Stock\StockGoodsWrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +304,16 @@
     <Content Include="Views\PurchaseCategory\PurchaseCategoryView.cshtml" />
     <Content Include="Views\PurchaseProperty\PurchasePropertyAddView.cshtml" />
     <Content Include="Views\PurchaseProperty\PurchasePropertyView.cshtml" />
+    <Content Include="Views\Stock\StockAddView.cshtml" />
+    <Content Include="Views\Stock\StockDetailView.cshtml" />
+    <Content Include="Views\Stock\StockPageView.cshtml" />
+    <Content Include="Views\Stock\StockView.cshtml" />
+    <Content Include="Views\StockCategory\StockCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\StockCategory\StockCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\StockCategory\StockCategorySliceView.cshtml" />
+    <Content Include="Views\StockCategory\StockCategoryView.cshtml" />
+    <Content Include="Views\StockProperty\StockPropertyAddView.cshtml" />
+    <Content Include="Views\StockProperty\StockPropertyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -349,6 +364,10 @@
     <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Goods\Smafac.Wms.Goods.csproj">
       <Project>{ee797919-0d92-4997-b52f-46ae6d8876fd}</Project>
       <Name>Smafac.Wms.Goods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Wms\Smafac.Wms.Stock\Smafac.Wms.Stock.csproj">
+      <Project>{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}</Project>
+      <Name>Smafac.Wms.Stock</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

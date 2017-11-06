@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Account.FundCenter",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Driver", "..\Smafac.Framework\Smafac.Framework.Driver\Smafac.Framework.Driver.csproj", "{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Wms.Stock", "..\Smafac.Wms\Smafac.Wms.Stock\Smafac.Wms.Stock.csproj", "{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F706BB7-42C4-4BF5-A6F7-F66E86AA41B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

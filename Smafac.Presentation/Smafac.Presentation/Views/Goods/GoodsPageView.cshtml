@@ -36,15 +36,43 @@
                     }
                 }
                 <td>
-                    <a class="btn btn-default" href="/Goods/GoodsDetailView?goodsId=@goods.Id" type="button">详情</a>
-                    @if (goods.Saleable)
-                    {
-                        <a class="btn btn-default" href="/Order/OrderAddView?goodsId=@goods.Id" type="button">销售</a>
-                    }
-                    @if (goods.Purchaseable)
-                    {
-                        <a class="btn btn-default" href="/Purchase/PurchaseAddView?goodsId=@goods.Id" type="button">采购</a>
-                    }
+                    <div class="form-group btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            操作 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="btn" href="/Goods/GoodsDetailView?goodsId=@goods.Id">
+                                    <i class="icon-plus"></i>
+                                    详情
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn" href="/Stock/StockView?goodsId=@goods.Id">
+                                    <i class="icon-plus"></i>
+                                    查看库存
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn" href="/Stock/StockAddView?goodsId=@goods.Id">
+                                    <i class="icon-plus"></i>
+                                    库存管理
+                                </a>
+                            </li>
+                            @if (goods.Saleable)
+                            {
+                                <li>
+                                    <a class="btn" href="/Order/OrderAddView?goodsId=@goods.Id">销售</a>
+                                </li>
+                            }
+                            @if (goods.Purchaseable)
+                            {
+                                <li>
+                                    <a class="btn" href="/Purchase/PurchaseAddView?goodsId=@goods.Id">采购</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </td>
             </tr>
                     }

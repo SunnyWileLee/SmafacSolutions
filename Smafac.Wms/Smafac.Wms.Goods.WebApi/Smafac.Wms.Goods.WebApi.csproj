@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,10 +106,6 @@
     <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj">
       <Project>{9dfb1558-0810-42ba-a9e2-c5850fa162b2}</Project>
       <Name>Smafac.Framework.WebApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Smafac.Wms.Goods.Models\Smafac.Wms.Goods.Models.csproj">
-      <Project>{2777bdd5-3fe7-46cc-b55f-58a8d3afbf21}</Project>
-      <Name>Smafac.Wms.Goods.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Smafac.Wms.Goods\Smafac.Wms.Goods.csproj">
       <Project>{ee797919-0d92-4997-b52f-46ae6d8876fd}</Project>
