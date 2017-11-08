@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Hrs.Attendance
+namespace Smafac.Hrs.Attendance.Applications
 {
-    public class Class1
+    public interface IAutofacScanAttendance
     {
+
     }
 }

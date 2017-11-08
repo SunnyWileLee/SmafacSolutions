@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>7694a7f1-e3aa-4894-9fb5-265ba51d1f51</ProjectGuid>
+    <ProjectGuid>{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Smafac.Hrs.Attendance</RootNamespace>
@@ -30,24 +30,135 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Applications\CategoryProperty\IAttendanceCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\IAttendanceCategoryPropertySearchService.cs" />
+    <Compile Include="Applications\Category\IAttendanceCategoryAddService.cs" />
+    <Compile Include="Applications\Category\IAttendanceCategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\IAttendanceCategorySearchService.cs" />
+    <Compile Include="Applications\Category\IAttendanceCategoryService.cs" />
+    <Compile Include="Applications\Category\IAttendanceCategoryUpdateService.cs" />
+    <Compile Include="Applications\IAttendanceSearchService.cs" />
+    <Compile Include="Applications\IAttendanceService.cs" />
+    <Compile Include="Applications\IAttendanceUpdateService.cs" />
+    <Compile Include="Applications\IAutofacScanAttendance.cs" />
+    <Compile Include="Applications\Property\IAttendancePropertyAddService.cs" />
+    <Compile Include="Applications\Property\IAttendancePropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\IAttendancePropertySearchService.cs" />
+    <Compile Include="Applications\Property\IAttendancePropertyService.cs" />
+    <Compile Include="Applications\Property\IAttendancePropertyUpdateService.cs" />
+    <Compile Include="Domain\AttendanceCategoryEntity.cs" />
+    <Compile Include="Domain\AttendanceCategoryPropertyEntity.cs" />
+    <Compile Include="Domain\AttendanceEntity.cs" />
+    <Compile Include="Domain\AttendancePropertyEntity.cs" />
+    <Compile Include="Domain\AttendancePropertyValueEntity.cs" />
+    <Compile Include="Domain\CategoryProperty\AttendanceCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\AttendanceCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryProperty\IAttendanceCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\IAttendanceCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\Pages\AttendancePageQueryer.cs" />
+    <Compile Include="Domain\Pages\IAttendancePageQueryer.cs" />
+    <Compile Include="Domain\Property\AttendancePropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\AttendancePropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Property\AttendancePropertyProvider.cs" />
+    <Compile Include="Domain\Property\AttendancePropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\AttendancePropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\Property\IAttendancePropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\Property\IAttendancePropertyProvider.cs" />
+    <Compile Include="Domain\Property\IAttendancePropertyUsedChecker.cs" />
+    <Compile Include="Models\AttendanceCategoryModel.cs" />
+    <Compile Include="Models\AttendanceCategoryPropertyModel.cs" />
+    <Compile Include="Models\AttendanceDetailModel.cs" />
+    <Compile Include="Models\AttendanceModel.cs" />
+    <Compile Include="Models\AttendancePageQueryModel.cs" />
+    <Compile Include="Models\AttendancePropertyModel.cs" />
+    <Compile Include="Models\AttendancePropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AttendanceAddRepository.cs" />
+    <Compile Include="Repositories\AttendanceContext.cs" />
+    <Compile Include="Repositories\AttendanceContextProvider.cs" />
+    <Compile Include="Repositories\AttendanceSearchRepository.cs" />
+    <Compile Include="Repositories\AttendanceUpdateRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\AttendanceCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\AttendanceCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\IAttendanceCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\IAttendanceCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Category\AttendanceCategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\AttendanceCategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\AttendanceCategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\AttendanceCategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\Category\IAttendanceCategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\IAttendanceCategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\IAttendanceCategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\IAttendanceCategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\IAttendanceAddRepository.cs" />
+    <Compile Include="Repositories\IAttendanceContextProvider.cs" />
+    <Compile Include="Repositories\IAttendanceSearchRepository.cs" />
+    <Compile Include="Repositories\IAttendanceUpdateRepository.cs" />
+    <Compile Include="Repositories\Joiners\AttendanceJoiner.cs" />
+    <Compile Include="Repositories\Joiners\IAttendanceJoiner.cs" />
+    <Compile Include="Repositories\Pages\AttendancePageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\IAttendancePageQueryRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\AttendancePropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\AttendancePropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\AttendancePropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IAttendancePropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IAttendancePropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\IAttendancePropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\Property\AttendancePropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\AttendancePropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\AttendancePropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\AttendancePropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\IAttendancePropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\IAttendancePropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\IAttendancePropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\IAttendancePropertyUpdateRepository.cs" />
+    <Compile Include="Services\AttendanceAutoMapper.cs" />
+    <Compile Include="Services\AttendanceSearchService.cs" />
+    <Compile Include="Services\AttendanceService.cs" />
+    <Compile Include="Services\AttendanceUpdateService.cs" />
+    <Compile Include="Services\CategoryProperty\AttendanceCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\AttendanceCategoryPropertySearchService.cs" />
+    <Compile Include="Services\Category\AttendanceCategoryAddService.cs" />
+    <Compile Include="Services\Category\AttendanceCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\AttendanceCategoryInitialization.cs" />
+    <Compile Include="Services\Category\AttendanceCategorySearchService.cs" />
+    <Compile Include="Services\Category\AttendanceCategoryService.cs" />
+    <Compile Include="Services\Category\AttendanceCategoryUpdateService.cs" />
+    <Compile Include="Services\Property\AttendancePropertyAddService.cs" />
+    <Compile Include="Services\Property\AttendancePropertyDeleteService.cs" />
+    <Compile Include="Services\Property\AttendancePropertySearchService.cs" />
+    <Compile Include="Services\Property\AttendancePropertyService.cs" />
+    <Compile Include="Services\Property\AttendancePropertyUpdateService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

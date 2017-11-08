@@ -349,6 +349,10 @@
       <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
       <Name>Smafac.Framework.Infrustructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Hrs\Smafac.Hrs.Attendance\Smafac.Hrs.Attendance.csproj">
+      <Project>{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}</Project>
+      <Name>Smafac.Hrs.Attendance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Hrs\Smafac.Hrs.Employee\Smafac.Hrs.Employee.csproj">
       <Project>{5327ac32-3f16-453a-aeb0-00bdcdcc29c8}</Project>
       <Name>Smafac.Hrs.Employee</Name>

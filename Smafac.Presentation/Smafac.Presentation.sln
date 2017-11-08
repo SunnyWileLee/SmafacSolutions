@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Hrs.Employee", "..\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Hrs.Salary", "..\Smafac.Hrs\Smafac.Hrs.Salary\Smafac.Hrs.Salary.csproj", "{2445EB3E-D37A-4748-A5F9-620B7DF7D220}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Hrs.Attendance", "..\Smafac.Hrs\Smafac.Hrs.Attendance\Smafac.Hrs.Attendance.csproj", "{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{2445EB3E-D37A-4748-A5F9-620B7DF7D220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2445EB3E-D37A-4748-A5F9-620B7DF7D220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2445EB3E-D37A-4748-A5F9-620B7DF7D220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
