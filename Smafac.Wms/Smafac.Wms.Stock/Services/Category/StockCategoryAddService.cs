@@ -13,11 +13,11 @@ namespace Smafac.Wms.Stock.Services.Category
 {
     class StockCategoryAddService : CategoryAddService<StockCategoryEntity, StockCategoryModel>, IStockCategoryAddService
     {
-        public StockCategoryAddService(IStockCategoryAddRepository goodsCategoryAddRepository,
-                                        IStockCategorySearchRepository goodsCategorySearchRepository)
+        public StockCategoryAddService(IStockCategoryAddRepository categoryAddRepository,
+                                        IStockCategorySearchRepository categorySearchRepository)
         {
-            base.CategoryAddRepository = goodsCategoryAddRepository;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryAddRepository = categoryAddRepository;
+            base.CategorySearchRepository = categorySearchRepository;
         }
     }
 }

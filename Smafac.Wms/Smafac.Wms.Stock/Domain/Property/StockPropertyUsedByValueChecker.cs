@@ -7,9 +7,9 @@ namespace Smafac.Wms.Stock.Domain.Property
     class StockPropertyUsedByValueChecker : PropertyUsedByValueChecker<StockPropertyEntity, StockPropertyValueModel>,
                                                 IStockPropertyUsedChecker
     {
-        public StockPropertyUsedByValueChecker(IStockPropertyValueSearchRepository goodsPropertyValueSearchRepository)
+        public StockPropertyUsedByValueChecker(IStockPropertyValueSearchRepository propertyValueSearchRepository)
         {
-            base.PropertyValueSearchRepository = goodsPropertyValueSearchRepository;
+            base.PropertyValueSearchRepository = propertyValueSearchRepository;
         }
     }
 }

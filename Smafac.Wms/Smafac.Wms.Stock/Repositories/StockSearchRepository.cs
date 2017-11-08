@@ -15,10 +15,10 @@ namespace Smafac.Wms.Stock.Repositories
     {
         private readonly IStockJoiner _goodsJoiner;
 
-        public StockSearchRepository(IStockContextProvider goodsContextProvider,
+        public StockSearchRepository(IStockContextProvider contextProvider,
                                     IStockJoiner goodsJoiner)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
             _goodsJoiner = goodsJoiner;
         }
 

@@ -11,12 +11,12 @@ namespace Smafac.Wms.Stock.Services.Category
 {
     class StockCategoryInitialization : CategoryInitialization<StockCategoryEntity>
     {
-        public StockCategoryInitialization(IStockCategoryAddRepository goodsCategoryAddRepository,
-                                        IStockCategorySearchRepository goodsCategorySearchRepository
+        public StockCategoryInitialization(IStockCategoryAddRepository categoryAddRepository,
+                                        IStockCategorySearchRepository categorySearchRepository
                                         )
         {
-            base.CategoryAddRepository = goodsCategoryAddRepository;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryAddRepository = categoryAddRepository;
+            base.CategorySearchRepository = categorySearchRepository;
         }
 
         public override void Init(Guid subscriberId)

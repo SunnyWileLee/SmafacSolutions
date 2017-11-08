@@ -13,11 +13,11 @@ namespace Smafac.Wms.Stock.Domain.CategoryProperty
     class StockCategoryPropertyBindTrigger : CategoryPropertyBindTrigger<StockEntity, StockCategoryEntity, StockPropertyEntity, StockPropertyValueEntity>,
                                             IStockCategoryPropertyBindTrigger
     {
-        public StockCategoryPropertyBindTrigger(IStockSearchRepository goodsSearchRepository,
-                                                IStockPropertyValueSetRepository goodsPropertyValueSetRepository)
+        public StockCategoryPropertyBindTrigger(IStockSearchRepository searchRepository,
+                                                IStockPropertyValueSetRepository propertyValueSetRepository)
         {
-            base.EntitySearchRepository = goodsSearchRepository;
-            base.AssociationValueAddRepository = goodsPropertyValueSetRepository;
+            base.EntitySearchRepository = searchRepository;
+            base.AssociationValueAddRepository = propertyValueSetRepository;
         }
 
         protected override void ModifyValue(StockPropertyValueEntity value, Guid goodsId, StockPropertyEntity property)

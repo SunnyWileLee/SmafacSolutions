@@ -6,9 +6,9 @@ namespace Smafac.Wms.Stock.Domain.Property
     class CustomerPropertyDeleteCategoryTrigger : PropertyDeleteCategoryTrigger<StockCategoryEntity, StockPropertyEntity, StockCategoryPropertyEntity>,
         IStockPropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteCategoryTrigger(IStockCategoryPropertyBindRepository goodsCategoryPropertyBindRepository)
+        public CustomerPropertyDeleteCategoryTrigger(IStockCategoryPropertyBindRepository categoryPropertyBindRepository)
         {
-            base.CategoryPropertyBindRepository = goodsCategoryPropertyBindRepository;
+            base.CategoryPropertyBindRepository = categoryPropertyBindRepository;
         }
     }
 }

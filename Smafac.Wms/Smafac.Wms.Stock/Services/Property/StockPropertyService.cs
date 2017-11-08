@@ -11,15 +11,15 @@ namespace Smafac.Wms.Stock.Services.Property
 {
     class StockPropertyService : IStockPropertyService
     {
-        public StockPropertyService(IStockPropertyAddService goodsPropertyAddService,
-            IStockPropertyDeleteService goodsPropertyDeleteService,
-            IStockPropertySearchService goodsPropertySearchService,
-            IStockPropertyUpdateService goodsPropertyUpdateService)
+        public StockPropertyService(IStockPropertyAddService propertyAddService,
+            IStockPropertyDeleteService propertyDeleteService,
+            IStockPropertySearchService propertySearchService,
+            IStockPropertyUpdateService propertyUpdateService)
         {
-            AddService = goodsPropertyAddService;
-            DeleteService = goodsPropertyDeleteService;
-            SearchService = goodsPropertySearchService;
-            UpdateService = goodsPropertyUpdateService;
+            AddService = propertyAddService;
+            DeleteService = propertyDeleteService;
+            SearchService = propertySearchService;
+            UpdateService = propertyUpdateService;
         }
 
         public IStockPropertyAddService AddService { get; set; }

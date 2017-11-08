@@ -13,11 +13,11 @@ namespace Smafac.Wms.Stock.Services.Property
 {
     class StockPropertyUpdateService : PropertyUpdateService<StockPropertyEntity, StockPropertyModel>, IStockPropertyUpdateService
     {
-        public StockPropertyUpdateService(IStockPropertySearchRepository goodsPropertySearchRepository,
-                                          IStockPropertyUpdateRepository goodsPropertyUpdateRepository)
+        public StockPropertyUpdateService(IStockPropertySearchRepository propertySearchRepository,
+                                          IStockPropertyUpdateRepository propertyUpdateRepository)
         {
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
-            base.CustomizedColumnUpdateRepository = goodsPropertyUpdateRepository;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
+            base.CustomizedColumnUpdateRepository = propertyUpdateRepository;
         }
     }
 }

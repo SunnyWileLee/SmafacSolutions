@@ -9,22 +9,22 @@ namespace Smafac.Wms.Stock.Domain.Property
 {
     class StockPropertyProvider : IStockPropertyProvider
     {
-        private readonly IStockSearchRepository _goodsSearchRepository;
-        private readonly IStockCategoryPropertyProvider _goodsCategoryPropertyProvider;
+        private readonly IStockSearchRepository _searchRepository;
+        private readonly IStockCategoryPropertyProvider _categoryPropertyProvider;
 
-        public StockPropertyProvider(IStockSearchRepository goodsSearchRepository,
-                                    IStockCategoryPropertyProvider goodsCategoryPropertyProvider
+        public StockPropertyProvider(IStockSearchRepository searchRepository,
+                                    IStockCategoryPropertyProvider categoryPropertyProvider
                                     )
         {
-            _goodsSearchRepository = goodsSearchRepository;
-            _goodsCategoryPropertyProvider = goodsCategoryPropertyProvider;
+            _searchRepository = searchRepository;
+            _categoryPropertyProvider = categoryPropertyProvider;
         }
 
         public List<StockPropertyModel> Provide(Guid goodsId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _goodsSearchRepository.GetStock(subscriberId, goodsId);
-            return _goodsCategoryPropertyProvider.ProvideAssociations(goods.CategoryId);
+            var goods = _searchRepository.GetStock(subscriberId, goodsId);
+            return _categoryPropertyProvider.ProvideAssociations(goods.CategoryId);
         }
     }
 }

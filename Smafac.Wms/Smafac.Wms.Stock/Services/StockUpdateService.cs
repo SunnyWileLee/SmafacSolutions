@@ -16,13 +16,13 @@ namespace Smafac.Wms.Stock.Services
     class StockUpdateService : IStockUpdateService
     {
         private readonly IStockUpdateRepository _goodsUpdateRepository;
-        private readonly IStockPropertyValueSetRepository _goodsPropertyValueSetRepository;
+        private readonly IStockPropertyValueSetRepository _propertyValueSetRepository;
 
         public StockUpdateService(IStockUpdateRepository goodsUpdateRepository,
-                                    IStockPropertyValueSetRepository goodsPropertyValueSetRepository)
+                                    IStockPropertyValueSetRepository propertyValueSetRepository)
         {
             _goodsUpdateRepository = goodsUpdateRepository;
-            _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
+            _propertyValueSetRepository = propertyValueSetRepository;
         }
 
         public bool UpdateStock(StockModel model)
@@ -38,7 +38,7 @@ namespace Smafac.Wms.Stock.Services
                     property.StockId = goods.Id;
                     property.SubscriberId = goods.SubscriberId;
                     var value = Mapper.Map<StockPropertyValueEntity>(property);
-                    update &= _goodsPropertyValueSetRepository.SetPropertyValue(value);
+                    update &= _propertyValueSetRepository.SetPropertyValue(value);
                 });
             }
             return update;

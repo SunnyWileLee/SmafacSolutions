@@ -13,9 +13,9 @@ namespace Smafac.Wms.Stock.Services.Category
 {
     class StockCategoryDeleteService : CategoryDeleteService<StockCategoryEntity, StockCategoryModel>, IStockCategoryDeleteService
     {
-        public StockCategoryDeleteService(IStockCategoryDeleteRepository goodsCategoryDeleteRepository)
+        public StockCategoryDeleteService(IStockCategoryDeleteRepository categoryDeleteRepository)
         {
-            base.CategoryDeleteRepository = goodsCategoryDeleteRepository;
+            base.CategoryDeleteRepository = categoryDeleteRepository;
         }
 
         protected override bool IsUsed(Guid CategoryId)

@@ -11,28 +11,28 @@ namespace Smafac.Wms.Stock.Services.Category
 {
     class StockCategoryService : IStockCategoryService
     {
-        private readonly IStockCategoryAddService _goodsCategoryAddService;
-        private readonly IStockCategoryDeleteService _goodsCategoryDeleteService;
-        private readonly IStockCategorySearchService _goodsCategorySearchService;
-        private readonly IStockCategoryUpdateService _goodsCategoryUpdateService;
+        private readonly IStockCategoryAddService _categoryAddService;
+        private readonly IStockCategoryDeleteService _categoryDeleteService;
+        private readonly IStockCategorySearchService _categorySearchService;
+        private readonly IStockCategoryUpdateService _categoryUpdateService;
 
-        public StockCategoryService(IStockCategoryAddService goodsCategoryAddService,
-            IStockCategoryDeleteService goodsCategoryDeleteService,
-            IStockCategorySearchService goodsCategorySearchService,
-            IStockCategoryUpdateService goodsCategoryUpdateService)
+        public StockCategoryService(IStockCategoryAddService categoryAddService,
+            IStockCategoryDeleteService categoryDeleteService,
+            IStockCategorySearchService categorySearchService,
+            IStockCategoryUpdateService categoryUpdateService)
         {
-            _goodsCategoryAddService = goodsCategoryAddService;
-            _goodsCategoryDeleteService = goodsCategoryDeleteService;
-            _goodsCategorySearchService = goodsCategorySearchService;
-            _goodsCategoryUpdateService = goodsCategoryUpdateService;
+            _categoryAddService = categoryAddService;
+            _categoryDeleteService = categoryDeleteService;
+            _categorySearchService = categorySearchService;
+            _categoryUpdateService = categoryUpdateService;
         }
 
-        public ICategoryAddService<StockCategoryModel> AddService => _goodsCategoryAddService;
+        public ICategoryAddService<StockCategoryModel> AddService => _categoryAddService;
 
-        public ICategoryDeleteService<StockCategoryModel> DeleteService => _goodsCategoryDeleteService;
+        public ICategoryDeleteService<StockCategoryModel> DeleteService => _categoryDeleteService;
 
-        public ICategoryUpdateService<StockCategoryModel> UpdateService => _goodsCategoryUpdateService;
+        public ICategoryUpdateService<StockCategoryModel> UpdateService => _categoryUpdateService;
 
-        public ICategorySearchService<StockCategoryModel> SearchService => _goodsCategorySearchService;
+        public ICategorySearchService<StockCategoryModel> SearchService => _categorySearchService;
     }
 }

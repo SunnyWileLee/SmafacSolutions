@@ -14,10 +14,10 @@ namespace Smafac.Wms.Stock.Services.Category
 {
     class StockCategorySearchService : CategorySearchService<StockCategoryEntity, StockCategoryModel>, IStockCategorySearchService
     {
-        public StockCategorySearchService(IStockCategorySearchRepository goodsSearchRepository,
-            IStockPropertyProvider goodsCategoryProvider)
+        public StockCategorySearchService(IStockCategorySearchRepository searchRepository,
+            IStockPropertyProvider categoryProvider)
         {
-            base.CategorySearchRepository = goodsSearchRepository;
+            base.CategorySearchRepository = searchRepository;
         }
     }
 }

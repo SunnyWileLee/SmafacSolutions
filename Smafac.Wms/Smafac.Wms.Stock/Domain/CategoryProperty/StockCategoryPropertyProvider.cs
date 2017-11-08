@@ -9,11 +9,11 @@ namespace Smafac.Wms.Stock.Domain.CategoryProperty
                                             IStockCategoryPropertyProvider
     {
 
-        public StockCategoryPropertyProvider(IStockCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-                                            IStockCategorySearchRepository goodsCategorySearchRepository)
+        public StockCategoryPropertyProvider(IStockCategoryPropertySearchRepository categoryPropertySearchRepository,
+                                            IStockCategorySearchRepository categorySearchRepository)
         {
-            base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.CategoryAssociationSearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategorySearchRepository = categorySearchRepository;
+            base.CategoryAssociationSearchRepository = categoryPropertySearchRepository;
         }
     }
 }

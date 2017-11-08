@@ -14,15 +14,15 @@ namespace Smafac.Wms.Stock.Services.Property
 {
     class StockPropertyDeleteService : PropertyDeleteService<StockPropertyEntity, StockPropertyModel>, IStockPropertyDeleteService
     {
-        public StockPropertyDeleteService(IStockPropertyDeleteRepository goodsPropertyDeleteRepository,
-                                          IStockPropertySearchRepository goodsPropertySearchRepository,
+        public StockPropertyDeleteService(IStockPropertyDeleteRepository propertyDeleteRepository,
+                                          IStockPropertySearchRepository propertySearchRepository,
                                           IStockPropertyUsedChecker[] goodsFinancePropertyUsedCheckers,
-                                          IStockPropertyDeleteTrigger[] goodsPropertyDeleteTriggers)
+                                          IStockPropertyDeleteTrigger[] propertyDeleteTriggers)
         {
-            base.CustomizedColumnDeleteRepository = goodsPropertyDeleteRepository;
+            base.CustomizedColumnDeleteRepository = propertyDeleteRepository;
             base.CustomizedColumnUsedCheckers = goodsFinancePropertyUsedCheckers;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
-            base.CustomizedColumnDeleteTriggers = goodsPropertyDeleteTriggers;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = propertyDeleteTriggers;
         }
     }
 }

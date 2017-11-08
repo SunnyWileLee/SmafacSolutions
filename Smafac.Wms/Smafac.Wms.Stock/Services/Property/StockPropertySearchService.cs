@@ -14,18 +14,18 @@ namespace Smafac.Wms.Stock.Services.Property
 {
     class StockPropertySearchService : PropertySearchService<StockPropertyEntity, StockPropertyModel>, IStockPropertySearchService
     {
-        private readonly IStockPropertyProvider _goodsPropertyProvider;
+        private readonly IStockPropertyProvider _propertyProvider;
 
-        public StockPropertySearchService(IStockPropertySearchRepository goodsSearchRepository,
-            IStockPropertyProvider goodsPropertyProvider)
+        public StockPropertySearchService(IStockPropertySearchRepository searchRepository,
+            IStockPropertyProvider propertyProvider)
         {
-            base.CustomizedColumnSearchRepository = goodsSearchRepository;
-            _goodsPropertyProvider = goodsPropertyProvider;
+            base.CustomizedColumnSearchRepository = searchRepository;
+            _propertyProvider = propertyProvider;
         }
 
         public override List<StockPropertyModel> GetColumns(Guid entityId)
         {
-            return _goodsPropertyProvider.Provide(entityId);
+            return _propertyProvider.Provide(entityId);
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Smafac.Wms.Stock.Domain.Property
     class CustomerPropertyDeleteValueTrigger : PropertyDeleteValueTrigger<StockPropertyEntity, StockPropertyValueEntity>,
                                             IStockPropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteValueTrigger(IStockPropertyValueDeleteRepository goodsPropertyValueDeleteRepository)
+        public CustomerPropertyDeleteValueTrigger(IStockPropertyValueDeleteRepository propertyValueDeleteRepository)
         {
-            base.PropertyValueDeleteRepository = goodsPropertyValueDeleteRepository;
+            base.PropertyValueDeleteRepository = propertyValueDeleteRepository;
         }
     }
 }

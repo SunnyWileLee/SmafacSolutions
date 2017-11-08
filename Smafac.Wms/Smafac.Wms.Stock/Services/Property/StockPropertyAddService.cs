@@ -13,11 +13,11 @@ namespace Smafac.Wms.Stock.Services.Property
 {
     class StockPropertyAddService : PropertyAddService<StockPropertyEntity, StockPropertyModel>, IStockPropertyAddService
     {
-        public StockPropertyAddService(IStockPropertyAddRepository goodsPropertyAddRepository,
-                                        IStockPropertySearchRepository goodsPropertySearchRepository)
+        public StockPropertyAddService(IStockPropertyAddRepository propertyAddRepository,
+                                        IStockPropertySearchRepository propertySearchRepository)
         {
-            base.CustomizedColumnAddRepository = goodsPropertyAddRepository;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnAddRepository = propertyAddRepository;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
         }
     }
 }
