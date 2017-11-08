@@ -16,13 +16,13 @@ namespace Smafac.Pms.Purchase.Services
     class PurchaseUpdateService : IPurchaseUpdateService
     {
         private readonly IPurchaseUpdateRepository _goodsUpdateRepository;
-        private readonly IPurchasePropertyValueSetRepository _goodsPropertyValueSetRepository;
+        private readonly IPurchasePropertyValueSetRepository _propertyValueSetRepository;
 
         public PurchaseUpdateService(IPurchaseUpdateRepository goodsUpdateRepository,
-                                    IPurchasePropertyValueSetRepository goodsPropertyValueSetRepository)
+                                    IPurchasePropertyValueSetRepository propertyValueSetRepository)
         {
             _goodsUpdateRepository = goodsUpdateRepository;
-            _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
+            _propertyValueSetRepository = propertyValueSetRepository;
         }
 
         public bool UpdatePurchase(PurchaseModel model)
@@ -38,7 +38,7 @@ namespace Smafac.Pms.Purchase.Services
                     property.PurchaseId = goods.Id;
                     property.SubscriberId = goods.SubscriberId;
                     var value = Mapper.Map<PurchasePropertyValueEntity>(property);
-                    update &= _goodsPropertyValueSetRepository.SetPropertyValue(value);
+                    update &= _propertyValueSetRepository.SetPropertyValue(value);
                 });
             }
             return update;

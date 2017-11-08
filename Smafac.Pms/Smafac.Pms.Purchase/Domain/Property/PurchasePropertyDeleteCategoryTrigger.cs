@@ -6,9 +6,9 @@ namespace Smafac.Pms.Purchase.Domain.Property
     class CustomerPropertyDeleteCategoryTrigger : PropertyDeleteCategoryTrigger<PurchaseCategoryEntity, PurchasePropertyEntity, PurchaseCategoryPropertyEntity>,
         IPurchasePropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteCategoryTrigger(IPurchaseCategoryPropertyBindRepository goodsCategoryPropertyBindRepository)
+        public CustomerPropertyDeleteCategoryTrigger(IPurchaseCategoryPropertyBindRepository categoryPropertyBindRepository)
         {
-            base.CategoryPropertyBindRepository = goodsCategoryPropertyBindRepository;
+            base.CategoryPropertyBindRepository = categoryPropertyBindRepository;
         }
     }
 }

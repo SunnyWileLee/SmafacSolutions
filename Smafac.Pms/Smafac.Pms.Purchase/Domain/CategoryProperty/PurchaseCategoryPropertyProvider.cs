@@ -9,11 +9,11 @@ namespace Smafac.Pms.Purchase.Domain.CategoryProperty
                                             IPurchaseCategoryPropertyProvider
     {
 
-        public PurchaseCategoryPropertyProvider(IPurchaseCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-                                            IPurchaseCategorySearchRepository goodsCategorySearchRepository)
+        public PurchaseCategoryPropertyProvider(IPurchaseCategoryPropertySearchRepository categoryPropertySearchRepository,
+                                            IPurchaseCategorySearchRepository categorySearchRepository)
         {
-            base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.CategoryAssociationSearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategorySearchRepository = categorySearchRepository;
+            base.CategoryAssociationSearchRepository = categoryPropertySearchRepository;
         }
     }
 }

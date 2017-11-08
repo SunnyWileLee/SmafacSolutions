@@ -13,11 +13,11 @@ namespace Smafac.Pms.Purchase.Services.Property
 {
     class PurchasePropertyAddService : PropertyAddService<PurchasePropertyEntity, PurchasePropertyModel>, IPurchasePropertyAddService
     {
-        public PurchasePropertyAddService(IPurchasePropertyAddRepository goodsPropertyAddRepository,
-                                        IPurchasePropertySearchRepository goodsPropertySearchRepository)
+        public PurchasePropertyAddService(IPurchasePropertyAddRepository propertyAddRepository,
+                                        IPurchasePropertySearchRepository propertySearchRepository)
         {
-            base.CustomizedColumnAddRepository = goodsPropertyAddRepository;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnAddRepository = propertyAddRepository;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
         }
     }
 }

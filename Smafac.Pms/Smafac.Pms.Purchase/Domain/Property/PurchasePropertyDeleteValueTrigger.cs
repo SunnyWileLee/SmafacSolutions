@@ -6,9 +6,9 @@ namespace Smafac.Pms.Purchase.Domain.Property
     class CustomerPropertyDeleteValueTrigger : PropertyDeleteValueTrigger<PurchasePropertyEntity, PurchasePropertyValueEntity>,
                                             IPurchasePropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteValueTrigger(IPurchasePropertyValueDeleteRepository goodsPropertyValueDeleteRepository)
+        public CustomerPropertyDeleteValueTrigger(IPurchasePropertyValueDeleteRepository propertyValueDeleteRepository)
         {
-            base.PropertyValueDeleteRepository = goodsPropertyValueDeleteRepository;
+            base.PropertyValueDeleteRepository = propertyValueDeleteRepository;
         }
     }
 }

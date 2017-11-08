@@ -13,11 +13,11 @@ namespace Smafac.Pms.Purchase.Services.Category
 {
     class PurchaseCategoryAddService : CategoryAddService<PurchaseCategoryEntity, PurchaseCategoryModel>, IPurchaseCategoryAddService
     {
-        public PurchaseCategoryAddService(IPurchaseCategoryAddRepository goodsCategoryAddRepository,
-                                        IPurchaseCategorySearchRepository goodsCategorySearchRepository)
+        public PurchaseCategoryAddService(IPurchaseCategoryAddRepository categoryAddRepository,
+                                        IPurchaseCategorySearchRepository categorySearchRepository)
         {
-            base.CategoryAddRepository = goodsCategoryAddRepository;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryAddRepository = categoryAddRepository;
+            base.CategorySearchRepository = categorySearchRepository;
         }
     }
 }

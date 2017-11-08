@@ -11,15 +11,15 @@ namespace Smafac.Pms.Purchase.Services.Property
 {
     class PurchasePropertyService : IPurchasePropertyService
     {
-        public PurchasePropertyService(IPurchasePropertyAddService goodsPropertyAddService,
-            IPurchasePropertyDeleteService goodsPropertyDeleteService,
-            IPurchasePropertySearchService goodsPropertySearchService,
-            IPurchasePropertyUpdateService goodsPropertyUpdateService)
+        public PurchasePropertyService(IPurchasePropertyAddService propertyAddService,
+            IPurchasePropertyDeleteService propertyDeleteService,
+            IPurchasePropertySearchService propertySearchService,
+            IPurchasePropertyUpdateService propertyUpdateService)
         {
-            AddService = goodsPropertyAddService;
-            DeleteService = goodsPropertyDeleteService;
-            SearchService = goodsPropertySearchService;
-            UpdateService = goodsPropertyUpdateService;
+            AddService = propertyAddService;
+            DeleteService = propertyDeleteService;
+            SearchService = propertySearchService;
+            UpdateService = propertyUpdateService;
         }
 
         public IPurchasePropertyAddService AddService { get; set; }

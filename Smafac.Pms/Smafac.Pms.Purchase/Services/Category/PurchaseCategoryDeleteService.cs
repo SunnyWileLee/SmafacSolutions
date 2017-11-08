@@ -13,9 +13,9 @@ namespace Smafac.Pms.Purchase.Services.Category
 {
     class PurchaseCategoryDeleteService : CategoryDeleteService<PurchaseCategoryEntity, PurchaseCategoryModel>, IPurchaseCategoryDeleteService
     {
-        public PurchaseCategoryDeleteService(IPurchaseCategoryDeleteRepository goodsCategoryDeleteRepository)
+        public PurchaseCategoryDeleteService(IPurchaseCategoryDeleteRepository categoryDeleteRepository)
         {
-            base.CategoryDeleteRepository = goodsCategoryDeleteRepository;
+            base.CategoryDeleteRepository = categoryDeleteRepository;
         }
 
         protected override bool IsUsed(Guid CategoryId)

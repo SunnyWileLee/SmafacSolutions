@@ -9,22 +9,22 @@ namespace Smafac.Pms.Purchase.Domain.Property
 {
     class PurchasePropertyProvider : IPurchasePropertyProvider
     {
-        private readonly IPurchaseSearchRepository _goodsSearchRepository;
-        private readonly IPurchaseCategoryPropertyProvider _goodsCategoryPropertyProvider;
+        private readonly IPurchaseSearchRepository _searchRepository;
+        private readonly IPurchaseCategoryPropertyProvider _categoryPropertyProvider;
 
-        public PurchasePropertyProvider(IPurchaseSearchRepository goodsSearchRepository,
-                                    IPurchaseCategoryPropertyProvider goodsCategoryPropertyProvider
+        public PurchasePropertyProvider(IPurchaseSearchRepository searchRepository,
+                                    IPurchaseCategoryPropertyProvider categoryPropertyProvider
                                     )
         {
-            _goodsSearchRepository = goodsSearchRepository;
-            _goodsCategoryPropertyProvider = goodsCategoryPropertyProvider;
+            _searchRepository = searchRepository;
+            _categoryPropertyProvider = categoryPropertyProvider;
         }
 
         public List<PurchasePropertyModel> Provide(Guid goodsId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _goodsSearchRepository.GetPurchase(subscriberId, goodsId);
-            return _goodsCategoryPropertyProvider.ProvideAssociations(goods.CategoryId);
+            var goods = _searchRepository.GetPurchase(subscriberId, goodsId);
+            return _categoryPropertyProvider.ProvideAssociations(goods.CategoryId);
         }
     }
 }

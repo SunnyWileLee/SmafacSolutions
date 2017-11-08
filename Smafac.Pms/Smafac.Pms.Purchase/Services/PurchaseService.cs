@@ -16,15 +16,15 @@ namespace Smafac.Pms.Purchase.Services
     class PurchaseService : IPurchaseService
     {
         private readonly IPurchaseAddRepository _goodsRepository;
-        private readonly IPurchasePropertyValueSetRepository _goodsPropertyValueSetRepository;
+        private readonly IPurchasePropertyValueSetRepository _propertyValueSetRepository;
 
         public PurchaseService(IPurchaseAddRepository goodsRepository,
                             IPurchaseUpdateService updateService,
-                            IPurchasePropertyValueSetRepository goodsPropertyValueSetRepository
+                            IPurchasePropertyValueSetRepository propertyValueSetRepository
                             )
         {
             _goodsRepository = goodsRepository;
-            _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
+            _propertyValueSetRepository = propertyValueSetRepository;
             UpdateService = updateService;
         }
 
@@ -44,7 +44,7 @@ namespace Smafac.Pms.Purchase.Services
                     property.SubscriberId = goods.SubscriberId;
                 });
                 var values = Mapper.Map<List<PurchasePropertyValueEntity>>(model.Properties);
-                return _goodsPropertyValueSetRepository.AddPropertyValues(goods.Id, values);
+                return _propertyValueSetRepository.AddPropertyValues(goods.Id, values);
             }
             return add;
         }

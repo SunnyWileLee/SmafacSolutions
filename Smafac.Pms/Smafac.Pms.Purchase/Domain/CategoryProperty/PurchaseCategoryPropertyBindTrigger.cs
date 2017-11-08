@@ -13,11 +13,11 @@ namespace Smafac.Pms.Purchase.Domain.CategoryProperty
     class PurchaseCategoryPropertyBindTrigger : CategoryPropertyBindTrigger<PurchaseEntity, PurchaseCategoryEntity, PurchasePropertyEntity, PurchasePropertyValueEntity>,
                                             IPurchaseCategoryPropertyBindTrigger
     {
-        public PurchaseCategoryPropertyBindTrigger(IPurchaseSearchRepository goodsSearchRepository,
-                                                IPurchasePropertyValueSetRepository goodsPropertyValueSetRepository)
+        public PurchaseCategoryPropertyBindTrigger(IPurchaseSearchRepository searchRepository,
+                                                IPurchasePropertyValueSetRepository propertyValueSetRepository)
         {
-            base.EntitySearchRepository = goodsSearchRepository;
-            base.AssociationValueAddRepository = goodsPropertyValueSetRepository;
+            base.EntitySearchRepository = searchRepository;
+            base.AssociationValueAddRepository = propertyValueSetRepository;
         }
 
         protected override void ModifyValue(PurchasePropertyValueEntity value, Guid goodsId, PurchasePropertyEntity property)

@@ -15,10 +15,10 @@ namespace Smafac.Pms.Purchase.Repositories
     {
         private readonly IPurchaseJoiner _goodsJoiner;
 
-        public PurchaseSearchRepository(IPurchaseContextProvider goodsContextProvider,
+        public PurchaseSearchRepository(IPurchaseContextProvider contextProvider,
                                     IPurchaseJoiner goodsJoiner)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
             _goodsJoiner = goodsJoiner;
         }
 

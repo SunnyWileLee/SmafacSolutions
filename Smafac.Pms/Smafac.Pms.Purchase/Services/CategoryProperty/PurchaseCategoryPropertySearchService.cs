@@ -15,12 +15,12 @@ namespace Smafac.Pms.Purchase.Services.CategoryProperty
     class PurchaseCategoryPropertySearchService : CategoryPropertySearchService<PurchaseCategoryEntity, PurchasePropertyEntity, PurchasePropertyModel>,
                                                 IPurchaseCategoryPropertySearchService
     {
-        public PurchaseCategoryPropertySearchService(IPurchaseCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-            IPurchaseCategoryPropertyProvider goodsCategoryPropertyProvider
+        public PurchaseCategoryPropertySearchService(IPurchaseCategoryPropertySearchRepository categoryPropertySearchRepository,
+            IPurchaseCategoryPropertyProvider categoryPropertyProvider
             )
         {
-            base.CategoryAssociationProvider = goodsCategoryPropertyProvider;
-            base.EntityAssociationSearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategoryAssociationProvider = categoryPropertyProvider;
+            base.EntityAssociationSearchRepository = categoryPropertySearchRepository;
         }
     }
 }

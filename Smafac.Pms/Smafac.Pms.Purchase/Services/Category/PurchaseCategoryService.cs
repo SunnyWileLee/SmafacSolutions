@@ -11,28 +11,28 @@ namespace Smafac.Pms.Purchase.Services.Category
 {
     class PurchaseCategoryService : IPurchaseCategoryService
     {
-        private readonly IPurchaseCategoryAddService _goodsCategoryAddService;
-        private readonly IPurchaseCategoryDeleteService _goodsCategoryDeleteService;
-        private readonly IPurchaseCategorySearchService _goodsCategorySearchService;
-        private readonly IPurchaseCategoryUpdateService _goodsCategoryUpdateService;
+        private readonly IPurchaseCategoryAddService _categoryAddService;
+        private readonly IPurchaseCategoryDeleteService _categoryDeleteService;
+        private readonly IPurchaseCategorySearchService _categorySearchService;
+        private readonly IPurchaseCategoryUpdateService _categoryUpdateService;
 
-        public PurchaseCategoryService(IPurchaseCategoryAddService goodsCategoryAddService,
-            IPurchaseCategoryDeleteService goodsCategoryDeleteService,
-            IPurchaseCategorySearchService goodsCategorySearchService,
-            IPurchaseCategoryUpdateService goodsCategoryUpdateService)
+        public PurchaseCategoryService(IPurchaseCategoryAddService categoryAddService,
+            IPurchaseCategoryDeleteService categoryDeleteService,
+            IPurchaseCategorySearchService categorySearchService,
+            IPurchaseCategoryUpdateService categoryUpdateService)
         {
-            _goodsCategoryAddService = goodsCategoryAddService;
-            _goodsCategoryDeleteService = goodsCategoryDeleteService;
-            _goodsCategorySearchService = goodsCategorySearchService;
-            _goodsCategoryUpdateService = goodsCategoryUpdateService;
+            _categoryAddService = categoryAddService;
+            _categoryDeleteService = categoryDeleteService;
+            _categorySearchService = categorySearchService;
+            _categoryUpdateService = categoryUpdateService;
         }
 
-        public ICategoryAddService<PurchaseCategoryModel> AddService => _goodsCategoryAddService;
+        public ICategoryAddService<PurchaseCategoryModel> AddService => _categoryAddService;
 
-        public ICategoryDeleteService<PurchaseCategoryModel> DeleteService => _goodsCategoryDeleteService;
+        public ICategoryDeleteService<PurchaseCategoryModel> DeleteService => _categoryDeleteService;
 
-        public ICategoryUpdateService<PurchaseCategoryModel> UpdateService => _goodsCategoryUpdateService;
+        public ICategoryUpdateService<PurchaseCategoryModel> UpdateService => _categoryUpdateService;
 
-        public ICategorySearchService<PurchaseCategoryModel> SearchService => _goodsCategorySearchService;
+        public ICategorySearchService<PurchaseCategoryModel> SearchService => _categorySearchService;
     }
 }

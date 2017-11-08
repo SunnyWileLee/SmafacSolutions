@@ -14,18 +14,18 @@ namespace Smafac.Pms.Purchase.Services.Property
 {
     class PurchasePropertySearchService : PropertySearchService<PurchasePropertyEntity, PurchasePropertyModel>, IPurchasePropertySearchService
     {
-        private readonly IPurchasePropertyProvider _goodsPropertyProvider;
+        private readonly IPurchasePropertyProvider _propertyProvider;
 
-        public PurchasePropertySearchService(IPurchasePropertySearchRepository goodsSearchRepository,
-            IPurchasePropertyProvider goodsPropertyProvider)
+        public PurchasePropertySearchService(IPurchasePropertySearchRepository searchRepository,
+            IPurchasePropertyProvider propertyProvider)
         {
-            base.CustomizedColumnSearchRepository = goodsSearchRepository;
-            _goodsPropertyProvider = goodsPropertyProvider;
+            base.CustomizedColumnSearchRepository = searchRepository;
+            _propertyProvider = propertyProvider;
         }
 
         public override List<PurchasePropertyModel> GetColumns(Guid entityId)
         {
-            return _goodsPropertyProvider.Provide(entityId);
+            return _propertyProvider.Provide(entityId);
         }
     }
 }

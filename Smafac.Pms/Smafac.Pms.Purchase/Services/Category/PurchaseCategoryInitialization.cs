@@ -11,12 +11,12 @@ namespace Smafac.Pms.Purchase.Services.Category
 {
     class PurchaseCategoryInitialization : CategoryInitialization<PurchaseCategoryEntity>
     {
-        public PurchaseCategoryInitialization(IPurchaseCategoryAddRepository goodsCategoryAddRepository,
-                                        IPurchaseCategorySearchRepository goodsCategorySearchRepository
+        public PurchaseCategoryInitialization(IPurchaseCategoryAddRepository categoryAddRepository,
+                                        IPurchaseCategorySearchRepository categorySearchRepository
                                         )
         {
-            base.CategoryAddRepository = goodsCategoryAddRepository;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryAddRepository = categoryAddRepository;
+            base.CategorySearchRepository = categorySearchRepository;
         }
 
         public override void Init(Guid subscriberId)

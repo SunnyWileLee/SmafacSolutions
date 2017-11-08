@@ -14,39 +14,39 @@ namespace Smafac.Pms.Purchase.Services
 {
     class PurchaseSearchService : IPurchaseSearchService
     {
-        private readonly IPurchaseSearchRepository _goodsSearchRepository;
-        private readonly IPurchasePropertyValueSearchRepository _goodsPropertyValueSearchRepository;
-        private readonly IPurchasePageQueryer _goodsPageQueryer;
+        private readonly IPurchaseSearchRepository _searchRepository;
+        private readonly IPurchasePropertyValueSearchRepository _propertyValueSearchRepository;
+        private readonly IPurchasePageQueryer _pageQueryer;
 
-        public PurchaseSearchService(IPurchaseSearchRepository goodsSearchRepository,
-                                    IPurchasePropertyValueSearchRepository goodsPropertyValueSearchRepository,
-                                    IPurchasePageQueryer goodsPageQueryer
+        public PurchaseSearchService(IPurchaseSearchRepository searchRepository,
+                                    IPurchasePropertyValueSearchRepository propertyValueSearchRepository,
+                                    IPurchasePageQueryer pageQueryer
                                     )
         {
-            _goodsSearchRepository = goodsSearchRepository;
-            _goodsPropertyValueSearchRepository = goodsPropertyValueSearchRepository;
-            _goodsPageQueryer = goodsPageQueryer;
+            _searchRepository = searchRepository;
+            _propertyValueSearchRepository = propertyValueSearchRepository;
+            _pageQueryer = pageQueryer;
         }
 
         public List<PurchaseModel> GetPurchase(IEnumerable<Guid> goodsIds)
         {
             var subscriberId = UserContext.Current.SubscriberId;
             Expression<Func<PurchaseEntity, bool>> predicate = s => goodsIds.Contains(s.Id);
-            return _goodsSearchRepository.GetPurchase(subscriberId, predicate);
+            return _searchRepository.GetPurchase(subscriberId, predicate);
         }
 
         public PurchaseModel GetPurchase(Guid goodsId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _goodsSearchRepository.GetPurchase(subscriberId, goodsId);
-            var properties = _goodsPropertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
+            var goods = _searchRepository.GetPurchase(subscriberId, goodsId);
+            var properties = _propertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
             goods.Properties = properties;
             return goods;
         }
 
         public List<PurchaseModel> GetPurchase(PurchasePageQueryModel query)
         {
-            return _goodsPageQueryer.Query(query);
+            return _pageQueryer.Query(query);
         }
 
         public PurchaseDetailModel GetPurchaseDetail(Guid goodsId)
@@ -58,7 +58,7 @@ namespace Smafac.Pms.Purchase.Services
 
         public PageModel<PurchaseModel> GetPurchasePage(PurchasePageQueryModel query)
         {
-            return _goodsPageQueryer.QueryPage(query);
+            return _pageQueryer.QueryPage(query);
         }
     }
 }

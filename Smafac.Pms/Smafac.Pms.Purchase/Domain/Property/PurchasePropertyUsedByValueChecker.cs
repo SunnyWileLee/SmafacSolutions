@@ -7,9 +7,9 @@ namespace Smafac.Pms.Purchase.Domain.Property
     class PurchasePropertyUsedByValueChecker : PropertyUsedByValueChecker<PurchasePropertyEntity, PurchasePropertyValueModel>,
                                                 IPurchasePropertyUsedChecker
     {
-        public PurchasePropertyUsedByValueChecker(IPurchasePropertyValueSearchRepository goodsPropertyValueSearchRepository)
+        public PurchasePropertyUsedByValueChecker(IPurchasePropertyValueSearchRepository propertyValueSearchRepository)
         {
-            base.PropertyValueSearchRepository = goodsPropertyValueSearchRepository;
+            base.PropertyValueSearchRepository = propertyValueSearchRepository;
         }
     }
 }

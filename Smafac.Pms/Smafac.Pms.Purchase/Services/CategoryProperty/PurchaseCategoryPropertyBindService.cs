@@ -17,18 +17,18 @@ namespace Smafac.Pms.Purchase.Services.CategoryProperty
     class PurchaseCategoryPropertyBindService : CategoryPropertyBindService<PurchaseCategoryEntity, PurchasePropertyEntity>,
                                         IPurchaseCategoryPropertyBindService
     {
-        public PurchaseCategoryPropertyBindService(IPurchaseCategoryPropertyBindRepository goodsCategoryPropertyBindRepository,
-                                                IPurchaseCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-                                                IEnumerable<IPurchaseCategoryPropertyBindTrigger> goodsCategoryPropertyBindTriggers,
-                                                IPurchaseCategorySearchRepository goodsCategorySearchRepository,
-                                                IPurchasePropertySearchRepository goodsPropertySearchRepository
+        public PurchaseCategoryPropertyBindService(IPurchaseCategoryPropertyBindRepository categoryPropertyBindRepository,
+                                                IPurchaseCategoryPropertySearchRepository categoryPropertySearchRepository,
+                                                IEnumerable<IPurchaseCategoryPropertyBindTrigger> categoryPropertyBindTriggers,
+                                                IPurchaseCategorySearchRepository categorySearchRepository,
+                                                IPurchasePropertySearchRepository propertySearchRepository
                                                 )
         {
-            base.EntityAssociationBindRepository = goodsCategoryPropertyBindRepository;
-            base.EntityAssociationSearchRepository = goodsCategoryPropertySearchRepository;
-            base.CategoryAssociationBindTriggers = goodsCategoryPropertyBindTriggers;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.AssociationSearchRepository = goodsPropertySearchRepository;
+            base.EntityAssociationBindRepository = categoryPropertyBindRepository;
+            base.EntityAssociationSearchRepository = categoryPropertySearchRepository;
+            base.CategoryAssociationBindTriggers = categoryPropertyBindTriggers;
+            base.CategorySearchRepository = categorySearchRepository;
+            base.AssociationSearchRepository = propertySearchRepository;
         }
     }
 }

@@ -14,15 +14,15 @@ namespace Smafac.Pms.Purchase.Services.Property
 {
     class PurchasePropertyDeleteService : PropertyDeleteService<PurchasePropertyEntity, PurchasePropertyModel>, IPurchasePropertyDeleteService
     {
-        public PurchasePropertyDeleteService(IPurchasePropertyDeleteRepository goodsPropertyDeleteRepository,
-                                          IPurchasePropertySearchRepository goodsPropertySearchRepository,
+        public PurchasePropertyDeleteService(IPurchasePropertyDeleteRepository propertyDeleteRepository,
+                                          IPurchasePropertySearchRepository propertySearchRepository,
                                           IPurchasePropertyUsedChecker[] goodsFinancePropertyUsedCheckers,
-                                          IPurchasePropertyDeleteTrigger[] goodsPropertyDeleteTriggers)
+                                          IPurchasePropertyDeleteTrigger[] propertyDeleteTriggers)
         {
-            base.CustomizedColumnDeleteRepository = goodsPropertyDeleteRepository;
+            base.CustomizedColumnDeleteRepository = propertyDeleteRepository;
             base.CustomizedColumnUsedCheckers = goodsFinancePropertyUsedCheckers;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
-            base.CustomizedColumnDeleteTriggers = goodsPropertyDeleteTriggers;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = propertyDeleteTriggers;
         }
     }
 }
