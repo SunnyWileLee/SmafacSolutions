@@ -9,22 +9,22 @@ namespace Smafac.Hrs.Employee.Domain.Property
 {
     class EmployeePropertyProvider : IEmployeePropertyProvider
     {
-        private readonly IEmployeeSearchRepository _goodsSearchRepository;
-        private readonly IEmployeeCategoryPropertyProvider _goodsCategoryPropertyProvider;
+        private readonly IEmployeeSearchRepository _searchRepository;
+        private readonly IEmployeeCategoryPropertyProvider _categoryPropertyProvider;
 
-        public EmployeePropertyProvider(IEmployeeSearchRepository goodsSearchRepository,
-                                    IEmployeeCategoryPropertyProvider goodsCategoryPropertyProvider
+        public EmployeePropertyProvider(IEmployeeSearchRepository searchRepository,
+                                    IEmployeeCategoryPropertyProvider categoryPropertyProvider
                                     )
         {
-            _goodsSearchRepository = goodsSearchRepository;
-            _goodsCategoryPropertyProvider = goodsCategoryPropertyProvider;
+            _searchRepository = searchRepository;
+            _categoryPropertyProvider = categoryPropertyProvider;
         }
 
         public List<EmployeePropertyModel> Provide(Guid goodsId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _goodsSearchRepository.GetEmployee(subscriberId, goodsId);
-            return _goodsCategoryPropertyProvider.ProvideAssociations(goods.CategoryId);
+            var goods = _searchRepository.GetEmployee(subscriberId, goodsId);
+            return _categoryPropertyProvider.ProvideAssociations(goods.CategoryId);
         }
     }
 }

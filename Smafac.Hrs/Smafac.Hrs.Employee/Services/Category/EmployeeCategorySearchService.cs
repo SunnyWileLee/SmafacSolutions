@@ -14,10 +14,10 @@ namespace Smafac.Hrs.Employee.Services.Category
 {
     class EmployeeCategorySearchService : CategorySearchService<EmployeeCategoryEntity, EmployeeCategoryModel>, IEmployeeCategorySearchService
     {
-        public EmployeeCategorySearchService(IEmployeeCategorySearchRepository goodsSearchRepository,
-            IEmployeePropertyProvider goodsCategoryProvider)
+        public EmployeeCategorySearchService(IEmployeeCategorySearchRepository searchRepository,
+            IEmployeePropertyProvider categoryProvider)
         {
-            base.CategorySearchRepository = goodsSearchRepository;
+            base.CategorySearchRepository = searchRepository;
         }
     }
 }

@@ -14,18 +14,18 @@ namespace Smafac.Hrs.Employee.Services.Property
 {
     class EmployeePropertySearchService : PropertySearchService<EmployeePropertyEntity, EmployeePropertyModel>, IEmployeePropertySearchService
     {
-        private readonly IEmployeePropertyProvider _goodsPropertyProvider;
+        private readonly IEmployeePropertyProvider _propertyProvider;
 
-        public EmployeePropertySearchService(IEmployeePropertySearchRepository goodsSearchRepository,
-            IEmployeePropertyProvider goodsPropertyProvider)
+        public EmployeePropertySearchService(IEmployeePropertySearchRepository searchRepository,
+            IEmployeePropertyProvider propertyProvider)
         {
-            base.CustomizedColumnSearchRepository = goodsSearchRepository;
-            _goodsPropertyProvider = goodsPropertyProvider;
+            base.CustomizedColumnSearchRepository = searchRepository;
+            _propertyProvider = propertyProvider;
         }
 
         public override List<EmployeePropertyModel> GetColumns(Guid entityId)
         {
-            return _goodsPropertyProvider.Provide(entityId);
+            return _propertyProvider.Provide(entityId);
         }
     }
 }

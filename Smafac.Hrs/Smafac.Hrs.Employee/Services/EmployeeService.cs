@@ -16,15 +16,15 @@ namespace Smafac.Hrs.Employee.Services
     class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeAddRepository _goodsRepository;
-        private readonly IEmployeePropertyValueSetRepository _goodsPropertyValueSetRepository;
+        private readonly IEmployeePropertyValueSetRepository _propertyValueSetRepository;
 
         public EmployeeService(IEmployeeAddRepository goodsRepository,
                             IEmployeeUpdateService updateService,
-                            IEmployeePropertyValueSetRepository goodsPropertyValueSetRepository
+                            IEmployeePropertyValueSetRepository propertyValueSetRepository
                             )
         {
             _goodsRepository = goodsRepository;
-            _goodsPropertyValueSetRepository = goodsPropertyValueSetRepository;
+            _propertyValueSetRepository = propertyValueSetRepository;
             UpdateService = updateService;
         }
 
@@ -44,7 +44,7 @@ namespace Smafac.Hrs.Employee.Services
                     property.SubscriberId = goods.SubscriberId;
                 });
                 var values = Mapper.Map<List<EmployeePropertyValueEntity>>(model.Properties);
-                return _goodsPropertyValueSetRepository.AddPropertyValues(goods.Id, values);
+                return _propertyValueSetRepository.AddPropertyValues(goods.Id, values);
             }
             return add;
         }

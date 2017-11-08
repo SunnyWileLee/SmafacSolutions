@@ -14,39 +14,39 @@ namespace Smafac.Hrs.Employee.Services
 {
     class EmployeeSearchService : IEmployeeSearchService
     {
-        private readonly IEmployeeSearchRepository _goodsSearchRepository;
-        private readonly IEmployeePropertyValueSearchRepository _goodsPropertyValueSearchRepository;
-        private readonly IEmployeePageQueryer _goodsPageQueryer;
+        private readonly IEmployeeSearchRepository _searchRepository;
+        private readonly IEmployeePropertyValueSearchRepository _propertyValueSearchRepository;
+        private readonly IEmployeePageQueryer _pageQueryer;
 
-        public EmployeeSearchService(IEmployeeSearchRepository goodsSearchRepository,
-                                    IEmployeePropertyValueSearchRepository goodsPropertyValueSearchRepository,
-                                    IEmployeePageQueryer goodsPageQueryer
+        public EmployeeSearchService(IEmployeeSearchRepository searchRepository,
+                                    IEmployeePropertyValueSearchRepository propertyValueSearchRepository,
+                                    IEmployeePageQueryer pageQueryer
                                     )
         {
-            _goodsSearchRepository = goodsSearchRepository;
-            _goodsPropertyValueSearchRepository = goodsPropertyValueSearchRepository;
-            _goodsPageQueryer = goodsPageQueryer;
+            _searchRepository = searchRepository;
+            _propertyValueSearchRepository = propertyValueSearchRepository;
+            _pageQueryer = pageQueryer;
         }
 
         public List<EmployeeModel> GetEmployee(IEnumerable<Guid> goodsIds)
         {
             var subscriberId = UserContext.Current.SubscriberId;
             Expression<Func<EmployeeEntity, bool>> predicate = s => goodsIds.Contains(s.Id);
-            return _goodsSearchRepository.GetEmployee(subscriberId, predicate);
+            return _searchRepository.GetEmployee(subscriberId, predicate);
         }
 
         public EmployeeModel GetEmployee(Guid goodsId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _goodsSearchRepository.GetEmployee(subscriberId, goodsId);
-            var properties = _goodsPropertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
+            var goods = _searchRepository.GetEmployee(subscriberId, goodsId);
+            var properties = _propertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
             goods.Properties = properties;
             return goods;
         }
 
         public List<EmployeeModel> GetEmployee(EmployeePageQueryModel query)
         {
-            return _goodsPageQueryer.Query(query);
+            return _pageQueryer.Query(query);
         }
 
         public EmployeeDetailModel GetEmployeeDetail(Guid goodsId)
@@ -58,7 +58,7 @@ namespace Smafac.Hrs.Employee.Services
 
         public PageModel<EmployeeModel> GetEmployeePage(EmployeePageQueryModel query)
         {
-            return _goodsPageQueryer.QueryPage(query);
+            return _pageQueryer.QueryPage(query);
         }
     }
 }

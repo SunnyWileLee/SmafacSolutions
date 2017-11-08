@@ -7,9 +7,9 @@ namespace Smafac.Hrs.Employee.Domain.Property
     class EmployeePropertyUsedByValueChecker : PropertyUsedByValueChecker<EmployeePropertyEntity, EmployeePropertyValueModel>,
                                                 IEmployeePropertyUsedChecker
     {
-        public EmployeePropertyUsedByValueChecker(IEmployeePropertyValueSearchRepository goodsPropertyValueSearchRepository)
+        public EmployeePropertyUsedByValueChecker(IEmployeePropertyValueSearchRepository propertyValueSearchRepository)
         {
-            base.PropertyValueSearchRepository = goodsPropertyValueSearchRepository;
+            base.PropertyValueSearchRepository = propertyValueSearchRepository;
         }
     }
 }

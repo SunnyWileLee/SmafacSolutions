@@ -11,15 +11,15 @@ namespace Smafac.Hrs.Employee.Services.Property
 {
     class EmployeePropertyService : IEmployeePropertyService
     {
-        public EmployeePropertyService(IEmployeePropertyAddService goodsPropertyAddService,
-            IEmployeePropertyDeleteService goodsPropertyDeleteService,
-            IEmployeePropertySearchService goodsPropertySearchService,
-            IEmployeePropertyUpdateService goodsPropertyUpdateService)
+        public EmployeePropertyService(IEmployeePropertyAddService propertyAddService,
+            IEmployeePropertyDeleteService propertyDeleteService,
+            IEmployeePropertySearchService propertySearchService,
+            IEmployeePropertyUpdateService propertyUpdateService)
         {
-            AddService = goodsPropertyAddService;
-            DeleteService = goodsPropertyDeleteService;
-            SearchService = goodsPropertySearchService;
-            UpdateService = goodsPropertyUpdateService;
+            AddService = propertyAddService;
+            DeleteService = propertyDeleteService;
+            SearchService = propertySearchService;
+            UpdateService = propertyUpdateService;
         }
 
         public IEmployeePropertyAddService AddService { get; set; }

@@ -13,9 +13,9 @@ namespace Smafac.Hrs.Employee.Services.Category
 {
     class EmployeeCategoryDeleteService : CategoryDeleteService<EmployeeCategoryEntity, EmployeeCategoryModel>, IEmployeeCategoryDeleteService
     {
-        public EmployeeCategoryDeleteService(IEmployeeCategoryDeleteRepository goodsCategoryDeleteRepository)
+        public EmployeeCategoryDeleteService(IEmployeeCategoryDeleteRepository categoryDeleteRepository)
         {
-            base.CategoryDeleteRepository = goodsCategoryDeleteRepository;
+            base.CategoryDeleteRepository = categoryDeleteRepository;
         }
 
         protected override bool IsUsed(Guid CategoryId)

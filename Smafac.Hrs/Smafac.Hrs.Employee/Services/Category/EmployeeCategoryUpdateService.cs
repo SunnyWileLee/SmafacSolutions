@@ -13,11 +13,11 @@ namespace Smafac.Hrs.Employee.Services.Category
 {
     class EmployeeCategoryUpdateService : CategoryUpdateService<EmployeeCategoryEntity, EmployeeCategoryModel>, IEmployeeCategoryUpdateService
     {
-        public EmployeeCategoryUpdateService(IEmployeeCategorySearchRepository goodsCategorySearchRepository,
-                                          IEmployeeCategoryUpdateRepository goodsCategoryUpdateRepository)
+        public EmployeeCategoryUpdateService(IEmployeeCategorySearchRepository categorySearchRepository,
+                                          IEmployeeCategoryUpdateRepository categoryUpdateRepository)
         {
-            base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.CategoryUpdateRepository = goodsCategoryUpdateRepository;
+            base.CategorySearchRepository = categorySearchRepository;
+            base.CategoryUpdateRepository = categoryUpdateRepository;
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Smafac.Hrs.Employee.Domain.CategoryProperty
     class EmployeeCategoryPropertyBindTrigger : CategoryPropertyBindTrigger<EmployeeEntity, EmployeeCategoryEntity, EmployeePropertyEntity, EmployeePropertyValueEntity>,
                                             IEmployeeCategoryPropertyBindTrigger
     {
-        public EmployeeCategoryPropertyBindTrigger(IEmployeeSearchRepository goodsSearchRepository,
-                                                IEmployeePropertyValueSetRepository goodsPropertyValueSetRepository)
+        public EmployeeCategoryPropertyBindTrigger(IEmployeeSearchRepository searchRepository,
+                                                IEmployeePropertyValueSetRepository propertyValueSetRepository)
         {
-            base.EntitySearchRepository = goodsSearchRepository;
-            base.AssociationValueAddRepository = goodsPropertyValueSetRepository;
+            base.EntitySearchRepository = searchRepository;
+            base.AssociationValueAddRepository = propertyValueSetRepository;
         }
 
         protected override void ModifyValue(EmployeePropertyValueEntity value, Guid goodsId, EmployeePropertyEntity property)

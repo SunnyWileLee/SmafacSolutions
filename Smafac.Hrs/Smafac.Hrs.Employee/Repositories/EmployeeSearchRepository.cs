@@ -15,10 +15,10 @@ namespace Smafac.Hrs.Employee.Repositories
     {
         private readonly IEmployeeJoiner _goodsJoiner;
 
-        public EmployeeSearchRepository(IEmployeeContextProvider goodsContextProvider,
+        public EmployeeSearchRepository(IEmployeeContextProvider contextProvider,
                                     IEmployeeJoiner goodsJoiner)
         {
-            base.ContextProvider = goodsContextProvider;
+            base.ContextProvider = contextProvider;
             _goodsJoiner = goodsJoiner;
         }
 

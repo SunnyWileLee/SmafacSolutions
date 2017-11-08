@@ -14,15 +14,15 @@ namespace Smafac.Hrs.Employee.Services.Property
 {
     class EmployeePropertyDeleteService : PropertyDeleteService<EmployeePropertyEntity, EmployeePropertyModel>, IEmployeePropertyDeleteService
     {
-        public EmployeePropertyDeleteService(IEmployeePropertyDeleteRepository goodsPropertyDeleteRepository,
-                                          IEmployeePropertySearchRepository goodsPropertySearchRepository,
+        public EmployeePropertyDeleteService(IEmployeePropertyDeleteRepository propertyDeleteRepository,
+                                          IEmployeePropertySearchRepository propertySearchRepository,
                                           IEmployeePropertyUsedChecker[] goodsFinancePropertyUsedCheckers,
-                                          IEmployeePropertyDeleteTrigger[] goodsPropertyDeleteTriggers)
+                                          IEmployeePropertyDeleteTrigger[] propertyDeleteTriggers)
         {
-            base.CustomizedColumnDeleteRepository = goodsPropertyDeleteRepository;
+            base.CustomizedColumnDeleteRepository = propertyDeleteRepository;
             base.CustomizedColumnUsedCheckers = goodsFinancePropertyUsedCheckers;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
-            base.CustomizedColumnDeleteTriggers = goodsPropertyDeleteTriggers;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
+            base.CustomizedColumnDeleteTriggers = propertyDeleteTriggers;
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Smafac.Hrs.Employee.Domain.Property
     class CustomerPropertyDeleteValueTrigger : PropertyDeleteValueTrigger<EmployeePropertyEntity, EmployeePropertyValueEntity>,
                                             IEmployeePropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteValueTrigger(IEmployeePropertyValueDeleteRepository goodsPropertyValueDeleteRepository)
+        public CustomerPropertyDeleteValueTrigger(IEmployeePropertyValueDeleteRepository propertyValueDeleteRepository)
         {
-            base.PropertyValueDeleteRepository = goodsPropertyValueDeleteRepository;
+            base.PropertyValueDeleteRepository = propertyValueDeleteRepository;
         }
     }
 }

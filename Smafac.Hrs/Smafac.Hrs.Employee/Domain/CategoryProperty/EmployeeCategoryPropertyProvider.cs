@@ -9,11 +9,11 @@ namespace Smafac.Hrs.Employee.Domain.CategoryProperty
                                             IEmployeeCategoryPropertyProvider
     {
 
-        public EmployeeCategoryPropertyProvider(IEmployeeCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-                                            IEmployeeCategorySearchRepository goodsCategorySearchRepository)
+        public EmployeeCategoryPropertyProvider(IEmployeeCategoryPropertySearchRepository categoryPropertySearchRepository,
+                                            IEmployeeCategorySearchRepository categorySearchRepository)
         {
-            base.CategorySearchRepository = goodsCategorySearchRepository;
-            base.CategoryAssociationSearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategorySearchRepository = categorySearchRepository;
+            base.CategoryAssociationSearchRepository = categoryPropertySearchRepository;
         }
     }
 }

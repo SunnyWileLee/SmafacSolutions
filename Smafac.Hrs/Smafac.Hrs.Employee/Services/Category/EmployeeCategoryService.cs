@@ -11,28 +11,28 @@ namespace Smafac.Hrs.Employee.Services.Category
 {
     class EmployeeCategoryService : IEmployeeCategoryService
     {
-        private readonly IEmployeeCategoryAddService _goodsCategoryAddService;
-        private readonly IEmployeeCategoryDeleteService _goodsCategoryDeleteService;
-        private readonly IEmployeeCategorySearchService _goodsCategorySearchService;
-        private readonly IEmployeeCategoryUpdateService _goodsCategoryUpdateService;
+        private readonly IEmployeeCategoryAddService _categoryAddService;
+        private readonly IEmployeeCategoryDeleteService _categoryDeleteService;
+        private readonly IEmployeeCategorySearchService _categorySearchService;
+        private readonly IEmployeeCategoryUpdateService _categoryUpdateService;
 
-        public EmployeeCategoryService(IEmployeeCategoryAddService goodsCategoryAddService,
-            IEmployeeCategoryDeleteService goodsCategoryDeleteService,
-            IEmployeeCategorySearchService goodsCategorySearchService,
-            IEmployeeCategoryUpdateService goodsCategoryUpdateService)
+        public EmployeeCategoryService(IEmployeeCategoryAddService categoryAddService,
+            IEmployeeCategoryDeleteService categoryDeleteService,
+            IEmployeeCategorySearchService categorySearchService,
+            IEmployeeCategoryUpdateService categoryUpdateService)
         {
-            _goodsCategoryAddService = goodsCategoryAddService;
-            _goodsCategoryDeleteService = goodsCategoryDeleteService;
-            _goodsCategorySearchService = goodsCategorySearchService;
-            _goodsCategoryUpdateService = goodsCategoryUpdateService;
+            _categoryAddService = categoryAddService;
+            _categoryDeleteService = categoryDeleteService;
+            _categorySearchService = categorySearchService;
+            _categoryUpdateService = categoryUpdateService;
         }
 
-        public ICategoryAddService<EmployeeCategoryModel> AddService => _goodsCategoryAddService;
+        public ICategoryAddService<EmployeeCategoryModel> AddService => _categoryAddService;
 
-        public ICategoryDeleteService<EmployeeCategoryModel> DeleteService => _goodsCategoryDeleteService;
+        public ICategoryDeleteService<EmployeeCategoryModel> DeleteService => _categoryDeleteService;
 
-        public ICategoryUpdateService<EmployeeCategoryModel> UpdateService => _goodsCategoryUpdateService;
+        public ICategoryUpdateService<EmployeeCategoryModel> UpdateService => _categoryUpdateService;
 
-        public ICategorySearchService<EmployeeCategoryModel> SearchService => _goodsCategorySearchService;
+        public ICategorySearchService<EmployeeCategoryModel> SearchService => _categorySearchService;
     }
 }

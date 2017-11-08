@@ -6,9 +6,9 @@ namespace Smafac.Hrs.Employee.Domain.Property
     class CustomerPropertyDeleteCategoryTrigger : PropertyDeleteCategoryTrigger<EmployeeCategoryEntity, EmployeePropertyEntity, EmployeeCategoryPropertyEntity>,
         IEmployeePropertyDeleteTrigger
     {
-        public CustomerPropertyDeleteCategoryTrigger(IEmployeeCategoryPropertyBindRepository goodsCategoryPropertyBindRepository)
+        public CustomerPropertyDeleteCategoryTrigger(IEmployeeCategoryPropertyBindRepository categoryPropertyBindRepository)
         {
-            base.CategoryPropertyBindRepository = goodsCategoryPropertyBindRepository;
+            base.CategoryPropertyBindRepository = categoryPropertyBindRepository;
         }
     }
 }

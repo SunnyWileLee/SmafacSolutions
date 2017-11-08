@@ -27,17 +27,21 @@ namespace Smafac.Hrs.Salary.Services.Category
             }
             IEnumerable<SalaryCategoryEntity> categories = new List<SalaryCategoryEntity> {
                 new SalaryCategoryEntity{
-                    Name="当前库存",
+                    Name="工资",
                     SubscriberId=subscriberId
                 },
                 new SalaryCategoryEntity{
-                    Name="出库记录",
+                    Name="奖金",
                     SubscriberId=subscriberId
                 },
                 new SalaryCategoryEntity{
-                    Name="入库记录",
+                    Name="报销",
                     SubscriberId=subscriberId
                 },
+                new SalaryCategoryEntity{
+                    Name="补贴",
+                    SubscriberId=subscriberId
+                }
             };
             CategoryAddRepository.AddEntities(categories);
         }

@@ -11,12 +11,12 @@ namespace Smafac.Hrs.Employee.Services.Category
 {
     class EmployeeCategoryInitialization : CategoryInitialization<EmployeeCategoryEntity>
     {
-        public EmployeeCategoryInitialization(IEmployeeCategoryAddRepository goodsCategoryAddRepository,
-                                        IEmployeeCategorySearchRepository goodsCategorySearchRepository
+        public EmployeeCategoryInitialization(IEmployeeCategoryAddRepository categoryAddRepository,
+                                        IEmployeeCategorySearchRepository categorySearchRepository
                                         )
         {
-            base.CategoryAddRepository = goodsCategoryAddRepository;
-            base.CategorySearchRepository = goodsCategorySearchRepository;
+            base.CategoryAddRepository = categoryAddRepository;
+            base.CategorySearchRepository = categorySearchRepository;
         }
 
         public override void Init(Guid subscriberId)
@@ -27,17 +27,13 @@ namespace Smafac.Hrs.Employee.Services.Category
             }
             IEnumerable<EmployeeCategoryEntity> categories = new List<EmployeeCategoryEntity> {
                 new EmployeeCategoryEntity{
-                    Name="当前库存",
+                    Name="正式员工",
                     SubscriberId=subscriberId
                 },
                 new EmployeeCategoryEntity{
-                    Name="出库记录",
+                    Name="临时工",
                     SubscriberId=subscriberId
-                },
-                new EmployeeCategoryEntity{
-                    Name="入库记录",
-                    SubscriberId=subscriberId
-                },
+                }
             };
             CategoryAddRepository.AddEntities(categories);
         }

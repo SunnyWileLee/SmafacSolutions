@@ -15,12 +15,12 @@ namespace Smafac.Hrs.Employee.Services.CategoryProperty
     class EmployeeCategoryPropertySearchService : CategoryPropertySearchService<EmployeeCategoryEntity, EmployeePropertyEntity, EmployeePropertyModel>,
                                                 IEmployeeCategoryPropertySearchService
     {
-        public EmployeeCategoryPropertySearchService(IEmployeeCategoryPropertySearchRepository goodsCategoryPropertySearchRepository,
-            IEmployeeCategoryPropertyProvider goodsCategoryPropertyProvider
+        public EmployeeCategoryPropertySearchService(IEmployeeCategoryPropertySearchRepository categoryPropertySearchRepository,
+            IEmployeeCategoryPropertyProvider categoryPropertyProvider
             )
         {
-            base.CategoryAssociationProvider = goodsCategoryPropertyProvider;
-            base.EntityAssociationSearchRepository = goodsCategoryPropertySearchRepository;
+            base.CategoryAssociationProvider = categoryPropertyProvider;
+            base.EntityAssociationSearchRepository = categoryPropertySearchRepository;
         }
     }
 }

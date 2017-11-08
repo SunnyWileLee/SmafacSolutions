@@ -13,11 +13,11 @@ namespace Smafac.Hrs.Employee.Services.Property
 {
     class EmployeePropertyAddService : PropertyAddService<EmployeePropertyEntity, EmployeePropertyModel>, IEmployeePropertyAddService
     {
-        public EmployeePropertyAddService(IEmployeePropertyAddRepository goodsPropertyAddRepository,
-                                        IEmployeePropertySearchRepository goodsPropertySearchRepository)
+        public EmployeePropertyAddService(IEmployeePropertyAddRepository propertyAddRepository,
+                                        IEmployeePropertySearchRepository propertySearchRepository)
         {
-            base.CustomizedColumnAddRepository = goodsPropertyAddRepository;
-            base.CustomizedColumnSearchRepository = goodsPropertySearchRepository;
+            base.CustomizedColumnAddRepository = propertyAddRepository;
+            base.CustomizedColumnSearchRepository = propertySearchRepository;
         }
     }
 }
