@@ -12,6 +12,7 @@ using Smafac.Framework.Core.Models;
 using Smafac.Framework.Driver;
 using Smafac.Framework.Infrustructure;
 using Smafac.Hrs.Employee.Applications;
+using Smafac.Hrs.Salary.Applications;
 using Smafac.Pms.Purchase.Applications;
 using Smafac.Presentation;
 using Smafac.Sales.DeliveryNote.Applications;
@@ -53,7 +54,8 @@ namespace Smafac.Presentation
             Register<IAutofacScanPurchase>(builder);
             Register<IAutofacScanStock>(builder);
             Register<IAutofacScanEmployee>(builder);
-            
+            Register<IAutofacScanSalary>(builder);
+
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 

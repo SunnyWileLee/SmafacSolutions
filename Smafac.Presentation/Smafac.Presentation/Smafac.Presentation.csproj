@@ -353,6 +353,10 @@
       <Project>{5327ac32-3f16-453a-aeb0-00bdcdcc29c8}</Project>
       <Name>Smafac.Hrs.Employee</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Hrs\Smafac.Hrs.Salary\Smafac.Hrs.Salary.csproj">
+      <Project>{2445eb3e-d37a-4748-a5f9-620b7df7d220}</Project>
+      <Name>Smafac.Hrs.Salary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Pms\Smafac.Pms.Purchase\Smafac.Pms.Purchase.csproj">
       <Project>{910f7a46-147d-457a-971c-2967ec51b446}</Project>
       <Name>Smafac.Pms.Purchase</Name>

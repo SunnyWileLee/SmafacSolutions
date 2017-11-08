@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Hrs.Salary
+namespace Smafac.Hrs.Salary.Applications
 {
-    public class Class1
+    public interface IAutofacScanSalary
     {
+
     }
 }

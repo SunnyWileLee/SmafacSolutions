@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>2445eb3e-d37a-4748-a5f9-620b7df7d220</ProjectGuid>
+    <ProjectGuid>{2445EB3E-D37A-4748-A5F9-620B7DF7D220}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Smafac.Hrs.Salary</RootNamespace>
@@ -30,24 +30,135 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\Smafac.Presentation\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Applications\CategoryProperty\ISalaryCategoryPropertyBindService.cs" />
+    <Compile Include="Applications\CategoryProperty\ISalaryCategoryPropertySearchService.cs" />
+    <Compile Include="Applications\Category\ISalaryCategoryAddService.cs" />
+    <Compile Include="Applications\Category\ISalaryCategoryDeleteService.cs" />
+    <Compile Include="Applications\Category\ISalaryCategorySearchService.cs" />
+    <Compile Include="Applications\Category\ISalaryCategoryService.cs" />
+    <Compile Include="Applications\Category\ISalaryCategoryUpdateService.cs" />
+    <Compile Include="Applications\IAutofacScanSalary.cs" />
+    <Compile Include="Applications\ISalarySearchService.cs" />
+    <Compile Include="Applications\ISalaryService.cs" />
+    <Compile Include="Applications\ISalaryUpdateService.cs" />
+    <Compile Include="Applications\Property\ISalaryPropertyAddService.cs" />
+    <Compile Include="Applications\Property\ISalaryPropertyDeleteService.cs" />
+    <Compile Include="Applications\Property\ISalaryPropertySearchService.cs" />
+    <Compile Include="Applications\Property\ISalaryPropertyService.cs" />
+    <Compile Include="Applications\Property\ISalaryPropertyUpdateService.cs" />
+    <Compile Include="Domain\CategoryProperty\ISalaryCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\ISalaryCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\CategoryProperty\SalaryCategoryPropertyBindTrigger.cs" />
+    <Compile Include="Domain\CategoryProperty\SalaryCategoryPropertyProvider.cs" />
+    <Compile Include="Domain\Pages\ISalaryPageQueryer.cs" />
+    <Compile Include="Domain\Pages\SalaryPageQueryer.cs" />
+    <Compile Include="Domain\Property\ISalaryPropertyDeleteTrigger.cs" />
+    <Compile Include="Domain\Property\ISalaryPropertyProvider.cs" />
+    <Compile Include="Domain\Property\ISalaryPropertyUsedChecker.cs" />
+    <Compile Include="Domain\Property\SalaryPropertyDeleteCategoryTrigger.cs" />
+    <Compile Include="Domain\Property\SalaryPropertyDeleteValueTrigger.cs" />
+    <Compile Include="Domain\Property\SalaryPropertyProvider.cs" />
+    <Compile Include="Domain\Property\SalaryPropertyUsedByCategoryChecker.cs" />
+    <Compile Include="Domain\Property\SalaryPropertyUsedByValueChecker.cs" />
+    <Compile Include="Domain\SalaryCategoryEntity.cs" />
+    <Compile Include="Domain\SalaryCategoryPropertyEntity.cs" />
+    <Compile Include="Domain\SalaryEntity.cs" />
+    <Compile Include="Domain\SalaryPropertyEntity.cs" />
+    <Compile Include="Domain\SalaryPropertyValueEntity.cs" />
+    <Compile Include="Models\SalaryCategoryModel.cs" />
+    <Compile Include="Models\SalaryCategoryPropertyModel.cs" />
+    <Compile Include="Models\SalaryDetailModel.cs" />
+    <Compile Include="Models\SalaryModel.cs" />
+    <Compile Include="Models\SalaryPageQueryModel.cs" />
+    <Compile Include="Models\SalaryPropertyModel.cs" />
+    <Compile Include="Models\SalaryPropertyValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryProperty\ISalaryCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\ISalaryCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\SalaryCategoryPropertyBindRepository.cs" />
+    <Compile Include="Repositories\CategoryProperty\SalaryCategoryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Category\ISalaryCategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\ISalaryCategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\ISalaryCategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\ISalaryCategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\Category\SalaryCategoryAddRepository.cs" />
+    <Compile Include="Repositories\Category\SalaryCategoryDeleteRepository.cs" />
+    <Compile Include="Repositories\Category\SalaryCategorySearchRepository.cs" />
+    <Compile Include="Repositories\Category\SalaryCategoryUpdateRepository.cs" />
+    <Compile Include="Repositories\ISalaryAddRepository.cs" />
+    <Compile Include="Repositories\ISalaryContextProvider.cs" />
+    <Compile Include="Repositories\ISalarySearchRepository.cs" />
+    <Compile Include="Repositories\ISalaryUpdateRepository.cs" />
+    <Compile Include="Repositories\Joiners\ISalaryJoiner.cs" />
+    <Compile Include="Repositories\Joiners\SalaryJoiner.cs" />
+    <Compile Include="Repositories\Pages\ISalaryPageQueryRepository.cs" />
+    <Compile Include="Repositories\Pages\SalaryPageQueryRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ISalaryPropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ISalaryPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\ISalaryPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\SalaryPropertyValueDeleteRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\SalaryPropertyValueSearchRepository.cs" />
+    <Compile Include="Repositories\PropertyValue\SalaryPropertyValueSetRepository.cs" />
+    <Compile Include="Repositories\Property\ISalaryPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\ISalaryPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\ISalaryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\ISalaryPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\Property\SalaryPropertyAddRepository.cs" />
+    <Compile Include="Repositories\Property\SalaryPropertyDeleteRepository.cs" />
+    <Compile Include="Repositories\Property\SalaryPropertySearchRepository.cs" />
+    <Compile Include="Repositories\Property\SalaryPropertyUpdateRepository.cs" />
+    <Compile Include="Repositories\SalaryAddRepository.cs" />
+    <Compile Include="Repositories\SalaryContext.cs" />
+    <Compile Include="Repositories\SalaryContextProvider.cs" />
+    <Compile Include="Repositories\SalarySearchRepository.cs" />
+    <Compile Include="Repositories\SalaryUpdateRepository.cs" />
+    <Compile Include="Services\CategoryProperty\SalaryCategoryPropertyBindService.cs" />
+    <Compile Include="Services\CategoryProperty\SalaryCategoryPropertySearchService.cs" />
+    <Compile Include="Services\Category\SalaryCategoryAddService.cs" />
+    <Compile Include="Services\Category\SalaryCategoryDeleteService.cs" />
+    <Compile Include="Services\Category\SalaryCategoryInitialization.cs" />
+    <Compile Include="Services\Category\SalaryCategorySearchService.cs" />
+    <Compile Include="Services\Category\SalaryCategoryService.cs" />
+    <Compile Include="Services\Category\SalaryCategoryUpdateService.cs" />
+    <Compile Include="Services\Property\SalaryPropertyAddService.cs" />
+    <Compile Include="Services\Property\SalaryPropertyDeleteService.cs" />
+    <Compile Include="Services\Property\SalaryPropertySearchService.cs" />
+    <Compile Include="Services\Property\SalaryPropertyService.cs" />
+    <Compile Include="Services\Property\SalaryPropertyUpdateService.cs" />
+    <Compile Include="Services\SalaryAutoMapper.cs" />
+    <Compile Include="Services\SalarySearchService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Services\SalaryUpdateService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj">
+      <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
+      <Name>Smafac.Framework.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
