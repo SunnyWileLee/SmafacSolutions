@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Smafac.Account.Subscriber.Models;
+﻿using Smafac.Account.Subscriber.Models;
 using Smafac.Account.Subscriber.Repositories;
-using Smafac.Framework.Infrustructure;
-using Smafac.Framework.Core.Applications;
+using Smafac.Infrustructure.Common;
+using System;
 
 namespace Smafac.Account.Subscriber.Domain
 {
@@ -15,13 +10,13 @@ namespace Smafac.Account.Subscriber.Domain
         private readonly ISubscriberRepository _subscriberRepository;
         private readonly IPassportSearchRepository _passportSearchRepository;
         private readonly IPassportRepository _passportRepository;
-        private readonly IEncrypt _encrypt;
+        private readonly IMd5Encrypter _encrypt;
 
 
         public SubscriberRegister(ISubscriberRepository subscriberRepository,
                                 IPassportSearchRepository passportSearchRepository,
                                 IPassportRepository passportRepository,
-                                IEncrypt encrypt)
+                                IMd5Encrypter encrypt)
         {
             _subscriberRepository = subscriberRepository;
             _passportSearchRepository = passportSearchRepository;

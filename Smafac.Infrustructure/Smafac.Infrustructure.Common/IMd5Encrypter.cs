@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smafac.Framework.Infrustructure
+namespace Smafac.Infrustructure.Common
 {
-    public interface IAutofacScanInfrustructure
+    public interface IMd5Encrypter
     {
-
+        string Encrypt(string input);
     }
 }

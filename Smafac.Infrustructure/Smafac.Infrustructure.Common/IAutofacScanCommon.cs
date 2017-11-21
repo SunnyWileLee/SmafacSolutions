@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Smafac.Infrustructure.Common
 {
-    public class Class1
+    public interface IAutofacScanCommon
     {
     }
 }

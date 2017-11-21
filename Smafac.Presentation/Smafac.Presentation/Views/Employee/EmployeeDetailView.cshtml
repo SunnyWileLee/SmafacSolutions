@@ -1,0 +1,114 @@
+﻿@model EmployeeDetailModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row panel panel-default">
+    <div class="panel-heading">员工详情</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Employee.CategoryName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Employee.CategoryName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Employee.Name, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Employee.Name, new { @class = "form-control", id = "Name"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Employee.Identity, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Employee.Identity, new { @class = "form-control", id = "Identity" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Employee.Phone, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Employee.Phone, new { @class = "form-control", id = "Phone" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Employee.EmployeeDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="EmployeeDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control" name="EmployeeDate" id="EmployeeDate" value="@Model.Employee.EmployeeDate.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.Employee.HasProperties)
+            {
+                foreach (var property in Model.Employee.Properties)
+                {
+                        <div class="form-group">
+                            @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                            <div class="col-lg-9">
+                                @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                            </div>
+                        </div>
+                    }
+                }
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <input type="button" class="btn btn-primary" onclick="editEmployee('@Model.Employee.Id')" value="保存" />
+                        <a class="btn btn-default" href="/Employee/EmployeeView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function editEmployee(id) {
+        var name = $('#Name').val();
+        var identity = $('#Identity').val();
+        var phone = $('#Phone').val();
+        var employeeDate = $('#EmployeeDate').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+
+        var data = {
+            id: id,
+            name: name,
+            identity: identity,
+            phone: phone,
+            employeeDate: employeeDate,
+            properties: properties
+        }
+
+        var url = '/Employee/EditEmployee';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>

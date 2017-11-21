@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EmployeeModel>
+
+@{
+    Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+}
+
+<table class="table table-condensed table-striped text-nowrap">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(s => s.Name)</th>
+            <th>@Html.DisplayNameFor(s => s.Identity)</th>
+            <th>@Html.DisplayNameFor(s => s.Phone)</th>
+            <th>@Html.DisplayNameFor(s => s.EmployeeDate)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+            {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Identity</td>
+                <td>@employee.Phone</td>
+                <td>@employee.EmployeeDate.ToShortDateString()</td>
+                <td>@employee.CategoryName</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = employee.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                        <td>@value</td>
+                    }
+                }
+                <td>
+                    <a class="btn btn-default" href="/Employee/EmployeeDetailView?employeeId=@employee.Id" type="button">详情</a>
+                </td>
+            </tr>
+                    }
+    </tbody>
+</table>

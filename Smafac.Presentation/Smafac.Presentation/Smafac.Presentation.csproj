@@ -192,12 +192,15 @@
     <Compile Include="Controllers\DeliveryNoteItemController.cs" />
     <Compile Include="Controllers\DeliveryNoteItemPropertyController.cs" />
     <Compile Include="Controllers\DeliveryNotePropertyController.cs" />
+    <Compile Include="Controllers\EmployeeCategoryController.cs" />
     <Compile Include="Controllers\StockCategoryController.cs" />
     <Compile Include="Controllers\PurchaseCategoryController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\EmployeePropertyController.cs" />
     <Compile Include="Controllers\StockPropertyController.cs" />
     <Compile Include="Controllers\PurchasePropertyController.cs" />
     <Compile Include="Controllers\GoodsPropertyController.cs" />
@@ -314,6 +317,16 @@
     <Content Include="Views\StockCategory\StockCategoryView.cshtml" />
     <Content Include="Views\StockProperty\StockPropertyAddView.cshtml" />
     <Content Include="Views\StockProperty\StockPropertyView.cshtml" />
+    <Content Include="Views\Employee\EmployeeAddView.cshtml" />
+    <Content Include="Views\Employee\EmployeeDetailView.cshtml" />
+    <Content Include="Views\Employee\EmployeePageView.cshtml" />
+    <Content Include="Views\Employee\EmployeeView.cshtml" />
+    <Content Include="Views\EmployeeCategory\EmployeeCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\EmployeeCategory\EmployeeCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\EmployeeCategory\EmployeeCategorySliceView.cshtml" />
+    <Content Include="Views\EmployeeCategory\EmployeeCategoryView.cshtml" />
+    <Content Include="Views\EmployeeProperty\EmployeePropertyAddView.cshtml" />
+    <Content Include="Views\EmployeeProperty\EmployeePropertyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -345,10 +358,6 @@
       <Project>{0f706bb7-42c4-4bf5-a6f7-f66e86aa41b3}</Project>
       <Name>Smafac.Framework.Driver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
-      <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
-      <Name>Smafac.Framework.Infrustructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Hrs\Smafac.Hrs.Attendance\Smafac.Hrs.Attendance.csproj">
       <Project>{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}</Project>
       <Name>Smafac.Hrs.Attendance</Name>
@@ -360,6 +369,10 @@
     <ProjectReference Include="..\..\Smafac.Hrs\Smafac.Hrs.Salary\Smafac.Hrs.Salary.csproj">
       <Project>{2445eb3e-d37a-4748-a5f9-620b7df7d220}</Project>
       <Name>Smafac.Hrs.Salary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smafac.Infrustructure\Smafac.Infrustructure.Common\Smafac.Infrustructure.Common.csproj">
+      <Project>{70B368B1-3B0F-4116-90A6-BDCB68015EE0}</Project>
+      <Name>Smafac.Infrustructure.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Smafac.Pms\Smafac.Pms.Purchase\Smafac.Pms.Purchase.csproj">
       <Project>{910f7a46-147d-457a-971c-2967ec51b446}</Project>

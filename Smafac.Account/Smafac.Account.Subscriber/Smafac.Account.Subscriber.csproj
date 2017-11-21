@@ -87,9 +87,9 @@
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj">
-      <Project>{34abe787-77a4-458e-981a-090c4c8cc038}</Project>
-      <Name>Smafac.Framework.Infrustructure</Name>
+    <ProjectReference Include="..\..\Smafac.Infrustructure\Smafac.Infrustructure.Common\Smafac.Infrustructure.Common.csproj">
+      <Project>{70B368B1-3B0F-4116-90A6-BDCB68015EE0}</Project>
+      <Name>Smafac.Infrustructure.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,132 @@
+﻿@model EmployeeModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewData["categories"] as IEnumerable<SelectListItem>;
+}
+
+<div class="row panel panel-default">
+    <div class="panel-heading">新增员工</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(s => s.CategoryId, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(s => s.CategoryId, categories, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Name, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Identity, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Identity, new { @class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Phone, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Phone, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.EmployeeDate, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="EmployeeDate" data-link-format="yyyy-mm-dd">
+                            <input type='text' class="form-control" name="EmployeeDate" id="EmployeeDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <button type="button" class="btn btn-default" onclick="addEmployee()">提交</button>
+                        <a class="btn btn-default" href="/Employee/EmployeeView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6" id="property-container">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function addEmployee() {
+        var name = $('#Name').val();
+        var identity = $('#Identity').val();
+        var phone = $('#Phone').val();
+        var categoryId = $('#CategoryId').val();
+        var employeeDate = $('#EmployeeDate').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var propertyId = input.attr('name');
+            var value = input.val();
+            var property = { propertyId: propertyId, value: value };
+            properties.push(property);
+        })
+
+        var data = {
+            name: name,
+            identity: identity,
+            phone: phone,
+            employeeDate: employeeDate,
+            categoryId: categoryId,
+            properties: properties
+        }
+
+        var url = '/Employee/AddEmployee';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+    $(function () {
+        categoryChange($('#CategoryId'));
+    })
+
+    function categoryChange(category) {
+        var categoryId = category.children('option:selected').val();
+        if (categoryId == '' || categoryId == null) {
+            return false;
+        }
+        var url = "/EmployeeCategory/EmployeeCategoryPropertyValueView?categoryId=" + categoryId;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "html",
+            success: function (data) {
+                $('#property-container').html(data);
+            },
+            error: function (data) {
+                $('#property-container').html('<p>页面错误</p>');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('#CategoryId').change(function () {
+            categoryChange($(this));
+        })
+    })
+</script>

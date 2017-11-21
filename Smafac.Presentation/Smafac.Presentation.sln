@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Sales.Order", "..\Sm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Core", "..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj", "{0202225A-FE39-4EE6-9BBA-C9E93EA12338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Infrustructure", "..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj", "{34ABE787-77A4-458E-981A-090C4C8CC038}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Crm.CustomerFinance", "..\Smafac.Crm\Smafac.Crm.CustomerFinance\Smafac.Crm.CustomerFinance.csproj", "{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Sales.DeliveryNote", "..\Smafac.Sales\Smafac.Sales.DeliveryNote\Smafac.Sales.DeliveryNote.csproj", "{01C0D93C-7E44-4B2C-BB83-B7F9C4155548}"
@@ -34,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Hrs.Salary", "..\Smafac.Hrs\Smafac.Hrs.Salary\Smafac.Hrs.Salary.csproj", "{2445EB3E-D37A-4748-A5F9-620B7DF7D220}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Hrs.Attendance", "..\Smafac.Hrs\Smafac.Hrs.Attendance\Smafac.Hrs.Attendance.csproj", "{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Infrustructure.Common", "..\Smafac.Infrustructure\Smafac.Infrustructure.Common\Smafac.Infrustructure.Common.csproj", "{70B368B1-3B0F-4116-90A6-BDCB68015EE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +65,6 @@ Global
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F2D04CB-EBBD-4A3A-AA2A-BDF32713E4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,6 +101,10 @@ Global
 		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7694A7F1-E3AA-4894-9FB5-265BA51D1F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B368B1-3B0F-4116-90A6-BDCB68015EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B368B1-3B0F-4116-90A6-BDCB68015EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B368B1-3B0F-4116-90A6-BDCB68015EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B368B1-3B0F-4116-90A6-BDCB68015EE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

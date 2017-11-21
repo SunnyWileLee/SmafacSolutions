@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EmployeePropertyModel>
+
+@{
+    Layout = null;
+}
+
+<div>
+    <form class="form-horizontal">
+        @foreach (var property in Model)
+        {
+            <div class="form-group">
+                <label class="col-lg-2 control-label" for="@property.Id.ToString()">@property.Name</label>
+                <div class="col-lg-10">
+                    <input class="form-control input-propertyValue" name="@property.Id.ToString()" />
+                </div>
+            </div>
+        }
+    </form>
+</div>
