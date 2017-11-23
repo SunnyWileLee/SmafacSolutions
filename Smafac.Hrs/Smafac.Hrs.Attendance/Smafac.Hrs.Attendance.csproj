@@ -85,6 +85,15 @@
     <Compile Include="Domain\Property\IAttendancePropertyDeleteTrigger.cs" />
     <Compile Include="Domain\Property\IAttendancePropertyProvider.cs" />
     <Compile Include="Domain\Property\IAttendancePropertyUsedChecker.cs" />
+    <Compile Include="Migrations\201711230617128_InitialCreate.cs" />
+    <Compile Include="Migrations\201711230617128_InitialCreate.Designer.cs">
+      <DependentUpon>201711230617128_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711230632037_1.cs" />
+    <Compile Include="Migrations\201711230632037_1.Designer.cs">
+      <DependentUpon>201711230632037_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AttendanceCategoryModel.cs" />
     <Compile Include="Models\AttendanceCategoryPropertyModel.cs" />
     <Compile Include="Models\AttendanceDetailModel.cs" />
@@ -159,6 +168,14 @@
       <Project>{0202225a-fe39-4ee6-9bba-c9e93ea12338}</Project>
       <Name>Smafac.Framework.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711230617128_InitialCreate.resx">
+      <DependentUpon>201711230617128_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711230632037_1.resx">
+      <DependentUpon>201711230632037_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

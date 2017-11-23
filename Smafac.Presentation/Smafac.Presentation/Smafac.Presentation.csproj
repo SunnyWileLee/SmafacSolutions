@@ -192,7 +192,10 @@
     <Compile Include="Controllers\DeliveryNoteItemController.cs" />
     <Compile Include="Controllers\DeliveryNoteItemPropertyController.cs" />
     <Compile Include="Controllers\DeliveryNotePropertyController.cs" />
+    <Compile Include="Controllers\AttendanceCategoryController.cs" />
     <Compile Include="Controllers\EmployeeCategoryController.cs" />
+    <Compile Include="Controllers\AttendanceController.cs" />
+    <Compile Include="Controllers\AttendancePropertyController.cs" />
     <Compile Include="Controllers\StockCategoryController.cs" />
     <Compile Include="Controllers\PurchaseCategoryController.cs" />
     <Compile Include="Controllers\GoodsCategoryController.cs" />
@@ -210,6 +213,8 @@
     <Compile Include="Controllers\OrderPropertyController.cs" />
     <Compile Include="Controllers\SmafacController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
+    <Compile Include="Domain\Attendance\IAttendanceWrapper.cs" />
+    <Compile Include="Domain\Attendance\AttendanceEmployeeWrapper.cs" />
     <Compile Include="Domain\ConstResources.cs" />
     <Compile Include="Domain\CustomerFinance\CustomerFinanceCustomerWrapper.cs" />
     <Compile Include="Domain\CustomerFinance\ICustomerFinanceWrapper.cs" />
@@ -327,6 +332,16 @@
     <Content Include="Views\EmployeeCategory\EmployeeCategoryView.cshtml" />
     <Content Include="Views\EmployeeProperty\EmployeePropertyAddView.cshtml" />
     <Content Include="Views\EmployeeProperty\EmployeePropertyView.cshtml" />
+    <Content Include="Views\AttendanceProperty\AttendancePropertyAddView.cshtml" />
+    <Content Include="Views\AttendanceProperty\AttendancePropertyView.cshtml" />
+    <Content Include="Views\Attendance\AttendanceAddView.cshtml" />
+    <Content Include="Views\Attendance\AttendanceDetailView.cshtml" />
+    <Content Include="Views\Attendance\AttendancePageView.cshtml" />
+    <Content Include="Views\Attendance\AttendanceView.cshtml" />
+    <Content Include="Views\AttendanceCategory\AttendanceCategoryPropertyBindView.cshtml" />
+    <Content Include="Views\AttendanceCategory\AttendanceCategoryPropertyValueView.cshtml" />
+    <Content Include="Views\AttendanceCategory\AttendanceCategorySliceView.cshtml" />
+    <Content Include="Views\AttendanceCategory\AttendanceCategoryView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

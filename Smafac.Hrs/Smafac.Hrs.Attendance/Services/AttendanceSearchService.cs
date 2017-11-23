@@ -28,20 +28,20 @@ namespace Smafac.Hrs.Attendance.Services
             _pageQueryer = pageQueryer;
         }
 
-        public List<AttendanceModel> GetAttendance(IEnumerable<Guid> goodsIds)
+        public List<AttendanceModel> GetAttendance(IEnumerable<Guid> employeeIds)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            Expression<Func<AttendanceEntity, bool>> predicate = s => goodsIds.Contains(s.Id);
+            Expression<Func<AttendanceEntity, bool>> predicate = s => employeeIds.Contains(s.Id);
             return _searchRepository.GetAttendance(subscriberId, predicate);
         }
 
-        public AttendanceModel GetAttendance(Guid goodsId)
+        public AttendanceModel GetAttendance(Guid employeeId)
         {
             var subscriberId = UserContext.Current.SubscriberId;
-            var goods = _searchRepository.GetAttendance(subscriberId, goodsId);
-            var properties = _propertyValueSearchRepository.GetPropertyValues(subscriberId, goodsId);
-            goods.Properties = properties;
-            return goods;
+            var employee = _searchRepository.GetAttendance(subscriberId, employeeId);
+            var properties = _propertyValueSearchRepository.GetPropertyValues(subscriberId, employeeId);
+            employee.Properties = properties;
+            return employee;
         }
 
         public List<AttendanceModel> GetAttendance(AttendancePageQueryModel query)
@@ -49,10 +49,10 @@ namespace Smafac.Hrs.Attendance.Services
             return _pageQueryer.Query(query);
         }
 
-        public AttendanceDetailModel GetAttendanceDetail(Guid goodsId)
+        public AttendanceDetailModel GetAttendanceDetail(Guid employeeId)
         {
-            var goods = this.GetAttendance(goodsId);
-            return new AttendanceDetailModel { Attendance = goods };
+            var employee = this.GetAttendance(employeeId);
+            return new AttendanceDetailModel { Attendance = employee };
         }
 
 

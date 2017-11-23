@@ -13,8 +13,12 @@ namespace Smafac.Hrs.Attendance.Models
         public AttendanceModel()
         {
             BeginTime = DateTime.Now.Date.AddHours(8);
-            BeginTime = DateTime.Now.Date.AddHours(17);
+            EndTime = DateTime.Now.Date.AddHours(17);
         }
+        public Guid EmployeeId { get; set; }
+        [Display(Name = "员工")]
+        [ExportColumn]
+        public string EmployeeName { get; set; }
         [Display(Name = "开始时间")]
         [Required]
         [ExportColumn]
@@ -28,6 +32,9 @@ namespace Smafac.Hrs.Attendance.Models
         [Display(Name = "类别")]
         [ExportColumn]
         public string CategoryName { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "备注")]
+        public string Memo { get; set; }
         public List<AttendancePropertyValueModel> Properties { get; set; }
 
         public override IEnumerable<PropertyValueModel> PropertyValues

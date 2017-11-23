@@ -4,7 +4,7 @@
 }
 
 <div class="row panel panel-default">
-    <div class="panel-heading">员工分类管理</div>
+    <div class="panel-heading">考勤分类管理</div>
     <div class="panel-body">
         <div class="col-lg-4" id="category-slice-0">
         </div>
@@ -40,7 +40,7 @@
     });
 
     function AddCategory(parentId, name, slice) {
-        var url = "/EmployeeCategory/AddEmployeeCategory";
+        var url = "/AttendanceCategory/AddAttendanceCategory";
         var paras = {
             parentId: parentId,
             name: name
@@ -60,7 +60,7 @@
     }
 
     function GetCategorySlice(slice, categoryId) {
-        var url = "/EmployeeCategory/EmployeeCategorySliceView?categoryId=" + categoryId + "&slice=" + slice;
+        var url = "/AttendanceCategory/AttendanceCategorySliceView?categoryId=" + categoryId + "&slice=" + slice;
         $.ajax({
             type: "get",
             url: url,

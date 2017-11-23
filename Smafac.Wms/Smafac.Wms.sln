@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Wms.Goods", "Smafac.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Core", "..\Smafac.Framework\Smafac.Framework.Core\Smafac.Framework.Core.csproj", "{0202225A-FE39-4EE6-9BBA-C9E93EA12338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.Infrustructure", "..\Smafac.Framework\Smafac.Framework.Infrustructure\Smafac.Framework.Infrustructure.csproj", "{34ABE787-77A4-458E-981A-090C4C8CC038}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Wms.Goods.WebApi", "Smafac.Wms.Goods.WebApi\Smafac.Wms.Goods.WebApi.csproj", "{01716D6C-60D7-44A5-9FEC-58F80056183F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Framework.WebApi", "..\Smafac.Framework\Smafac.Framework.WebApi\Smafac.Framework.WebApi.csproj", "{9DFB1558-0810-42BA-A9E2-C5850FA162B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Wms.Stock", "Smafac.Wms.Stock\Smafac.Wms.Stock.csproj", "{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smafac.Wms.Goods.Statistic", "Smafac.Wms.Goods.Statistic\Smafac.Wms.Goods.Statistic.csproj", "{38E121B7-C472-492B-B3FD-93C17AF16705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0202225A-FE39-4EE6-9BBA-C9E93EA12338}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34ABE787-77A4-458E-981A-090C4C8CC038}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01716D6C-60D7-44A5-9FEC-58F80056183F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01716D6C-60D7-44A5-9FEC-58F80056183F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01716D6C-60D7-44A5-9FEC-58F80056183F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96A2D1C2-CB01-4A98-8218-6C31CCBEE577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E121B7-C472-492B-B3FD-93C17AF16705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E121B7-C472-492B-B3FD-93C17AF16705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E121B7-C472-492B-B3FD-93C17AF16705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E121B7-C472-492B-B3FD-93C17AF16705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

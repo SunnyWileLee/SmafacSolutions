@@ -1,0 +1,104 @@
+﻿@model  IEnumerable<AttendancePropertyModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var types = ViewData["types"] as IEnumerable<SelectListItem>;
+}
+
+<div class="row panel panel-default">
+    <div class="panel-heading">考勤属性管理</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <table class="table table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(s => s.Name)</th>
+                        <th>@Html.DisplayNameFor(s => s.Type)</th>
+                        <th>@Html.DisplayNameFor(s => s.IsTableColumn)</th>
+                        <th>@Html.DisplayNameFor(s => s.IsDeleteAssociations)</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var property in Model)
+                    {
+                        <tr>
+                            <td>@property.Name</td>
+                            <td>
+                                @{
+                                    var propertyType = property.Type.GetHashCode().ToString();
+                                    var type = types.FirstOrDefault(s => s.Value.Equals(propertyType));
+                                    var typeString = type == null ? "未知类型" : type.Text;
+                                }
+                                @typeString
+                            </td>
+                            <td>
+                                @{
+                                    var isTableColumn = property.IsTableColumn ? "是" : "否";
+                                }
+                                @isTableColumn
+                            </td>
+                            <td>
+                                @{
+                                    var isDeleteAssociations = property.IsDeleteAssociations ? "是" : "否";
+                                }
+                                @isDeleteAssociations
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">操作</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#" onclick="editProperty('@property.Id')">编辑</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="btn-postid"  data-url="/AttendanceProperty/DeleteAttendanceProperty" data-identity="@property.Id">删除</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6" id="column-container">
+
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        var columnContainer = $('#column-container');
+        if (columnContainer.length == 0) {
+            return;
+        }
+        var action = "/AttendanceProperty/AttendancePropertyAddView";
+        $.ajax({
+            type: "get",
+            url: action,
+            dataType: "html",
+            success: function (data) {
+                columnContainer.html(data);
+            }
+        });
+    })
+
+    function editProperty(propertyId) {
+        var action = "/AttendanceProperty/AttendancePropertyAddView?propertyId=" + propertyId;
+        $.ajax({
+            type: "get",
+            url: action,
+            dataType: "html",
+            success: function (data) {
+                $('#column-container').html(data);
+            }
+        });
+    }
+</script>

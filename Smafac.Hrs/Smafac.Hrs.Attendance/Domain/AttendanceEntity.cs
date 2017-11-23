@@ -17,8 +17,11 @@ namespace Smafac.Hrs.Attendance.Domain
             BeginTime = DateTime.Now.Date.AddHours(8);
             BeginTime = DateTime.Now.Date.AddHours(17);
         }
+        public Guid EmployeeId { get; set; }
         public DateTime BeginTime { get; set; }
         public DateTime EndTime { get; set; }
         public Guid CategoryId { get; set; }
+        [MaxLength(500)]
+        public string Memo { get; set; }
     }
 }

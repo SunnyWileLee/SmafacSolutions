@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AttendanceModel>
+
+@{
+    Layout = null;
+    var tableColumns = ViewData["tableColumns"] as IEnumerable<CustomizedColumnModel>;
+}
+
+<table class="table table-condensed table-striped text-nowrap">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(s => s.EmployeeName)</th>
+            <th>@Html.DisplayNameFor(s => s.CategoryName)</th>
+            <th>@Html.DisplayNameFor(s => s.BeginTime)</th>
+            <th>@Html.DisplayNameFor(s => s.EndTime)</th>
+            <th>@Html.DisplayNameFor(s => s.Memo)</th>
+            @{
+                foreach (var column in tableColumns)
+                {
+                    <th>@column.Name</th>
+                }
+            }
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attendance in Model)
+            {
+            <tr>
+                <td>@attendance.EmployeeName</td>
+                <td>@attendance.CategoryName</td>
+                <td>@attendance.BeginTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@attendance.EndTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@attendance.Memo</td>
+                @{
+                    foreach (var column in tableColumns)
+                    {
+                        var property = attendance.Properties.FirstOrDefault(s => s.PropertyId == column.Id);
+                        var value = property == null ? ConstResources.TableColumnEmptyVlaue : property.Value;
+                        <td>@value</td>
+                    }
+                }
+                <td>
+                    <a class="btn btn-default" href="/Attendance/AttendanceDetailView?attendanceId=@attendance.Id" type="button">详情</a>
+                </td>
+            </tr>
+                    }
+    </tbody>
+</table>

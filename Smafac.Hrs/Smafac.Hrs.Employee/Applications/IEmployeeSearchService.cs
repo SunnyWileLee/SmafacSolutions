@@ -10,10 +10,10 @@ namespace Smafac.Hrs.Employee.Applications
 {
     public interface IEmployeeSearchService
     {
-        EmployeeModel GetEmployee(Guid goodsId);
-        EmployeeDetailModel GetEmployeeDetail(Guid goodsId);
+        EmployeeModel GetEmployee(Guid employeeId);
+        EmployeeDetailModel GetEmployeeDetail(Guid employeeId);
         PageModel<EmployeeModel> GetEmployeePage(EmployeePageQueryModel query);
         List<EmployeeModel> GetEmployee(EmployeePageQueryModel query);
-        List<EmployeeModel> GetEmployee(IEnumerable<Guid> goodsIds);
+        List<EmployeeModel> GetEmployee(IEnumerable<Guid> employeeIds);
     }
 }

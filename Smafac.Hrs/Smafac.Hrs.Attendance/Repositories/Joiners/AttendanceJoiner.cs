@@ -18,8 +18,9 @@ namespace Smafac.Hrs.Attendance.Repositories.Joiners
                             CreateTime = attendance.CreateTime,
                             Id = attendance.Id,
                             BeginTime = attendance.BeginTime,
-                            EndTime = attendance.EndTime
-
+                            EndTime = attendance.EndTime,
+                            EmployeeId = attendance.EmployeeId,
+                            Memo = attendance.Memo
                         };
             return query;
         }

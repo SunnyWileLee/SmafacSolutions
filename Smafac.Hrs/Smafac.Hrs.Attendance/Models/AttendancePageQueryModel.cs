@@ -5,17 +5,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Smafac.Hrs.Attendance.Models
 {
-    public class AttendancePageQueryModel : DateSpanPageQueryModel
+    public class AttendancePageQueryModel : PageQueryBaseModel
     {
         [Display(Name = "分类")]
         [QueryProperty(Compare = CompareType.Equal)]
         public Guid CategoryId { get; set; }
+        
+        [Display(Name = "员工")]
         [QueryProperty(Compare = CompareType.Equal)]
-        public Guid GoodsId { get; set; }
-
-        protected override string DateColumn => "AttendanceDate";
+        public Guid EmployeeId { get; set; }
     }
 }

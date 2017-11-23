@@ -1,0 +1,115 @@
+﻿@model AttendanceDetailModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row panel panel-default">
+    <div class="panel-heading">员工详情</div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Attendance.CategoryName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Attendance.CategoryName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Attendance.EmployeeName, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Attendance.EmployeeName, new { @class = "form-control", id = "EmployeeName", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Attendance.BeginTime, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="BeginTime" data-link-format="yyyy-mm-dd HH:mm:ss">
+                            <input type='text' class="form-control" name="BeginTime" id="BeginTime" value="@Model.Attendance.BeginTime.ToString("yyyy-MM-dd  HH:mm:ss")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Attendance.EndTime, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        <div class='input-group date date-select' data-date-format="yyyy-mm-dd" data-link-field="EndTime" data-link-format="yyyy-mm-dd HH:mm:ss">
+                            <input type='text' class="form-control" name="EndTime" id="EndTime" value="@Model.Attendance.EndTime.ToString("yyyy-MM-dd HH:mm:ss")" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(s => s.Attendance.Memo, new { @class = "col-lg-3 control-label" })
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(s => s.Attendance.Memo, new { @class = "form-control"})
+                    </div>
+                </div>
+                @if (Model.Attendance.HasProperties)
+            {
+                foreach (var property in Model.Attendance.Properties)
+                {
+                        <div class="form-group">
+                            @Html.Label(property.PropertyName, new { @class = "col-lg-3 control-label" })
+                            <div class="col-lg-9">
+                                @Html.TextBox(property.Id.ToString(), property.Value, new { @class = "form-control input-propertyValue" })
+                            </div>
+                        </div>
+                    }
+                }
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <input type="button" class="btn btn-primary" onclick="editAttendance('@Model.Attendance.Id')" value="保存" />
+                        <a class="btn btn-default" href="/Attendance/AttendanceView" type="button">
+                            <i class="m-icon-swapleft m-icon-white"></i>
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function editAttendance(id) {
+        var beginTime = $('#BeginTime').val();
+        var endTime = $('#EndTime').val();
+        var properties = [];
+        $('.input-propertyValue').each(function (index) {
+            var input = $(this);
+            var id = input.attr('name');
+            var value = input.val();
+            var property = { id: id, value: value };
+            properties.push(property);
+        })
+
+        var data = {
+            id: id,
+            beginTime: beginTime,
+            endTime: endTime,
+            properties: properties
+        }
+
+        var url = '/Attendance/EditAttendance';
+        $.ajax({
+            type: "post",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                ajaxSuccess(data, function (data) {
+                    window.location.reload();
+                })
+            },
+            error: function (data) { }
+        });
+    }
+</script>
