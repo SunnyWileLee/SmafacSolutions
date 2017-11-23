@@ -46,7 +46,7 @@
                 <div class="form-group">
                     @Html.LabelFor(s => s.Attendance.Memo, new { @class = "col-lg-3 control-label" })
                     <div class="col-lg-9">
-                        @Html.TextBoxFor(s => s.Attendance.Memo, new { @class = "form-control"})
+                        @Html.TextBoxFor(s => s.Attendance.Memo, new { @class = "form-control", id = "Memo" })
                     </div>
                 </div>
                 @if (Model.Attendance.HasProperties)
@@ -82,6 +82,7 @@
     function editAttendance(id) {
         var beginTime = $('#BeginTime').val();
         var endTime = $('#EndTime').val();
+        var memo = $('#Memo').val();
         var properties = [];
         $('.input-propertyValue').each(function (index) {
             var input = $(this);
@@ -95,6 +96,7 @@
             id: id,
             beginTime: beginTime,
             endTime: endTime,
+            memo: memo,
             properties: properties
         }
 

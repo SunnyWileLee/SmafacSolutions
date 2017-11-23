@@ -21,6 +21,7 @@ namespace Smafac.Hrs.Attendance.Repositories
         {
             entity.BeginTime = source.BeginTime;
             entity.EndTime = source.EndTime;
+            entity.Memo = source.Memo;
         }
     }
 }
